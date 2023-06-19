@@ -3,6 +3,7 @@ import GameplayKit
 
 class GameScene: SKScene {
     var dialogueLabel: SKLabelNode!
+    var characterLabel: SKLabelNode!
     var dialogueTexts: [String] = ["Hello, welcome to the game!", "This is the second dialogue.", "And here's the third dialogue."] // Array of dialogue texts
     var characterImage: SKSpriteNode!
     var giantImage: SKSpriteNode!
@@ -14,6 +15,8 @@ class GameScene: SKScene {
     let visualComponentSystem = GKComponentSystem(componentClass: CharacterVisualComponent.self)
     
     var characters: [GKEntity] = []
+    
+    var characterDialogues: [(CharacterList, String)] = [(CharacterList.timunMas, "Hello, welcome to the game!"), (CharacterList.giant, "This is the second dialogue."), (CharacterList.timunMas, "And here's the third dialogue.")]
     
     override init(){
         super.init()
@@ -30,84 +33,63 @@ class GameScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
-//        characterImage = SKSpriteNode(imageNamed: "timun_mas") // Replace "background_image" with your image name
-//        characterImage.position = CGPoint(x: characterImage.frame.width, y: size.height/2) // Position the image at the center of the screen
-//        characterImage.zPosition = -1 // Set the zPosition to be behind other nodes
-//
-//        addChild(characterImage)
-//
-//        giantImage = SKSpriteNode(imageNamed: "giant")
-//        giantImage.position = CGPoint(x: (size.width/2) + characterImage.frame.width, y: size.height/2)
-//
-//        giantImage.zPosition = -1
-//
-//        addChild(giantImage)
-        
-        
-        
         dialogueBackground = SKShapeNode(rectOf: CGSize(width: size.width, height: size.height/3)) // Customize the size of the rectangle
         dialogueBackground.fillColor = SKColor.white // Customize the background color
         dialogueBackground.strokeColor = SKColor.clear // Hide the border of the rectangle
         dialogueBackground.position = CGPoint(x: size.width/2, y: dialogueBackground.frame.height/3)
+        
         addChild(dialogueBackground)
+        
+        characterLabel = SKLabelNode(fontNamed: "Arial")
+        characterLabel.fontSize = 48
+        characterLabel.fontColor = SKColor.black
+        characterLabel.horizontalAlignmentMode = .left
+        characterLabel.verticalAlignmentMode = .top
+        characterLabel.position = CGPoint(x: dialogueBackground.frame.minX + 10, y: dialogueBackground.frame.maxY - 10)
+        addChild(characterLabel)
         
         dialogueLabel = SKLabelNode(fontNamed: "Arial")
         dialogueLabel.fontSize = 24
         dialogueLabel.fontColor = SKColor.black // Set text color to black
         dialogueLabel.horizontalAlignmentMode = .left // Align text to the left
         dialogueLabel.verticalAlignmentMode = .top
-        dialogueLabel.position = CGPoint(x: dialogueBackground.frame.minX + 10, y: dialogueBackground.frame.maxY - 10)
+        dialogueLabel.position = CGPoint(x: dialogueBackground.frame.minX + 10, y: characterLabel.position.y - 50)
         addChild(dialogueLabel)
         
-//        animateTextDisplay()
         showNextDialogue()
     }
     
     func showNextDialogue() {
-        if currentDialogueIndex < dialogueTexts.count {
+        
+        if currentDialogueIndex < characterDialogues.count {
             
-            let timunMas = characters.first(where: {$0.component(ofType: CharacterVisualComponent.self)?.type == .timunMas})
-            let giant = characters.first(where: {$0.component(ofType: CharacterVisualComponent.self)?.type == .giant})
+            let characterTimunMas = (characters.first(where: {$0.component(ofType: CharacterVisualComponent.self)?.type == .timunMas}))?.component(ofType: CharacterVisualComponent.self)
+//            let characterTimunMas = timunMas?.component(ofType: CharacterVisualComponent.self)
             
-            if currentDialogueIndex % 2 == 1 {
-                if let characterTimunMas = timunMas?.component(ofType: CharacterVisualComponent.self)?.characterNode{
-                    characterTimunMas.alpha = 0.5
-                    characterTimunMas.zPosition = -1
-                    
-                }
-//                timunMas?.component(ofType: CharacterVisualComponent.self)?.characterNode.alpha = 0.5
-                if let characterGiant = giant?.component(ofType: CharacterVisualComponent.self)?.characterNode{
-                    characterGiant.alpha = 1.0
-                    characterGiant.zPosition = 0
-                }
-//                giant?.component(ofType: CharacterVisualComponent.self)?.characterNode.alpha = 1.0
-//                characters[1].component(ofType: CharacterVisualComponent.self)?.characterNode.alpha = 1.0
-                
-            } else {
-                if let characterTimunMas = timunMas?.component(ofType: CharacterVisualComponent.self)?.characterNode{
-                    characterTimunMas.alpha = 1.0
-                    characterTimunMas.zPosition = 0
-                }
-                
-                if let characterGiant = giant?.component(ofType: CharacterVisualComponent.self)?.characterNode{
-                    characterGiant.alpha = 0.5
-                    characterGiant.zPosition = -1
-                }
-//                timunMas?.component(ofType: CharacterVisualComponent.self)?.characterNode.alpha = 1.0
-//                giant?.component(ofType: CharacterVisualComponent.self)?.characterNode.alpha = 0.5
-//                characters[0].component(ofType: CharacterVisualComponent.self)?.characterNode.alpha = 1.0
-//                characters[1].component(ofType: CharacterVisualComponent.self)?.characterNode.alpha = 0.5
+            let characterGiant = (characters.first(where: {$0.component(ofType: CharacterVisualComponent.self)?.type == .giant}))?.component(ofType: CharacterVisualComponent.self)
+//            let characterGiant = giant?.component(ofType: CharacterVisualComponent.self)
+            
+            if characterDialogues[currentDialogueIndex].0 == characterTimunMas?.type {
+                characterTimunMas?.characterNode.alpha = 1.0
+                characterTimunMas?.characterNode.zPosition = 0
+                characterGiant?.characterNode.alpha = 0.5
+                characterGiant?.characterNode.zPosition = -1
+                characterLabel.text = "Timun Mas"
+            } else if characterDialogues[currentDialogueIndex].0 == characterGiant?.type{
+                characterTimunMas?.characterNode.alpha = 0.5
+                characterTimunMas?.characterNode.zPosition = -1
+                characterGiant?.characterNode.alpha = 1.0
+                characterGiant?.characterNode.zPosition = 0
+                characterLabel.text = "Giant"
             }
-            let currentDialogueText = dialogueTexts[currentDialogueIndex]
+            
+            let currentDialogueText = characterDialogues[currentDialogueIndex].1
             dialogueLabel.text = ""
             currentIndex = 0
             animateTextDisplay(dialogueText: currentDialogueText)
             currentDialogueIndex += 1
-            
-            
         } else {
-            // All dialogues have been shown
-            // Perform any necessary actions or end the scene
+            
         }
     }
     
