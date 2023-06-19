@@ -12,7 +12,9 @@ import SpriteKit
 enum CharacterList: String, CaseIterable{
     case timunMas = "timunMas"
     case giant = "giant"
-//    case mbokSrini
+    case narrator = "narrator"
+    case storyweaver = "storyweaver"
+    //    case mbokSrini
 }
 
 class CharacterVisualComponent: GKComponent {
@@ -30,8 +32,15 @@ class CharacterVisualComponent: GKComponent {
         case .giant:
             charImage = SKSpriteNode(imageNamed: type.rawValue)
             charImage.position = CGPoint(x:charImage.size.width, y: size.height/2)
+        case .narrator:
+            charImage = SKSpriteNode(imageNamed: type.rawValue)
+            charImage.position = CGPoint(x:size.width/2, y: size.height/2)
+        case .storyweaver:
+            charImage = SKSpriteNode(imageNamed: type.rawValue)
+            charImage.position = CGPoint(x:size.width/2, y: size.height/2)
         }
-//        charImage.scale(to: CGSize(width: size.width/2,height: size.height))
+        
+        //        charImage.scale(to: CGSize(width: size.width/2,height: size.height))
         charImage.name = type.rawValue
         charImage.zPosition = -1
         self.type = type
