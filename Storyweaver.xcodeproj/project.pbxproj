@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B6B234B42A3F1CF2007AFDEF /* CharacterVisualComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B234B32A3F1CF2007AFDEF /* CharacterVisualComponent.swift */; };
+		B6B234B72A3F2373007AFDEF /* NodesName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B234B62A3F2373007AFDEF /* NodesName.swift */; };
+		B6B234BB2A404676007AFDEF /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B234BA2A404675007AFDEF /* GameState.swift */; };
+		B6B234BE2A404A96007AFDEF /* DialogTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B234BD2A404A96007AFDEF /* DialogTree.swift */; };
+		B6B234C22A404BBF007AFDEF /* Decision.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B234C12A404BBF007AFDEF /* Decision.swift */; };
+		B6B234C42A404BEB007AFDEF /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B234C32A404BEB007AFDEF /* Dialog.swift */; };
+		B6B234C62A40B427007AFDEF /* CharacterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B234C52A40B427007AFDEF /* CharacterList.swift */; };
 		B6BEEA902A3C1829007718AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BEEA8F2A3C1829007718AB /* AppDelegate.swift */; };
 		B6BEEA962A3C1829007718AB /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BEEA952A3C1829007718AB /* GameScene.swift */; };
 		B6BEEA982A3C1829007718AB /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BEEA972A3C1829007718AB /* GameViewController.swift */; };
@@ -16,6 +23,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B6B234B32A3F1CF2007AFDEF /* CharacterVisualComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterVisualComponent.swift; sourceTree = "<group>"; };
+		B6B234B62A3F2373007AFDEF /* NodesName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodesName.swift; sourceTree = "<group>"; };
+		B6B234BA2A404675007AFDEF /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		B6B234BD2A404A96007AFDEF /* DialogTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogTree.swift; sourceTree = "<group>"; };
+		B6B234C12A404BBF007AFDEF /* Decision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decision.swift; sourceTree = "<group>"; };
+		B6B234C32A404BEB007AFDEF /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
+		B6B234C52A40B427007AFDEF /* CharacterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterList.swift; sourceTree = "<group>"; };
 		B6BEEA8C2A3C1829007718AB /* Storyweaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Storyweaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6BEEA8F2A3C1829007718AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6BEEA952A3C1829007718AB /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -36,6 +50,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B6B234B22A3F1CDB007AFDEF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B6B234B32A3F1CF2007AFDEF /* CharacterVisualComponent.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B6B234B52A3F2368007AFDEF /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				B6B234B62A3F2373007AFDEF /* NodesName.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		B6B234BC2A404A8A007AFDEF /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				B6B234BD2A404A96007AFDEF /* DialogTree.swift */,
+				B6B234C52A40B427007AFDEF /* CharacterList.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		B6B234BF2A404BAF007AFDEF /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				B6B234C02A404BB8007AFDEF /* Model */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		B6B234C02A404BB8007AFDEF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B6B234C12A404BBF007AFDEF /* Decision.swift */,
+				B6B234C32A404BEB007AFDEF /* Dialog.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		B6BEEA832A3C1829007718AB = {
 			isa = PBXGroup;
 			children = (
@@ -55,12 +111,17 @@
 		B6BEEA8E2A3C1829007718AB /* Storyweaver */ = {
 			isa = PBXGroup;
 			children = (
+				B6B234BF2A404BAF007AFDEF /* Features */,
+				B6B234BC2A404A8A007AFDEF /* Constants */,
+				B6B234B52A3F2368007AFDEF /* Config */,
+				B6B234B22A3F1CDB007AFDEF /* Components */,
 				B6BEEA8F2A3C1829007718AB /* AppDelegate.swift */,
 				B6BEEA952A3C1829007718AB /* GameScene.swift */,
 				B6BEEA972A3C1829007718AB /* GameViewController.swift */,
 				B6BEEA992A3C1829007718AB /* Main.storyboard */,
 				B6BEEA9C2A3C182B007718AB /* Assets.xcassets */,
 				B6BEEA9E2A3C182B007718AB /* LaunchScreen.storyboard */,
+				B6B234BA2A404675007AFDEF /* GameState.swift */,
 			);
 			path = Storyweaver;
 			sourceTree = "<group>";
@@ -137,8 +198,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6BEEA962A3C1829007718AB /* GameScene.swift in Sources */,
+				B6B234B42A3F1CF2007AFDEF /* CharacterVisualComponent.swift in Sources */,
+				B6B234BB2A404676007AFDEF /* GameState.swift in Sources */,
+				B6B234C42A404BEB007AFDEF /* Dialog.swift in Sources */,
 				B6BEEA982A3C1829007718AB /* GameViewController.swift in Sources */,
+				B6B234BE2A404A96007AFDEF /* DialogTree.swift in Sources */,
 				B6BEEA902A3C1829007718AB /* AppDelegate.swift in Sources */,
+				B6B234C62A40B427007AFDEF /* CharacterList.swift in Sources */,
+				B6B234B72A3F2373007AFDEF /* NodesName.swift in Sources */,
+				B6B234C22A404BBF007AFDEF /* Decision.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
