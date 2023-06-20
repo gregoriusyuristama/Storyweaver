@@ -13,6 +13,7 @@
 		B6B234BE2A404A96007AFDEF /* DialogTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B234BD2A404A96007AFDEF /* DialogTree.swift */; };
 		B6B234C22A404BBF007AFDEF /* Decision.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B234C12A404BBF007AFDEF /* Decision.swift */; };
 		B6B234C42A404BEB007AFDEF /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B234C32A404BEB007AFDEF /* Dialog.swift */; };
+		B6B234C62A40B427007AFDEF /* CharacterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B234C52A40B427007AFDEF /* CharacterList.swift */; };
 		B6BEEA902A3C1829007718AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BEEA8F2A3C1829007718AB /* AppDelegate.swift */; };
 		B6BEEA962A3C1829007718AB /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BEEA952A3C1829007718AB /* GameScene.swift */; };
 		B6BEEA982A3C1829007718AB /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BEEA972A3C1829007718AB /* GameViewController.swift */; };
@@ -28,6 +29,7 @@
 		B6B234BD2A404A96007AFDEF /* DialogTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogTree.swift; sourceTree = "<group>"; };
 		B6B234C12A404BBF007AFDEF /* Decision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decision.swift; sourceTree = "<group>"; };
 		B6B234C32A404BEB007AFDEF /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
+		B6B234C52A40B427007AFDEF /* CharacterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterList.swift; sourceTree = "<group>"; };
 		B6BEEA8C2A3C1829007718AB /* Storyweaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Storyweaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6BEEA8F2A3C1829007718AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6BEEA952A3C1829007718AB /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				B6B234BD2A404A96007AFDEF /* DialogTree.swift */,
+				B6B234C52A40B427007AFDEF /* CharacterList.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				B6BEEA982A3C1829007718AB /* GameViewController.swift in Sources */,
 				B6B234BE2A404A96007AFDEF /* DialogTree.swift in Sources */,
 				B6BEEA902A3C1829007718AB /* AppDelegate.swift in Sources */,
+				B6B234C62A40B427007AFDEF /* CharacterList.swift in Sources */,
 				B6B234B72A3F2373007AFDEF /* NodesName.swift in Sources */,
 				B6B234C22A404BBF007AFDEF /* Decision.swift in Sources */,
 			);

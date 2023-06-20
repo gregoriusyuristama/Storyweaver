@@ -21,7 +21,7 @@ class GameScene: SKScene {
     
     @ObservedObject private var gameState = GameState()
     
-    var characterDialogues: [(CharacterList, String)] = [(CharacterList.timunMas, "Hello, welcome to the game!"), (CharacterList.giant, "This is the second dialogue."), (CharacterList.timunMas, "And here's the third dialogue."), (CharacterList.narrator, "This is Narrator"), (CharacterList.storyweaver, "This is Storyweaver")]
+//    var characterDialogues: [(CharacterList, String)] = [(CharacterList.timunMas, "Hello, welcome to the game!"), (CharacterList.giant, "This is the second dialogue."), (CharacterList.timunMas, "And here's the third dialogue."), (CharacterList.narrator, "This is Narrator"), (CharacterList.storyweaver, "This is Storyweaver")]
     
     override init(){
         super.init()
@@ -135,7 +135,7 @@ class GameScene: SKScene {
             characterNarrator?.characterNode.zPosition = 0
             characterStoryweaver?.characterNode.alpha = 0.0
             characterStoryweaver?.characterNode.zPosition = -1
-            characterLabel.text = "Timun Mas"
+            characterLabel.text = characterTimunMas?.type.rawValue
         } else if gameState.currentDialog?.character == characterGiant?.type{
             characterTimunMas?.characterNode.alpha = 0.5
             characterTimunMas?.characterNode.zPosition = -1
@@ -145,7 +145,7 @@ class GameScene: SKScene {
             characterNarrator?.characterNode.zPosition = 0
             characterStoryweaver?.characterNode.alpha = 0.0
             characterStoryweaver?.characterNode.zPosition = -1
-            characterLabel.text = "Giant"
+            characterLabel.text = characterGiant?.type.rawValue
         } else if gameState.currentDialog?.character == characterNarrator?.type{
             characterTimunMas?.characterNode.alpha = 0.0
             characterTimunMas?.characterNode.zPosition = -1
@@ -155,7 +155,7 @@ class GameScene: SKScene {
             characterNarrator?.characterNode.zPosition = 0
             characterStoryweaver?.characterNode.alpha = 0.0
             characterStoryweaver?.characterNode.zPosition = -1
-            characterLabel.text = "Narrator"
+            characterLabel.text = characterNarrator?.type.rawValue
         } else if gameState.currentDialog?.character == characterStoryweaver?.type{
             characterTimunMas?.characterNode.alpha = 0.0
             characterTimunMas?.characterNode.zPosition = -1
@@ -165,7 +165,7 @@ class GameScene: SKScene {
             characterNarrator?.characterNode.zPosition = 0
             characterStoryweaver?.characterNode.alpha = 1.0
             characterStoryweaver?.characterNode.zPosition = -1
-            characterLabel.text = "Storyweaver"
+            characterLabel.text = characterStoryweaver?.type.rawValue
         }
         
         

@@ -9,13 +9,7 @@ import Foundation
 import GameplayKit
 import SpriteKit
 
-enum CharacterList: String, CaseIterable{
-    case timunMas = "timunMas"
-    case giant = "giant"
-    case narrator = "narrator"
-    case storyweaver = "storyweaver"
-    //    case mbokSrini
-}
+
 
 class CharacterVisualComponent: GKComponent {
     let characterNode: SKNode
