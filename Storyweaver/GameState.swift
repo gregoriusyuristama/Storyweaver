@@ -13,13 +13,13 @@ class GameState: ObservableObject {
     @Published var decisions: [Decision] = []
     
     init() {
-        currentDialog = DialogTree.testDialogTree.first
+        currentDialog = DialogTree.actOneDialogTree.first
         updateDecisions()
     }
     
     func selectDecision(_ decision: Decision) {
         outcome = decision.outcome
-        currentDialog = DialogTree.testDialogTree.first { $0.id == decision.dialogID }
+        currentDialog = DialogTree.actOneDialogTree.first { $0.id == decision.dialogID }
         updateDecisions()
     }
     
@@ -30,11 +30,11 @@ class GameState: ObservableObject {
     }
     
     private func decisionForDialogID(_ dialogID: Int) -> Decision? {
-        return DialogTree.testDialogTree.first { $0.id == dialogID }.map { Decision(text: $0.outcome, outcome: $0.outcome, dialogID: $0.id) }
+        return DialogTree.actOneDialogTree.first { $0.id == dialogID }.map { Decision(text: $0.outcome, outcome: $0.outcome, dialogID: $0.id) }
     }
     
     func resetGame() {
-        currentDialog = DialogTree.testDialogTree.first
+        currentDialog = DialogTree.actOneDialogTree.first
         outcome = ""
         updateDecisions()
     }

@@ -3,12 +3,11 @@ import GameplayKit
 import SwiftUI
 
 class GameScene: SKScene {
-    var dialogueLabel: SKLabelNode!
-    var characterLabel: SKLabelNode!
-    var characterImage: SKSpriteNode!
-    var giantImage: SKSpriteNode!
-    var dialogueBackground: SKShapeNode!
-    var currentDialogueIndex: Int = 0
+    var dialogueLabel: SKLabelNode = SKLabelNode()
+    var characterLabel: SKLabelNode = SKLabelNode()
+    var characterImage: SKSpriteNode = SKSpriteNode()
+    var giantImage: SKSpriteNode = SKSpriteNode()
+    var dialogueBackground: SKShapeNode = SKShapeNode()
     var currentIndex: Int = 0
     var typingSpeed: TimeInterval = 0.1 // Adjust the speed of text display here
     
@@ -16,12 +15,9 @@ class GameScene: SKScene {
     
     var characters: [GKEntity] = []
     
-    //    let buttonTitles = ["Decision 1", "Decision 2", "Decision 3", "Decision 4"]
     var buttons: [SKShapeNode] = []
     
     @ObservedObject private var gameState = GameState()
-    
-//    var characterDialogues: [(CharacterList, String)] = [(CharacterList.timunMas, "Hello, welcome to the game!"), (CharacterList.giant, "This is the second dialogue."), (CharacterList.timunMas, "And here's the third dialogue."), (CharacterList.narrator, "This is Narrator"), (CharacterList.storyweaver, "This is Storyweaver")]
     
     override init(){
         super.init()
@@ -38,15 +34,16 @@ class GameScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
-        dialogueBackground = SKShapeNode(rectOf: CGSize(width: size.width, height: size.height/3)) // Customize the size of the rectangle
-        dialogueBackground.fillColor = SKColor.white // Customize the background color
+        backgroundColor = .brown
+        dialogueBackground = SKShapeNode(rectOf: CGSize(width: size.width - (size.width * 0.1), height: size.height/3 - (size.height*0.1))) // Customize the size of the rectangle
+        dialogueBackground.fillColor = SKColor.black // Customize the background color
         dialogueBackground.strokeColor = SKColor.clear // Hide the border of the rectangle
-        dialogueBackground.position = CGPoint(x: size.width/2, y: dialogueBackground.frame.height/3)
+        dialogueBackground.position = CGPoint(x: size.width/2, y: dialogueBackground.frame.height/3 + (size.height*0.1))
         addChild(dialogueBackground)
         
         characterLabel = SKLabelNode(fontNamed: "Arial")
-        characterLabel.fontSize = 48
-        characterLabel.fontColor = SKColor.black
+        characterLabel.fontSize = 36
+        characterLabel.fontColor = SKColor.white
         characterLabel.horizontalAlignmentMode = .left
         characterLabel.verticalAlignmentMode = .top
         characterLabel.position = CGPoint(x: dialogueBackground.frame.minX + 10, y: dialogueBackground.frame.maxY - 10)
@@ -54,10 +51,15 @@ class GameScene: SKScene {
         
         dialogueLabel = SKLabelNode(fontNamed: "Arial")
         dialogueLabel.fontSize = 24
-        dialogueLabel.fontColor = SKColor.black // Set text color to black
-        dialogueLabel.horizontalAlignmentMode = .left // Align text to the left
+        dialogueLabel.fontColor = SKColor.white // Set text color to black
+        dialogueLabel.horizontalAlignmentMode = .center // Align text to the left
         dialogueLabel.verticalAlignmentMode = .top
-        dialogueLabel.position = CGPoint(x: dialogueBackground.frame.minX + 10, y: characterLabel.position.y - 50)
+        dialogueLabel.position = CGPoint(x: size.width/2, y: characterLabel.position.y - 50)
+        dialogueLabel.lineBreakMode = .byWordWrapping
+        dialogueLabel.preferredMaxLayoutWidth = dialogueBackground.frame.width - size.width * 0.05
+        dialogueLabel.numberOfLines = 5
+        
+        
         addChild(dialogueLabel)
         
         //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(buttonTapped))
@@ -68,10 +70,10 @@ class GameScene: SKScene {
     }
     
     func createButtons() {
-        let buttonSize = CGSize(width: 150, height: 50)
+        let buttonSize = CGSize(width: 300, height: 50)
         let buttonSpacing: CGFloat = 20
         let totalButtonHeight = CGFloat(gameState.decisions.count) * (buttonSize.height + buttonSpacing)
-        let buttonsYPosition = totalButtonHeight / 2
+        let buttonsYPosition = size.height/2 - totalButtonHeight / 2
         
         // Remove previously created buttons
         buttons.forEach { $0.removeFromParent() }
@@ -79,16 +81,21 @@ class GameScene: SKScene {
         
         for index in 0..<gameState.decisions.count {
             let buttonNode = SKShapeNode(rectOf: buttonSize)
-            buttonNode.fillColor = SKColor.blue
-            buttonNode.position = CGPoint(x: size.width - buttonSize.width, y: buttonsYPosition + CGFloat(index) * (buttonSize.height + buttonSpacing))
+            buttonNode.fillColor = SKColor.white
+            buttonNode.strokeColor = SKColor.black
+            if let characterMbokSrini = (characters.first(where: {$0.component(ofType: CharacterVisualComponent.self)?.type == .mbokSrini}))?.component(ofType: CharacterVisualComponent.self) {
+                
+                buttonNode.position = CGPoint(x: characterMbokSrini.characterNode.frame.size.width + buttonNode.frame.size.width, y: buttonsYPosition + CGFloat(index) * (buttonSize.height + buttonSpacing))
+            }
             //            buttonNode.name = "\(nextDialogIDs[index])"
+            buttonNode.alpha = 0.0
             addChild(buttonNode)
             
             let buttonLabel = SKLabelNode(text: gameState.decisions[index].text)
             buttonLabel.name = "\(gameState.decisions[index].dialogID)"
             buttonLabel.fontName = "Arial"
             buttonLabel.fontSize = 20
-            buttonLabel.fontColor = SKColor.white
+            buttonLabel.fontColor = SKColor.black
             buttonLabel.horizontalAlignmentMode = .center
             buttonLabel.verticalAlignmentMode = .center
             buttonLabel.position = CGPoint(x: 0, y: -5) // Adjust label position if needed
@@ -126,18 +133,64 @@ class GameScene: SKScene {
         
         let characterStoryweaver = (characters.first(where: {$0.component(ofType: CharacterVisualComponent.self)?.type == .storyweaver}))?.component(ofType: CharacterVisualComponent.self)
         
+        let characterMbokSrini = (characters.first(where: {$0.component(ofType: CharacterVisualComponent.self)?.type == .mbokSrini}))?.component(ofType: CharacterVisualComponent.self)
+        
+//        if gameState.currentDialog?.character == characterTimunMas?.type {
+//            characterTimunMas?.characterNode.alpha = 1.0
+//            characterTimunMas?.characterNode.zPosition = 0
+//            characterGiant?.characterNode.alpha = 0.5
+//            characterGiant?.characterNode.zPosition = -1
+//            characterNarrator?.characterNode.alpha = 0.0
+//            characterNarrator?.characterNode.zPosition = 0
+//            characterStoryweaver?.characterNode.alpha = 0.0
+//            characterStoryweaver?.characterNode.zPosition = -1
+//            characterLabel.text = characterTimunMas?.type.rawValue
+//        } else if gameState.currentDialog?.character == characterGiant?.type{
+//            characterTimunMas?.characterNode.alpha = 0.5
+//            characterTimunMas?.characterNode.zPosition = -1
+//            characterGiant?.characterNode.alpha = 1.0
+//            characterGiant?.characterNode.zPosition = 0
+//            characterNarrator?.characterNode.alpha = 0.0
+//            characterNarrator?.characterNode.zPosition = 0
+//            characterStoryweaver?.characterNode.alpha = 0.0
+//            characterStoryweaver?.characterNode.zPosition = -1
+//            characterLabel.text = characterGiant?.type.rawValue
+//        } else if gameState.currentDialog?.character == characterNarrator?.type{
+//            characterTimunMas?.characterNode.alpha = 0.0
+//            characterTimunMas?.characterNode.zPosition = -1
+//            characterGiant?.characterNode.alpha = 0.0
+//            characterGiant?.characterNode.zPosition = -1
+//            characterNarrator?.characterNode.alpha = 1.0
+//            characterNarrator?.characterNode.zPosition = 0
+//            characterStoryweaver?.characterNode.alpha = 0.0
+//            characterStoryweaver?.characterNode.zPosition = -1
+//            characterLabel.text = characterNarrator?.type.rawValue
+//        } else if gameState.currentDialog?.character == characterStoryweaver?.type{
+//            characterTimunMas?.characterNode.alpha = 0.0
+//            characterTimunMas?.characterNode.zPosition = -1
+//            characterGiant?.characterNode.alpha = 0.0
+//            characterGiant?.characterNode.zPosition = -1
+//            characterNarrator?.characterNode.alpha = 0.0
+//            characterNarrator?.characterNode.zPosition = 0
+//            characterStoryweaver?.characterNode.alpha = 1.0
+//            characterStoryweaver?.characterNode.zPosition = -1
+//            characterLabel.text = characterStoryweaver?.type.rawValue
+//        }
+        
         if gameState.currentDialog?.character == characterTimunMas?.type {
-            characterTimunMas?.characterNode.alpha = 1.0
+            characterTimunMas?.characterNode.alpha = 0.0
             characterTimunMas?.characterNode.zPosition = 0
-            characterGiant?.characterNode.alpha = 0.5
+            characterGiant?.characterNode.alpha = 0.0
             characterGiant?.characterNode.zPosition = -1
             characterNarrator?.characterNode.alpha = 0.0
             characterNarrator?.characterNode.zPosition = 0
             characterStoryweaver?.characterNode.alpha = 0.0
             characterStoryweaver?.characterNode.zPosition = -1
+            characterMbokSrini?.characterNode.alpha = 0.0
+            characterMbokSrini?.characterNode.zPosition = -1
             characterLabel.text = characterTimunMas?.type.rawValue
         } else if gameState.currentDialog?.character == characterGiant?.type{
-            characterTimunMas?.characterNode.alpha = 0.5
+            characterTimunMas?.characterNode.alpha = 0.0
             characterTimunMas?.characterNode.zPosition = -1
             characterGiant?.characterNode.alpha = 1.0
             characterGiant?.characterNode.zPosition = 0
@@ -145,6 +198,8 @@ class GameScene: SKScene {
             characterNarrator?.characterNode.zPosition = 0
             characterStoryweaver?.characterNode.alpha = 0.0
             characterStoryweaver?.characterNode.zPosition = -1
+            characterMbokSrini?.characterNode.alpha = 0.5
+            characterMbokSrini?.characterNode.zPosition = -1
             characterLabel.text = characterGiant?.type.rawValue
         } else if gameState.currentDialog?.character == characterNarrator?.type{
             characterTimunMas?.characterNode.alpha = 0.0
@@ -155,6 +210,8 @@ class GameScene: SKScene {
             characterNarrator?.characterNode.zPosition = 0
             characterStoryweaver?.characterNode.alpha = 0.0
             characterStoryweaver?.characterNode.zPosition = -1
+            characterMbokSrini?.characterNode.alpha = 0.0
+            characterMbokSrini?.characterNode.zPosition = -1
             characterLabel.text = characterNarrator?.type.rawValue
         } else if gameState.currentDialog?.character == characterStoryweaver?.type{
             characterTimunMas?.characterNode.alpha = 0.0
@@ -165,7 +222,21 @@ class GameScene: SKScene {
             characterNarrator?.characterNode.zPosition = 0
             characterStoryweaver?.characterNode.alpha = 1.0
             characterStoryweaver?.characterNode.zPosition = -1
+            characterMbokSrini?.characterNode.alpha = 0.0
+            characterMbokSrini?.characterNode.zPosition = -1
             characterLabel.text = characterStoryweaver?.type.rawValue
+        }else if gameState.currentDialog?.character == characterMbokSrini?.type{
+            characterTimunMas?.characterNode.alpha = 0.0
+            characterTimunMas?.characterNode.zPosition = -1
+            characterGiant?.characterNode.alpha = 0.5
+            characterGiant?.characterNode.zPosition = -1
+            characterNarrator?.characterNode.alpha = 0.0
+            characterNarrator?.characterNode.zPosition = 0
+            characterStoryweaver?.characterNode.alpha = 0.0
+            characterStoryweaver?.characterNode.zPosition = -1
+            characterMbokSrini?.characterNode.alpha = 1.0
+            characterMbokSrini?.characterNode.zPosition = 0
+            characterLabel.text = characterMbokSrini?.type.rawValue
         }
         
         
@@ -174,7 +245,6 @@ class GameScene: SKScene {
         dialogueLabel.text = ""
         currentIndex = 0
         animateTextDisplay(dialogueText: currentDialogueText)
-        currentDialogueIndex += 1
         
         createButtons()
         //        } else {
@@ -196,7 +266,7 @@ class GameScene: SKScene {
             let sequence = SKAction.sequence([delayAction, nextCharacterAction])
             dialogueLabel.run(sequence)
             for button in buttons {
-                button.alpha = 0.5
+                button.alpha = 0.0
             }
         } else {
             // Text display completed, wait for user interaction
@@ -222,6 +292,9 @@ class GameScene: SKScene {
         
         let storyweaver = createStoryweaverEntity()
         characters.append(storyweaver)
+        
+        let mbokSrini = createMbokSriniEntity()
+        characters.append(mbokSrini)
     }
     
     
@@ -313,6 +386,16 @@ extension GameScene {
         
         self.addChild(characterVisualComponent.characterNode)
         return storyweaver
+    }
+    
+    private func createMbokSriniEntity() -> GKEntity {
+        let mbokSrini = GKEntity()
+        
+        let characterVisualComponent = CharacterVisualComponent(type: .mbokSrini, size: self.size)
+        mbokSrini.addComponent(characterVisualComponent)
+        
+        self.addChild(characterVisualComponent.characterNode)
+        return mbokSrini
     }
 }
 
