@@ -126,6 +126,8 @@ class GameScene: SKScene {
         
         let characterStoryweaver = (characters.first(where: {$0.component(ofType: CharacterVisualComponent.self)?.type == .storyweaver}))?.component(ofType: CharacterVisualComponent.self)
         
+        let characterMbokSrini = (characters.first(where: {$0.component(ofType: CharacterVisualComponent.self)?.type == .mbokSrini}))?.component(ofType: CharacterVisualComponent.self)
+        
         if gameState.currentDialog?.character == characterTimunMas?.type {
             characterTimunMas?.characterNode.alpha = 1.0
             characterTimunMas?.characterNode.zPosition = 0
@@ -135,6 +137,8 @@ class GameScene: SKScene {
             characterNarrator?.characterNode.zPosition = 0
             characterStoryweaver?.characterNode.alpha = 0.0
             characterStoryweaver?.characterNode.zPosition = -1
+            characterMbokSrini?.characterNode.alpha = 0.0
+            characterMbokSrini?.characterNode.zPosition = -1
             characterLabel.text = characterTimunMas?.type.rawValue
         } else if gameState.currentDialog?.character == characterGiant?.type{
             characterTimunMas?.characterNode.alpha = 0.5
@@ -145,6 +149,8 @@ class GameScene: SKScene {
             characterNarrator?.characterNode.zPosition = 0
             characterStoryweaver?.characterNode.alpha = 0.0
             characterStoryweaver?.characterNode.zPosition = -1
+            characterMbokSrini?.characterNode.alpha = 0.0
+            characterMbokSrini?.characterNode.zPosition = -1
             characterLabel.text = characterGiant?.type.rawValue
         } else if gameState.currentDialog?.character == characterNarrator?.type{
             characterTimunMas?.characterNode.alpha = 0.0
@@ -155,6 +161,8 @@ class GameScene: SKScene {
             characterNarrator?.characterNode.zPosition = 0
             characterStoryweaver?.characterNode.alpha = 0.0
             characterStoryweaver?.characterNode.zPosition = -1
+            characterMbokSrini?.characterNode.alpha = 0.0
+            characterMbokSrini?.characterNode.zPosition = -1
             characterLabel.text = characterNarrator?.type.rawValue
         } else if gameState.currentDialog?.character == characterStoryweaver?.type{
             characterTimunMas?.characterNode.alpha = 0.0
@@ -165,7 +173,21 @@ class GameScene: SKScene {
             characterNarrator?.characterNode.zPosition = 0
             characterStoryweaver?.characterNode.alpha = 1.0
             characterStoryweaver?.characterNode.zPosition = -1
+            characterMbokSrini?.characterNode.alpha = 0.0
+            characterMbokSrini?.characterNode.zPosition = -1
             characterLabel.text = characterStoryweaver?.type.rawValue
+        } else if gameState.currentDialog?.character == characterMbokSrini?.type{
+            characterTimunMas?.characterNode.alpha = 0.0
+            characterTimunMas?.characterNode.zPosition = -1
+            characterGiant?.characterNode.alpha = 0.0
+            characterGiant?.characterNode.zPosition = -1
+            characterNarrator?.characterNode.alpha = 0.0
+            characterNarrator?.characterNode.zPosition = -1
+            characterStoryweaver?.characterNode.alpha = 0
+            characterStoryweaver?.characterNode.zPosition = -1
+            characterMbokSrini?.characterNode.alpha = 1.0
+            characterMbokSrini?.characterNode.zPosition = 0
+            characterLabel.text = characterMbokSrini?.type.rawValue
         }
         
         
@@ -222,6 +244,9 @@ class GameScene: SKScene {
         
         let storyweaver = createStoryweaverEntity()
         characters.append(storyweaver)
+        
+        let mbokSrini = createMbokSriniEntity()
+        characters.append(mbokSrini)
     }
     
     
@@ -313,6 +338,16 @@ extension GameScene {
         
         self.addChild(characterVisualComponent.characterNode)
         return storyweaver
+    }
+    
+    private func createMbokSriniEntity() -> GKEntity {
+        let mbokSrini = GKEntity()
+        
+        let characterVisualComponent = CharacterVisualComponent(type: .mbokSrini, size: self.size)
+        mbokSrini.addComponent(characterVisualComponent)
+        
+        self.addChild(characterVisualComponent.characterNode)
+        return mbokSrini
     }
 }
 

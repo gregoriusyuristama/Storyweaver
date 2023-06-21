@@ -32,6 +32,9 @@ class CharacterVisualComponent: GKComponent {
         case .storyweaver:
             charImage = SKSpriteNode(imageNamed: type.rawValue)
             charImage.position = CGPoint(x:size.width/2, y: size.height/2)
+        case .mbokSrini:
+            charImage = SKSpriteNode(imageNamed: type.rawValue)
+            charImage.position = CGPoint(x: charImage.size.width, y: size.height/2)
         }
         
         //        charImage.scale(to: CGSize(width: size.width/2,height: size.height))
