@@ -10,6 +10,20 @@ import Foundation
 class DialogTree {
     init () {}
     
+    static let sceneOneDialogues: [Dialog] = [
+        Dialog(id: 0, text: "", outcome: "", nextDialogIDs: [1,2], character: .narrator),
+        Dialog(id: 1, text: "You tried to move but found yourself stuck inside a cramped space.", outcome: "Keep silent", nextDialogIDs: [3,4], character: .narrator),
+        Dialog(id: 1, text: "You tried to move but found yourself stuck inside a cramped space.", outcome: "Try to move", nextDialogIDs: [3,4], character: .narrator),
+        Dialog(id: 3, text: "It’s a little bit hard to breath…", outcome: "Keep silent", nextDialogIDs: [5], character: .narrator),
+        Dialog(id: 4, text: "Am I... a baby this time?", outcome: "Try to move", nextDialogIDs: [5], character: .narrator)
+        Dialog(id: 4, text: "Am I... a baby this time?", outcome: "Try to move", nextDialogIDs: [5], character: .storyweaver)
+    ]
+    
+    static let sceneTwoDialogues: [Dialog] = [
+        Dialog(id: 0, text: "Oh, you poor thing…", outcome: "", nextDialogIDs: [1], character: .mbokSrini),
+        Dialog(id: 1, text: "There, there, it must have been scary. You're safe now.", outcome: "", nextDialogIDs: [], character: .mbokSrini),
+    ]
+    
     static let testDialogTree: [Dialog] = [
         Dialog(id: 0, text: "...", outcome: "", nextDialogIDs: [1, 2], character: .narrator),
         Dialog(id: 1, text: "You tried to move but found yourself stuck inside a cramped space.", outcome: "Keep silent", nextDialogIDs: [3], character: .narrator),
