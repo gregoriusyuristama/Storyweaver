@@ -14,35 +14,75 @@ class FirstPersonScene: SKScene {
     var currentIndex: Int = 0
     var currentAlpha: Double = 0.0
     
-    var dialogueLabel: SKLabelNode!
-    var continueLabel: SKLabelNode!
-    var mbokSrini: SKSpriteNode!
-    var dialogueBackground: SKShapeNode!
+    var dialogueLabel: SKLabelNode?
+    var continueLabel: SKLabelNode?
+    var mbokSrini: SKSpriteNode?
+    var dialogueBackground: SKShapeNode?
     
     
-    @ObservedObject private var gameState = GameState(dialogTree: DialogTree.sceneTwoDialogues)
+    var gameState: GameState = GameState(dialogTree: DialogTree.sceneTwoDialogues)
     
     
-    override func didMove(to view: SKView) {
-        dialogueLabel = childNode(withName: "dialogueLabel") as? SKLabelNode
-        dialogueLabel.lineBreakMode = .byWordWrapping
-        dialogueLabel.preferredMaxLayoutWidth = size.width
-        dialogueLabel.numberOfLines = 5
-        dialogueLabel.text = ""
+    override func didChangeSize(_ oldSize: CGSize) {
+        super.didChangeSize(oldSize)
         
-        continueLabel = childNode(withName: "continueLabel") as? SKLabelNode
-        continueLabel.alpha = 0
+        super.didChangeSize(oldSize)
+        
+        // Adjust the scale and position of the dialogue background
+        dialogueBackground?.position = CGPoint(x: size.width/2, y: size.height/2)
+        dialogueBackground?.xScale = size.width / oldSize.width
+        dialogueBackground?.yScale = size.height / oldSize.height
+        
+        
+        mbokSrini?.xScale = size.width / oldSize.width
+        mbokSrini?.yScale = size.height / oldSize.height
+        
+        
+        // Adjust the scale of the mbokSrini sprite
+        
+        //        mbokSrini.xScale = size.width / oldSize.width
+        //        mbokSrini.yScale = size.height / oldSize.height
+        
+        // Adjust the size of the dialogue background
+        //        dialogueBackground.xScale = size.width / oldSize.width
+        //        dialogueBackground.yScale = size.height / oldSize.height
+    }
+    override func didMove(to view: SKView) {
+        setupScene()
+        self.showNextDialogue()
+        
+    }
+    
+    func setupScene() {
+        //        dialogueBackground = childNode(withName: "dialogueBackground") as? SKShapeNode
+        //        dialogueBackground.position = CGPoint(x: size.width/2, y: size.height/2)
+        //        dialogueBackground.lineWidth = 0
+        //        dialogueBackground.fillColor = SKColor.black.withAlphaComponent(0.5)
+        
+        if let backgroundNode = childNode(withName: "dialogueBackground") as? SKShapeNode {
+            dialogueBackground = backgroundNode
+            //            dialogueBackground.position = CGPoint(x: 0, y: size.height/2)
+            dialogueBackground?.lineWidth = 0
+            //            dialogueBackground.fillColor = SKColor.black.withAlphaComponent(0.5)
+        } else {
+            print("Error: dialogueBackground node not found.")
+        }
+        
+        if let dialogueLabelNode = childNode(withName: "dialogueLabel") as? SKLabelNode {
+            dialogueLabel = dialogueLabelNode
+            dialogueLabel?.lineBreakMode = .byWordWrapping
+            dialogueLabel?.preferredMaxLayoutWidth = size.width
+            dialogueLabel?.numberOfLines = 5
+            dialogueLabel?.text = ""
+            dialogueLabel?.preferredMaxLayoutWidth = (dialogueBackground?.frame.width)! - size.width * 0.05
+        }
+        
         
         mbokSrini = childNode(withName: "mbokSrini") as? SKSpriteNode
-        mbokSrini.alpha = 0
-        fadeInMbokSrini()
-        let delayAction = SKAction.wait(forDuration: 2.0) // 2 seconds delay
-        let nextAction = SKAction.run {
-            self.showNextDialogue()
-        }
-        let sequenceAction = SKAction.sequence([delayAction, nextAction])
-        run(sequenceAction)
+        mbokSrini?.alpha = 0
         
+        continueLabel = childNode(withName: "continueLabel") as? SKLabelNode
+        continueLabel?.alpha = 0
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -53,18 +93,19 @@ class FirstPersonScene: SKScene {
         // ...
         if currentIndex < (gameState.currentDialog?.text.count)! {
             // Skip to the end of the current dialogue
-            dialogueLabel.text = gameState.currentDialog?.text
-            dialogueLabel.removeAllActions()
+            dialogueLabel?.text = gameState.currentDialog?.text
+            dialogueLabel?.removeAllActions()
             currentIndex = (gameState.currentDialog?.text.count)!
-            continueLabel.alpha = 1
-        } else if gameState.currentDialog?.id == 1 {
+            continueLabel?.alpha = 1
+        } else if gameState.currentDialog?.id == gameState.dialogTree.count - 1 {
             let gameScene = GameScene(size: size)
+            gameScene.scaleMode = .aspectFill
             let transition = SKTransition.crossFade(withDuration: 1.0)
             view?.presentScene(gameScene, transition: transition)
         } else if currentIndex >= (gameState.currentDialog?.text.count)! {
-            if gameState.currentDialog!.id < 1{
+            if gameState.currentDialog!.nextDialogIDs.count == 1{
                 gameState.selectDecision(gameState.decisions.first(where: {$0.dialogID == gameState.currentDialog!.id + 1})!)
-                dialogueLabel.text = gameState.currentDialog?.text
+                dialogueLabel?.text = gameState.currentDialog?.text
                 showNextDialogue()
             }
         }
@@ -72,31 +113,43 @@ class FirstPersonScene: SKScene {
     }
     
     func showNextDialogue() {
+        if gameState.currentDialog?.id == 1 {
+            fadeInMbokSrini()
+        }
+        
+        if gameState.currentDialog?.id == 5 {
+            AudioManager.shared.playSoundEffect(fileName: "scene2_audio1_babyCrying")
+        }
+        
+        if gameState.currentDialog?.id == 8 {
+            AudioManager.shared.playBackgroundMusic(fileName: "scene2and3")
+        }
+        
         let currentDialogueText = (gameState.currentDialog?.text)!
-        dialogueLabel.alpha = 1
-        dialogueLabel.text = ""
+        dialogueLabel?.alpha = 1
+        dialogueLabel?.text = ""
         currentIndex = 0
         animateTextDisplay(dialogueText: currentDialogueText)
     }
     
     func fadeInMbokSrini() {
         if currentAlpha <= 1 {
-            mbokSrini.alpha += 0.1
+            mbokSrini?.alpha += 0.1
             let delayAction = SKAction.wait(forDuration: typingSpeed)
             let nextAction = SKAction.run { [weak self] in
                 self?.fadeInMbokSrini()
             }
             let sequence = SKAction.sequence([delayAction, nextAction])
-            mbokSrini.run(sequence)
+            mbokSrini?.run(sequence)
         }
     }
     
     func animateTextDisplay(dialogueText: String) {
         if currentIndex < dialogueText.count {
-            continueLabel.alpha = 0
+            continueLabel?.alpha = 0
             let index = dialogueText.index(dialogueText.startIndex, offsetBy: currentIndex)
             let nextCharacter = String(dialogueText[index])
-            dialogueLabel.text = (dialogueLabel.text ?? "") + nextCharacter
+            dialogueLabel?.text = (dialogueLabel?.text ?? "") + nextCharacter
             currentIndex += 1
             
             let delayAction = SKAction.wait(forDuration: typingSpeed)
@@ -104,10 +157,12 @@ class FirstPersonScene: SKScene {
                 self?.animateTextDisplay(dialogueText: dialogueText)
             }
             let sequence = SKAction.sequence([delayAction, nextCharacterAction])
-            dialogueLabel.run(sequence)
+            dialogueLabel?.run(sequence)
         } else {
             // Text display completed, wait for user interaction
-            continueLabel.alpha = 1
+            continueLabel?.alpha = 1
         }
     }
 }
+
+

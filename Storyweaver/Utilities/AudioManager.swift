@@ -9,38 +9,55 @@ import Foundation
 
 import AVFoundation
 
+import AVFoundation
+
 class AudioManager {
-    static let shared = AudioManager() // Singleton instance
+    static let shared = AudioManager()
     
-    var backgroundMusicPlayer: AVAudioPlayer?
+    private var backgroundMusicPlayer: AVAudioPlayer?
+    private var soundEffectPlayer: AVAudioPlayer?
+    
+    private init() {}
     
     func playBackgroundMusic(fileName: String) {
-        let backgroundMusicURL = Bundle.main.url(forResource: fileName, withExtension: "mp3")!
+        guard let url = Bundle.main.url(forResource: fileName, withExtension: "mp3") else {
+            print("Background music file not found.")
+            return
+        }
         
         do {
-            backgroundMusicPlayer = try AVAudioPlayer(contentsOf: backgroundMusicURL)
-            backgroundMusicPlayer?.numberOfLoops = -1 // Infinite loop
+            backgroundMusicPlayer = try AVAudioPlayer(contentsOf: url)
+            backgroundMusicPlayer?.numberOfLoops = -1
+            backgroundMusicPlayer?.prepareToPlay()
             backgroundMusicPlayer?.play()
         } catch {
             print("Failed to play background music: \(error.localizedDescription)")
         }
     }
     
-    func stopBackgroundMusic() {
-        backgroundMusicPlayer?.stop()
-    }
-    
-    func playSFX(filename: String) {
-//        stopBackgroundMusic()
-        
-        let SFXUrl = Bundle.main.url(forResource: filename, withExtension: "mp3")!
+    func playSoundEffect(fileName: String) {
+        guard let url = Bundle.main.url(forResource: fileName, withExtension: "mp3") else {
+            print("Sound effect file not found.")
+            return
+        }
         
         do {
-            backgroundMusicPlayer = try AVAudioPlayer(contentsOf: SFXUrl)
-//            backgroundMusicPlayer?.numberOfLoops = -1 // Infinite loop
-            backgroundMusicPlayer?.play()
+            soundEffectPlayer = try AVAudioPlayer(contentsOf: url)
+            soundEffectPlayer?.prepareToPlay()
+            soundEffectPlayer?.play()
         } catch {
-            print("Failed to play different music: \(error.localizedDescription)")
+            print("Failed to play sound effect: \(error.localizedDescription)")
         }
     }
+    
+    func stopBackgroundMusic() {
+        backgroundMusicPlayer?.stop()
+        backgroundMusicPlayer = nil
+    }
+    
+    func stopSoundEffect() {
+        soundEffectPlayer?.stop()
+        soundEffectPlayer = nil
+    }
 }
+

@@ -24,7 +24,7 @@ class ActTitleScene: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let gameScene = FirstPersonScene(fileNamed: "FirstPersonScene")!
+        let gameScene = PrologueScene(size: size)
         let transition = SKTransition.fade(with: .white, duration: 1)
         view?.presentScene(gameScene, transition: transition)
     }

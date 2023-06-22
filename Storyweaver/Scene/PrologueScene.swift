@@ -13,12 +13,12 @@ class PrologueScene: SKScene {
     var typingSpeed: TimeInterval = 0.1 // Adjust the speed of text display here
     
     var currentIndex: Int = 0
-    
     var dialogueLabel: SKLabelNode = SKLabelNode()
-    
     var buttons: [SKShapeNode] = []
     
-    @ObservedObject private var gameState = GameState(dialogTree: DialogTree.sceneOneDialogues)
+    var isButtonVisible: Bool = false
+    
+    @ObservedObject private var gameState = GameState(dialogTree: DialogTree.DialogTreeScene1)
     
     override init(){
         super.init()
@@ -38,7 +38,7 @@ class PrologueScene: SKScene {
         dialogueLabel = SKLabelNode(fontNamed: "Aleo-Regular")
         dialogueLabel.fontSize = 32
         dialogueLabel.fontColor = SKColor.white // Set text color to black
-        dialogueLabel.horizontalAlignmentMode = .center // Align text to the left
+        dialogueLabel.horizontalAlignmentMode = .center
         dialogueLabel.verticalAlignmentMode = .top
         dialogueLabel.position = CGPoint(x: size.width/2, y: size.height/2)
         dialogueLabel.lineBreakMode = .byWordWrapping
@@ -58,13 +58,30 @@ class PrologueScene: SKScene {
             let location = touch.location(in: self)
             
             // Check if any of the buttons were tapped
-            if currentIndex >= (gameState.currentDialog?.text.count)!{
+            if isButtonVisible{
                 for button in buttons {
                     if button.contains(location) {
                         handleButtonTap(button)
                         return
                     }
                 }
+            }
+            
+            if currentIndex >= (gameState.currentDialog?.text.count)! {
+                
+                if gameState.currentDialog?.id == gameState.dialogTree.count - 1 {
+//                    gameState.selectDecision(gameState.decisions.first(where: {$0.dialogID == 7})!)
+                    
+                    let gameScene = FirstPersonScene(fileNamed: "FirstPersonScene")!
+                    gameScene.scaleMode = .aspectFill
+                    let transition = SKTransition.doorsOpenVertical(withDuration: 1.0)
+                    AudioManager.shared.playSoundEffect(fileName: "scene1_audio4_transition")
+                    view?.presentScene(gameScene, transition: transition)
+                } else {
+                    showButtons()
+                }
+                
+                
             }
             
             // Handle touches on the screen here
@@ -74,16 +91,10 @@ class PrologueScene: SKScene {
                 dialogueLabel.text = gameState.currentDialog?.text
                 dialogueLabel.removeAllActions()
                 currentIndex = (gameState.currentDialog?.text.count)!
-                for button in buttons {
-                    button.alpha = 1.0
-                }
-                if gameState.currentDialog?.id == 0 {
-                    dialogueLabel.alpha = 0
-                }
-            } else if gameState.currentDialog?.id == 1 || gameState.currentDialog?.id == 2 {
-                let gameScene = GameScene(size: size)
-                let transition = SKTransition.flipVertical(withDuration: 1.0)
-                view?.presentScene(gameScene, transition: transition)
+//                for button in buttons {
+//                    button.alpha = 1.0
+//                }
+//                isButtonVisible = true
             }
         }
         
@@ -116,6 +127,7 @@ class PrologueScene: SKScene {
             buttonNode.position = CGPoint(x: size.width/2, y: buttonsYPosition + CGFloat(index) * (buttonSize.height + buttonSpacing))
             //            buttonNode.name = "\(nextDialogIDs[index])"
             buttonNode.alpha = 0.0
+            isButtonVisible = false
             addChild(buttonNode)
             
             let buttonLabel = SKLabelNode(text: gameState.decisions[index].text)
@@ -145,7 +157,15 @@ class PrologueScene: SKScene {
                 dialogueLabel.text = gameState.currentDialog?.text
                 createButtons()
                 showNextDialogue()
-                
+                if gameState.currentDialog?.id == 7 {
+                    AudioManager.shared.playSoundEffect(fileName: "scene1_audio1_babyCrying")
+                }
+                if gameState.currentDialog?.id == 13 {
+                    AudioManager.shared.playSoundEffect(fileName: "scene1_audio2_babyCrying")
+                }
+                if gameState.currentDialog?.id == 14 {
+                    AudioManager.shared.playSoundEffect(fileName: "scene1_audio3_heavyBreath")
+                }
             }
         }
     }
@@ -166,15 +186,19 @@ class PrologueScene: SKScene {
             for button in buttons {
                 button.alpha = 0.0
             }
+            isButtonVisible = false
         } else {
             // Text display completed, wait for user interaction
-            if gameState.currentDialog?.id == 0 {
-                dialogueLabel.alpha = 0
-            }
             
-            for button in buttons {
-                button.alpha = 1.0
-            }
         }
+    }
+    
+    func showButtons() {
+        for button in buttons {
+            button.alpha = 1
+        }
+        isButtonVisible = true
+        
+        dialogueLabel.alpha = 0
     }
 }

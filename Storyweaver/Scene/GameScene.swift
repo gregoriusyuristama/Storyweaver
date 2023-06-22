@@ -42,7 +42,7 @@ class GameScene: SKScene {
         dialogueBackground.zPosition = 1
         addChild(dialogueBackground)
         
-        characterLabel = SKLabelNode(fontNamed: "Arial")
+        characterLabel = SKLabelNode(fontNamed: "Aleo-Bold")
         characterLabel.fontSize = 36
         characterLabel.fontColor = SKColor.white
         characterLabel.horizontalAlignmentMode = .left
@@ -51,7 +51,7 @@ class GameScene: SKScene {
         characterLabel.zPosition = 2
         addChild(characterLabel)
         
-        dialogueLabel = SKLabelNode(fontNamed: "Arial")
+        dialogueLabel = SKLabelNode(fontNamed: "Aleo-Regular")
         dialogueLabel.fontSize = 24
         dialogueLabel.fontColor = SKColor.white // Set text color to black
         dialogueLabel.horizontalAlignmentMode = .center // Align text to the left
@@ -85,7 +85,7 @@ class GameScene: SKScene {
             buttonNode.strokeColor = SKColor.black
             if let characterMbokSrini = (characters.first(where: {$0.component(ofType: CharacterVisualComponent.self)?.type == .mbokSrini}))?.component(ofType: CharacterVisualComponent.self) {
                 
-                buttonNode.position = CGPoint(x: characterMbokSrini.characterNode.frame.size.width + buttonNode.frame.size.width, y: buttonsYPosition + CGFloat(index) * (buttonSize.height + buttonSpacing))
+                buttonNode.position = CGPoint(x: characterMbokSrini.characterNode.frame.size.width/2 + buttonNode.frame.size.width, y: buttonsYPosition + CGFloat(index) * (buttonSize.height + buttonSpacing))
             }
             //            buttonNode.name = "\(nextDialogIDs[index])"
             buttonNode.alpha = 0.0
@@ -93,8 +93,8 @@ class GameScene: SKScene {
             
             let buttonLabel = SKLabelNode(text: gameState.decisions[index].text)
             buttonLabel.name = "\(gameState.decisions[index].dialogID)"
-            buttonLabel.fontName = "Arial"
-            buttonLabel.fontSize = 20
+            buttonLabel.fontName = "Aleo-Regular"
+            buttonLabel.fontSize = 24
             buttonLabel.fontColor = SKColor.black
             buttonLabel.horizontalAlignmentMode = .center
             buttonLabel.verticalAlignmentMode = .center
