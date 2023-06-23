@@ -12,5 +12,5 @@ enum CharacterList: String, CaseIterable {
     case giant = "Buto Ijo"
     case narrator = "Narrator"
     case storyweaver = "Storyweaver"
-    //    case mbokSrini
+    case mbokSrini = "Mbok Srini"
 }

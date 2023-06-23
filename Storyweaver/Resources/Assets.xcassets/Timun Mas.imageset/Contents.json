@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "timun_mas_by_enrai_enrai_d4zsmsy-fullview.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
