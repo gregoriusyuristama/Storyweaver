@@ -295,6 +295,21 @@ class DialogTree {
                 Dialog(id: 12, text: "You said softly, your voice filled with empathy.", outcome: "Continue", nextDialogIDs: [13], character: .narrator),
                 Dialog(id: 13, text: "\"We all make mistakes, and it is through those mistakes that we learn and grow.\"", outcome: "Continue", nextDialogIDs: [14], character: .timunMas),
                 Dialog(id: 14, text: "\"You may have started as a character in a tale, but through the love and care you have given me, you became my mother in every sense of the word.\"", outcome: "Continue", nextDialogIDs: [], character: .timunMas),
+                Dialog(id: 0, text: "\"Timun Mas…\"", outcome: "Continue", nextDialogIDs: [1], character: .mbokSrini),
+                Dialog(id: 1, text: "Tears welled up in both your eyes as the weight of the truth and the depth of your bond washed over you.", outcome: "Continue", nextDialogIDs: [2], character: .narrator),
+                Dialog(id: 2, text: "In that moment, you chose to embrace the complexity of the story and the emotions it stirred.", outcome: "Continue", nextDialogIDs: [3], character: .narrator),
+                Dialog(id: 3, text: "You took Mbok Srini's hand, offering solace and forgiveness.", outcome: "Continue", nextDialogIDs: [4], character: .narrator),
+                Dialog(id: 4, text: "With renewed strength and a shared resolve, you turned your attention back to Buto Ijo, who had watched the emotional exchange with a mix of curiosity and impatience. ", outcome: "Continue", nextDialogIDs: [5], character: .narrator),
+                Dialog(id: 5, text: "The story had taken an unforeseen turn, unraveling secrets and unveiling the complexities of the characters involved.", outcome: "Continue", nextDialogIDs: [6], character: .narrator),
+                Dialog(id: 6, text: "You were faced with a choice - to remain detached as the Storyweaver or to embrace your role as Timun Mas, to confront the emotions that swelled within you and seek resolution.", outcome: "Continue", nextDialogIDs: [7], character: .narrator),
+                Dialog(id: 7, text: "(…So, what should we become?)", outcome: "Continue", nextDialogIDs: [8], character: .storyweaver),
+                Dialog(id: 8, text: "BRANCH", outcome: "The Storyweaver", nextDialogIDs: [9], character: .mbokSrini),
+                Dialog(id: 9, text: "In that moment, you chose to step forward, the boundaries between the Storyweaver and the character blurring. ", outcome: "Timun Mas", nextDialogIDs: [10], character: .narrator),
+                Dialog(id: 10, text: "You approached Mbok Srini, looking into her eyes with a mixture of pain, understanding, and forgiveness.", outcome: "Continue", nextDialogIDs: [11], character: .narrator),
+                Dialog(id: 11, text: "\"You are not a failure, dear Mother\"", outcome: "Continue", nextDialogIDs: [12], character: .timunMas),
+                Dialog(id: 12, text: "You said softly, your voice filled with empathy.", outcome: "Continue", nextDialogIDs: [13], character: .narrator),
+                Dialog(id: 13, text: "\"We all make mistakes, and it is through those mistakes that we learn and grow.\"", outcome: "Continue", nextDialogIDs: [14], character: .timunMas),
+                Dialog(id: 14, text: "\"You may have started as a character in a tale, but through the love and care you have given me, you became my mother in every sense of the word.\"", outcome: "Continue", nextDialogIDs: [], character: .timunMas),
         ]
 }
 
