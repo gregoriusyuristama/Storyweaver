@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B613EF372A42A6D900536EB7 /* ActTitleScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B613EF362A42A6D900536EB7 /* ActTitleScene.sks */; };
+		B613EF3F2A42FD2200536EB7 /* Aleo-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B613EF392A42FD2100536EB7 /* Aleo-Italic.ttf */; };
+		B613EF402A42FD2200536EB7 /* Aleo-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B613EF3A2A42FD2100536EB7 /* Aleo-Light.ttf */; };
+		B613EF412A42FD2200536EB7 /* Aleo-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B613EF3B2A42FD2100536EB7 /* Aleo-LightItalic.ttf */; };
+		B613EF422A42FD2200536EB7 /* Aleo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B613EF3C2A42FD2100536EB7 /* Aleo-Regular.ttf */; };
+		B613EF432A42FD2200536EB7 /* Aleo-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B613EF3D2A42FD2100536EB7 /* Aleo-BoldItalic.ttf */; };
+		B613EF442A42FD2200536EB7 /* Aleo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B613EF3E2A42FD2200536EB7 /* Aleo-Bold.ttf */; };
+		B613EF472A42FDEF00536EB7 /* FirstPersonScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B613EF462A42FDEF00536EB7 /* FirstPersonScene.sks */; };
+		B613EF492A42FE1B00536EB7 /* FirstPersonScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B613EF482A42FE1B00536EB7 /* FirstPersonScene.swift */; };
+		B613EF4D2A42FEE500536EB7 /* PrologueScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B613EF4C2A42FEE500536EB7 /* PrologueScene.swift */; };
+		B6239EC82A44912200C1420A /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6239EC72A44912200C1420A /* AudioManager.swift */; };
+		B6239ECD2A4491EB00C1420A /* scene1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B6239ECC2A4491EB00C1420A /* scene1.mp3 */; };
+		B6239ED02A44931900C1420A /* scene1_audio1_babyCrying.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B6239ECF2A44931900C1420A /* scene1_audio1_babyCrying.mp3 */; };
+		B6239ED22A44A2CB00C1420A /* scene1_audio2_babyCrying.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B6239ED12A44A2CB00C1420A /* scene1_audio2_babyCrying.mp3 */; };
+		B6239ED42A44A37400C1420A /* scene1_audio3_heavyBreath.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B6239ED32A44A37400C1420A /* scene1_audio3_heavyBreath.mp3 */; };
+		B6239ED62A44A3C700C1420A /* scene1_audio4_transition.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B6239ED52A44A3C700C1420A /* scene1_audio4_transition.mp3 */; };
+		B6239ED82A44A69400C1420A /* scene2_audio1_babyCrying.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B6239ED72A44A69400C1420A /* scene2_audio1_babyCrying.mp3 */; };
+		B6239EDA2A44A72700C1420A /* scene2and3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B6239ED92A44A72700C1420A /* scene2and3.mp3 */; };
 		B6B234B42A3F1CF2007AFDEF /* CharacterVisualComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B234B32A3F1CF2007AFDEF /* CharacterVisualComponent.swift */; };
 		B6B234B72A3F2373007AFDEF /* NodesName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B234B62A3F2373007AFDEF /* NodesName.swift */; };
 		B6B234BB2A404676007AFDEF /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B234BA2A404675007AFDEF /* GameState.swift */; };
@@ -14,6 +32,7 @@
 		B6B234C22A404BBF007AFDEF /* Decision.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B234C12A404BBF007AFDEF /* Decision.swift */; };
 		B6B234C42A404BEB007AFDEF /* Dialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B234C32A404BEB007AFDEF /* Dialog.swift */; };
 		B6B234C62A40B427007AFDEF /* CharacterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B234C52A40B427007AFDEF /* CharacterList.swift */; };
+		B6B234CA2A419F8D007AFDEF /* ActTitleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B234C92A419F8D007AFDEF /* ActTitleScene.swift */; };
 		B6BEEA902A3C1829007718AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BEEA8F2A3C1829007718AB /* AppDelegate.swift */; };
 		B6BEEA962A3C1829007718AB /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BEEA952A3C1829007718AB /* GameScene.swift */; };
 		B6BEEA982A3C1829007718AB /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BEEA972A3C1829007718AB /* GameViewController.swift */; };
@@ -23,6 +42,25 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B613EF362A42A6D900536EB7 /* ActTitleScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ActTitleScene.sks; sourceTree = "<group>"; };
+		B613EF392A42FD2100536EB7 /* Aleo-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aleo-Italic.ttf"; sourceTree = "<group>"; };
+		B613EF3A2A42FD2100536EB7 /* Aleo-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aleo-Light.ttf"; sourceTree = "<group>"; };
+		B613EF3B2A42FD2100536EB7 /* Aleo-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aleo-LightItalic.ttf"; sourceTree = "<group>"; };
+		B613EF3C2A42FD2100536EB7 /* Aleo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aleo-Regular.ttf"; sourceTree = "<group>"; };
+		B613EF3D2A42FD2100536EB7 /* Aleo-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aleo-BoldItalic.ttf"; sourceTree = "<group>"; };
+		B613EF3E2A42FD2200536EB7 /* Aleo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aleo-Bold.ttf"; sourceTree = "<group>"; };
+		B613EF452A42FD5500536EB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B613EF462A42FDEF00536EB7 /* FirstPersonScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FirstPersonScene.sks; sourceTree = "<group>"; };
+		B613EF482A42FE1B00536EB7 /* FirstPersonScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPersonScene.swift; sourceTree = "<group>"; };
+		B613EF4C2A42FEE500536EB7 /* PrologueScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrologueScene.swift; sourceTree = "<group>"; };
+		B6239EC72A44912200C1420A /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		B6239ECC2A4491EB00C1420A /* scene1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene1.mp3; sourceTree = "<group>"; };
+		B6239ECF2A44931900C1420A /* scene1_audio1_babyCrying.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene1_audio1_babyCrying.mp3; sourceTree = "<group>"; };
+		B6239ED12A44A2CB00C1420A /* scene1_audio2_babyCrying.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene1_audio2_babyCrying.mp3; sourceTree = "<group>"; };
+		B6239ED32A44A37400C1420A /* scene1_audio3_heavyBreath.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene1_audio3_heavyBreath.mp3; sourceTree = "<group>"; };
+		B6239ED52A44A3C700C1420A /* scene1_audio4_transition.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene1_audio4_transition.mp3; sourceTree = "<group>"; };
+		B6239ED72A44A69400C1420A /* scene2_audio1_babyCrying.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene2_audio1_babyCrying.mp3; sourceTree = "<group>"; };
+		B6239ED92A44A72700C1420A /* scene2and3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene2and3.mp3; sourceTree = "<group>"; };
 		B6B234B32A3F1CF2007AFDEF /* CharacterVisualComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterVisualComponent.swift; sourceTree = "<group>"; };
 		B6B234B62A3F2373007AFDEF /* NodesName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodesName.swift; sourceTree = "<group>"; };
 		B6B234BA2A404675007AFDEF /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
@@ -30,6 +68,7 @@
 		B6B234C12A404BBF007AFDEF /* Decision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decision.swift; sourceTree = "<group>"; };
 		B6B234C32A404BEB007AFDEF /* Dialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dialog.swift; sourceTree = "<group>"; };
 		B6B234C52A40B427007AFDEF /* CharacterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterList.swift; sourceTree = "<group>"; };
+		B6B234C92A419F8D007AFDEF /* ActTitleScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActTitleScene.swift; sourceTree = "<group>"; };
 		B6BEEA8C2A3C1829007718AB /* Storyweaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Storyweaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6BEEA8F2A3C1829007718AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6BEEA952A3C1829007718AB /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -50,6 +89,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B613EF352A42A6C500536EB7 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				B6BEEA952A3C1829007718AB /* GameScene.swift */,
+				B613EF362A42A6D900536EB7 /* ActTitleScene.sks */,
+				B6B234C92A419F8D007AFDEF /* ActTitleScene.swift */,
+				B613EF462A42FDEF00536EB7 /* FirstPersonScene.sks */,
+				B613EF482A42FE1B00536EB7 /* FirstPersonScene.swift */,
+				B613EF4C2A42FEE500536EB7 /* PrologueScene.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		B613EF382A42FD0000536EB7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B613EF3E2A42FD2200536EB7 /* Aleo-Bold.ttf */,
+				B613EF3D2A42FD2100536EB7 /* Aleo-BoldItalic.ttf */,
+				B613EF392A42FD2100536EB7 /* Aleo-Italic.ttf */,
+				B613EF3A2A42FD2100536EB7 /* Aleo-Light.ttf */,
+				B613EF3B2A42FD2100536EB7 /* Aleo-LightItalic.ttf */,
+				B613EF3C2A42FD2100536EB7 /* Aleo-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		B6239EC62A44911600C1420A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B6239EC72A44912200C1420A /* AudioManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		B6239EC92A44919300C1420A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B6239ECE2A44927E00C1420A /* SFX */,
+				B6239ECB2A4491B500C1420A /* BGM */,
+				B6BEEA9C2A3C182B007718AB /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B6239ECB2A4491B500C1420A /* BGM */ = {
+			isa = PBXGroup;
+			children = (
+				B6239ED92A44A72700C1420A /* scene2and3.mp3 */,
+				B6239ECC2A4491EB00C1420A /* scene1.mp3 */,
+			);
+			path = BGM;
+			sourceTree = "<group>";
+		};
+		B6239ECE2A44927E00C1420A /* SFX */ = {
+			isa = PBXGroup;
+			children = (
+				B6239ED12A44A2CB00C1420A /* scene1_audio2_babyCrying.mp3 */,
+				B6239ED52A44A3C700C1420A /* scene1_audio4_transition.mp3 */,
+				B6239ED32A44A37400C1420A /* scene1_audio3_heavyBreath.mp3 */,
+				B6239ECF2A44931900C1420A /* scene1_audio1_babyCrying.mp3 */,
+				B6239ED72A44A69400C1420A /* scene2_audio1_babyCrying.mp3 */,
+			);
+			path = SFX;
+			sourceTree = "<group>";
+		};
 		B6B234B22A3F1CDB007AFDEF /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,15 +215,18 @@
 		B6BEEA8E2A3C1829007718AB /* Storyweaver */ = {
 			isa = PBXGroup;
 			children = (
+				B6239EC92A44919300C1420A /* Resources */,
+				B6239EC62A44911600C1420A /* Utilities */,
+				B613EF452A42FD5500536EB7 /* Info.plist */,
+				B613EF382A42FD0000536EB7 /* Fonts */,
+				B613EF352A42A6C500536EB7 /* Scene */,
 				B6B234BF2A404BAF007AFDEF /* Features */,
 				B6B234BC2A404A8A007AFDEF /* Constants */,
 				B6B234B52A3F2368007AFDEF /* Config */,
 				B6B234B22A3F1CDB007AFDEF /* Components */,
 				B6BEEA8F2A3C1829007718AB /* AppDelegate.swift */,
-				B6BEEA952A3C1829007718AB /* GameScene.swift */,
 				B6BEEA972A3C1829007718AB /* GameViewController.swift */,
 				B6BEEA992A3C1829007718AB /* Main.storyboard */,
-				B6BEEA9C2A3C182B007718AB /* Assets.xcassets */,
 				B6BEEA9E2A3C182B007718AB /* LaunchScreen.storyboard */,
 				B6B234BA2A404675007AFDEF /* GameState.swift */,
 			);
@@ -184,9 +291,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B613EF3F2A42FD2200536EB7 /* Aleo-Italic.ttf in Resources */,
+				B613EF372A42A6D900536EB7 /* ActTitleScene.sks in Resources */,
+				B6239ED02A44931900C1420A /* scene1_audio1_babyCrying.mp3 in Resources */,
+				B613EF442A42FD2200536EB7 /* Aleo-Bold.ttf in Resources */,
+				B6239ECD2A4491EB00C1420A /* scene1.mp3 in Resources */,
+				B613EF402A42FD2200536EB7 /* Aleo-Light.ttf in Resources */,
+				B6239EDA2A44A72700C1420A /* scene2and3.mp3 in Resources */,
+				B613EF432A42FD2200536EB7 /* Aleo-BoldItalic.ttf in Resources */,
+				B613EF412A42FD2200536EB7 /* Aleo-LightItalic.ttf in Resources */,
+				B6239ED62A44A3C700C1420A /* scene1_audio4_transition.mp3 in Resources */,
+				B613EF422A42FD2200536EB7 /* Aleo-Regular.ttf in Resources */,
+				B6239ED22A44A2CB00C1420A /* scene1_audio2_babyCrying.mp3 in Resources */,
 				B6BEEA9B2A3C1829007718AB /* Main.storyboard in Resources */,
+				B613EF472A42FDEF00536EB7 /* FirstPersonScene.sks in Resources */,
 				B6BEEA9D2A3C182B007718AB /* Assets.xcassets in Resources */,
 				B6BEEAA02A3C182B007718AB /* LaunchScreen.storyboard in Resources */,
+				B6239ED42A44A37400C1420A /* scene1_audio3_heavyBreath.mp3 in Resources */,
+				B6239ED82A44A69400C1420A /* scene2_audio1_babyCrying.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,9 +325,13 @@
 				B6B234C42A404BEB007AFDEF /* Dialog.swift in Sources */,
 				B6BEEA982A3C1829007718AB /* GameViewController.swift in Sources */,
 				B6B234BE2A404A96007AFDEF /* DialogTree.swift in Sources */,
+				B6B234CA2A419F8D007AFDEF /* ActTitleScene.swift in Sources */,
+				B613EF4D2A42FEE500536EB7 /* PrologueScene.swift in Sources */,
+				B6239EC82A44912200C1420A /* AudioManager.swift in Sources */,
 				B6BEEA902A3C1829007718AB /* AppDelegate.swift in Sources */,
 				B6B234C62A40B427007AFDEF /* CharacterList.swift in Sources */,
 				B6B234B72A3F2373007AFDEF /* NodesName.swift in Sources */,
+				B613EF492A42FE1B00536EB7 /* FirstPersonScene.swift in Sources */,
 				B6B234C22A404BBF007AFDEF /* Decision.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,6 +481,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U43A7X58YW;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Storyweaver/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -386,6 +513,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U43A7X58YW;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Storyweaver/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
