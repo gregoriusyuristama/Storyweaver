@@ -12,7 +12,7 @@ import GameplayKit
 class GameViewController: UIViewController {
     
     var gameView: SKView!
-    var gameScene: GameScene!
+    var gameScene: FourthScene!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class GameViewController: UIViewController {
 //        view.addSubview(gameView)
 //
 //        // Create the GameScene
-//        gameScene = GameScene(size: gameView.bounds.size)
+//        gameScene = FourthScene(size: gameView.bounds.size)
 //        gameScene.scaleMode = .aspectFill
 //
 //        // Present the GameScene in the SKView
@@ -33,7 +33,7 @@ class GameViewController: UIViewController {
           if let scene = ActTitleScene(fileNamed: "ActTitleScene") {
             // Set the scale mode to scale to fit the window
             scene.scaleMode = .aspectFill
-                  
+
             // Present the scene
             view.presentScene(scene)
           }
