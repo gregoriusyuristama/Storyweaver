@@ -12,44 +12,46 @@ import GameplayKit
 class GameViewController: UIViewController {
     
     var gameView: SKView!
-    var gameScene: FourthScene!
+    var gameScene: ThirdScene!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        // Create the SKView
-//        gameView = SKView(frame: view.bounds)
-//        view.addSubview(gameView)
+//                // Create the SKView
+//                gameView = SKView(frame: view.bounds)
+//                view.addSubview(gameView)
 //
-//        // Create the GameScene
-//        gameScene = FourthScene(size: gameView.bounds.size)
-//        gameScene.scaleMode = .aspectFill
+//                // Create the GameScene
+//                gameScene = ThirdScene(size: gameView.bounds.size)
+//                gameScene.scaleMode = .aspectFill
 //
-//        // Present the GameScene in the SKView
-//        gameView.presentScene(gameScene)
+//                // Present the GameScene in the SKView
+//                gameView.presentScene(gameScene)
         
         if let view = self.view as! SKView? {
-          // Load the SKScene from 'GameScene.sks'
-          if let scene = ActTitleScene(fileNamed: "ActTitleScene") {
-            // Set the scale mode to scale to fit the window
-            scene.scaleMode = .aspectFill
+            // Load the SKScene from 'GameScene.sks'
+            if let scene = ActTitleScene(fileNamed: "ActTitleScene") {
+                // Set the scale mode to scale to fit the window
+                scene.actNumber = 1
+                scene.actTitle = "The Birth of Legend"
+                scene.scaleMode = .aspectFill
 
-            // Present the scene
-            view.presentScene(scene)
-          }
+                // Present the scene
+                view.presentScene(scene)
+            }
 
-//          view.ignoresSiblingOrder = true
+            //          view.ignoresSiblingOrder = true
 
-//          view.showsFPS = true
-//          view.showsNodeCount = true
-          view.ignoresSiblingOrder = false
+            //          view.showsFPS = true
+            //          view.showsNodeCount = true
+            view.ignoresSiblingOrder = false
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-//        gameScene.animateTextDisplay()
+        //        gameScene.animateTextDisplay()
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {

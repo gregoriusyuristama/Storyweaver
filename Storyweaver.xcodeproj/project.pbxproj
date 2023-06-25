@@ -40,6 +40,17 @@
 		B6BEEA9D2A3C182B007718AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6BEEA9C2A3C182B007718AB /* Assets.xcassets */; };
 		B6BEEAA02A3C182B007718AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6BEEA9E2A3C182B007718AB /* LaunchScreen.storyboard */; };
 		B6EE4B3A2A45768C00A487E6 /* FourthScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EE4B392A45768C00A487E6 /* FourthScene.swift */; };
+		B6EE4B3C2A4585E300A487E6 /* FifthScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EE4B3B2A4585E300A487E6 /* FifthScene.swift */; };
+		B6EE4B3E2A4586F900A487E6 /* SixthScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EE4B3D2A4586F900A487E6 /* SixthScene.swift */; };
+		B6EE4B402A4587A000A487E6 /* SeventhScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EE4B3F2A4587A000A487E6 /* SeventhScene.swift */; };
+		B6EE4B422A4587E100A487E6 /* EightScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EE4B412A4587E100A487E6 /* EightScene.swift */; };
+		B6EE4B442A45886400A487E6 /* NinthScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EE4B432A45886400A487E6 /* NinthScene.swift */; };
+		B6F755A32A45AC3F0058376D /* GameConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F755A22A45AC3F0058376D /* GameConfig.swift */; };
+		B6F755A52A482DD60058376D /* CreateEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F755A42A482DD60058376D /* CreateEntity.swift */; };
+		B6F755A72A48369B0058376D /* CharacterPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F755A62A48369B0058376D /* CharacterPosition.swift */; };
+		B6F755A92A488DE60058376D /* FourthSceneNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F755A82A488DE60058376D /* FourthSceneNew.swift */; };
+		B6F755AB2A488E560058376D /* CreateGameUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F755AA2A488E560058376D /* CreateGameUI.swift */; };
+		B6F755AD2A4890C60058376D /* DecisionScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F755AC2A4890C60058376D /* DecisionScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +89,17 @@
 		B6BEEA9C2A3C182B007718AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6BEEA9F2A3C182B007718AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6EE4B392A45768C00A487E6 /* FourthScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthScene.swift; sourceTree = "<group>"; };
+		B6EE4B3B2A4585E300A487E6 /* FifthScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthScene.swift; sourceTree = "<group>"; };
+		B6EE4B3D2A4586F900A487E6 /* SixthScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixthScene.swift; sourceTree = "<group>"; };
+		B6EE4B3F2A4587A000A487E6 /* SeventhScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeventhScene.swift; sourceTree = "<group>"; };
+		B6EE4B412A4587E100A487E6 /* EightScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EightScene.swift; sourceTree = "<group>"; };
+		B6EE4B432A45886400A487E6 /* NinthScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NinthScene.swift; sourceTree = "<group>"; };
+		B6F755A22A45AC3F0058376D /* GameConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConfig.swift; sourceTree = "<group>"; };
+		B6F755A42A482DD60058376D /* CreateEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEntity.swift; sourceTree = "<group>"; };
+		B6F755A62A48369B0058376D /* CharacterPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPosition.swift; sourceTree = "<group>"; };
+		B6F755A82A488DE60058376D /* FourthSceneNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthSceneNew.swift; sourceTree = "<group>"; };
+		B6F755AA2A488E560058376D /* CreateGameUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameUI.swift; sourceTree = "<group>"; };
+		B6F755AC2A4890C60058376D /* DecisionScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +123,12 @@
 				B613EF482A42FE1B00536EB7 /* SecondScene.swift */,
 				B613EF4C2A42FEE500536EB7 /* FirstScene.swift */,
 				B6EE4B392A45768C00A487E6 /* FourthScene.swift */,
+				B6EE4B3B2A4585E300A487E6 /* FifthScene.swift */,
+				B6EE4B3D2A4586F900A487E6 /* SixthScene.swift */,
+				B6EE4B3F2A4587A000A487E6 /* SeventhScene.swift */,
+				B6EE4B412A4587E100A487E6 /* EightScene.swift */,
+				B6EE4B432A45886400A487E6 /* NinthScene.swift */,
+				B6F755A82A488DE60058376D /* FourthSceneNew.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -122,6 +150,9 @@
 			isa = PBXGroup;
 			children = (
 				B6239EC72A44912200C1420A /* AudioManager.swift */,
+				B6F755A42A482DD60058376D /* CreateEntity.swift */,
+				B6F755AA2A488E560058376D /* CreateGameUI.swift */,
+				B6F755AC2A4890C60058376D /* DecisionScene.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -178,6 +209,8 @@
 			children = (
 				B6B234BD2A404A96007AFDEF /* DialogTree.swift */,
 				B6B234C52A40B427007AFDEF /* CharacterList.swift */,
+				B6F755A22A45AC3F0058376D /* GameConfig.swift */,
+				B6F755A62A48369B0058376D /* CharacterPosition.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -324,15 +357,26 @@
 			files = (
 				B6BEEA962A3C1829007718AB /* ThirdScene.swift in Sources */,
 				B6B234B42A3F1CF2007AFDEF /* CharacterVisualComponent.swift in Sources */,
+				B6EE4B442A45886400A487E6 /* NinthScene.swift in Sources */,
 				B6B234BB2A404676007AFDEF /* GameState.swift in Sources */,
 				B6B234C42A404BEB007AFDEF /* Dialog.swift in Sources */,
+				B6F755AB2A488E560058376D /* CreateGameUI.swift in Sources */,
+				B6EE4B402A4587A000A487E6 /* SeventhScene.swift in Sources */,
+				B6F755A72A48369B0058376D /* CharacterPosition.swift in Sources */,
 				B6EE4B3A2A45768C00A487E6 /* FourthScene.swift in Sources */,
 				B6BEEA982A3C1829007718AB /* GameViewController.swift in Sources */,
 				B6B234BE2A404A96007AFDEF /* DialogTree.swift in Sources */,
 				B6B234CA2A419F8D007AFDEF /* ActTitleScene.swift in Sources */,
+				B6EE4B3E2A4586F900A487E6 /* SixthScene.swift in Sources */,
+				B6F755A52A482DD60058376D /* CreateEntity.swift in Sources */,
 				B613EF4D2A42FEE500536EB7 /* FirstScene.swift in Sources */,
 				B6239EC82A44912200C1420A /* AudioManager.swift in Sources */,
+				B6F755A92A488DE60058376D /* FourthSceneNew.swift in Sources */,
+				B6EE4B3C2A4585E300A487E6 /* FifthScene.swift in Sources */,
+				B6F755AD2A4890C60058376D /* DecisionScene.swift in Sources */,
+				B6EE4B422A4587E100A487E6 /* EightScene.swift in Sources */,
 				B6BEEA902A3C1829007718AB /* AppDelegate.swift in Sources */,
+				B6F755A32A45AC3F0058376D /* GameConfig.swift in Sources */,
 				B6B234C62A40B427007AFDEF /* CharacterList.swift in Sources */,
 				B6B234B72A3F2373007AFDEF /* NodesName.swift in Sources */,
 				B613EF492A42FE1B00536EB7 /* SecondScene.swift in Sources */,

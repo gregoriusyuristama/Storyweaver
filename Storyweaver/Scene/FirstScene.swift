@@ -10,7 +10,6 @@ import SpriteKit
 import SwiftUI
 
 class FirstScene: SKScene {
-    var typingSpeed: TimeInterval = 0.1 // Adjust the speed of text display here
     
     var currentIndex: Int = 0
     var dialogueLabel: SKLabelNode = SKLabelNode()
@@ -22,12 +21,12 @@ class FirstScene: SKScene {
     
     override init(){
         super.init()
-//        setupEntities()
+        //        setupEntities()
     }
     
     override init(size: CGSize){
         super.init(size: size)
-//        setupEntities()
+        //        setupEntities()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -68,17 +67,34 @@ class FirstScene: SKScene {
             }
             
             if currentIndex >= (gameState.currentDialog?.text.count)! {
-                
                 if gameState.currentDialog?.id == gameState.dialogTree.count - 1 {
-//                    gameState.selectDecision(gameState.decisions.first(where: {$0.dialogID == 7})!)
                     
                     let gameScene = SecondScene(fileNamed: "SecondScene")!
                     gameScene.scaleMode = .aspectFill
+                    
                     let transition = SKTransition.doorsOpenVertical(withDuration: 1.0)
                     AudioManager.shared.playSoundEffect(fileName: "scene1_audio4_transition")
                     view?.presentScene(gameScene, transition: transition)
                 } else {
-                    showButtons()
+                    if gameState.currentDialog?.nextDialogIDs.count == 1 {
+                        gameState.selectDecision(gameState.decisions.first(where: {$0.dialogID == (gameState.currentDialog!.nextDialogIDs[0])})!)
+                        dialogueLabel.text = gameState.currentDialog?.text
+                        createButtons()
+                        showNextDialogue()
+                        if gameState.currentDialog?.id == 7 {
+                            AudioManager.shared.playSoundEffect(fileName: "scene1_audio1_babyCrying")
+                        }
+                        if gameState.currentDialog?.id == 13 {
+                            AudioManager.shared.playSoundEffect(fileName: "scene1_audio2_babyCrying")
+                        }
+                        if gameState.currentDialog?.id == 14 {
+                            AudioManager.shared.playSoundEffect(fileName: "scene1_audio3_heavyBreath")
+                        }
+                        return
+                        
+                    } else {
+                        showButtons()
+                    }
                 }
                 
                 
@@ -91,14 +107,10 @@ class FirstScene: SKScene {
                 dialogueLabel.text = gameState.currentDialog?.text
                 dialogueLabel.removeAllActions()
                 currentIndex = (gameState.currentDialog?.text.count)!
-//                for button in buttons {
-//                    button.alpha = 1.0
-//                }
-//                isButtonVisible = true
             }
         }
         
-     
+        
     }
     
     func showNextDialogue() {
@@ -123,7 +135,7 @@ class FirstScene: SKScene {
             let buttonNode = SKShapeNode(rectOf: buttonSize)
             buttonNode.fillColor = SKColor.white
             buttonNode.strokeColor = SKColor.black
-           
+            
             buttonNode.position = CGPoint(x: size.width/2, y: buttonsYPosition + CGFloat(index) * (buttonSize.height + buttonSpacing))
             //            buttonNode.name = "\(nextDialogIDs[index])"
             buttonNode.alpha = 0.0
@@ -177,7 +189,7 @@ class FirstScene: SKScene {
             dialogueLabel.text = (dialogueLabel.text ?? "") + nextCharacter
             currentIndex += 1
             
-            let delayAction = SKAction.wait(forDuration: typingSpeed)
+            let delayAction = SKAction.wait(forDuration: GameConfig.typingSpeed)
             let nextCharacterAction = SKAction.run { [weak self] in
                 self?.animateTextDisplay(dialogueText: dialogueText)
             }

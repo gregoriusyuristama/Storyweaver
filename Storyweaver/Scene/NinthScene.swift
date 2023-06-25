@@ -1,5 +1,5 @@
 //
-//  FourthScene.swift
+//  NinthScene.swift
 //  Storyweaver
 //
 //  Created by Gregorius Yuristama Nugraha on 6/23/23.
@@ -11,7 +11,7 @@ import SpriteKit
 import GameplayKit
 import SwiftUI
 
-class FourthScene: SKScene {
+class NinthScene: SKScene {
     var dialogueLabel: SKLabelNode = SKLabelNode()
     var characterLabel: SKLabelNode = SKLabelNode()
     var characterImage: SKSpriteNode = SKSpriteNode()
@@ -25,7 +25,7 @@ class FourthScene: SKScene {
     
     var buttons: [SKShapeNode] = []
     
-    @ObservedObject private var gameState = GameState(dialogTree: DialogTree.DialogTreeScene4)
+    @ObservedObject private var gameState = GameState(dialogTree: DialogTree.DialogTreeScene9)
     
     override init(){
         super.init()
@@ -89,6 +89,18 @@ class FourthScene: SKScene {
         buttons.removeAll()
         
         for index in 0..<gameState.decisions.count {
+            let buttonNode = SKShapeNode(rectOf: buttonSize)
+            buttonNode.fillColor = SKColor.white
+            buttonNode.strokeColor = SKColor.black
+            if let characterMbokSrini = (characters.first(where: {$0.component(ofType: CharacterVisualComponent.self)?.type == .mbokSrini}))?.component(ofType: CharacterVisualComponent.self) {
+                
+                buttonNode.position = CGPoint(x: characterMbokSrini.characterNode.frame.size.width/2 + buttonNode.frame.size.width, y: buttonsYPosition + CGFloat(index) * (buttonSize.height + buttonSpacing))
+            }
+            //            buttonNode.name = "\(nextDialogIDs[index])"
+            buttonNode.alpha = 0.0
+            buttonNode.zPosition = 3
+            addChild(buttonNode)
+            
             let buttonLabel = SKLabelNode(text: gameState.decisions[index].text)
             buttonLabel.name = "\(gameState.decisions[index].dialogID)"
             buttonLabel.fontName = "Aleo-Regular"
@@ -97,22 +109,6 @@ class FourthScene: SKScene {
             buttonLabel.horizontalAlignmentMode = .center
             buttonLabel.verticalAlignmentMode = .center
             buttonLabel.position = CGPoint(x: 0, y: -5) // Adjust label position if needed
-            let buttonSize = CGSize(width: buttonLabel.frame.width + 20, height: 50) // Adjust the padding as needed
-            
-            let buttonNode = SKShapeNode(rectOf: buttonSize)
-            buttonNode.fillColor = SKColor.white
-            buttonNode.strokeColor = SKColor.black
-//            if let characterMbokSrini = (characters.first(where: {$0.component(ofType: CharacterVisualComponent.self)?.type == .mbokSrini}))?.component(ofType: CharacterVisualComponent.self) {
-//
-//                buttonNode.position = CGPoint(x: characterMbokSrini.characterNode.frame.size.width/2 + buttonNode.frame.size.width, y: buttonsYPosition + CGFloat(index) * (buttonSize.height + buttonSpacing))
-//            }
-            buttonNode.position = CGPoint(x: size.width/2, y: buttonsYPosition + CGFloat(index) * (buttonSize.height + buttonSpacing))
-            buttonNode.alpha = 0.0
-            //            buttonNode.name = "\(nextDialogIDs[index])"
-            buttonNode.zPosition = 3
-            addChild(buttonNode)
-            
-
             buttonLabel.zPosition = 3
             buttonNode.addChild(buttonLabel)
             
@@ -188,6 +184,7 @@ class FourthScene: SKScene {
         dialogueLabel.text = ""
         currentIndex = 0
         animateTextDisplay(dialogueText: currentDialogueText)
+        
         createButtons()
     }
     
@@ -238,20 +235,10 @@ class FourthScene: SKScene {
             // Check if any of the buttons were tapped
             if currentIndex >= (gameState.currentDialog?.text.count)!{
                 for button in buttons {
-                    
                     if button.contains(location) {
                         handleButtonTap(button)
                         return
                     }
-                }
-                if gameState.currentDialog?.id == gameState.dialogTree.count - 1 {
-                    let gameScene = ActTitleScene(fileNamed: "ActTitleScene")
-                    gameScene?.actNumber = 2
-                    gameScene?.actTitle = "The Journey of Youth"
-                    gameScene?.nextScene = FifthScene(size: size)
-                    gameScene!.scaleMode = .aspectFill
-                    let transition = SKTransition.crossFade(withDuration: 1.0)
-                    view?.presentScene(gameScene!, transition: transition)
                 }
             }
             
@@ -266,7 +253,6 @@ class FourthScene: SKScene {
                     button.alpha = 1.0
                 }
             }
-
           
         }
         
@@ -286,12 +272,13 @@ class FourthScene: SKScene {
                 dialogueLabel.text = gameState.currentDialog?.text
                 createButtons()
                 showNextDialogue()
+                
             }
         }
     }
 }
 
-extension FourthScene {
+extension NinthScene {
     private func createTimunMasEntity() -> GKEntity {
         let timunMas = GKEntity()
         
@@ -345,4 +332,5 @@ extension FourthScene {
         return mbokSrini
     }
 }
+
 

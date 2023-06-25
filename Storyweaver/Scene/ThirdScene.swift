@@ -5,28 +5,35 @@ import SwiftUI
 class ThirdScene: SKScene {
     var dialogueLabel: SKLabelNode = SKLabelNode()
     var characterLabel: SKLabelNode = SKLabelNode()
+    var continueLabel: SKLabelNode = SKLabelNode()
+    
     var characterImage: SKSpriteNode = SKSpriteNode()
     var giantImage: SKSpriteNode = SKSpriteNode()
+    var backgroundNode: SKSpriteNode = SKSpriteNode()
     var dialogueBackground: SKShapeNode = SKShapeNode()
-    var currentIndex: Int = 0
-    var typingSpeed: TimeInterval = 0.1 // Adjust the speed of text display here
     
-//    let visualComponentSystem = GKComponentSystem(componentClass: CharacterVisualComponent.self)
+    
+    var currentIndex: Int = 0
+    var isButtonVisible: Bool = false
     
     var characters: [GKEntity] = []
-    
     var buttons: [SKShapeNode] = []
+    
+    let characterVisualComponentSytem = GKComponentSystem(componentClass: CharacterVisualComponent.self)
+    
     
     @ObservedObject private var gameState = GameState(dialogTree: DialogTree.DialogTreeScene3)
     
     override init(){
         super.init()
         setupEntities()
+        setupSystemComponents()
     }
     
     override init(size: CGSize){
         super.init(size: size)
         setupEntities()
+        setupSystemComponents()
     }
     
     
@@ -35,7 +42,13 @@ class ThirdScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
-        backgroundColor = .brown
+//        backgroundColor = .brown
+        backgroundNode = SKSpriteNode(imageNamed: "Scene3.png")
+        backgroundNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        backgroundNode.scale(to: CGSize(width: size.width, height: size.height))
+        backgroundNode.zPosition = -5  // Ensure the background is behind other nodes
+        addChild(backgroundNode)
+        
         dialogueBackground = SKShapeNode(rectOf: CGSize(width: size.width - (size.width * 0.1), height: size.height/3 - (size.height*0.1))) // Customize the size of the rectangle
         dialogueBackground.fillColor = SKColor.black // Customize the background color
         dialogueBackground.strokeColor = SKColor.clear // Hide the border of the rectangle
@@ -69,7 +82,6 @@ class ThirdScene: SKScene {
         showNextDialogue()
         
     }
-    
     func createButtons() {
         let buttonSize = CGSize(width: 300, height: 50)
         let buttonSpacing: CGFloat = 20
@@ -81,17 +93,6 @@ class ThirdScene: SKScene {
         buttons.removeAll()
         
         for index in 0..<gameState.decisions.count {
-            let buttonNode = SKShapeNode(rectOf: buttonSize)
-            buttonNode.fillColor = SKColor.white
-            buttonNode.strokeColor = SKColor.black
-            if let characterMbokSrini = (characters.first(where: {$0.component(ofType: CharacterVisualComponent.self)?.type == .mbokSrini}))?.component(ofType: CharacterVisualComponent.self) {
-                
-                buttonNode.position = CGPoint(x: characterMbokSrini.characterNode.frame.size.width/2 + buttonNode.frame.size.width, y: buttonsYPosition + CGFloat(index) * (buttonSize.height + buttonSpacing))
-            }
-            //            buttonNode.name = "\(nextDialogIDs[index])"
-            buttonNode.alpha = 0.0
-            addChild(buttonNode)
-            
             let buttonLabel = SKLabelNode(text: gameState.decisions[index].text)
             buttonLabel.name = "\(gameState.decisions[index].dialogID)"
             buttonLabel.fontName = "Aleo-Regular"
@@ -100,98 +101,50 @@ class ThirdScene: SKScene {
             buttonLabel.horizontalAlignmentMode = .center
             buttonLabel.verticalAlignmentMode = .center
             buttonLabel.position = CGPoint(x: 0, y: -5) // Adjust label position if needed
+            
+            let buttonSize = CGSize(width: buttonLabel.frame.width + 20, height: 50) // Adjust the padding as needed
+            
+            let buttonNode = SKShapeNode(rectOf: buttonSize)
+            buttonNode.fillColor = SKColor.white
+            buttonNode.strokeColor = SKColor.black
+//            if let characterMbokSrini = (characters.first(where: {$0.component(ofType: CharacterVisualComponent.self)?.type == .mbokSrini}))?.component(ofType: CharacterVisualComponent.self) {
+//                buttonNode.position = CGPoint(x: characterMbokSrini.characterNode.frame.size.width/2 + buttonNode.frame.size.width, y: buttonsYPosition + CGFloat(index) * (buttonSize.height + buttonSpacing))
+//            }
+            buttonNode.position = CGPoint(x: size.width/2, y: buttonsYPosition + CGFloat(index) * (buttonSize.height + buttonSpacing))
+            buttonNode.alpha = 0.0
+            isButtonVisible = false
+            addChild(buttonNode)
+            
             buttonLabel.zPosition = 3
             buttonNode.addChild(buttonLabel)
             
             buttons.append(buttonNode)
         }
     }
-    
-    
-    
+
     func showNextDialogue() {
-       
-        let characterTimunMas = (characters.first(where: {$0.component(ofType: CharacterVisualComponent.self)?.type == .timunMas}))?.component(ofType: CharacterVisualComponent.self)
         
-        let characterGiant = (characters.first(where: {$0.component(ofType: CharacterVisualComponent.self)?.type == .giant}))?.component(ofType: CharacterVisualComponent.self)
-        
-        let characterNarrator = (characters.first(where: {$0.component(ofType: CharacterVisualComponent.self)?.type == .narrator}))?.component(ofType: CharacterVisualComponent.self)
-        
-        let characterStoryweaver = (characters.first(where: {$0.component(ofType: CharacterVisualComponent.self)?.type == .storyweaver}))?.component(ofType: CharacterVisualComponent.self)
-        
-        let characterMbokSrini = (characters.first(where: {$0.component(ofType: CharacterVisualComponent.self)?.type == .mbokSrini}))?.component(ofType: CharacterVisualComponent.self)
-        
-        if gameState.currentDialog?.character == characterTimunMas?.type {
-            characterTimunMas?.characterNode.alpha = 0.0
-            characterTimunMas?.characterNode.zPosition = 0
-            characterGiant?.characterNode.alpha = 0.0
-            characterGiant?.characterNode.zPosition = -1
-            characterNarrator?.characterNode.alpha = 0.0
-            characterNarrator?.characterNode.zPosition = 0
-            characterStoryweaver?.characterNode.alpha = 0.0
-            characterStoryweaver?.characterNode.zPosition = -1
-            characterMbokSrini?.characterNode.alpha = 0.0
-            characterMbokSrini?.characterNode.zPosition = -1
-            characterLabel.text = characterTimunMas?.type.rawValue
-        } else if gameState.currentDialog?.character == characterGiant?.type{
-            characterTimunMas?.characterNode.alpha = 0.0
-            characterTimunMas?.characterNode.zPosition = -1
-            characterGiant?.characterNode.alpha = 1.0
-            characterGiant?.characterNode.zPosition = 0
-            characterNarrator?.characterNode.alpha = 0.0
-            characterNarrator?.characterNode.zPosition = 0
-            characterStoryweaver?.characterNode.alpha = 0.0
-            characterStoryweaver?.characterNode.zPosition = -1
-            characterMbokSrini?.characterNode.alpha = 0.5
-            characterMbokSrini?.characterNode.zPosition = -1
-            characterLabel.text = characterGiant?.type.rawValue
-        } else if gameState.currentDialog?.character == characterNarrator?.type{
-            characterTimunMas?.characterNode.alpha = 0.0
-            characterTimunMas?.characterNode.zPosition = 0
-            characterGiant?.characterNode.alpha = 0.5
-            characterGiant?.characterNode.zPosition = 0
-            characterNarrator?.characterNode.alpha = 0.0
-            characterNarrator?.characterNode.zPosition = 0
-            characterStoryweaver?.characterNode.alpha = 0.0
-            characterStoryweaver?.characterNode.zPosition = -1
-            characterMbokSrini?.characterNode.alpha = 0.5
-            characterMbokSrini?.characterNode.zPosition = -1
-            characterLabel.text = ""
-        } else if gameState.currentDialog?.character == characterStoryweaver?.type{
-            characterTimunMas?.characterNode.alpha = 0.0
-            characterTimunMas?.characterNode.zPosition = -1
-            characterGiant?.characterNode.alpha = 0.0
-            characterGiant?.characterNode.zPosition = -1
-            characterNarrator?.characterNode.alpha = 0.0
-            characterNarrator?.characterNode.zPosition = 0
-            characterStoryweaver?.characterNode.alpha = 1.0
-            characterStoryweaver?.characterNode.zPosition = -1
-            characterMbokSrini?.characterNode.alpha = 0.0
-            characterMbokSrini?.characterNode.zPosition = -1
-            characterLabel.text = characterStoryweaver?.type.rawValue
-        }else if gameState.currentDialog?.character == characterMbokSrini?.type{
-            characterTimunMas?.characterNode.alpha = 0.0
-            characterTimunMas?.characterNode.zPosition = -1
-            characterGiant?.characterNode.alpha = 0.5
-            characterGiant?.characterNode.zPosition = -1
-            characterNarrator?.characterNode.alpha = 0.0
-            characterNarrator?.characterNode.zPosition = 0
-            characterStoryweaver?.characterNode.alpha = 0.0
-            characterStoryweaver?.characterNode.zPosition = -1
-            characterMbokSrini?.characterNode.alpha = 1.0
-            characterMbokSrini?.characterNode.zPosition = 0
-            characterLabel.text = characterMbokSrini?.type.rawValue
+        for case let component as CharacterVisualComponent in characterVisualComponentSytem.components {
+            if component.type == .mbokSrini || component.type == .giant {
+                if gameState.currentDialog?.character == component.type {
+                    component.characterNode.alpha = 1
+                    component.characterNode.texture = SKTexture(imageNamed: "\(component.type.rawValue)_talk")
+                    characterLabel.text = component.type.rawValue
+                } else {
+                    component.characterNode.alpha = 0.5
+                    component.characterNode.texture = SKTexture(imageNamed: component.type.rawValue)
+                }
+            }
+            
+            if gameState.currentDialog?.character != .mbokSrini && gameState.currentDialog?.character != .giant{
+                characterLabel.text = ""
+            }
         }
         
         let currentDialogueText = (gameState.currentDialog?.text)!
         dialogueLabel.text = ""
         currentIndex = 0
         animateTextDisplay(dialogueText: currentDialogueText)
-        
-        createButtons()
-        //        } else {
-        
-        //        }
     }
     
     func animateTextDisplay(dialogueText: String) {
@@ -200,42 +153,67 @@ class ThirdScene: SKScene {
             let nextCharacter = String(dialogueText[index])
             dialogueLabel.text = (dialogueLabel.text ?? "") + nextCharacter
             currentIndex += 1
-            
-            let delayAction = SKAction.wait(forDuration: typingSpeed)
+            let delayAction = SKAction.wait(forDuration: GameConfig.typingSpeed)
             let nextCharacterAction = SKAction.run { [weak self] in
                 self?.animateTextDisplay(dialogueText: dialogueText)
             }
             let sequence = SKAction.sequence([delayAction, nextCharacterAction])
             dialogueLabel.run(sequence)
-            for button in buttons {
-                button.alpha = 0.0
-            }
+            hideButtons()
         } else {
             // Text display completed, wait for user interaction
-            for button in buttons {
-                button.alpha = 1.0
+            if gameState.currentDialog?.nextDialogIDs.count != 1 {
+                createButtons()
+                showButtons()
             }
+
         }
+    }
+    
+    func showButtons() {
+        for button in buttons {
+            button.alpha = 1
+        }
+        isButtonVisible = true
+    }
+    
+    func hideButtons() {
+        for button in buttons {
+            button.alpha = 0.0
+        }
+        isButtonVisible = false
     }
     
     private func setupEntities() {
         
-        let timunMas = createTimunMasEntity()
+        let timunMas = CreateEntity.timunMasEntity(scene: self)
+        timunMas.component(ofType: CharacterVisualComponent.self)?.characterNode.alpha = 0
         characters.append(timunMas)
         
         
-        let giant = createGiantEntity()
+        let giant = CreateEntity.giantEntity(scene: self, pos: .right)
         characters.append(giant)
         
         
-        let narrator = createNarratorEntity()
+        let narrator = CreateEntity.narratorEntity(scene: self)
+        narrator.component(ofType: CharacterVisualComponent.self)?.characterNode.alpha = 0
         characters.append(narrator)
         
-        let storyweaver = createStoryweaverEntity()
-        characters.append(storyweaver)
+//        let storyweaver = CreateEntity.storyWeaverEntity(scene: self)
+//        characters.append(storyweaver)
         
-        let mbokSrini = createMbokSriniEntity()
+        let mbokSrini = CreateEntity.mbokSriniEntity(scene: self, pos: .left)
         characters.append(mbokSrini)
+    }
+    
+    private func setupSystemComponents() {
+        for character in characters {
+            characterVisualComponentSytem.addComponent(foundIn: character)
+        }
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        characterVisualComponentSytem.update(deltaTime: currentTime)
     }
     
     
@@ -243,13 +221,26 @@ class ThirdScene: SKScene {
         for touch in touches {
             let location = touch.location(in: self)
             
-            // Check if any of the buttons were tapped
-            if currentIndex >= (gameState.currentDialog?.text.count)!{
+            if isButtonVisible {
                 for button in buttons {
                     if button.contains(location) {
                         handleButtonTap(button)
                         return
                     }
+                }
+            }
+            if currentIndex >= (gameState.currentDialog?.text.count)!{
+                if gameState.currentDialog?.id == gameState.dialogTree.count - 1 {
+                    let gameScene = FourthScene(size: size)
+                    gameScene.scaleMode = .aspectFill
+                    let transition = SKTransition.crossFade(withDuration: 1.0)
+                    view?.presentScene(gameScene, transition: transition)
+                    return
+                } else if gameState.currentDialog?.nextDialogIDs.count == 1 {
+                    gameState.selectDecision(gameState.decisions.first(where: {$0.dialogID == (gameState.currentDialog?.nextDialogIDs.first)})!)
+                    dialogueLabel.text = gameState.currentDialog?.text
+                    showNextDialogue()
+                    return
                 }
             }
             
@@ -260,107 +251,27 @@ class ThirdScene: SKScene {
                 dialogueLabel.text = gameState.currentDialog?.text
                 dialogueLabel.removeAllActions()
                 currentIndex = (gameState.currentDialog?.text.count)!
-                for button in buttons {
-                    button.alpha = 1.0
+                if gameState.currentDialog?.nextDialogIDs.count != 1 {
+                    createButtons()
+                    showButtons()
                 }
             }
-            if gameState.currentDialog?.id == gameState.dialogTree.count - 1 {
-                let gameScene = FourthScene(size: size)
-                gameScene.scaleMode = .aspectFill
-                let transition = SKTransition.crossFade(withDuration: 1.0)
-                view?.presentScene(gameScene, transition: transition)
-            }
+            
         }
         
     }
-    
-    
     
     func handleButtonTap(_ button: SKShapeNode) {
         // Handle button tap here
         if let buttonLabel = button.children.first as? SKLabelNode {
-            //            buttonLabel.name
-            //            let buttonText = buttonLabel.text
             print("Button tapped: \(buttonLabel.name ?? "")")
             
             if let dialogIDCast = Int(buttonLabel.name!){
+                print("current dialog ID: \(dialogIDCast)")
                 gameState.selectDecision(gameState.decisions.first(where: {$0.dialogID == dialogIDCast})!)
                 dialogueLabel.text = gameState.currentDialog?.text
-                createButtons()
                 showNextDialogue()
-                
             }
         }
     }
 }
-
-extension ThirdScene {
-    private func createTimunMasEntity() -> GKEntity {
-        let timunMas = GKEntity()
-        
-        let characterVisualComponent = CharacterVisualComponent(type: .timunMas, size: self.size)
-        timunMas.addComponent(characterVisualComponent)
-        
-        self.addChild(characterVisualComponent.characterNode)
-        return timunMas
-    }
-    
-    private func createGiantEntity() -> GKEntity {
-        let giant = GKEntity()
-        
-        let characterVisualComponent = CharacterVisualComponent(type: .giant, size: self.size)
-        
-        let desiredSize = CGSize(width: size.width, height: size.height)
-        let scaleFactor = min(desiredSize.width / characterVisualComponent.characterNode.size.width, desiredSize.height / characterVisualComponent.characterNode.size.height)
-        characterVisualComponent.characterNode.size = CGSize(width: characterVisualComponent.characterNode.size.width * scaleFactor, height: characterVisualComponent.characterNode.size.height * scaleFactor )
-        characterVisualComponent.characterNode.setScale(scaleFactor * 1.5)
-        characterVisualComponent.characterNode.position = CGPoint(x: size.width/2 + characterVisualComponent.characterNode.size.width / 3, y: size.height/2)
-        
-        giant.addComponent(characterVisualComponent)
-        
-        
-        self.addChild(characterVisualComponent.characterNode)
-        return giant
-    }
-    
-    private func createNarratorEntity() -> GKEntity {
-        let narrator = GKEntity()
-        
-        let characterVisualComponent = CharacterVisualComponent(type: .narrator, size: self.size)
-        narrator.addComponent(characterVisualComponent)
-        
-        self.addChild(characterVisualComponent.characterNode)
-        return narrator
-    }
-    
-    private func createStoryweaverEntity() -> GKEntity {
-        let storyweaver = GKEntity()
-        
-        let characterVisualComponent = CharacterVisualComponent(type: .storyweaver, size: self.size)
-        storyweaver.addComponent(characterVisualComponent)
-        
-        self.addChild(characterVisualComponent.characterNode)
-        return storyweaver
-    }
-    
-    private func createMbokSriniEntity() -> GKEntity {
-        let mbokSrini = GKEntity()
-        
-        let characterVisualComponent = CharacterVisualComponent(type: .mbokSrini, size: self.size)
-        
-        let desiredSize = CGSize(width: size.width, height: size.height) // Set your desired size here
-                
-                // Calculate the scale factor based on the desired size and the current size of the sprite
-        let scaleFactor = min(desiredSize.width / characterVisualComponent.characterNode.size.width, desiredSize.height / characterVisualComponent.characterNode.size.height)
-        characterVisualComponent.characterNode.size = CGSize(width: characterVisualComponent.characterNode.size.width * scaleFactor, height: characterVisualComponent.characterNode.size.height * scaleFactor)
-        characterVisualComponent.characterNode.setScale(scaleFactor)
-        
-        characterVisualComponent.characterNode.position = CGPoint(x: characterVisualComponent.characterNode.size.width / 2, y: size.height/2)
-        
-        mbokSrini.addComponent(characterVisualComponent)
-        
-        self.addChild(characterVisualComponent.characterNode)
-        return mbokSrini
-    }
-}
-
