@@ -9,7 +9,6 @@ import SpriteKit
 import SwiftUI
 
 class SecondScene: SKScene {
-    var typingSpeed: TimeInterval = 0.1 // Adjust the speed of text display here
     
     var currentIndex: Int = 0
     var currentAlpha: Double = 0.0
@@ -19,13 +18,10 @@ class SecondScene: SKScene {
     var mbokSrini: SKSpriteNode?
     var dialogueBackground: SKShapeNode?
     
-    
     var gameState: GameState = GameState(dialogTree: DialogTree.DialogTreeScene2)
     
     
     override func didChangeSize(_ oldSize: CGSize) {
-        super.didChangeSize(oldSize)
-        
         super.didChangeSize(oldSize)
         
         // Adjust the scale and position of the dialogue background
@@ -120,7 +116,7 @@ class SecondScene: SKScene {
     func fadeInMbokSrini() {
         if currentAlpha <= 1 {
             mbokSrini?.alpha += 0.1
-            let delayAction = SKAction.wait(forDuration: typingSpeed)
+            let delayAction = SKAction.wait(forDuration: GameConfig.typingSpeed)
             let nextAction = SKAction.run { [weak self] in
                 self?.fadeInMbokSrini()
             }
@@ -137,7 +133,7 @@ class SecondScene: SKScene {
             dialogueLabel?.text = (dialogueLabel?.text ?? "") + nextCharacter
             currentIndex += 1
             
-            let delayAction = SKAction.wait(forDuration: typingSpeed)
+            let delayAction = SKAction.wait(forDuration: GameConfig.typingSpeed)
             let nextCharacterAction = SKAction.run { [weak self] in
                 self?.animateTextDisplay(dialogueText: dialogueText)
             }
