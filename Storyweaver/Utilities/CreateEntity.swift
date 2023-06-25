@@ -22,7 +22,7 @@ class CreateEntity {
         return mbokSrini
     }
     
-    static func storyWeaverEntity(scene: SKScene,pos: CharacterPosition? = .center) -> GKEntity {
+    static func storyWeaverEntity(scene: SKScene, pos: CharacterPosition? = .center) -> GKEntity {
         let storyweaver = GKEntity()
         
         let characterVisualComponent = CharacterVisualComponent(type: .storyweaver, size: scene.size, pos: pos)

@@ -35,18 +35,30 @@ class CharacterVisualComponent: GKComponent {
         
         switch pos{
         case.left:
-            let desiredSize = CGSize(width: size.width, height: size.height)
+            var desiredSize = CGSize(width: size.width/2, height: size.height/2)
             let scaleFactor = min(desiredSize.width / charImage.size.width, desiredSize.height / charImage.size.height)
             charImage.size = CGSize(width: charImage.size.width * scaleFactor, height: charImage.size.height * scaleFactor)
             
-            charImage.setScale(scaleFactor)
-            charImage.position = CGPoint(x: charImage.size.width / 2, y: size.height/2)
+            if type == .giant {
+                desiredSize = CGSize(width: desiredSize.width*3/2, height: desiredSize.height*3/2)
+                charImage.scale(to: desiredSize)
+            }else {
+                charImage.scale(to: desiredSize)
+            }
+            charImage.position = CGPoint(x: charImage.size.width / 3, y: size.height/2)
         case .right:
-            let desiredSize = CGSize(width: size.width, height: size.height)
+            var desiredSize = CGSize(width: size.width/2, height: size.height/2)
             let scaleFactor = min(desiredSize.width / charImage.size.width, desiredSize.height / charImage.size.height)
             charImage.size = CGSize(width: charImage.size.width * scaleFactor, height: charImage.size.height * scaleFactor )
-            charImage.setScale(scaleFactor * 1.5)
-            charImage.position = CGPoint(x: size.width/2 + charImage.size.width / 3, y: size.height/2)
+            
+            if type == .giant {
+                desiredSize = CGSize(width: desiredSize.width*3/2, height: desiredSize.height*3/2)
+                charImage.scale(to: desiredSize)
+            }else {
+                charImage.scale(to: desiredSize)
+//                charImage.setScale(scaleFactor)
+            }
+            charImage.position = CGPoint(x: size.width - charImage.size.width / 3, y: size.height/2)
         case .center:
             charImage.position = CGPoint(x:size.width/2, y: size.height/2)
             charImage.scale(to: CGSize(width: size.width, height: size.height))

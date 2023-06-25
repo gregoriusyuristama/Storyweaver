@@ -42,7 +42,7 @@ class ThirdScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
-//        backgroundColor = .brown
+        //        backgroundColor = .brown
         backgroundNode = SKSpriteNode(imageNamed: "Scene3.png")
         backgroundNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
         backgroundNode.scale(to: CGSize(width: size.width, height: size.height))
@@ -75,9 +75,20 @@ class ThirdScene: SKScene {
         dialogueLabel.preferredMaxLayoutWidth = dialogueBackground.frame.width - size.width * 0.05
         dialogueLabel.numberOfLines = 5
         dialogueLabel.zPosition = 2
-        
-        
         addChild(dialogueLabel)
+        
+        continueLabel = SKLabelNode(fontNamed: "Aleo-Regular")
+        continueLabel.text = "Tap to continue..."
+        continueLabel.fontSize = 16
+        continueLabel.fontColor = SKColor.white
+        continueLabel.horizontalAlignmentMode = .right
+        continueLabel.verticalAlignmentMode = .bottom
+        continueLabel.position = CGPoint(x: dialogueBackground.frame.maxX - 10, y: dialogueBackground.frame.minY + 10)
+        continueLabel.zPosition = 2
+        continueLabel.alpha = 0
+        addChild(continueLabel)
+        
+        
         
         showNextDialogue()
         
@@ -107,9 +118,6 @@ class ThirdScene: SKScene {
             let buttonNode = SKShapeNode(rectOf: buttonSize)
             buttonNode.fillColor = SKColor.white
             buttonNode.strokeColor = SKColor.black
-//            if let characterMbokSrini = (characters.first(where: {$0.component(ofType: CharacterVisualComponent.self)?.type == .mbokSrini}))?.component(ofType: CharacterVisualComponent.self) {
-//                buttonNode.position = CGPoint(x: characterMbokSrini.characterNode.frame.size.width/2 + buttonNode.frame.size.width, y: buttonsYPosition + CGFloat(index) * (buttonSize.height + buttonSpacing))
-//            }
             buttonNode.position = CGPoint(x: size.width/2, y: buttonsYPosition + CGFloat(index) * (buttonSize.height + buttonSpacing))
             buttonNode.alpha = 0.0
             isButtonVisible = false
@@ -121,8 +129,9 @@ class ThirdScene: SKScene {
             buttons.append(buttonNode)
         }
     }
-
+    
     func showNextDialogue() {
+        continueLabel.alpha = 0
         
         for case let component as CharacterVisualComponent in characterVisualComponentSytem.components {
             if component.type == .mbokSrini || component.type == .giant {
@@ -165,8 +174,10 @@ class ThirdScene: SKScene {
             if gameState.currentDialog?.nextDialogIDs.count != 1 {
                 createButtons()
                 showButtons()
+            } else {
+                continueLabel.alpha = 1
             }
-
+            
         }
     }
     
@@ -199,8 +210,8 @@ class ThirdScene: SKScene {
         narrator.component(ofType: CharacterVisualComponent.self)?.characterNode.alpha = 0
         characters.append(narrator)
         
-//        let storyweaver = CreateEntity.storyWeaverEntity(scene: self)
-//        characters.append(storyweaver)
+        //        let storyweaver = CreateEntity.storyWeaverEntity(scene: self)
+        //        characters.append(storyweaver)
         
         let mbokSrini = CreateEntity.mbokSriniEntity(scene: self, pos: .left)
         characters.append(mbokSrini)
@@ -254,6 +265,9 @@ class ThirdScene: SKScene {
                 if gameState.currentDialog?.nextDialogIDs.count != 1 {
                     createButtons()
                     showButtons()
+                } else {
+                    
+                    continueLabel.alpha = 1
                 }
             }
             
