@@ -12,6 +12,7 @@ class GameState: ObservableObject {
     @Published var outcome: String = ""
     @Published var decisions: [Decision] = []
     
+
     var dialogTree: [Dialog]
     
     init(dialogTree: [Dialog]) {
