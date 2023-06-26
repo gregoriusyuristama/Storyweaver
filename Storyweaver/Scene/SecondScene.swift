@@ -102,6 +102,11 @@ class SecondScene: SKScene {
             AudioManager.shared.playSoundEffect(fileName: "scene2_audio1_babyCrying")
         }
         
+        if gameState.currentDialog?.id == 6 {
+            AudioManager.shared.playSoundEffect(fileName: "scene2_audio2_butoIjoStomp")
+        }
+
+        
         if gameState.currentDialog?.id == 8 {
             AudioManager.shared.playBackgroundMusic(fileName: "scene2and3")
         }
