@@ -25,7 +25,8 @@ class GameViewController: UIViewController {
         skView.showsNodeCount = true
 
         // Create and present the initial scene
-        let initialScene = PrologueScene(size: skView.bounds.size)
+//        let initialScene = PrologueScene(size: skView.bounds.size)
+        let initialScene = JigsawPuzzleScene.scene(named: "raster-pieces-iPad.json")
         initialScene.scaleMode = .aspectFill
 
         skView.presentScene(initialScene)
