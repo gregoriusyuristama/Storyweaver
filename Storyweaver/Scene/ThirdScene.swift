@@ -154,6 +154,20 @@ class ThirdScene: SKScene {
         dialogueLabel.text = ""
         currentIndex = 0
         animateTextDisplay(dialogueText: currentDialogueText)
+        
+        // Sound Effect
+        if gameState.currentDialog?.id == 2 {
+            AudioManager.shared.playSoundEffect(fileName: "scene3_audio1_butoIjoGrowling")
+        }
+        if gameState.currentDialog?.id == 9 {
+            AudioManager.shared.playSoundEffect(fileName: "scene3_audio2_butoIjoGrowling")
+        }
+        
+        if gameState.currentDialog?.id == 20 {
+            AudioManager.shared.playSoundEffect(fileName: "scene3_audio1_butoIjoGrowling")
+        }
+
+
     }
     
     func animateTextDisplay(dialogueText: String) {
