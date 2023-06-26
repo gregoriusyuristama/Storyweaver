@@ -143,7 +143,12 @@ class FourthScene: SKScene {
         for case let component as CharacterVisualComponent in characterVisualComponentSytem.components {
             if component.type == .mbokSrini || component.type == .timunMas || component.type == .storyweaver{
                 if gameState.currentDialog?.character == component.type {
-                    component.characterNode.alpha = 1
+                    if component.type == .storyweaver {
+                        component.characterNode.alpha = 0
+                    }else {
+                        component.characterNode.alpha = 1
+                        
+                    }
                     
                     //MARK: masih belum ada gambar storyweaver ngomong
                     
