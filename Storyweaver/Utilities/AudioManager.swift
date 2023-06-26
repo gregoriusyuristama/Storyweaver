@@ -44,6 +44,7 @@ class AudioManager {
         do {
             soundEffectPlayer = try AVAudioPlayer(contentsOf: url)
             soundEffectPlayer?.prepareToPlay()
+            soundEffectPlayer?.volume = 1.5
             soundEffectPlayer?.play()
         } catch {
             print("Failed to play sound effect: \(error.localizedDescription)")

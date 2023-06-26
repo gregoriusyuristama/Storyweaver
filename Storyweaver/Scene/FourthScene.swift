@@ -171,6 +171,21 @@ class FourthScene: SKScene {
         dialogueLabel.text = ""
         currentIndex = 0
         animateTextDisplay(dialogueText: currentDialogueText)
+        
+        //Sound Effect
+        if gameState.currentDialog?.id == 1 {
+            AudioManager.shared.playSoundEffect(fileName: "scene4_audio1_reliefSigh")
+        }
+        if gameState.currentDialog?.id == 5 {
+            AudioManager.shared.playSoundEffect(fileName: "scene4_audio2_babyLaugh")
+        }
+
+        if gameState.currentDialog?.id == 6 {
+            AudioManager.shared.playSoundEffect(fileName: "scene4_audio2_mbokSriniLaugh")
+        }
+            if gameState.currentDialog?.id == 14 {
+                AudioManager.shared.playSoundEffect(fileName: "scene4_audio1_reliefSigh")
+        }
     }
     
     func animateTextDisplay(dialogueText: String) {

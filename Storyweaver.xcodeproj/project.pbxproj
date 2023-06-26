@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81A9E56F2A49279D004B8609 /* scene3_audio1_butoIjoGrowling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81A9E56E2A49279D004B8609 /* scene3_audio1_butoIjoGrowling.mp3 */; };
+		81A9E5712A4930DC004B8609 /* scene1_audio1_babyCrying.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81A9E5702A4930DC004B8609 /* scene1_audio1_babyCrying.mp3 */; };
+		81A9E5732A4952A3004B8609 /* scene3_audio2_butoIjoGrowling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81A9E5722A4952A3004B8609 /* scene3_audio2_butoIjoGrowling.mp3 */; };
+		81A9E5752A495395004B8609 /* scene4_audio1_reliefSigh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81A9E5742A495395004B8609 /* scene4_audio1_reliefSigh.mp3 */; };
+		81A9E5772A49542E004B8609 /* scene4_audio2_mbokSriniLaugh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81A9E5762A49542E004B8609 /* scene4_audio2_mbokSriniLaugh.mp3 */; };
+		81A9E5792A4954F8004B8609 /* scene4_audio3_babyLaugh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81A9E5782A4954F8004B8609 /* scene4_audio3_babyLaugh.mp3 */; };
+		81A9E57B2A495A1F004B8609 /* scene2_audio2_butoIjoStomp.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81A9E57A2A495A1F004B8609 /* scene2_audio2_butoIjoStomp.mp3 */; };
 		B613EF372A42A6D900536EB7 /* ActTitleScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B613EF362A42A6D900536EB7 /* ActTitleScene.sks */; };
 		B613EF3F2A42FD2200536EB7 /* Aleo-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B613EF392A42FD2100536EB7 /* Aleo-Italic.ttf */; };
 		B613EF402A42FD2200536EB7 /* Aleo-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B613EF3A2A42FD2100536EB7 /* Aleo-Light.ttf */; };
@@ -19,7 +26,6 @@
 		B613EF4D2A42FEE500536EB7 /* FirstScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B613EF4C2A42FEE500536EB7 /* FirstScene.swift */; };
 		B6239EC82A44912200C1420A /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6239EC72A44912200C1420A /* AudioManager.swift */; };
 		B6239ECD2A4491EB00C1420A /* scene1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B6239ECC2A4491EB00C1420A /* scene1.mp3 */; };
-		B6239ED02A44931900C1420A /* scene1_audio1_babyCrying.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B6239ECF2A44931900C1420A /* scene1_audio1_babyCrying.mp3 */; };
 		B6239ED22A44A2CB00C1420A /* scene1_audio2_babyCrying.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B6239ED12A44A2CB00C1420A /* scene1_audio2_babyCrying.mp3 */; };
 		B6239ED42A44A37400C1420A /* scene1_audio3_heavyBreath.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B6239ED32A44A37400C1420A /* scene1_audio3_heavyBreath.mp3 */; };
 		B6239ED62A44A3C700C1420A /* scene1_audio4_transition.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B6239ED52A44A3C700C1420A /* scene1_audio4_transition.mp3 */; };
@@ -51,6 +57,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		81A9E56E2A49279D004B8609 /* scene3_audio1_butoIjoGrowling.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene3_audio1_butoIjoGrowling.mp3; sourceTree = "<group>"; };
+		81A9E5702A4930DC004B8609 /* scene1_audio1_babyCrying.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene1_audio1_babyCrying.mp3; sourceTree = "<group>"; };
+		81A9E5722A4952A3004B8609 /* scene3_audio2_butoIjoGrowling.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene3_audio2_butoIjoGrowling.mp3; sourceTree = "<group>"; };
+		81A9E5742A495395004B8609 /* scene4_audio1_reliefSigh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene4_audio1_reliefSigh.mp3; sourceTree = "<group>"; };
+		81A9E5762A49542E004B8609 /* scene4_audio2_mbokSriniLaugh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene4_audio2_mbokSriniLaugh.mp3; sourceTree = "<group>"; };
+		81A9E5782A4954F8004B8609 /* scene4_audio3_babyLaugh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene4_audio3_babyLaugh.mp3; sourceTree = "<group>"; };
+		81A9E57A2A495A1F004B8609 /* scene2_audio2_butoIjoStomp.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene2_audio2_butoIjoStomp.mp3; sourceTree = "<group>"; };
 		B613EF362A42A6D900536EB7 /* ActTitleScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ActTitleScene.sks; sourceTree = "<group>"; };
 		B613EF392A42FD2100536EB7 /* Aleo-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aleo-Italic.ttf"; sourceTree = "<group>"; };
 		B613EF3A2A42FD2100536EB7 /* Aleo-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aleo-Light.ttf"; sourceTree = "<group>"; };
@@ -64,7 +77,6 @@
 		B613EF4C2A42FEE500536EB7 /* FirstScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScene.swift; sourceTree = "<group>"; };
 		B6239EC72A44912200C1420A /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		B6239ECC2A4491EB00C1420A /* scene1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene1.mp3; sourceTree = "<group>"; };
-		B6239ECF2A44931900C1420A /* scene1_audio1_babyCrying.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene1_audio1_babyCrying.mp3; sourceTree = "<group>"; };
 		B6239ED12A44A2CB00C1420A /* scene1_audio2_babyCrying.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene1_audio2_babyCrying.mp3; sourceTree = "<group>"; };
 		B6239ED32A44A37400C1420A /* scene1_audio3_heavyBreath.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene1_audio3_heavyBreath.mp3; sourceTree = "<group>"; };
 		B6239ED52A44A3C700C1420A /* scene1_audio4_transition.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene1_audio4_transition.mp3; sourceTree = "<group>"; };
@@ -170,11 +182,17 @@
 		B6239ECE2A44927E00C1420A /* SFX */ = {
 			isa = PBXGroup;
 			children = (
+				81A9E5702A4930DC004B8609 /* scene1_audio1_babyCrying.mp3 */,
 				B6239ED12A44A2CB00C1420A /* scene1_audio2_babyCrying.mp3 */,
 				B6239ED52A44A3C700C1420A /* scene1_audio4_transition.mp3 */,
 				B6239ED32A44A37400C1420A /* scene1_audio3_heavyBreath.mp3 */,
-				B6239ECF2A44931900C1420A /* scene1_audio1_babyCrying.mp3 */,
 				B6239ED72A44A69400C1420A /* scene2_audio1_babyCrying.mp3 */,
+				81A9E57A2A495A1F004B8609 /* scene2_audio2_butoIjoStomp.mp3 */,
+				81A9E56E2A49279D004B8609 /* scene3_audio1_butoIjoGrowling.mp3 */,
+				81A9E5722A4952A3004B8609 /* scene3_audio2_butoIjoGrowling.mp3 */,
+				81A9E5742A495395004B8609 /* scene4_audio1_reliefSigh.mp3 */,
+				81A9E5762A49542E004B8609 /* scene4_audio2_mbokSriniLaugh.mp3 */,
+				81A9E5782A4954F8004B8609 /* scene4_audio3_babyLaugh.mp3 */,
 			);
 			path = SFX;
 			sourceTree = "<group>";
@@ -320,21 +338,27 @@
 			files = (
 				B613EF3F2A42FD2200536EB7 /* Aleo-Italic.ttf in Resources */,
 				B613EF372A42A6D900536EB7 /* ActTitleScene.sks in Resources */,
-				B6239ED02A44931900C1420A /* scene1_audio1_babyCrying.mp3 in Resources */,
 				B613EF442A42FD2200536EB7 /* Aleo-Bold.ttf in Resources */,
 				B6239ECD2A4491EB00C1420A /* scene1.mp3 in Resources */,
+				81A9E57B2A495A1F004B8609 /* scene2_audio2_butoIjoStomp.mp3 in Resources */,
 				B613EF402A42FD2200536EB7 /* Aleo-Light.ttf in Resources */,
 				B6239EDA2A44A72700C1420A /* scene2and3.mp3 in Resources */,
 				B613EF432A42FD2200536EB7 /* Aleo-BoldItalic.ttf in Resources */,
 				B613EF412A42FD2200536EB7 /* Aleo-LightItalic.ttf in Resources */,
 				B6239ED62A44A3C700C1420A /* scene1_audio4_transition.mp3 in Resources */,
 				B613EF422A42FD2200536EB7 /* Aleo-Regular.ttf in Resources */,
+				81A9E5712A4930DC004B8609 /* scene1_audio1_babyCrying.mp3 in Resources */,
 				B6239ED22A44A2CB00C1420A /* scene1_audio2_babyCrying.mp3 in Resources */,
+				81A9E5792A4954F8004B8609 /* scene4_audio3_babyLaugh.mp3 in Resources */,
 				B6BEEA9B2A3C1829007718AB /* Main.storyboard in Resources */,
+				81A9E5752A495395004B8609 /* scene4_audio1_reliefSigh.mp3 in Resources */,
 				B613EF472A42FDEF00536EB7 /* SecondScene.sks in Resources */,
+				81A9E56F2A49279D004B8609 /* scene3_audio1_butoIjoGrowling.mp3 in Resources */,
 				B6BEEA9D2A3C182B007718AB /* Assets.xcassets in Resources */,
 				B6BEEAA02A3C182B007718AB /* LaunchScreen.storyboard in Resources */,
+				81A9E5732A4952A3004B8609 /* scene3_audio2_butoIjoGrowling.mp3 in Resources */,
 				B6239ED42A44A37400C1420A /* scene1_audio3_heavyBreath.mp3 in Resources */,
+				81A9E5772A49542E004B8609 /* scene4_audio2_mbokSriniLaugh.mp3 in Resources */,
 				B6239ED82A44A69400C1420A /* scene2_audio1_babyCrying.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
