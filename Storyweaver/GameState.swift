@@ -12,14 +12,18 @@ class GameState: ObservableObject {
     @Published var outcome: String = ""
     @Published var decisions: [Decision] = []
     
-    init() {
-        currentDialog = DialogTree.DialogTreeScene1.first
+
+    var dialogTree: [Dialog]
+    
+    init(dialogTree: [Dialog]) {
+        self.dialogTree = dialogTree
+        currentDialog = self.dialogTree.first
         updateDecisions()
     }
     
     func selectDecision(_ decision: Decision) {
         outcome = decision.outcome
-        currentDialog = DialogTree.DialogTreeScene1.first { $0.id == decision.dialogID }
+        currentDialog = self.dialogTree.first { $0.id == decision.dialogID }
         updateDecisions()
     }
     
@@ -30,65 +34,12 @@ class GameState: ObservableObject {
     }
     
     private func decisionForDialogID(_ dialogID: Int) -> Decision? {
-        return DialogTree.DialogTreeScene1.first { $0.id == dialogID }.map { Decision(text: $0.outcome, outcome: $0.outcome, dialogID: $0.id) }
+        return self.dialogTree.first { $0.id == dialogID }.map { Decision(text: $0.outcome, outcome: $0.outcome, dialogID: $0.id) }
     }
     
     func resetGame() {
-        currentDialog = DialogTree.DialogTreeScene1.first
+        currentDialog = self.dialogTree.first
         outcome = ""
         updateDecisions()
-    }
-}
-
-
-
-struct ContentView: View {
-    @StateObject private var gameState = GameState()
-    
-    var body: some View {
-        VStack {
-            if let currentDialog = gameState.currentDialog {
-                Text(currentDialog.text)
-                    .font(.title)
-                    .padding()
-                
-                if currentDialog.nextDialogIDs.isEmpty {
-                    Text("Outcome: \(gameState.outcome)")
-                        .font(.title2)
-                        .padding()
-                } else {
-                    ForEach(gameState.decisions, id: \.dialogID) { decision in
-                        Button(action: {
-                            gameState.selectDecision(decision)
-                        }) {
-                            Text(decision.text)
-                                .font(.title2)
-                                .padding()
-                        }
-                        .buttonStyle(.bordered)
-                        .padding(.horizontal)
-                    }
-                }
-            }
-            Spacer()
-            Button(action: {
-                gameState.resetGame()
-            }) {
-                Text("Reset")
-                    .font(.title2)
-                    .padding()
-            }
-            .buttonStyle(.bordered)
-            .padding(.horizontal)
-            
-            Spacer()
-        }
-    }
-}
-
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
