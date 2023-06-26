@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B603BD852A49569F00908E34 /* PrologueScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B603BD842A49569F00908E34 /* PrologueScene.swift */; };
 		81A9E56F2A49279D004B8609 /* scene3_audio1_butoIjoGrowling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81A9E56E2A49279D004B8609 /* scene3_audio1_butoIjoGrowling.mp3 */; };
 		81A9E5712A4930DC004B8609 /* scene1_audio1_babyCrying.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81A9E5702A4930DC004B8609 /* scene1_audio1_babyCrying.mp3 */; };
 		81A9E5732A4952A3004B8609 /* scene3_audio2_butoIjoGrowling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81A9E5722A4952A3004B8609 /* scene3_audio2_butoIjoGrowling.mp3 */; };
@@ -15,6 +14,8 @@
 		81A9E5772A49542E004B8609 /* scene4_audio2_mbokSriniLaugh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81A9E5762A49542E004B8609 /* scene4_audio2_mbokSriniLaugh.mp3 */; };
 		81A9E5792A4954F8004B8609 /* scene4_audio3_babyLaugh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81A9E5782A4954F8004B8609 /* scene4_audio3_babyLaugh.mp3 */; };
 		81A9E57B2A495A1F004B8609 /* scene2_audio2_butoIjoStomp.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81A9E57A2A495A1F004B8609 /* scene2_audio2_butoIjoStomp.mp3 */; };
+		B603BD852A49569F00908E34 /* PrologueScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B603BD842A49569F00908E34 /* PrologueScene.swift */; };
+		B603BD882A497B8F00908E34 /* InsertTimunName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B603BD872A497B8F00908E34 /* InsertTimunName.swift */; };
 		B613EF372A42A6D900536EB7 /* ActTitleScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B613EF362A42A6D900536EB7 /* ActTitleScene.sks */; };
 		B613EF3F2A42FD2200536EB7 /* Aleo-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B613EF392A42FD2100536EB7 /* Aleo-Italic.ttf */; };
 		B613EF402A42FD2200536EB7 /* Aleo-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B613EF3A2A42FD2100536EB7 /* Aleo-Light.ttf */; };
@@ -58,7 +59,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B603BD842A49569F00908E34 /* PrologueScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrologueScene.swift; sourceTree = "<group>"; };
 		81A9E56E2A49279D004B8609 /* scene3_audio1_butoIjoGrowling.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene3_audio1_butoIjoGrowling.mp3; sourceTree = "<group>"; };
 		81A9E5702A4930DC004B8609 /* scene1_audio1_babyCrying.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene1_audio1_babyCrying.mp3; sourceTree = "<group>"; };
 		81A9E5722A4952A3004B8609 /* scene3_audio2_butoIjoGrowling.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene3_audio2_butoIjoGrowling.mp3; sourceTree = "<group>"; };
@@ -66,6 +66,8 @@
 		81A9E5762A49542E004B8609 /* scene4_audio2_mbokSriniLaugh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene4_audio2_mbokSriniLaugh.mp3; sourceTree = "<group>"; };
 		81A9E5782A4954F8004B8609 /* scene4_audio3_babyLaugh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene4_audio3_babyLaugh.mp3; sourceTree = "<group>"; };
 		81A9E57A2A495A1F004B8609 /* scene2_audio2_butoIjoStomp.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene2_audio2_butoIjoStomp.mp3; sourceTree = "<group>"; };
+		B603BD842A49569F00908E34 /* PrologueScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrologueScene.swift; sourceTree = "<group>"; };
+		B603BD872A497B8F00908E34 /* InsertTimunName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertTimunName.swift; sourceTree = "<group>"; };
 		B613EF362A42A6D900536EB7 /* ActTitleScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ActTitleScene.sks; sourceTree = "<group>"; };
 		B613EF392A42FD2100536EB7 /* Aleo-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aleo-Italic.ttf"; sourceTree = "<group>"; };
 		B613EF3A2A42FD2100536EB7 /* Aleo-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aleo-Light.ttf"; sourceTree = "<group>"; };
@@ -121,6 +123,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B603BD862A497B6F00908E34 /* Mechanics */ = {
+			isa = PBXGroup;
+			children = (
+				B603BD872A497B8F00908E34 /* InsertTimunName.swift */,
+			);
+			path = Mechanics;
+			sourceTree = "<group>";
+		};
 		B613EF352A42A6C500536EB7 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +273,7 @@
 		B6BEEA8E2A3C1829007718AB /* Storyweaver */ = {
 			isa = PBXGroup;
 			children = (
+				B603BD862A497B6F00908E34 /* Mechanics */,
 				B6239EC92A44919300C1420A /* Resources */,
 				B6239EC62A44911600C1420A /* Utilities */,
 				B613EF452A42FD5500536EB7 /* Info.plist */,
@@ -391,6 +402,7 @@
 				B6F755A92A488DE60058376D /* FourthScene.swift in Sources */,
 				B6EE4B3C2A4585E300A487E6 /* FifthScene.swift in Sources */,
 				B6EE4B422A4587E100A487E6 /* EightScene.swift in Sources */,
+				B603BD882A497B8F00908E34 /* InsertTimunName.swift in Sources */,
 				B6BEEA902A3C1829007718AB /* AppDelegate.swift in Sources */,
 				B6F755A32A45AC3F0058376D /* GameConfig.swift in Sources */,
 				B6B234C62A40B427007AFDEF /* CharacterList.swift in Sources */,
