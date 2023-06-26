@@ -194,23 +194,19 @@ class DialogTree {
                 Dialog(id: 27, text: "BRANCH", outcome: "Wait longer… ", nextDialogIDs: [], character: .narrator),
                 Dialog(id: 28, text: "With a heavy heart, you decided it was time to return home. The uneasiness that gnawed at your consciousness as Timun Mas was a clear indication that something was amiss.", outcome: "Go home...", nextDialogIDs: [], character: .narrator),
                 
-                
-//                Dialog(id: 29, text: "His sinister smile intrigued you, but with a resolute determination as a Storyweaver, it was not your place to pry into the thoughts and actions of the characters.", outcome: "Continue", nextDialogIDs: [], character: .narrator),
-//                Dialog(id: 30, text: "You directed your gaze towards the giant. To your surprise, he appeared to be happy, a stark contrast to his usual grumpy and irritable demeanor.", outcome: "\"I think I’ll stay here after all.\"", nextDialogIDs: [9], character: .narrator),
-//                Dialog(id: 31, text: "His sinister smile intrigued you, but with a resolute determination as a Storyweaver, it was not your place to pry into the thoughts and actions of the characters.", outcome: "Continue", nextDialogIDs: [], character: .narrator),
-//                Dialog(id: 32, text: "You directed your gaze towards the giant. To your surprise, he appeared to be happy, a stark contrast to his usual grumpy and irritable demeanor.", outcome: "\"I think I’ll stay here after all.\"", nextDialogIDs: [9], character: .narrator),
-//                Dialog(id: 33, text: "His sinister smile intrigued you, but with a resolute determination as a Storyweaver, it was not your place to pry into the thoughts and actions of the characters.", outcome: "Continue", nextDialogIDs: [], character: .narrator),
-//                Dialog(id: 34, text: "You directed your gaze towards the giant. To your surprise, he appeared to be happy, a stark contrast to his usual grumpy and irritable demeanor.", outcome: "\"I think I’ll stay here after all.\"", nextDialogIDs: [9], character: .narrator),
-//                Dialog(id: 35, text: "His sinister smile intrigued you, but with a resolute determination as a Storyweaver, it was not your place to pry into the thoughts and actions of the characters.", outcome: "Continue", nextDialogIDs: [], character: .narrator),
-//                Dialog(id: 36, text: "You directed your gaze towards the giant. To your surprise, he appeared to be happy, a stark contrast to his usual grumpy and irritable demeanor.", outcome: "\"I think I’ll stay here after all.\"", nextDialogIDs: [9], character: .narrator),
-//                Dialog(id: 37, text: "His sinister smile intrigued you, but with a resolute determination as a Storyweaver, it was not your place to pry into the thoughts and actions of the characters.", outcome: "Continue", nextDialogIDs: [], character: .narrator),
-//                Dialog(id: 38, text: "You directed your gaze towards the giant. To your surprise, he appeared to be happy, a stark contrast to his usual grumpy and irritable demeanor.", outcome: "\"I think I’ll stay here after all.\"", nextDialogIDs: [9], character: .narrator),
-//                Dialog(id: 39, text: "His sinister smile intrigued you, but with a resolute determination as a Storyweaver, it was not your place to pry into the thoughts and actions of the characters.", outcome: "Continue", nextDialogIDs: [], character: .narrator),
-//                Dialog(id: 40, text: "You directed your gaze towards the giant. To your surprise, he appeared to be happy, a stark contrast to his usual grumpy and irritable demeanor.", outcome: "\"I think I’ll stay here after all.\"", nextDialogIDs: [9], character: .narrator),
-//                Dialog(id: 41, text: "His sinister smile intrigued you, but with a resolute determination as a Storyweaver, it was not your place to pry into the thoughts and actions of the characters.", outcome: "Continue", nextDialogIDs: [], character: .narrator),
-
     ]
     
+    
+    static let DialogTreeScene9a: [Dialog] = [
+                Dialog(id: 0, text: "Questions swirled in your mind as you walked.", outcome: "Continue", nextDialogIDs: [1], character: .narrator),
+                Dialog(id: 1, text: "(What had caused this shift in the narrative?)", outcome: "Continue", nextDialogIDs: [2], character: .storyweaver),
+                Dialog(id: 2, text: "The anticipation of the upcoming story as a Storyweaver fueled your creative spirit, eager to weave a tale of adventure, triumph, and the ultimate confrontation with Buto Ijo.", outcome: "Continue", nextDialogIDs: [3], character: .narrator),
+                Dialog(id: 3, text: "(But… why were Buto Ijo and Mbok Srini displaying such contrasting emotions?)", outcome: "Continue", nextDialogIDs: [4], character: .storyweaver),
+                Dialog(id: 4, text: "As Timun Mas, the restless hero within the story, you couldn't help but feel a sense of urgency and unease.", outcome: "Continue", nextDialogIDs: [5], character: .narrator),
+                Dialog(id: 5, text: "The overlapping consciousness of the Storyweaver and Timun Mas creating a swirling mix of excitement and restlessness within you.", outcome: "Continue", nextDialogIDs: [6], character: .narrator),
+                Dialog(id: 6, text: "The threads of destiny entangled, and the choices you would make would shape not only your own story but also the lives of those you held dear. What awaited you was something beyond your wildest imagination, a revelation that would challenge your identity as Timun Mas and the Storyweaver.", outcome: "Continue", nextDialogIDs: [], character: .narrator),
+                
+        ]
     
     static let DialogTreeScene10: [Dialog] = [
                 Dialog(id: 0, text: "As you reached your abode, the absence of your foster mother — Mbok Srini, struck you with surprise and concern.", outcome: "Continue", nextDialogIDs: [1], character: .narrator),
@@ -280,36 +276,160 @@ class DialogTree {
                 Dialog(id: 12, text: "\"How could I not acknowledge her as my beloved daughter?\"", outcome: "Continue", nextDialogIDs: [13], character: .mbokSrini),
                 Dialog(id: 13, text: "The words echoed in the air, carrying the weight of Mbok Srini's remorse and love.", outcome: "Continue", nextDialogIDs: [14], character: .narrator),
                 Dialog(id: 14, text: "A mix of emotions surged within you, conflicting and intertwining as the truth unveiled itself.", outcome: "Continue", nextDialogIDs: [], character: .narrator),
-                Dialog(id: 0, text: "The betrayal you had felt was tempered by the realization that Mbok Srini had come to love and cherish you as her own daughter, despite the circumstances of your arrival.", outcome: "Continue", nextDialogIDs: [1], character: .narrator),
-                Dialog(id: 1, text: "Your consciousness as Timun Mas wavered, torn between the hurt caused by the revelation and the undeniable bond that had formed between you and Mbok Srini.", outcome: "Continue", nextDialogIDs: [2], character: .narrator),
-                Dialog(id: 2, text: "The weight of her words settled upon you, their impact seeping into your heart.", outcome: "Continue", nextDialogIDs: [3], character: .narrator),
-                Dialog(id: 3, text: "It was a moment of vulnerability, of recognizing the depth of emotions that had entangled your lives.", outcome: "Continue", nextDialogIDs: [4], character: .narrator),
-                Dialog(id: 4, text: "As a Storyweaver, you understood the importance of maintaining the integrity of the narratives.", outcome: "Continue", nextDialogIDs: [5], character: .narrator),
-                Dialog(id: 5, text: "The story had taken an unforeseen turn, unraveling secrets and unveiling the complexities of the characters involved.", outcome: "Continue", nextDialogIDs: [6], character: .narrator),
-                Dialog(id: 6, text: "You were faced with a choice - to remain detached as the Storyweaver or to embrace your role as Timun Mas, to confront the emotions that swelled within you and seek resolution.", outcome: "Continue", nextDialogIDs: [7], character: .narrator),
-                Dialog(id: 7, text: "(…So, what should we become?)", outcome: "Continue", nextDialogIDs: [8], character: .storyweaver),
-                Dialog(id: 8, text: "BRANCH", outcome: "The Storyweaver", nextDialogIDs: [9], character: .mbokSrini),
-                Dialog(id: 9, text: "In that moment, you chose to step forward, the boundaries between the Storyweaver and the character blurring. ", outcome: "Timun Mas", nextDialogIDs: [10], character: .narrator),
-                Dialog(id: 10, text: "You approached Mbok Srini, looking into her eyes with a mixture of pain, understanding, and forgiveness.", outcome: "Continue", nextDialogIDs: [11], character: .narrator),
-                Dialog(id: 11, text: "\"You are not a failure, dear Mother\"", outcome: "Continue", nextDialogIDs: [12], character: .timunMas),
-                Dialog(id: 12, text: "You said softly, your voice filled with empathy.", outcome: "Continue", nextDialogIDs: [13], character: .narrator),
-                Dialog(id: 13, text: "\"We all make mistakes, and it is through those mistakes that we learn and grow.\"", outcome: "Continue", nextDialogIDs: [14], character: .timunMas),
-                Dialog(id: 14, text: "\"You may have started as a character in a tale, but through the love and care you have given me, you became my mother in every sense of the word.\"", outcome: "Continue", nextDialogIDs: [], character: .timunMas),
-                Dialog(id: 0, text: "\"Timun Mas…\"", outcome: "Continue", nextDialogIDs: [1], character: .mbokSrini),
-                Dialog(id: 1, text: "Tears welled up in both your eyes as the weight of the truth and the depth of your bond washed over you.", outcome: "Continue", nextDialogIDs: [2], character: .narrator),
-                Dialog(id: 2, text: "In that moment, you chose to embrace the complexity of the story and the emotions it stirred.", outcome: "Continue", nextDialogIDs: [3], character: .narrator),
-                Dialog(id: 3, text: "You took Mbok Srini's hand, offering solace and forgiveness.", outcome: "Continue", nextDialogIDs: [4], character: .narrator),
-                Dialog(id: 4, text: "With renewed strength and a shared resolve, you turned your attention back to Buto Ijo, who had watched the emotional exchange with a mix of curiosity and impatience. ", outcome: "Continue", nextDialogIDs: [5], character: .narrator),
-                Dialog(id: 5, text: "The story had taken an unforeseen turn, unraveling secrets and unveiling the complexities of the characters involved.", outcome: "Continue", nextDialogIDs: [6], character: .narrator),
-                Dialog(id: 6, text: "You were faced with a choice - to remain detached as the Storyweaver or to embrace your role as Timun Mas, to confront the emotions that swelled within you and seek resolution.", outcome: "Continue", nextDialogIDs: [7], character: .narrator),
-                Dialog(id: 7, text: "(…So, what should we become?)", outcome: "Continue", nextDialogIDs: [8], character: .storyweaver),
-                Dialog(id: 8, text: "BRANCH", outcome: "The Storyweaver", nextDialogIDs: [9], character: .mbokSrini),
-                Dialog(id: 9, text: "In that moment, you chose to step forward, the boundaries between the Storyweaver and the character blurring. ", outcome: "Timun Mas", nextDialogIDs: [10], character: .narrator),
-                Dialog(id: 10, text: "You approached Mbok Srini, looking into her eyes with a mixture of pain, understanding, and forgiveness.", outcome: "Continue", nextDialogIDs: [11], character: .narrator),
-                Dialog(id: 11, text: "\"You are not a failure, dear Mother\"", outcome: "Continue", nextDialogIDs: [12], character: .timunMas),
-                Dialog(id: 12, text: "You said softly, your voice filled with empathy.", outcome: "Continue", nextDialogIDs: [13], character: .narrator),
-                Dialog(id: 13, text: "\"We all make mistakes, and it is through those mistakes that we learn and grow.\"", outcome: "Continue", nextDialogIDs: [14], character: .timunMas),
-                Dialog(id: 14, text: "\"You may have started as a character in a tale, but through the love and care you have given me, you became my mother in every sense of the word.\"", outcome: "Continue", nextDialogIDs: [], character: .timunMas),
+                Dialog(id: 15, text: "The betrayal you had felt was tempered by the realization that Mbok Srini had come to love and cherish you as her own daughter, despite the circumstances of your arrival.", outcome: "Continue", nextDialogIDs: [16], character: .narrator),
+                Dialog(id: 16, text: "Your consciousness as Timun Mas wavered, torn between the hurt caused by the revelation and the undeniable bond that had formed between you and Mbok Srini.", outcome: "Continue", nextDialogIDs: [17], character: .narrator),
+                Dialog(id: 17, text: "The weight of her words settled upon you, their impact seeping into your heart.", outcome: "Continue", nextDialogIDs: [18], character: .narrator),
+                Dialog(id: 18, text: "It was a moment of vulnerability, of recognizing the depth of emotions that had entangled your lives.", outcome: "Continue", nextDialogIDs: [19], character: .narrator),
+                Dialog(id: 19, text: "As a Storyweaver, you understood the importance of maintaining the integrity of the narratives.", outcome: "Continue", nextDialogIDs: [20], character: .narrator),
+                Dialog(id: 20, text: "The story had taken an unforeseen turn, unraveling secrets and unveiling the complexities of the characters involved.", outcome: "Continue", nextDialogIDs: [21], character: .narrator),
+                Dialog(id: 21, text: "You were faced with a choice - to remain detached as the Storyweaver or to embrace your role as Timun Mas, to confront the emotions that swelled within you and seek resolution.", outcome: "Continue", nextDialogIDs: [22], character: .narrator),
+                Dialog(id: 22, text: "(…So, what should we become?)", outcome: "Continue", nextDialogIDs: [23, 24], character: .storyweaver),
+                Dialog(id: 23, text: "BRANCH", outcome: "The Storyweaver", nextDialogIDs: [000], character: .mbokSrini),
+                Dialog(id: 24, text: "In that moment, you chose to step forward, the boundaries between the Storyweaver and the character blurring. ", outcome: "Timun Mas", nextDialogIDs: [25], character: .narrator),
+                Dialog(id: 25, text: "You approached Mbok Srini, looking into her eyes with a mixture of pain, understanding, and forgiveness.", outcome: "Continue", nextDialogIDs: [26], character: .narrator),
+                Dialog(id: 26, text: "\"You are not a failure, dear Mother\"", outcome: "Continue", nextDialogIDs: [27], character: .timunMas),
+                Dialog(id: 27, text: "You said softly, your voice filled with empathy.", outcome: "Continue", nextDialogIDs: [28], character: .narrator),
+                Dialog(id: 28, text: "\"We all make mistakes, and it is through those mistakes that we learn and grow.\"", outcome: "Continue", nextDialogIDs: [29], character: .timunMas),
+                Dialog(id: 29, text: "\"You may have started as a character in a tale, but through the love and care you have given me, you became my mother in every sense of the word.\"", outcome: "Continue", nextDialogIDs: [30], character: .timunMas),
+                Dialog(id: 30, text: "\"Timun Mas…\"", outcome: "Continue", nextDialogIDs: [31], character: .mbokSrini),
+                Dialog(id: 31, text: "Tears welled up in both your eyes as the weight of the truth and the depth of your bond washed over you.", outcome: "Continue", nextDialogIDs: [32], character: .narrator),
+                Dialog(id: 32, text: "In that moment, you chose to embrace the complexity of the story and the emotions it stirred.", outcome: "Continue", nextDialogIDs: [33], character: .narrator),
+                Dialog(id: 33, text: "You took Mbok Srini's hand, offering solace and forgiveness.", outcome: "Continue", nextDialogIDs: [34], character: .narrator),
+                Dialog(id: 34, text: "With renewed strength and a shared resolve, you turned your attention back to Buto Ijo, who had watched the emotional exchange with a mix of curiosity and impatience. ", outcome: "Continue", nextDialogIDs: [35], character: .narrator),
+                Dialog(id: 35, text: "\"Cucumber… Child… Can’t… Defeat… Buto Ijo!\"", outcome: "Continue", nextDialogIDs: [36], character: .giant),
+                Dialog(id: 36, text: "As Buto Ijo's taunts echoed through the air, you felt a surge of determination and resilience coursing through your veins.", outcome: "Continue", nextDialogIDs: [37], character: .narrator),
+                Dialog(id: 37, text: "You were no longer just a bystander in this story; you had become an active character, ready to protect and fight for those you cherished.", outcome: "Continue", nextDialogIDs: [38], character: .narrator),
+                Dialog(id: 38, text: "In that moment, your mind brimmed with the possibilities that the narrative could unfold.", outcome: "Continue", nextDialogIDs: [39], character: .narrator),
+                Dialog(id: 39, text: "As a Storyweaver, you delighted in the unexpected twists and turns, and you reveled in the power of the story to shape the outcome.", outcome: "Timun Mas", nextDialogIDs: [], character: .narrator),
+        ]
+    
+    
+    static let DialogTreeScene13a: [Dialog] = [
+                Dialog(id: 0, text: "Your consciousness as Timun Mas melded with the creative essence of the storyweaver, weaving a plan that transcended the bounds of conventional warfare.", outcome: "Continue", nextDialogIDs: [1], character: .narrator),
+                Dialog(id: 1, text: "Harnessing the full might of your authority as a Storyweaver, you stretched forth your hand with fingers trembling with raw power.", outcome: "Continue", nextDialogIDs: [2], character: .narrator),
+                Dialog(id: 2, text: "With a resolute gesture, you delved into the depths of your pocket, weaving an intricate web of magic that defied the boundaries of reality itself.", outcome: "Continue", nextDialogIDs: [3], character: .narrator),
+                Dialog(id: 3, text: "\"Hahaha…\"", outcome: "Continue", nextDialogIDs: [4], character: .giant),
+                Dialog(id: 4, text: "Buto Ijo's laughter echoed through the field, his confidence seemingly unshaken by the small object you held in your hand.", outcome: "Continue", nextDialogIDs: [5], character: .narrator),
+                Dialog(id: 5, text: "You raised an eyebrow, maintaining your smirk as you met Buto Ijo's gaze.", outcome: "Continue", nextDialogIDs: [6], character: .narrator),
+                Dialog(id: 6, text: "The air around you crackled with a sense of anticipation, as if the very fabric of the narrative was aligning itself with your words.", outcome: "Continue", nextDialogIDs: [7], character: .narrator),
+                
+                // CUTSCENE
+                
+                Dialog(id: 7, text: "\"You see, Buto Ijo, defeating you won't be as straightforward as you think.\"", outcome: "Continue", nextDialogIDs: [8], character: .timunMas),
+                Dialog(id: 8, text: "you declared, your voice carrying an air of intrigue.", outcome: "Continue", nextDialogIDs: [9], character: .narrator),
+                Dialog(id: 9, text: "\"For within the realm of storytelling, the most unexpected things hold immense power.\"", outcome: "Continue", nextDialogIDs: [10], character: .timunMas),
+                Dialog(id: 10, text: "\"Livingstock.. Talk… Too… MUCH!\"", outcome: "Continue", nextDialogIDs: [11], character: .giant),
+                Dialog(id: 11, text: "As Buto Ijo charged forward, his eyes filled with determination, you remained calm and focused.", outcome: "Continue", nextDialogIDs: [12], character: .narrator),
+                Dialog(id: 12, text: "With deliberate movements, you unfolded the small object in your hand and spread them on your path, revealing a set of seeds that glimmered with an otherworldly aura.", outcome: "Continue", nextDialogIDs: [13], character: .narrator),
+                
+                //END CUTSCENE
+                
+                //MINIGAME SWIPE ZIG ZAG CABANG
+                
+                Dialog(id: 13, text: "Memories of your initial encounter with Mbok Srini flooded your mind, reminding you of the time when you were trapped within a cucumber and she came to your rescue.", outcome: "Continue", nextDialogIDs: [14], character: .narrator),
+                Dialog(id: 14, text: "Drawing upon that connection and the power of storytelling, you scattered the cucumber seeds along the ground before you.", outcome: "Continue", nextDialogIDs: [], character: .narrator),
+                Dialog(id: 15, text: "In a matter of seconds, an incredible transformation began to unfold. Sprouts emerged from the earth, growing rapidly and reaching towards the sky.", outcome: "Continue", nextDialogIDs: [16], character: .narrator),
+                Dialog(id: 16, text: "To Buto Ijo's astonishment, the sprouts swiftly grew into luscious cucumber plants, their vines intertwining and spreading across the field.", outcome: "Continue", nextDialogIDs: [17], character: .narrator),
+                Dialog(id: 17, text: "Within moments, a dense network of cucumber-filled foliage had formed, creating a natural barrier that hindered Buto Ijo's movement.", outcome: "Continue", nextDialogIDs: [18], character: .narrator),
+                Dialog(id: 18, text: "\"Hard… Move… Annoying!\"", outcome: "Continue", nextDialogIDs: [19], character: .giant),
+                Dialog(id: 19, text: "With a surge of strength, he managed to tear himself away from the entanglement, leaving behind remnants of broken vines.", outcome: "Continue", nextDialogIDs: [20], character: .narrator),
+                
+                //MINIGAME SWIPE BATANG
+                
+                Dialog(id: 20, text: "Undeterred by his escape, you remained composed and drawing upon the memories of your exploration with Mbok Srini in the bamboo forest.", outcome: "Continue", nextDialogIDs: [21], character: .narrator),
+                Dialog(id: 21, text: "You unfolded another small object in your hand and scattered the object on the path before you.", outcome: "Continue", nextDialogIDs: [22], character: .narrator),
+                Dialog(id: 22, text: "In that instant, dozens of needles transformed into towering bamboo shoots, their long and sharp forms reaching towards the sky.", outcome: "Continue", nextDialogIDs: [23], character: .narrator),
+                Dialog(id: 23, text: "Buto Ijo, now confronted with the unexpected obstacle, found himself surrounded by the towering bamboo. ", outcome: "Continue", nextDialogIDs: [24], character: .narrator),
+                Dialog(id: 24, text: "The dense grove of bamboo restricted his movement, preventing him from advancing further towards you.", outcome: "Timun Mas", nextDialogIDs: [25], character: .narrator),
+                Dialog(id: 25, text: "The sharpness of the bamboo shoots posed a threat, causing him to tread with caution to avoid being impaled.", outcome: "Continue", nextDialogIDs: [26], character: .narrator),
+                Dialog(id: 26, text: "\"Hurts… In… The… WAY!\"", outcome: "Continue", nextDialogIDs: [27], character: .giant),
+                Dialog(id: 27, text: "As Buto Ijo broke free from the entanglement of the bamboo, his movements slowed, and he winced in pain from the sharp bamboo shoots that had grazed him.", outcome: "Continue", nextDialogIDs: [28], character: .narrator),
+                
+                //MINIGAME HORIZONTAL SWIPE LAUT
+                
+                Dialog(id: 28, text: "Remembering the cherished memories of cooking with Mbok Srini, you unfolded another small object and tossed it onto the ground. ", outcome: "Continue", nextDialogIDs: [29], character: .narrator),
+                Dialog(id: 29, text: "The scattered salts transformed into a vast expanse of water, stretching out before you like a boundless sea.", outcome: "Continue", nextDialogIDs: [30], character: .narrator),
+                Dialog(id: 30, text: "With each step he took, the water rose higher, reaching his ankles, then his knees, and soon it reached his waist.", outcome: "Continue", nextDialogIDs: [31], character: .narrator),
+                Dialog(id: 31, text: "Buto Ijo's movements became labored as he struggled against the force of the water, its currents pulling at him with relentless strength.", outcome: "Continue", nextDialogIDs: [32], character: .narrator),
+                Dialog(id: 32, text: "The deep sea before him posed a new challenge, threatening to engulf and submerge him if he dared to advance.", outcome: "Continue", nextDialogIDs: [33], character: .narrator),
+                Dialog(id: 33, text: "But once again, he managed to escape by swimming on the sea. As Buto Ijo neared, fueled by his determination to defeat you, a surge of anger coursed through your veins.", outcome: "Continue", nextDialogIDs: [34], character: .narrator),
+                Dialog(id: 34, text: "The recent tragedy that had befallen your beloved mother replayed in your mind, igniting a fiery rage within you.", outcome: "Continue", nextDialogIDs: [35], character: .narrator),
+                Dialog(id: 35, text: "The boundary between the Storyweaver and Timun Mas blurred as both consciousnesses merged into a singular force.", outcome: "Continue", nextDialogIDs: [36], character: .narrator),
+                
+                //MINIGAME SWIPE MIRING
+                
+                Dialog(id: 36, text: "With a swift motion, you unfolded another small object, revealing a cluster of shrimp paste. Channeling your emotions into the act, you cast the shrimp paste onto the ground. ", outcome: "Continue", nextDialogIDs: [37], character: .narrator),
+                Dialog(id: 37, text: "In a dramatic transformation, the paste melted and melded with the surrounding terrain, creating a scorching sea of boiling mud.", outcome: "Continue", nextDialogIDs: [38], character: .narrator),
+                Dialog(id: 38, text: "The hot sea of mud materialized instantly, its intense heat radiating and filling the air. Buto Ijo, caught off guard by the sudden change, found himself sinking into the murky depths of the mud.", outcome: "Continue", nextDialogIDs: [39], character: .narrator),
+                Dialog(id: 39, text: "The searing heat made each movement a struggle, as he fought against the unbearable temperatures.", outcome: "Timun Mas", nextDialogIDs: [], character: .narrator),
+                Dialog(id: 36, text: "With each passing moment, his strength waned, and despair flickered in his eyes. The once-mighty giant, now reduced to a fearful and defeated creature, gazed up at you with wide eyes filled with terror and confusion.", outcome: "Continue", nextDialogIDs: [37], character: .narrator),
+                Dialog(id: 37, text: "\"Who… Are… You?\"", outcome: "Continue", nextDialogIDs: [38], character: .giant),
+                Dialog(id: 38, text: "\"I am the Storyweaver.\"", outcome: "Continue", nextDialogIDs: [39], character: .timunMas),
+                Dialog(id: 39, text: "You responded, your voice steady and filled with a newfound sense of purpose. ", outcome: "Continue", nextDialogIDs: [], character: .narrator),
+                Dialog(id: 38, text: "\"But for now, I am Timun Mas.\"", outcome: "Continue", nextDialogIDs: [39], character: .timunMas),
+                Dialog(id: 39, text: "The words carried the weight of your dual existence as both the weaver of tales and the character immersed in the story.", outcome: "Continue", nextDialogIDs: [], character: .narrator),
+        ]
+    
+    static let DialogTreeScene14: [Dialog] = [
+                Dialog(id: 0, text: "You turned to face Mbok Srini, her expression filled with confusion and uncertainty.", outcome: "Continue", nextDialogIDs: [1], character: .narrator),
+                Dialog(id: 1, text: "The weight of the recent events hung heavy in the air, and you realized that the twists and turns of the story had left her questioning the truth of your identity.", outcome: "Continue", nextDialogIDs: [2], character: .narrator),
+                Dialog(id: 2, text: "With utmost tenderness, you approached her, your eyes brimming with a mixture of compassion and understanding.", outcome: "Continue", nextDialogIDs: [3], character: .narrator),
+                Dialog(id: 3, text: "The words caught in your throat, the weight of emotions threatening to overwhelm you.", outcome: "Continue", nextDialogIDs: [4], character: .narrator),
+                Dialog(id: 4, text: "\"Mother, I...\"", outcome: "Continue", nextDialogIDs: [5], character: .timunMas),
+                Dialog(id: 5, text: "You began, your voice a fragile whisper yet filled with unwavering conviction.", outcome: "Continue", nextDialogIDs: [6], character: .narrator),
+                Dialog(id: 6, text: "And then, without a moment's hesitation, Mbok Srini enveloped you in her arms, her embrace a refuge amidst the storm of uncertainty. ", outcome: "Continue", nextDialogIDs: [7,8], character: .narrator),
+                Dialog(id: 7, text: "Tears streamed down her face, carrying a torrent of emotions that mirrored your own.", outcome: "Continue", nextDialogIDs: [9], character: .narrator),
+                Dialog(id: 8, text: "In that tender moment, it was as if time stood still, and all that mattered was the profound connection between you.", outcome: "Continue", nextDialogIDs: [9], character: .narrator),
+                Dialog(id: 9, text: "\"I am glad that you're safe\"", outcome: "Continue", nextDialogIDs: [10], character: .mbokSrini),
+                Dialog(id: 10, text: "She whispered, her voice quivering with relief and a love that transcended words. ", outcome: "Continue", nextDialogIDs: [11], character: .narrator),
+                Dialog(id: 11, text: "In her eyes, you saw the depths of her fears and the immeasurable joy of finding you unharmed, a testament to the bond that had forged over years of shared experiences.", outcome: "Continue", nextDialogIDs: [12], character: .narrator),
+                Dialog(id: 12, text: "In that sacred space between you and your mother, the convergence of both your consciousness as Timun Mas and the Storyweaver resonated harmoniously. ", outcome: "Continue", nextDialogIDs: [13], character: .narrator),
+                Dialog(id: 13, text: "For once, there was no contradiction, only an unspoken agreement that this was the ending they had both hoped for—a blissful reunion, free from the clutches of evil.", outcome: "Continue", nextDialogIDs: [14], character: .narrator),
+                Dialog(id: 14, text: "Yet, amidst the euphoria, a bittersweet realization seeped into your being.", outcome: "Continue", nextDialogIDs: [15], character: .narrator),
+                Dialog(id: 15, text: "You had broken the sacred law of the Storyweaver, intervening in the course of the narrative, and now the threads that had woven your dual existence were unravelling.", outcome: "Continue", nextDialogIDs: [16], character: .narrator),
+                Dialog(id: 16, text: "Your consciousness wavered, slowly fading, reminding you that the journey of the Storyweaver becoming Timun Mas had come to its destined end.", outcome: "Continue", nextDialogIDs: [17], character: .narrator),
+                Dialog(id: 17, text: "Grasping your mother's hand, you wiped away her tears with a trembling touch.", outcome: "Continue", nextDialogIDs: [18], character: .narrator),
+                Dialog(id: 18, text: "The weight of parting and the realization of the ephemeral nature of your existence intertwined with the undying love that bound you.", outcome: "Continue", nextDialogIDs: [19], character: .narrator),
+                Dialog(id: 19, text: "\"I am Timun Mas, the cucumber child you took in all those years ago\"", outcome: "Continue", nextDialogIDs: [20], character: .timunMas),
+                Dialog(id: 20, text: "You whispered, your voice filled with a profound mix of vulnerability and strength. ", outcome: "Continue", nextDialogIDs: [21], character: .narrator),
+                Dialog(id: 21, text: "\"But I am also something more. I am the living embodiment of the folklores that unfolded — the Storyweaver.\"", outcome: "Continue", nextDialogIDs: [22], character: .timunMas),
+                Dialog(id: 22, text: "As your consciousness as Timun Mas faded into the realm of memories, Mbok Srini held onto your hand with a lingering touch.", outcome: "Continue", nextDialogIDs: [23], character: .narrator),
+                
+                // START CUTSCENE
+                
+                Dialog(id: 23, text: "\"I have always known, deep down, that you were special.\"", outcome: "Continue", nextDialogIDs: [24], character: .mbokSrini),
+                Dialog(id: 24, text: "She whispered, her voice filled with love and understanding.", outcome: "Continue", nextDialogIDs: [25], character: .narrator),
+                Dialog(id: 25, text: "\"But to me, you would always be my precious cucumber child.\"", outcome: "Continue", nextDialogIDs: [26], character: .mbokSrini),
+                Dialog(id: 26, text: "It was a farewell and a pledge all at once—a testament to the profound impact she had on your existence, as both character and weaver of tales.", outcome: "Continue", nextDialogIDs: [27], character: .narrator),
+                Dialog(id: 27, text: "And with the weight of emotions resting heavily upon your heart, you mustered the last remnants of your consciousness.", outcome: "Continue", nextDialogIDs: [28], character: .narrator),
+                Dialog(id: 28, text: "\"Thank you, Mbok Srini.\"", outcome: "Continue", nextDialogIDs: [29], character: .timunMas),
+                Dialog(id: 29, text: "You offered a tender smile, letting it convey the depth of emotions that words couldn't fully express.", outcome: "Continue", nextDialogIDs: [30], character: .narrator),
+                Dialog(id: 30, text: "\"You will always be the greatest gift in our life.\"", outcome: "Continue", nextDialogIDs: [31], character: .timunMas),
+                Dialog(id: 31, text: "You whispered, the words carrying the depth of your love and gratitude.", outcome: "Continue", nextDialogIDs: [32], character: .narrator),
+                
+                // END CUTSCENE
+                
+                Dialog(id: 32, text: "And so, with a final breath of contentment and a heart filled with cherished memories, you surrendered to the embrace of the story's end, aware that the narrative of Timun Mas and Mbok Srini would persisted, moving forward without the intervention of a Storyweaver.", outcome: "Continue", nextDialogIDs: [33], character: .narrator),
+                Dialog(id: 33, text: "The chapter of Timun Mas had come to an end for you, O’ Storyweaver.", outcome: "Continue", nextDialogIDs: [], character: .narrator),
+                
+        ]
+    
+    static let DialogTreeEpilogue: [Dialog] = [
+                Dialog(id: 0, text: "(To Buto Ijo, I was an insignificant creature that is capable of subduing his viciousness and transcended his own existence…)", outcome: "Continue", nextDialogIDs: [1], character: .storyweaver),
+                Dialog(id: 1, text: "(To mortal understanding, I am the guardian of tales — keeper of the delicate balance that allowed these realms to thrive…)", outcome: "Continue", nextDialogIDs: [2], character: .storyweaver),
+                Dialog(id: 2, text: "(…)", outcome: "Continue", nextDialogIDs: [3], character: .storyweaver),
+                Dialog(id: 3, text: "(…)", outcome: "Continue", nextDialogIDs: [4], character: .storyweaver),
+                Dialog(id: 4, text: "(Why did I save a mere mortal from my own tales?)", outcome: "Continue", nextDialogIDs: [5], character: .storyweaver),
+                Dialog(id: 5, text: "(…)", outcome: "Continue", nextDialogIDs: [6], character: .narrator),
+                Dialog(id: 6, text: "(Why did I break the rule that govern my existence for her?)", outcome: "Continue", nextDialogIDs: [7,8], character: .storyweaver),
+                Dialog(id: 7, text: "(…)", outcome: "(How could she have played such a cruel charade?)", nextDialogIDs: [9], character: .narrator),
+                Dialog(id: 8, text: "(She may have been a character in a different tale, a part of the vast and intricate web of stories I have explored.)", outcome: "(How could she discards me in such heartless manner?)", nextDialogIDs: [9], character: .narrator),
+                Dialog(id: 9, text: "(But in her eyes, I was simply her peculiar daughter — one she nurtured and raised as her own, providing love, guidance, and support…)", outcome: "Continue", nextDialogIDs: [10], character: .narrator),
+                Dialog(id: 10, text: "The puzzle pieces began to align, and the truth behind Buto Ijo’s sinister smile and your foster mother's lingering sadness.", outcome: "Continue", nextDialogIDs: [11], character: .narrator),
+                Dialog(id: 11, text: "The realization hit you like a wave, and your dual consciousness shifted.", outcome: "Continue", nextDialogIDs: [12], character: .narrator),
+                Dialog(id: 12, text: "As the consciousness of Timun Mas, the daughter of Mbok Srini, took over, a wave of determination and concern washed over you.", outcome: "Continue", nextDialogIDs: [13], character: .narrator),
+                Dialog(id: 13, text: "Without a moment's hesitation, your body moved on its own accord, drawn towards the sound of Buto Ijo's laughter.", outcome: "Continue", nextDialogIDs: [14], character: .narrator),
+                Dialog(id: 14, text: "Your steps quickened, driven by both worry for Mbok Srini's safety and a burning desire to confront her about the truth revealed in the letter.", outcome: "Continue", nextDialogIDs: [], character: .narrator),
         ]
 }
 
