@@ -177,6 +177,12 @@ class FourthScene: SKScene {
         currentIndex = 0
         animateTextDisplay(dialogueText: currentDialogueText)
         
+        // BGM
+        if gameState.currentDialog?.id == 0 {
+            AudioManager.shared.playBackgroundMusic(fileName: "scene4")
+        }
+
+        
         //Sound Effect
         if gameState.currentDialog?.id == 1 {
             AudioManager.shared.playSoundEffect(fileName: "scene4_audio1_reliefSigh")
@@ -234,8 +240,8 @@ class FourthScene: SKScene {
     
     private func setupEntities() {
         
-        let timunMas = CreateEntity.timunMasEntity(scene: self, pos: .right)
-        characters.append(timunMas)
+//        let timunMas = CreateEntity.timunMasEntity(scene: self, pos: .right)
+//        characters.append(timunMas)
         
         
         //        let giant = CreateEntity.giantEntity(scene: self, pos: .right)
@@ -249,7 +255,7 @@ class FourthScene: SKScene {
 //        storyweaver.component(ofType: CharacterVisualComponent.self)?.characterNode.scale(to: CGSize(width: size.width/3, height: size.height/3))
         characters.append(storyweaver)
         
-        let mbokSrini = CreateEntity.mbokSriniEntity(scene: self, pos: .left)
+        let mbokSrini = CreateEntity.mbokSriniEntity(scene: self)
         characters.append(mbokSrini)
     }
     
