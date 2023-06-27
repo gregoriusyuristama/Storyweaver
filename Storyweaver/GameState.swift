@@ -21,6 +21,12 @@ class GameState: ObservableObject {
         updateDecisions()
     }
     
+    init(dialogTree: [Dialog], currentID: Int){
+        self.dialogTree = dialogTree
+        currentDialog = self.dialogTree.first(where: {$0.id == currentID})
+        updateDecisions()
+    }
+    
     func selectDecision(_ decision: Decision) {
         outcome = decision.outcome
         currentDialog = self.dialogTree.first { $0.id == decision.dialogID }
