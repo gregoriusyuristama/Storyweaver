@@ -195,7 +195,7 @@ class FourthScene: SKScene {
             AudioManager.shared.playSoundEffect(fileName: "scene4_audio1_reliefSigh")
         }
         if gameState.currentDialog?.id == 5 {
-            AudioManager.shared.playSoundEffect(fileName: "scene4_audio2_babyLaugh")
+            AudioManager.shared.playSoundEffect(fileName: "scene4_audio3_babyLaugh")
         }
         
         if gameState.currentDialog?.id == 6 {
