@@ -172,6 +172,10 @@ class SixthScene: SKScene {
 
         
         // Sound Effect
+        if gameState.currentDialog?.id == 0 {
+            AudioManager.shared.playSoundEffect(fileName: "scene6_audio1_kukuruyuk")
+        }
+        
         // In game sound effect
         
     }
