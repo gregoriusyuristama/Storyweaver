@@ -92,11 +92,14 @@ class InsertTimunName: SKScene {
             let location = touch.location(in: self)
             let node = self.atPoint(location)
             
+            
             if let label = node as? SKLabelNode {
                 // Check if the label is in the correct position
                 let letter = label.text ?? ""
                 let index = correctOrder.firstIndex(of: letter) ?? -1
                 
+                // Typing sfx
+                AudioManager.shared.playSoundEffect(fileName: "puzzle_audio1_typing")
                 
                 if !tappedLetters.contains(letter) {
                     if index == counter {
@@ -107,7 +110,6 @@ class InsertTimunName: SKScene {
                     } else {
                         //                        label.run(SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.5))
                         underscoreLabels[counter].run(SKAction.colorize(with: .red, colorBlendFactor: 1.0, duration: 0.5))
-                        
                     }
                     label.alpha = 0
                     tappedLetters.insert(letter)
