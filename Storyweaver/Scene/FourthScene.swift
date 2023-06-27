@@ -145,8 +145,6 @@ class FourthScene: SKScene {
     }
     
     func showNextDialogue() {
-        print("current dialog ID: \(gameState.currentDialog?.id)")
-        print("next dialog ID(s): \(gameState.currentDialog?.nextDialogIDs)")
         continueLabel.alpha = 0
         for case let component as CharacterVisualComponent in characterVisualComponentSytem.components {
             if component.type == .mbokSrini || component.type == .timunMas || component.type == .storyweaver{

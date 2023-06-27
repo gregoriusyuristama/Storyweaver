@@ -21,6 +21,8 @@
 		81A9E58F2A4A8231004B8609 /* prologue.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81A9E58E2A4A8231004B8609 /* prologue.mp3 */; };
 		B603BD852A49569F00908E34 /* PrologueScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B603BD842A49569F00908E34 /* PrologueScene.swift */; };
 		B603BD882A497B8F00908E34 /* InsertTimunName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B603BD872A497B8F00908E34 /* InsertTimunName.swift */; };
+		B603BD8A2A49A75700908E34 /* SwipeToClearImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B603BD892A49A75700908E34 /* SwipeToClearImage.swift */; };
+		B603BD8C2A49AA5700908E34 /* EraseShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B603BD8B2A49AA5700908E34 /* EraseShader.fsh */; };
 		B613EF372A42A6D900536EB7 /* ActTitleScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B613EF362A42A6D900536EB7 /* ActTitleScene.sks */; };
 		B613EF3F2A42FD2200536EB7 /* Aleo-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B613EF392A42FD2100536EB7 /* Aleo-Italic.ttf */; };
 		B613EF402A42FD2200536EB7 /* Aleo-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B613EF3A2A42FD2100536EB7 /* Aleo-Light.ttf */; };
@@ -81,6 +83,8 @@
 		81A9E58E2A4A8231004B8609 /* prologue.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = prologue.mp3; sourceTree = "<group>"; };
 		B603BD842A49569F00908E34 /* PrologueScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrologueScene.swift; sourceTree = "<group>"; };
 		B603BD872A497B8F00908E34 /* InsertTimunName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertTimunName.swift; sourceTree = "<group>"; };
+		B603BD892A49A75700908E34 /* SwipeToClearImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToClearImage.swift; sourceTree = "<group>"; };
+		B603BD8B2A49AA5700908E34 /* EraseShader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = EraseShader.fsh; sourceTree = "<group>"; };
 		B613EF362A42A6D900536EB7 /* ActTitleScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ActTitleScene.sks; sourceTree = "<group>"; };
 		B613EF392A42FD2100536EB7 /* Aleo-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aleo-Italic.ttf"; sourceTree = "<group>"; };
 		B613EF3A2A42FD2100536EB7 /* Aleo-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aleo-Light.ttf"; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				B603BD872A497B8F00908E34 /* InsertTimunName.swift */,
+				B603BD892A49A75700908E34 /* SwipeToClearImage.swift */,
 				DB1DC9062A4A8BF1008697B3 /* WateringScene.swift */,
 				DB1DC9082A4A8C15008697B3 /* PullingWeedScene.swift */,
 				DB1DC90A2A4A8C36008697B3 /* TrimBushesScene.swift */,
@@ -313,6 +318,7 @@
 				B6BEEA992A3C1829007718AB /* Main.storyboard */,
 				B6BEEA9E2A3C182B007718AB /* LaunchScreen.storyboard */,
 				B6B234BA2A404675007AFDEF /* GameState.swift */,
+				B603BD8B2A49AA5700908E34 /* EraseShader.fsh */,
 			);
 			path = Storyweaver;
 			sourceTree = "<group>";
@@ -395,6 +401,7 @@
 				B6BEEA9B2A3C1829007718AB /* Main.storyboard in Resources */,
 				81A9E5752A495395004B8609 /* scene4_audio1_reliefSigh.mp3 in Resources */,
 				B613EF472A42FDEF00536EB7 /* SecondScene.sks in Resources */,
+				B603BD8C2A49AA5700908E34 /* EraseShader.fsh in Resources */,
 				81A9E56F2A49279D004B8609 /* scene3_audio1_butoIjoGrowling.mp3 in Resources */,
 				B6BEEA9D2A3C182B007718AB /* Assets.xcassets in Resources */,
 				B6BEEAA02A3C182B007718AB /* LaunchScreen.storyboard in Resources */,
@@ -423,6 +430,7 @@
 				B6EE4B402A4587A000A487E6 /* SeventhScene.swift in Sources */,
 				DB1DC9092A4A8C15008697B3 /* PullingWeedScene.swift in Sources */,
 				B6F755A72A48369B0058376D /* CharacterPosition.swift in Sources */,
+				B603BD8A2A49A75700908E34 /* SwipeToClearImage.swift in Sources */,
 				DB1DC90B2A4A8C36008697B3 /* TrimBushesScene.swift in Sources */,
 				B6BEEA982A3C1829007718AB /* GameViewController.swift in Sources */,
 				B6B234BE2A404A96007AFDEF /* DialogTree.swift in Sources */,

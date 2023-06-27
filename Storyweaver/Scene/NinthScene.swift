@@ -46,6 +46,16 @@ class NinthScene: SKScene {
     }
     
     
+    
+    
+    init(size: CGSize, gameState: GameState) {
+        super.init(size: size)
+        self.gameState = gameState
+        setupEntities()
+        setupSystemComponents()
+    }
+    
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -194,6 +204,20 @@ class NinthScene: SKScene {
         } else {
             // Text display completed, wait for user interaction
             if gameState.currentDialog?.nextDialogIDs.count != 1 {
+                if gameState.currentDialog?.id == 11 {
+                    let gameScene = SwipeToClearImage(size: size, character: .giant)
+                    gameScene.scaleMode = .aspectFill
+                    let transition = SKTransition.crossFade(withDuration: 1.0)
+                    view?.presentScene(gameScene, transition: transition)
+                    return
+                }
+                if gameState.currentDialog?.id == 14 {
+                    let gameScene = SwipeToClearImage(size: size, character: .mbokSrini)
+                    gameScene.scaleMode = .aspectFill
+                    let transition = SKTransition.crossFade(withDuration: 1.0)
+                    view?.presentScene(gameScene, transition: transition)
+                    return
+                }
                 createButtons()
                 showButtons()
             } else {
@@ -288,7 +312,27 @@ class NinthScene: SKScene {
                     createButtons()
                     showButtons()
                 } else {
+                    if gameState.currentDialog?.id == 11 {
+                        view?.scene?.isUserInteractionEnabled = false
+                        view?.scene?.run(SKAction.wait(forDuration: 1.5)){
+                            let gameScene = SwipeToClearImage(size: self.size, character: .giant)
+                            gameScene.scaleMode = .aspectFill
+                            let transition = SKTransition.crossFade(withDuration: 1.0)
+                            self.view?.presentScene(gameScene, transition: transition)
+                            return
+                        }
+                    }
                     
+                    if gameState.currentDialog?.id == 14 {
+                        view?.scene?.isUserInteractionEnabled = false
+                        view?.scene?.run(SKAction.wait(forDuration: 1.5)){
+                            let gameScene = SwipeToClearImage(size: self.size, character: .mbokSrini)
+                            gameScene.scaleMode = .aspectFill
+                            let transition = SKTransition.crossFade(withDuration: 1.0)
+                            self.view?.presentScene(gameScene, transition: transition)
+                            return
+                        }
+                    }
                     continueLabel.alpha = 1
                 }
             }
