@@ -53,7 +53,7 @@ class SeventhScene: SKScene {
     
     override func didMove(to view: SKView) {
         //        backgroundColor = .brown
-        backgroundNode = SKSpriteNode(imageNamed: "Scene3.png")
+        backgroundNode = SKSpriteNode(imageNamed: "background_mbokSriniHouseYard.png")
         backgroundNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
         backgroundNode.scale(to: CGSize(width: size.width, height: size.height))
         backgroundNode.zPosition = -5  // Ensure the background is behind other nodes
@@ -218,9 +218,9 @@ class SeventhScene: SKScene {
     
     private func setupEntities() {
         
-        let timunMas = CreateEntity.timunMasEntity(scene: self)
-        timunMas.component(ofType: CharacterVisualComponent.self)?.characterNode.alpha = 0
-        characters.append(timunMas)
+//        let timunMas = CreateEntity.timunMasEntity(scene: self)
+//        timunMas.component(ofType: CharacterVisualComponent.self)?.characterNode.alpha = 0
+//        characters.append(timunMas)
         
         
 //        let giant = CreateEntity.giantEntity(scene: self, pos: .right)
@@ -234,8 +234,8 @@ class SeventhScene: SKScene {
 //                let storyweaver = CreateEntity.storyWeaverEntity(scene: self)
 //                characters.append(storyweaver)
 //
-        let mbokSrini = CreateEntity.mbokSriniEntity(scene: self, pos: .left)
-        characters.append(mbokSrini)
+//        let mbokSrini = CreateEntity.mbokSriniEntity(scene: self, pos: .left)
+//        characters.append(mbokSrini)
     }
     
     private func setupSystemComponents() {
