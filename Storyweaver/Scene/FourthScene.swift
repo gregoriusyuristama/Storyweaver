@@ -44,6 +44,12 @@ class FourthScene: SKScene {
         setupSystemComponents()
     }
     
+    init(size: CGSize, gameState: GameState) {
+        super.init(size: size)
+        self.gameState = gameState
+        setupEntities()
+        setupSystemComponents()
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -139,6 +145,8 @@ class FourthScene: SKScene {
     }
     
     func showNextDialogue() {
+        print("current dialog ID: \(gameState.currentDialog?.id)")
+        print("next dialog ID(s): \(gameState.currentDialog?.nextDialogIDs)")
         continueLabel.alpha = 0
         for case let component as CharacterVisualComponent in characterVisualComponentSytem.components {
             if component.type == .mbokSrini || component.type == .timunMas || component.type == .storyweaver{
@@ -168,7 +176,6 @@ class FourthScene: SKScene {
             
             if gameState.currentDialog?.character == .narrator{
                 characterLabel.text = ""
-                //                component.characterNode.alpha = 0
             }
         }
         
@@ -177,6 +184,12 @@ class FourthScene: SKScene {
         currentIndex = 0
         animateTextDisplay(dialogueText: currentDialogueText)
         
+        // BGM
+        if gameState.currentDialog?.id == 0 {
+            AudioManager.shared.playBackgroundMusic(fileName: "scene4")
+        }
+        
+        
         //Sound Effect
         if gameState.currentDialog?.id == 1 {
             AudioManager.shared.playSoundEffect(fileName: "scene4_audio1_reliefSigh")
@@ -184,12 +197,12 @@ class FourthScene: SKScene {
         if gameState.currentDialog?.id == 5 {
             AudioManager.shared.playSoundEffect(fileName: "scene4_audio2_babyLaugh")
         }
-
+        
         if gameState.currentDialog?.id == 6 {
             AudioManager.shared.playSoundEffect(fileName: "scene4_audio2_mbokSriniLaugh")
         }
-            if gameState.currentDialog?.id == 14 {
-                AudioManager.shared.playSoundEffect(fileName: "scene4_audio1_reliefSigh")
+        if gameState.currentDialog?.id == 14 {
+            AudioManager.shared.playSoundEffect(fileName: "scene4_audio1_reliefSigh")
         }
     }
     
@@ -205,10 +218,18 @@ class FourthScene: SKScene {
             }
             let sequence = SKAction.sequence([delayAction, nextCharacterAction])
             dialogueLabel.run(sequence)
+            
             hideButtons()
         } else {
             // Text display completed, wait for user interaction
             if gameState.currentDialog?.nextDialogIDs.count != 1 {
+                if gameState.currentDialog?.id == 11 {
+                    let gameScene = InsertTimunName(size: size)
+                    gameScene.scaleMode = .aspectFill
+                    let transition = SKTransition.crossFade(withDuration: 1.0)
+                    view?.presentScene(gameScene, transition: transition)
+                    return
+                }
                 createButtons()
                 showButtons()
             } else {
@@ -234,8 +255,8 @@ class FourthScene: SKScene {
     
     private func setupEntities() {
         
-        let timunMas = CreateEntity.timunMasEntity(scene: self, pos: .right)
-        characters.append(timunMas)
+        //        let timunMas = CreateEntity.timunMasEntity(scene: self, pos: .right)
+        //        characters.append(timunMas)
         
         
         //        let giant = CreateEntity.giantEntity(scene: self, pos: .right)
@@ -246,10 +267,10 @@ class FourthScene: SKScene {
         characters.append(narrator)
         
         let storyweaver = CreateEntity.storyWeaverEntity(scene: self, pos: .right)
-//        storyweaver.component(ofType: CharacterVisualComponent.self)?.characterNode.scale(to: CGSize(width: size.width/3, height: size.height/3))
+        //        storyweaver.component(ofType: CharacterVisualComponent.self)?.characterNode.scale(to: CGSize(width: size.width/3, height: size.height/3))
         characters.append(storyweaver)
         
-        let mbokSrini = CreateEntity.mbokSriniEntity(scene: self, pos: .left)
+        let mbokSrini = CreateEntity.mbokSriniEntity(scene: self)
         characters.append(mbokSrini)
     }
     
@@ -288,6 +309,7 @@ class FourthScene: SKScene {
                     return
                 } else if gameState.currentDialog?.nextDialogIDs.count == 1 {
                     gameState.selectDecision(gameState.decisions.first(where: {$0.dialogID == (gameState.currentDialog?.nextDialogIDs.first)})!)
+                    
                     dialogueLabel.text = gameState.currentDialog?.text
                     showNextDialogue()
                     return
@@ -305,6 +327,17 @@ class FourthScene: SKScene {
                     createButtons()
                     showButtons()
                 } else {
+                    if gameState.currentDialog?.id == 11 {
+                        view?.scene?.isUserInteractionEnabled = false
+                        view?.scene?.run(SKAction.wait(forDuration: 1.5)){
+                            let gameScene = InsertTimunName(size: self.size)
+                            gameScene.scaleMode = .aspectFill
+                            let transition = SKTransition.crossFade(withDuration: 1.0)
+                            self.view?.presentScene(gameScene, transition: transition)
+                            return
+                        }
+                       
+                    }
                     continueLabel.alpha = 1
                 }
             }
