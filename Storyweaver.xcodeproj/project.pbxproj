@@ -198,6 +198,7 @@
 			children = (
 				81A9E58E2A4A8231004B8609 /* prologue.mp3 */,
 				B6239ED92A44A72700C1420A /* scene2and3.mp3 */,
+				B603BDB62A4A843500908E34 /* prologue.mp3 */,
 				B6239ECC2A4491EB00C1420A /* scene1.mp3 */,
 				81A9E5892A4A8216004B8609 /* scene5.mp3 */,
 				81A9E5882A4A8216004B8609 /* scene6to8.mp3 */,
@@ -381,6 +382,7 @@
 				81A9E5852A4A81CC004B8609 /* scene4.mp3 in Resources */,
 				B6239ED22A44A2CB00C1420A /* scene1_audio2_babyCrying.mp3 in Resources */,
 				81A9E5792A4954F8004B8609 /* scene4_audio3_babyLaugh.mp3 in Resources */,
+				B603BDB72A4A843600908E34 /* prologue.mp3 in Resources */,
 				B6BEEA9B2A3C1829007718AB /* Main.storyboard in Resources */,
 				81A9E5752A495395004B8609 /* scene4_audio1_reliefSigh.mp3 in Resources */,
 				B613EF472A42FDEF00536EB7 /* SecondScene.sks in Resources */,
