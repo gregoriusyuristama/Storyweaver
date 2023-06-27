@@ -25,7 +25,7 @@ class GameViewController: UIViewController {
         skView.showsNodeCount = true
 
         // Create and present the initial scene
-        let initialScene = SwipeToClearImage(size: skView.bounds.size)
+        let initialScene = PrologueScene(size: skView.bounds.size)
         initialScene.scaleMode = .aspectFill
 
         skView.presentScene(initialScene)

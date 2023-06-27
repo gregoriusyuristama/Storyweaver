@@ -18,6 +18,11 @@ class SwipeToClearImage: SKScene {
         super.init(size: size)
     }
     
+    init(size: CGSize, character: CharacterList) {
+        super.init(size: size)
+        self.character = character
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -29,11 +34,20 @@ class SwipeToClearImage: SKScene {
     
     var blueNodes: [SKSpriteNode] = []
     var redNodes: [SKSpriteNode] = []
+    var character: CharacterList = .giant
     
     
     override func didMove(to view: SKView) {
-        let gridSize = CGSize(width: 30, height: 30) // Size of each node in the grid
-        let gridSpacing: CGFloat = 5 // Spacing between nodes in the grid
+        
+        let instructionLabel = SKLabelNode(text: "Swipe to reveal !")
+        instructionLabel.fontName = "Aleo-Bold"
+        instructionLabel.fontColor = .white
+        instructionLabel.fontSize = 36
+        instructionLabel.position = CGPoint(x: size.width/2, y: size.height - (size.height * 0.2))
+        addChild(instructionLabel)
+        
+        let gridSize = CGSize(width: 200, height: 150) // Size of each node in the grid
+        let gridSpacing: CGFloat = 0 // Spacing between nodes in the grid
         let numRows = 3 // Number of rows in the grid
         let numColumns = 3 // Number of columns in the grid
         
@@ -42,13 +56,15 @@ class SwipeToClearImage: SKScene {
         let totalGridHeight = (gridSize.height + gridSpacing) * CGFloat(numRows) - gridSpacing
         
         // Calculate the starting position for the grid
-        let startX = frame.midX - totalGridWidth / 2
-        let startY = frame.midY - totalGridHeight / 2
+        let startX = size.width / 2 - totalGridWidth / 3
+        let startY = size.height / 2 - totalGridHeight / 2
         
         // Create and position the blue nodes in the grid
+        var counter = 1
         for row in 0..<numRows {
             for column in 0..<numColumns {
-                let blueNode = SKSpriteNode(color: .blue, size: gridSize)
+                let blueNode = SKSpriteNode(imageNamed: "\(character.rawValue) Swipe_\(counter)")
+                blueNode.scale(to: gridSize)
                 blueNode.position = CGPoint(x: startX + CGFloat(column) * (gridSize.width + gridSpacing),
                                             y: startY + CGFloat(row) * (gridSize.height + gridSpacing))
                 
@@ -56,12 +72,14 @@ class SwipeToClearImage: SKScene {
                 addChild(blueNode)
                 blueNodes.append(blueNode)
                 
-                let redNode = SKSpriteNode(color: .red, size: gridSize)
+                let redNode = SKSpriteNode(imageNamed: "Cover_\(counter)")
+                redNode.scale(to: gridSize)
                 redNode.position = blueNode.position
                 redNode.zPosition = blueNode.zPosition + 1
                 redNode.name = "redNode"
                 addChild(redNode)
                 redNodes.append(redNode)
+                counter += 1
             }
         }
         
@@ -100,7 +118,7 @@ class SwipeToClearImage: SKScene {
         
         // Find the touched red node
         let touchedNodes = nodes(at: touchLocation)
-        let redNodes = touchedNodes.compactMap { $0 as? SKSpriteNode }.filter { $0.color == .red }
+        let redNodes = touchedNodes.compactMap { $0 as? SKSpriteNode }.filter { $0.name == "redNode" }
         
         // Move the touched red node to the touch location
         if let redNode = redNodes.first(where: { $0.name == "redNode" }) {
@@ -130,6 +148,22 @@ class SwipeToClearImage: SKScene {
 
         if allRedNodesOutside && redNodes.count > 0 {
             print("All red nodes are fully outside the blue node's frame.")
+            if character == .giant {
+                let gameScene = NinthScene(size: size, gameState: GameState(dialogTree: DialogTree.DialogTreeScene9, currentID: 12))
+    //                        gameScene.gameState = GameState(dialogTree: DialogTree.DialogTreeScene4, currentID: 12)
+                gameScene.scaleMode = .aspectFill
+                let transition = SKTransition.crossFade(withDuration: 1.0)
+                view?.presentScene(gameScene, transition: transition)
+                return
+            } else if character == .mbokSrini{
+                let gameScene = NinthScene(size: size, gameState: GameState(dialogTree: DialogTree.DialogTreeScene9, currentID: 15))
+    //                        gameScene.gameState = GameState(dialogTree: DialogTree.DialogTreeScene4, currentID: 12)
+                gameScene.scaleMode = .aspectFill
+                let transition = SKTransition.crossFade(withDuration: 1.0)
+                view?.presentScene(gameScene, transition: transition)
+                return
+            }
+
         } else {
             print("Not all red nodes are fully outside the blue node's frame.")
         }
