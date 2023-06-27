@@ -32,7 +32,7 @@ class SeventhScene: SKScene {
     let characterVisualComponentSytem = GKComponentSystem(componentClass: CharacterVisualComponent.self)
     
     
-    @ObservedObject private var gameState = GameState(dialogTree: DialogTree.DialogTreeScene6)
+    @ObservedObject private var gameState = GameState(dialogTree: DialogTree.DialogTreeScene7)
     
     override init(){
         super.init()
