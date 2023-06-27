@@ -21,11 +21,11 @@ class GameViewController: UIViewController {
         let skView = view as! SKView
         skView.frame = view.bounds
 
-        skView.showsFPS = true
-        skView.showsNodeCount = true
+//        skView.showsFPS = true
+//        skView.showsNodeCount = true
 
         // Create and present the initial scene
-        let initialScene = PrologueScene(size: skView.bounds.size)
+        let initialScene = FourthScene(size: skView.bounds.size)
         initialScene.scaleMode = .aspectFill
 
         skView.presentScene(initialScene)
