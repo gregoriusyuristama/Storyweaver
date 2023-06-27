@@ -52,7 +52,7 @@ class NinthScene: SKScene {
     
     override func didMove(to view: SKView) {
         //        backgroundColor = .brown
-        backgroundNode = SKSpriteNode(imageNamed: "Scene3.png")
+        backgroundNode = SKSpriteNode(imageNamed: "background_wood.png")
         backgroundNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
         backgroundNode.scale(to: CGSize(width: size.width, height: size.height))
         backgroundNode.zPosition = -5  // Ensure the background is behind other nodes
