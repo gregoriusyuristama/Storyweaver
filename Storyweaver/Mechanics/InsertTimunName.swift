@@ -120,7 +120,12 @@ class InsertTimunName: SKScene {
                 counter += 1
                 if counter == letters.count {
                     if correctAnswers == letters.count {
-                        print("all correct")
+                        let gameScene = FourthScene(size: size, gameState: GameState(dialogTree: DialogTree.DialogTreeScene4, currentID: 12))
+//                        gameScene.gameState = GameState(dialogTree: DialogTree.DialogTreeScene4, currentID: 12)
+                        gameScene.scaleMode = .aspectFill
+                        let transition = SKTransition.crossFade(withDuration: 1.0)
+                        view?.presentScene(gameScene, transition: transition)
+                        return
                     } else {
                         for child in children {
                             if let labelNode = child as? SKLabelNode {
