@@ -45,6 +45,9 @@ class AudioManager {
             soundEffectPlayer = try AVAudioPlayer(contentsOf: url)
             soundEffectPlayer?.prepareToPlay()
             soundEffectPlayer?.volume = 1.5
+            if fileName == "scene9_audio1_forest"{
+                soundEffectPlayer?.volume = 0.5
+            }
             soundEffectPlayer?.play()
         } catch {
             print("Failed to play sound effect: \(error.localizedDescription)")
