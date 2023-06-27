@@ -61,6 +61,9 @@
 		B6F755A52A482DD60058376D /* CreateEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F755A42A482DD60058376D /* CreateEntity.swift */; };
 		B6F755A72A48369B0058376D /* CharacterPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F755A62A48369B0058376D /* CharacterPosition.swift */; };
 		B6F755A92A488DE60058376D /* FourthScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F755A82A488DE60058376D /* FourthScene.swift */; };
+		DB1DC9072A4A8BF1008697B3 /* WateringScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1DC9062A4A8BF1008697B3 /* WateringScene.swift */; };
+		DB1DC9092A4A8C15008697B3 /* PullingWeedScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1DC9082A4A8C15008697B3 /* PullingWeedScene.swift */; };
+		DB1DC90B2A4A8C36008697B3 /* TrimBushesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1DC90A2A4A8C36008697B3 /* TrimBushesScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +123,9 @@
 		B6F755A42A482DD60058376D /* CreateEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEntity.swift; sourceTree = "<group>"; };
 		B6F755A62A48369B0058376D /* CharacterPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterPosition.swift; sourceTree = "<group>"; };
 		B6F755A82A488DE60058376D /* FourthScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthScene.swift; sourceTree = "<group>"; };
+		DB1DC9062A4A8BF1008697B3 /* WateringScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WateringScene.swift; sourceTree = "<group>"; };
+		DB1DC9082A4A8C15008697B3 /* PullingWeedScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullingWeedScene.swift; sourceTree = "<group>"; };
+		DB1DC90A2A4A8C36008697B3 /* TrimBushesScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimBushesScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +143,9 @@
 			isa = PBXGroup;
 			children = (
 				B603BD872A497B8F00908E34 /* InsertTimunName.swift */,
+				DB1DC9062A4A8BF1008697B3 /* WateringScene.swift */,
+				DB1DC9082A4A8C15008697B3 /* PullingWeedScene.swift */,
+				DB1DC90A2A4A8C36008697B3 /* TrimBushesScene.swift */,
 			);
 			path = Mechanics;
 			sourceTree = "<group>";
@@ -412,7 +421,9 @@
 				B6B234BB2A404676007AFDEF /* GameState.swift in Sources */,
 				B6B234C42A404BEB007AFDEF /* Dialog.swift in Sources */,
 				B6EE4B402A4587A000A487E6 /* SeventhScene.swift in Sources */,
+				DB1DC9092A4A8C15008697B3 /* PullingWeedScene.swift in Sources */,
 				B6F755A72A48369B0058376D /* CharacterPosition.swift in Sources */,
+				DB1DC90B2A4A8C36008697B3 /* TrimBushesScene.swift in Sources */,
 				B6BEEA982A3C1829007718AB /* GameViewController.swift in Sources */,
 				B6B234BE2A404A96007AFDEF /* DialogTree.swift in Sources */,
 				B603BD852A49569F00908E34 /* PrologueScene.swift in Sources */,
@@ -421,6 +432,7 @@
 				B6F755A52A482DD60058376D /* CreateEntity.swift in Sources */,
 				B613EF4D2A42FEE500536EB7 /* FirstScene.swift in Sources */,
 				B6239EC82A44912200C1420A /* AudioManager.swift in Sources */,
+				DB1DC9072A4A8BF1008697B3 /* WateringScene.swift in Sources */,
 				B6F755A92A488DE60058376D /* FourthScene.swift in Sources */,
 				B6EE4B3C2A4585E300A487E6 /* FifthScene.swift in Sources */,
 				B6EE4B422A4587E100A487E6 /* EightScene.swift in Sources */,
