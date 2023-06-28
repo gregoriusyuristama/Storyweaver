@@ -32,6 +32,8 @@ class SeventhScene: SKScene {
 
     let characterVisualComponentSytem = GKComponentSystem(componentClass: CharacterVisualComponent.self)
     
+    let completedTaskSet: Set<Int> = [2,5,7]
+    
     
     @ObservedObject private var gameState = GameState(dialogTree: DialogTree.DialogTreeScene7)
     
@@ -48,11 +50,19 @@ class SeventhScene: SKScene {
     }
     
     
+    init(size: CGSize, gameState: GameState) {
+        super.init(size: size)
+        self.gameState = gameState
+        setupEntities()
+        setupSystemComponents()
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     override func didMove(to view: SKView) {
+        print(ChoresPuzzleHelper.completedTask)
         //        backgroundColor = .brown
         backgroundNode = SKSpriteNode(imageNamed: "background_mbokSriniHouseYard.png")
         backgroundNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
@@ -119,13 +129,28 @@ class SeventhScene: SKScene {
         let buttonSize = CGSize(width: 730, height: 92)
         let buttonSpacing: CGFloat = 20
         let totalButtonHeight = CGFloat(gameState.decisions.count) * (buttonSize.height + buttonSpacing)
-        let buttonsYPosition = size.height - (size.height * 0.4) - totalButtonHeight / 2
+        let buttonsYPosition = size.height - (size.height * 0.35) - totalButtonHeight / 2
         
         // Remove previously created buttons
         buttons.forEach { $0.removeFromParent() }
         buttons.removeAll()
         
         for index in 0..<gameState.decisions.count {
+            
+            if ChoresPuzzleHelper.completedTask.contains(where: {$0 == gameState.decisions[index].dialogID}){
+                continue
+            }
+            
+//            print(ChoresPuzzleHelper.completedTask.contains([2,5,7]))
+            
+            if gameState.decisions[index].dialogID == 8{
+                if ChoresPuzzleHelper.completedTask != completedTaskSet{
+                    continue
+                }
+            }
+            
+            print(gameState.decisions[index].dialogID)
+            
             let buttonLabel = SKLabelNode(text: gameState.decisions[index].text)
             buttonLabel.name = "\(gameState.decisions[index].dialogID)"
             buttonLabel.fontName = "Aleo-Regular"
@@ -155,6 +180,30 @@ class SeventhScene: SKScene {
     
     func showNextDialogue() {
         continueLabel.alpha = 0
+        
+        if gameState.currentDialog?.id == 4 {
+            let gameScene = WateringScene(size: size)
+            gameScene.scaleMode = .aspectFill
+            let transition = SKTransition.crossFade(withDuration: 1.0)
+            view?.presentScene(gameScene, transition: transition)
+            return
+        }
+        
+        if gameState.currentDialog?.id == 6 {
+            let gameScene = PullingWeedScene(size: size)
+            gameScene.scaleMode = .aspectFill
+            let transition = SKTransition.crossFade(withDuration: 1.0)
+            view?.presentScene(gameScene, transition: transition)
+            return
+        }
+        
+        if gameState.currentDialog?.id == 7 {
+            let gameScene = TrimBushesScene(size: size)
+            gameScene.scaleMode = .aspectFill
+            let transition = SKTransition.crossFade(withDuration: 1.0)
+            view?.presentScene(gameScene, transition: transition)
+            return
+        }
         
         for case let component as CharacterVisualComponent in characterVisualComponentSytem.components {
             if component.type == .mbokSrini || component.type == .giant {
@@ -316,9 +365,25 @@ class SeventhScene: SKScene {
             
             if let dialogIDCast = Int(buttonLabel.name!){
                 print("current dialog ID: \(dialogIDCast)")
-                gameState.selectDecision(gameState.decisions.first(where: {$0.dialogID == dialogIDCast})!)
-                dialogueLabel.text = gameState.currentDialog?.text
-                showNextDialogue()
+//                if dialogIDCast == 3 {
+//                    let gameScene = WateringScene(size: size)
+//                    gameScene.scaleMode = .aspectFill
+//                    let transition = SKTransition.crossFade(withDuration: 1.0)
+//                    view?.presentScene(gameScene, transition: transition)
+//                    return
+//                } else if dialogIDCast == 5 {
+//                    let gameScene = PullingWeedScene(size: size)
+//                    gameScene.scaleMode = .aspectFill
+//                    let transition = SKTransition.crossFade(withDuration: 1.0)
+//                    view?.presentScene(gameScene, transition: transition)
+//                    return
+//                }
+//                else {
+                    gameState.selectDecision(gameState.decisions.first(where: {$0.dialogID == dialogIDCast})!)
+                    dialogueLabel.text = gameState.currentDialog?.text
+                    showNextDialogue()
+//                }
+
             }
         }
     }

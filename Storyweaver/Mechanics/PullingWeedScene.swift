@@ -116,6 +116,12 @@ class PullingWeedScene: SKScene {
             if self.remainingWeeds == 0 {
                 // Show the congratulatory text
                 self.showCongratsText()
+                // ID Dialog Pull Weeds
+                ChoresPuzzleHelper.completedTask.insert(5)
+                let gameScene = SeventhScene(size: self.size, gameState: GameState(dialogTree: DialogTree.DialogTreeScene7, currentID: 1))
+                gameScene.scaleMode = .aspectFill
+                let transition = SKTransition.crossFade(withDuration: 1.0)
+                self.view?.presentScene(gameScene, transition: transition)
             }
         }
     }

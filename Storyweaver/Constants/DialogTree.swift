@@ -133,7 +133,7 @@ class DialogTree {
     static let DialogTreeScene7: [Dialog] = [
                 Dialog(id: 0, text: "With her words of encouragement resonating in your heart, you step out into the fresh morning air, feeling a sense of purpose and responsibility. ", outcome: "Continue", nextDialogIDs: [1], character: .narrator),
                 Dialog(id: 1, text: "As you survey the yard, you notice the blades of grass gently swaying in the breeze, and the colorful blossoms that dot the landscape.", outcome: "Continue", nextDialogIDs: [2, 5, 7, 8], character: .narrator),
-                Dialog(id: 2, text: "(I’ll start with tending the plants…)", outcome: "Continue", nextDialogIDs: [3], character: .timunMas),
+                Dialog(id: 2, text: "(I’ll start with tending the plants…)", outcome: "Watering Plant", nextDialogIDs: [3], character: .timunMas),
                 Dialog(id: 3, text: "With each droplet that nourished the thirsty earth, the plants seemed to come alive, responding to the rejuvenating touch of water.", outcome: "Watering plant", nextDialogIDs: [4], character: .narrator),
                 Dialog(id: 4, text: "(Vibrant flowers, once slightly wilted, regain their luster and stand tall in vibrant hues… Such joy to witness.)", outcome: "Continue", nextDialogIDs: [1], character: .narrator),
                 Dialog(id: 5, text: "Each tug of the weed brought a satisfying release, as if removing a burden from the earth and allowing surrounding plants to breathe and thrive.", outcome: "Pulling Weeds", nextDialogIDs: [6], character: .narrator),
