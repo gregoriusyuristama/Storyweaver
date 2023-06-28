@@ -97,6 +97,7 @@ class WateringScene: SKScene {
                 // plant.colorBlendFactor = 0.5  // Change appearance to indicate watering
                 // Update plant state or perform other watering logic
 //                let wateredPlantTexture = SKTexture(imageNamed: "plant_after")
+                plant.name = "Watered"
                 plant.texture = wateredPlantTexture
                 wateringPot?.texture = wateringPotTexture
             }
@@ -113,7 +114,7 @@ class WateringScene: SKScene {
         
         
         // Check if all plants are watered
-        let allPlantsWatered = plants.allSatisfy { $0.texture == wateredPlantTexture }
+        let allPlantsWatered = plants.allSatisfy { $0.name == "Watered" }
         
         if allPlantsWatered {
             // Show the "Congratulations" label
