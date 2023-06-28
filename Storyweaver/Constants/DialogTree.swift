@@ -11,10 +11,10 @@ class DialogTree {
     init () {}
     
     static let DialogTreeScene1: [Dialog] = [
-                Dialog(id: 0, text: "\"...\"", outcome: "", nextDialogIDs: [1, 2], character: .storyweaver),
+                Dialog(id: 0, text: "\"...\"", outcome: "", nextDialogIDs: [2], character: .storyweaver),
                 Dialog(id: 1, text: "You tried to move but found yourself stuck inside a cramped space.", outcome: "Keep silent", nextDialogIDs: [3], character: .narrator),
                 Dialog(id: 2, text: "You tried to move but found yourself stuck inside a cramped space.", outcome: "Try to move", nextDialogIDs: [3], character: .narrator),
-                Dialog(id: 3, text: "(It's a little bit hard to breathe)", outcome: "Continue", nextDialogIDs: [4, 5], character: .storyweaver),
+                Dialog(id: 3, text: "(It's a little bit hard to breathe)", outcome: "Continue", nextDialogIDs: [5], character: .storyweaver),
                 Dialog(id: 4, text: "You tried to move harder, hoping to escape the narrow room. ", outcome: "Keep silent", nextDialogIDs: [6], character: .narrator),
                 Dialog(id: 5, text: "You tried to move harder, hoping to escape the narrow room. ", outcome: "Try to move", nextDialogIDs: [6], character: .narrator),
                 Dialog(id: 6, text: "Engulfed by pain and immense emotional burst, which is unexpected for an entity such as you, you let out a voice…", outcome: "Continue", nextDialogIDs: [7], character: .narrator),
@@ -53,7 +53,7 @@ class DialogTree {
                 Dialog(id: 7, text: "Her voice quivered with sincerity as she implore for mercy.", outcome: "Continue", nextDialogIDs: [8, 9], character: .narrator),
                 Dialog(id: 8, text: "BRANCH", outcome: "Crying out of fear", nextDialogIDs: [1000], character: .narrator),
                 Dialog(id: 9, text: "\"Strong… Eyes… Quality… Livestock.\" he said with a sinister smile.", outcome: "Stare at Buto Ijo with anger", nextDialogIDs: [11], character: .giant),
-                Dialog(id: 10, text: "BRANCH 2", outcome: "Continue", nextDialogIDs: [], character: .narrator),
+                Dialog(id: 10, text: "BRANCH 2", outcome: "Continue", nextDialogIDs: [1000], character: .narrator),
                 Dialog(id: 11, text: "The giant’s colossal arm extended slowly toward you.", outcome: "Continue", nextDialogIDs: [12, 13], character: .narrator),
                 Dialog(id: 12, text: "Tears streamed down your face as the colossal arm neared, poised to snatch you away. ", outcome: "Plea for assistance", nextDialogIDs: [14], character: .narrator),
                 Dialog(id: 13, text: "BRANCH 3", outcome: "Exercise Storyweaver's authority", nextDialogIDs: [1000], character: .narrator),
@@ -121,7 +121,7 @@ class DialogTree {
     
     static let DialogTreeScene6: [Dialog] = [
                 Dialog(id: 0, text: "As the sun rose in the sky and casting its warm rays upon the world, you know that it was time to embark on…", outcome: "Continue", nextDialogIDs: [1,2], character: .narrator),
-                Dialog(id: 1, text: "BRANCH", outcome: "Your uninterrupted mortal sleep", nextDialogIDs: [2], character: .narrator),
+                Dialog(id: 1, text: "BRANCH", outcome: "Your uninterrupted mortal sleep", nextDialogIDs: [1000], character: .narrator),
                 Dialog(id: 2, text: "\"I will be doing the yard, dear Mother.\"", outcome: "Your daily routine", nextDialogIDs: [3], character: .timunMas),
                 Dialog(id: 3, text: "Your determined words brought a smile to your mother. Mbok Srini looked at you with a mix of pride and appreciation.", outcome: "Continue", nextDialogIDs: [4], character: .narrator),
                 Dialog(id: 4, text: "\"Take your time, Timun Mas.\"", outcome: "Continue", nextDialogIDs: [5], character: .mbokSrini),
@@ -151,8 +151,8 @@ class DialogTree {
                 Dialog(id: 4, text: "she continued, her voice filled with concern.", outcome: "Continue", nextDialogIDs: [5], character: .narrator),
                 Dialog(id: 5, text: "\"Why don't you take a well-deserved rest and go somewhere for a while? I will take care of cleaning the house.\"", outcome: "Continue", nextDialogIDs: [6], character: .mbokSrini),
                 Dialog(id: 6, text: "The sun now stood high in the sky, beckoning you towards your next adventure into the realms of this folklore. ", outcome: "Continue", nextDialogIDs: [7, 8], character: .narrator),
-                Dialog(id: 7, text: "BRANCH", outcome: "\"I think I’ll take a short break.\"", nextDialogIDs: [000], character: .mbokSrini),
-                Dialog(id: 8, text: "\"Now, go on! Take your time.\"", outcome: "\"I think I’ll stay here after all.\"", nextDialogIDs: [9], character: .mbokSrini),
+                Dialog(id: 7, text: "\"Now, go on! Take your time.\"", outcome: "\"I think I’ll take a short break.\"", nextDialogIDs: [9], character: .mbokSrini),
+                Dialog(id: 8, text: "BRANCH", outcome: "\"I think I’ll stay here after all.\"", nextDialogIDs: [1000], character: .mbokSrini),
                 Dialog(id: 9, text: "With a nod and a grateful smile, you acknowledged her advice and headed out to seize the day. With a final glance back at my foster mother, you began to make your way towards the dense forest that lay just beyond your humble abode.", outcome: "Continue", nextDialogIDs: [], character: .narrator),
     ]
     
@@ -190,7 +190,7 @@ class DialogTree {
                 Dialog(id: 24, text: "...", outcome: "Continue", nextDialogIDs: [25], character: .narrator),
                 Dialog(id: 25, text: "The hours stretched on without any sign of Buto Ijo’s arrival.", outcome: "Continue", nextDialogIDs: [26], character: .narrator),
                 Dialog(id: 26, text: "The juxtaposition of Buto Ijo's newfound happiness and Mbok Srini's sorrow deepened the mystery and filled you with a sense of unease.", outcome: "Continue", nextDialogIDs: [27, 28], character: .narrator),
-                Dialog(id: 27, text: "BRANCH", outcome: "Wait longer… ", nextDialogIDs: [], character: .narrator),
+                Dialog(id: 27, text: "BRANCH", outcome: "Wait longer… ", nextDialogIDs: [1000], character: .narrator),
                 Dialog(id: 28, text: "With a heavy heart, you decided it was time to return home. The uneasiness that gnawed at your consciousness as Timun Mas was a clear indication that something was amiss.", outcome: "Go home...", nextDialogIDs: [], character: .narrator),
                 
     ]

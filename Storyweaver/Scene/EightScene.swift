@@ -279,9 +279,17 @@ class EightScene: SKScene {
                     view?.presentScene(gameScene, transition: transition)
                     return
                 } else if gameState.currentDialog?.nextDialogIDs.count == 1 {
-                    gameState.selectDecision(gameState.decisions.first(where: {$0.dialogID == (gameState.currentDialog?.nextDialogIDs.first)})!)
-                    dialogueLabel.text = gameState.currentDialog?.text
-                    showNextDialogue()
+                    if gameState.currentDialog?.nextDialogIDs.first == 1000 {
+                        let gameScene = ToBeContinueScene(size: size)
+                        gameScene.scaleMode = .aspectFill
+                        let transition = SKTransition.crossFade(withDuration: 1.0)
+                        view?.presentScene(gameScene, transition: transition)
+                    }else {
+                        gameState.selectDecision(gameState.decisions.first(where: {$0.dialogID == (gameState.currentDialog?.nextDialogIDs.first)})!)
+                        dialogueLabel.text = gameState.currentDialog?.text
+                        showNextDialogue()
+                    }
+
                     return
                 }
             }
