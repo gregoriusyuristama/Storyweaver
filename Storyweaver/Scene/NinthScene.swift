@@ -301,7 +301,7 @@ class NinthScene: SKScene {
             }
             if currentIndex >= (gameState.currentDialog?.text.count)!{
                 if gameState.currentDialog?.id == gameState.dialogTree.count - 1 {
-                    let gameScene = Homepage(size: size)
+                    let gameScene = ToBeContinueScene(size: size)
                     gameScene.scaleMode = .aspectFill
                     let transition = SKTransition.crossFade(withDuration: 1.0)
                     view?.presentScene(gameScene, transition: transition)

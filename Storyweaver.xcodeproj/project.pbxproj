@@ -34,6 +34,9 @@
 		B603BDBB2A4BE47400908E34 /* Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B603BDBA2A4BE47400908E34 /* Homepage.swift */; };
 		B603BDBE2A4BE5C400908E34 /* Baskervville-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B603BDBC2A4BE5C400908E34 /* Baskervville-Regular.ttf */; };
 		B603BDBF2A4BE5C400908E34 /* Baskervville-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B603BDBD2A4BE5C400908E34 /* Baskervville-Italic.ttf */; };
+		B603BDC32A4C32A200908E34 /* ChoresPuzzleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B603BDC22A4C32A200908E34 /* ChoresPuzzleHelper.swift */; };
+		B603BDC52A4C34DB00908E34 /* ToBeContinueScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B603BDC42A4C34DB00908E34 /* ToBeContinueScene.swift */; };
+		B603BDC72A4C375B00908E34 /* Baskerville SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B603BDC62A4C375B00908E34 /* Baskerville SemiBold.ttf */; };
 		B613EF372A42A6D900536EB7 /* ActTitleScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B613EF362A42A6D900536EB7 /* ActTitleScene.sks */; };
 		B613EF3F2A42FD2200536EB7 /* Aleo-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B613EF392A42FD2100536EB7 /* Aleo-Italic.ttf */; };
 		B613EF402A42FD2200536EB7 /* Aleo-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B613EF3A2A42FD2100536EB7 /* Aleo-Light.ttf */; };
@@ -107,6 +110,9 @@
 		B603BDBA2A4BE47400908E34 /* Homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage.swift; sourceTree = "<group>"; };
 		B603BDBC2A4BE5C400908E34 /* Baskervville-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baskervville-Regular.ttf"; sourceTree = "<group>"; };
 		B603BDBD2A4BE5C400908E34 /* Baskervville-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baskervville-Italic.ttf"; sourceTree = "<group>"; };
+		B603BDC22A4C32A200908E34 /* ChoresPuzzleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoresPuzzleHelper.swift; sourceTree = "<group>"; };
+		B603BDC42A4C34DB00908E34 /* ToBeContinueScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToBeContinueScene.swift; sourceTree = "<group>"; };
+		B603BDC62A4C375B00908E34 /* Baskerville SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baskerville SemiBold.ttf"; sourceTree = "<group>"; };
 		B613EF362A42A6D900536EB7 /* ActTitleScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ActTitleScene.sks; sourceTree = "<group>"; };
 		B613EF392A42FD2100536EB7 /* Aleo-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aleo-Italic.ttf"; sourceTree = "<group>"; };
 		B613EF3A2A42FD2100536EB7 /* Aleo-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aleo-Light.ttf"; sourceTree = "<group>"; };
@@ -194,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				B603BDBD2A4BE5C400908E34 /* Baskervville-Italic.ttf */,
+				B603BDC62A4C375B00908E34 /* Baskerville SemiBold.ttf */,
 				B603BDBC2A4BE5C400908E34 /* Baskervville-Regular.ttf */,
 			);
 			path = Baskervville;
@@ -216,6 +223,7 @@
 				B6EE4B3F2A4587A000A487E6 /* SeventhScene.swift */,
 				B6EE4B412A4587E100A487E6 /* EightScene.swift */,
 				B6EE4B432A45886400A487E6 /* NinthScene.swift */,
+				B603BDC42A4C34DB00908E34 /* ToBeContinueScene.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -234,6 +242,7 @@
 			children = (
 				B6239EC72A44912200C1420A /* AudioManager.swift */,
 				B6F755A42A482DD60058376D /* CreateEntity.swift */,
+				B603BDC22A4C32A200908E34 /* ChoresPuzzleHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -444,6 +453,7 @@
 				B6239EDA2A44A72700C1420A /* scene2and3.mp3 in Resources */,
 				8157532C2A4C213300E0E2A0 /* scene7_audio5_trimBushes.mp3 in Resources */,
 				B613EF432A42FD2200536EB7 /* Aleo-BoldItalic.ttf in Resources */,
+				B603BDC72A4C375B00908E34 /* Baskerville SemiBold.ttf in Resources */,
 				B613EF412A42FD2200536EB7 /* Aleo-LightItalic.ttf in Resources */,
 				B6239ED62A44A3C700C1420A /* scene1_audio4_transition.mp3 in Resources */,
 				81A9E58C2A4A8216004B8609 /* scene6to8.mp3 in Resources */,
@@ -479,6 +489,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6BEEA962A3C1829007718AB /* ThirdScene.swift in Sources */,
+				B603BDC32A4C32A200908E34 /* ChoresPuzzleHelper.swift in Sources */,
 				B6B234B42A3F1CF2007AFDEF /* CharacterVisualComponent.swift in Sources */,
 				B6EE4B442A45886400A487E6 /* NinthScene.swift in Sources */,
 				B6B234BB2A404676007AFDEF /* GameState.swift in Sources */,
@@ -501,6 +512,7 @@
 				DB1DC9072A4A8BF1008697B3 /* WateringScene.swift in Sources */,
 				B6F755A92A488DE60058376D /* FourthScene.swift in Sources */,
 				B6EE4B3C2A4585E300A487E6 /* FifthScene.swift in Sources */,
+				B603BDC52A4C34DB00908E34 /* ToBeContinueScene.swift in Sources */,
 				B6EE4B422A4587E100A487E6 /* EightScene.swift in Sources */,
 				B603BD882A497B8F00908E34 /* InsertTimunName.swift in Sources */,
 				B6BEEA902A3C1829007718AB /* AppDelegate.swift in Sources */,

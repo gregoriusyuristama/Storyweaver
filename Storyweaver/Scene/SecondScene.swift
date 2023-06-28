@@ -63,6 +63,7 @@ class SecondScene: SKScene {
         mbokSrini?.alpha = 0
         
         continueLabel = childNode(withName: "continueLabel") as? SKLabelNode
+        continueLabel?.text = "▼"
         continueLabel?.alpha = 0
     }
     
