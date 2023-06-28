@@ -46,7 +46,7 @@ class PullingWeedScene: SKScene {
     
     func createWeedNode() -> SKSpriteNode {
         // Create a weed/grass node
-        let weedTexture = SKTexture(imageNamed: "weed")
+        let weedTexture = SKTexture(imageNamed: "weeds")
         let weedNode = SKSpriteNode(texture: weedTexture)
         
         // Set up physics properties

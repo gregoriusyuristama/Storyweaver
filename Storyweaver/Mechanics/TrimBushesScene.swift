@@ -15,9 +15,9 @@ class TrimBushesScene: SKScene {
     
     override func didMove(to view: SKView) {
         // Create the background
-//        let background = SKSpriteNode(imageNamed: "background")
-//        background.position = CGPoint(x: size.width / 2, y: size.height / 2)
-//        addChild(background)
+        //        let background = SKSpriteNode(imageNamed: "background")
+        //        background.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        //        addChild(background)
         
         // Create bushes nodes
         let bush1 = createBushNode()
@@ -46,7 +46,7 @@ class TrimBushesScene: SKScene {
     
     func createBushNode() -> SKSpriteNode {
         // Create a bush node
-        let bushTexture = SKTexture(imageNamed: "weed")
+        let bushTexture = SKTexture(imageNamed: "bushes_before")
         let bushNode = SKSpriteNode(texture: bushTexture)
         
         // Set up physics properties
@@ -62,6 +62,9 @@ class TrimBushesScene: SKScene {
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Check if the touch is moving across a bush node
+        
+        let trimmedBushesTexture = SKTexture(imageNamed: "bushes_after")
+        
         for touch in touches {
             let location = touch.location(in: self)
             let previousLocation = touch.previousLocation(in: self)
@@ -78,6 +81,9 @@ class TrimBushesScene: SKScene {
                     if swipeRight || swipeLeft {
                         // Check if the bush is already trimmed
                         if !trimmedBushes.contains(bush) {
+                            // Change texture before fading out
+                            // bushes.texture = trimmedBushesTexture
+                            
                             // Fade out and remove the bush
                             fadeOutAndRemove(node: bush)
                             trimmedBushes.append(bush)
@@ -109,18 +115,21 @@ class TrimBushesScene: SKScene {
         return nil
     }
     
-    func fadeOutAndRemove(node: SKNode) {
+    func fadeOutAndRemove(node: SKSpriteNode) {
         // Create a fade out action
-        let fadeOut = SKAction.fadeOut(withDuration: 0.5)
+        //        let fadeOut = SKAction.fadeOut(withDuration: 0.5)
         
         // Create a remove from parent action
-        let removeFromParent = SKAction.removeFromParent()
+        //        let removeFromParent = SKAction.removeFromParent()
         
         // Create a sequence of actions: fade out, remove from parent
-        let sequence = SKAction.sequence([fadeOut, removeFromParent])
+        //        let sequence = SKAction.sequence([fadeOut, removeFromParent])
         
         // Run the sequence on the node
-        node.run(sequence)
+        
+        node.run(SKAction.run {
+            node.texture = SKTexture(imageNamed: "bushes_after")
+        })
     }
     
     func showCongratsLabel() {
