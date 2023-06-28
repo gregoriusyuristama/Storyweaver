@@ -23,6 +23,10 @@
 		B603BD882A497B8F00908E34 /* InsertTimunName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B603BD872A497B8F00908E34 /* InsertTimunName.swift */; };
 		B603BD8A2A49A75700908E34 /* SwipeToClearImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B603BD892A49A75700908E34 /* SwipeToClearImage.swift */; };
 		B603BD8C2A49AA5700908E34 /* EraseShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B603BD8B2A49AA5700908E34 /* EraseShader.fsh */; };
+		B603BDB92A4BD83600908E34 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B603BDB82A4BD83600908E34 /* AppColor.swift */; };
+		B603BDBB2A4BE47400908E34 /* Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B603BDBA2A4BE47400908E34 /* Homepage.swift */; };
+		B603BDBE2A4BE5C400908E34 /* Baskervville-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B603BDBC2A4BE5C400908E34 /* Baskervville-Regular.ttf */; };
+		B603BDBF2A4BE5C400908E34 /* Baskervville-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B603BDBD2A4BE5C400908E34 /* Baskervville-Italic.ttf */; };
 		B613EF372A42A6D900536EB7 /* ActTitleScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = B613EF362A42A6D900536EB7 /* ActTitleScene.sks */; };
 		B613EF3F2A42FD2200536EB7 /* Aleo-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B613EF392A42FD2100536EB7 /* Aleo-Italic.ttf */; };
 		B613EF402A42FD2200536EB7 /* Aleo-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B613EF3A2A42FD2100536EB7 /* Aleo-Light.ttf */; };
@@ -85,6 +89,10 @@
 		B603BD872A497B8F00908E34 /* InsertTimunName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertTimunName.swift; sourceTree = "<group>"; };
 		B603BD892A49A75700908E34 /* SwipeToClearImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToClearImage.swift; sourceTree = "<group>"; };
 		B603BD8B2A49AA5700908E34 /* EraseShader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = EraseShader.fsh; sourceTree = "<group>"; };
+		B603BDB82A4BD83600908E34 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		B603BDBA2A4BE47400908E34 /* Homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage.swift; sourceTree = "<group>"; };
+		B603BDBC2A4BE5C400908E34 /* Baskervville-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baskervville-Regular.ttf"; sourceTree = "<group>"; };
+		B603BDBD2A4BE5C400908E34 /* Baskervville-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baskervville-Italic.ttf"; sourceTree = "<group>"; };
 		B613EF362A42A6D900536EB7 /* ActTitleScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ActTitleScene.sks; sourceTree = "<group>"; };
 		B613EF392A42FD2100536EB7 /* Aleo-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aleo-Italic.ttf"; sourceTree = "<group>"; };
 		B613EF3A2A42FD2100536EB7 /* Aleo-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aleo-Light.ttf"; sourceTree = "<group>"; };
@@ -155,6 +163,28 @@
 			path = Mechanics;
 			sourceTree = "<group>";
 		};
+		B603BDC02A4BE5CA00908E34 /* Aleo */ = {
+			isa = PBXGroup;
+			children = (
+				B613EF3E2A42FD2200536EB7 /* Aleo-Bold.ttf */,
+				B613EF3D2A42FD2100536EB7 /* Aleo-BoldItalic.ttf */,
+				B613EF392A42FD2100536EB7 /* Aleo-Italic.ttf */,
+				B613EF3A2A42FD2100536EB7 /* Aleo-Light.ttf */,
+				B613EF3B2A42FD2100536EB7 /* Aleo-LightItalic.ttf */,
+				B613EF3C2A42FD2100536EB7 /* Aleo-Regular.ttf */,
+			);
+			path = Aleo;
+			sourceTree = "<group>";
+		};
+		B603BDC12A4BE5CE00908E34 /* Baskervville */ = {
+			isa = PBXGroup;
+			children = (
+				B603BDBD2A4BE5C400908E34 /* Baskervville-Italic.ttf */,
+				B603BDBC2A4BE5C400908E34 /* Baskervville-Regular.ttf */,
+			);
+			path = Baskervville;
+			sourceTree = "<group>";
+		};
 		B613EF352A42A6C500536EB7 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +201,7 @@
 				B6EE4B432A45886400A487E6 /* NinthScene.swift */,
 				B6F755A82A488DE60058376D /* FourthScene.swift */,
 				B603BD842A49569F00908E34 /* PrologueScene.swift */,
+				B603BDBA2A4BE47400908E34 /* Homepage.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -178,12 +209,8 @@
 		B613EF382A42FD0000536EB7 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				B613EF3E2A42FD2200536EB7 /* Aleo-Bold.ttf */,
-				B613EF3D2A42FD2100536EB7 /* Aleo-BoldItalic.ttf */,
-				B613EF392A42FD2100536EB7 /* Aleo-Italic.ttf */,
-				B613EF3A2A42FD2100536EB7 /* Aleo-Light.ttf */,
-				B613EF3B2A42FD2100536EB7 /* Aleo-LightItalic.ttf */,
-				B613EF3C2A42FD2100536EB7 /* Aleo-Regular.ttf */,
+				B603BDC12A4BE5CE00908E34 /* Baskervville */,
+				B603BDC02A4BE5CA00908E34 /* Aleo */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -200,6 +227,7 @@
 		B6239EC92A44919300C1420A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B613EF382A42FD0000536EB7 /* Fonts */,
 				B6239ECE2A44927E00C1420A /* SFX */,
 				B6239ECB2A4491B500C1420A /* BGM */,
 				B6BEEA9C2A3C182B007718AB /* Assets.xcassets */,
@@ -212,7 +240,6 @@
 			children = (
 				81A9E58E2A4A8231004B8609 /* prologue.mp3 */,
 				B6239ED92A44A72700C1420A /* scene2and3.mp3 */,
-				B603BDB62A4A843500908E34 /* prologue.mp3 */,
 				B6239ECC2A4491EB00C1420A /* scene1.mp3 */,
 				81A9E5892A4A8216004B8609 /* scene5.mp3 */,
 				81A9E5882A4A8216004B8609 /* scene6to8.mp3 */,
@@ -263,6 +290,7 @@
 				B6B234C52A40B427007AFDEF /* CharacterList.swift */,
 				B6F755A22A45AC3F0058376D /* GameConfig.swift */,
 				B6F755A62A48369B0058376D /* CharacterPosition.swift */,
+				B603BDB82A4BD83600908E34 /* AppColor.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -307,7 +335,6 @@
 				B6239EC92A44919300C1420A /* Resources */,
 				B6239EC62A44911600C1420A /* Utilities */,
 				B613EF452A42FD5500536EB7 /* Info.plist */,
-				B613EF382A42FD0000536EB7 /* Fonts */,
 				B613EF352A42A6C500536EB7 /* Scene */,
 				B6B234BF2A404BAF007AFDEF /* Features */,
 				B6B234BC2A404A8A007AFDEF /* Constants */,
@@ -381,11 +408,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B603BDBF2A4BE5C400908E34 /* Baskervville-Italic.ttf in Resources */,
 				B613EF3F2A42FD2200536EB7 /* Aleo-Italic.ttf in Resources */,
 				B613EF372A42A6D900536EB7 /* ActTitleScene.sks in Resources */,
 				B613EF442A42FD2200536EB7 /* Aleo-Bold.ttf in Resources */,
 				B6239ECD2A4491EB00C1420A /* scene1.mp3 in Resources */,
 				81A9E57B2A495A1F004B8609 /* scene2_audio2_butoIjoStomp.mp3 in Resources */,
+				B603BDBE2A4BE5C400908E34 /* Baskervville-Regular.ttf in Resources */,
 				B613EF402A42FD2200536EB7 /* Aleo-Light.ttf in Resources */,
 				B6239EDA2A44A72700C1420A /* scene2and3.mp3 in Resources */,
 				B613EF432A42FD2200536EB7 /* Aleo-BoldItalic.ttf in Resources */,
@@ -397,7 +426,6 @@
 				81A9E5852A4A81CC004B8609 /* scene4.mp3 in Resources */,
 				B6239ED22A44A2CB00C1420A /* scene1_audio2_babyCrying.mp3 in Resources */,
 				81A9E5792A4954F8004B8609 /* scene4_audio3_babyLaugh.mp3 in Resources */,
-				B603BDB72A4A843600908E34 /* prologue.mp3 in Resources */,
 				B6BEEA9B2A3C1829007718AB /* Main.storyboard in Resources */,
 				81A9E5752A495395004B8609 /* scene4_audio1_reliefSigh.mp3 in Resources */,
 				B613EF472A42FDEF00536EB7 /* SecondScene.sks in Resources */,
@@ -433,7 +461,9 @@
 				B603BD8A2A49A75700908E34 /* SwipeToClearImage.swift in Sources */,
 				DB1DC90B2A4A8C36008697B3 /* TrimBushesScene.swift in Sources */,
 				B6BEEA982A3C1829007718AB /* GameViewController.swift in Sources */,
+				B603BDB92A4BD83600908E34 /* AppColor.swift in Sources */,
 				B6B234BE2A404A96007AFDEF /* DialogTree.swift in Sources */,
+				B603BDBB2A4BE47400908E34 /* Homepage.swift in Sources */,
 				B603BD852A49569F00908E34 /* PrologueScene.swift in Sources */,
 				B6B234CA2A419F8D007AFDEF /* ActTitleScene.swift in Sources */,
 				B6EE4B3E2A4586F900A487E6 /* SixthScene.swift in Sources */,

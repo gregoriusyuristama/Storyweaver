@@ -16,7 +16,6 @@ class PrologueScene: SKScene {
     
     override func didMove(to view: SKView) {
         backgroundColor = .black
-        AudioManager.shared.playBackgroundMusic(fileName: "prologue")
         
         textNode = SKLabelNode(fontNamed: "Aleo-Bold")
         textNode.lineBreakMode = .byWordWrapping
