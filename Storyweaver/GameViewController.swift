@@ -20,35 +20,11 @@ class GameViewController: UIViewController {
         // Configure the view
         let skView = view as! SKView
         skView.frame = view.bounds
-
-//        skView.showsFPS = true
-//        skView.showsNodeCount = true
-
-        // Create and present the initial scene
         let initialScene = Homepage(size: skView.bounds.size)
         initialScene.scaleMode = .aspectFill
 
         skView.presentScene(initialScene)
         
-        
-//        if let view = self.view as! SKView? {
-//            // Load the SKScene from 'GameScene.sks'
-//            if let scene = ActTitleScene(fileNamed: "ActTitleScene") {
-//                // Set the scale mode to scale to fit the window
-//                scene.actNumber = 1
-//                scene.actTitle = "The Birth of Legend"
-//                scene.scaleMode = .aspectFill
-//
-//                // Present the scene
-//                view.presentScene(scene)
-//            }
-//
-//            //          view.ignoresSiblingOrder = true
-//
-//            view.showsFPS = true
-//            view.showsNodeCount = true
-//            view.ignoresSiblingOrder = false
-//        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
