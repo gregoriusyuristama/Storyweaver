@@ -204,20 +204,20 @@
 		B613EF352A42A6C500536EB7 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
-				B6BEEA952A3C1829007718AB /* ThirdScene.swift */,
+				B603BDBA2A4BE47400908E34 /* Homepage.swift */,
+				B603BD842A49569F00908E34 /* PrologueScene.swift */,
 				B613EF362A42A6D900536EB7 /* ActTitleScene.sks */,
 				B6B234C92A419F8D007AFDEF /* ActTitleScene.swift */,
+				B613EF4C2A42FEE500536EB7 /* FirstScene.swift */,
 				B613EF462A42FDEF00536EB7 /* SecondScene.sks */,
 				B613EF482A42FE1B00536EB7 /* SecondScene.swift */,
-				B613EF4C2A42FEE500536EB7 /* FirstScene.swift */,
+				B6BEEA952A3C1829007718AB /* ThirdScene.swift */,
+				B6F755A82A488DE60058376D /* FourthScene.swift */,
 				B6EE4B3B2A4585E300A487E6 /* FifthScene.swift */,
 				B6EE4B3D2A4586F900A487E6 /* SixthScene.swift */,
 				B6EE4B3F2A4587A000A487E6 /* SeventhScene.swift */,
 				B6EE4B412A4587E100A487E6 /* EightScene.swift */,
 				B6EE4B432A45886400A487E6 /* NinthScene.swift */,
-				B6F755A82A488DE60058376D /* FourthScene.swift */,
-				B603BD842A49569F00908E34 /* PrologueScene.swift */,
-				B603BDBA2A4BE47400908E34 /* Homepage.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";

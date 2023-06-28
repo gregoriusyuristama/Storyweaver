@@ -25,7 +25,7 @@ class GameViewController: UIViewController {
 //        skView.showsNodeCount = true
 
         // Create and present the initial scene
-        let initialScene = Homepage(size: skView.bounds.size)
+        let initialScene = ThirdScene(size: skView.bounds.size)
         initialScene.scaleMode = .aspectFill
 
         skView.presentScene(initialScene)

@@ -98,12 +98,12 @@ class EightScene: SKScene {
         addChild(dialogueLabel)
         
         continueLabel = SKLabelNode(fontNamed: "Aleo-Regular")
-        continueLabel.text = "Tap to continue..."
-        continueLabel.fontSize = 16
+        continueLabel.text = "▼"
+        continueLabel.fontSize = 24
         continueLabel.fontColor = SKColor.white
         continueLabel.horizontalAlignmentMode = .right
         continueLabel.verticalAlignmentMode = .bottom
-        continueLabel.position = CGPoint(x: dialogueBackground.frame.maxX - 10, y: dialogueBackground.frame.minY + 10)
+        continueLabel.position = CGPoint(x: dialogueBackground.frame.maxX - 15, y: dialogueBackground.frame.minY + 15)
         continueLabel.zPosition = 2
         continueLabel.alpha = 0
         addChild(continueLabel)

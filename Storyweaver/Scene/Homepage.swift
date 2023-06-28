@@ -11,7 +11,7 @@ import SpriteKit
 class Homepage: SKScene{
     
     private var backgroundNode: SKSpriteNode = SKSpriteNode(imageNamed: "Homepage")
-    private var continueButton: SKLabelNode = SKLabelNode(text: "Start you journey")
+    private var continueButton: SKLabelNode = SKLabelNode(text: "Start your journey")
     
     
     override func didMove(to view: SKView) {
@@ -30,7 +30,7 @@ class Homepage: SKScene{
         continueButton.color = SKColor.white
         continueButton.fontName = "Baskervville-Regular"
         continueButton.fontSize = 32
-        continueButton.position = CGPoint(x: size.width - continueButton.frame.width/2 - (size.width * 0.05) , y: size.height - continueButton.frame.height - (size.height * 0.3))
+        continueButton.position = CGPoint(x: size.width - continueButton.frame.width/2 - (size.width * 0.05) , y: (size.height * 0.15))
         addChild(continueButton)
     }
     
