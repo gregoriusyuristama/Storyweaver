@@ -22,6 +22,7 @@ class FifthScene: SKScene {
     var backgroundNode: SKSpriteNode = SKSpriteNode()
     var dialogueBackground: SKShapeNode = SKShapeNode()
     var characterLabelBackground: SKSpriteNode = SKSpriteNode()
+    var cutsceneNode: SKSpriteNode = SKSpriteNode()
     
     
     var currentIndex: Int = 0
@@ -109,7 +110,13 @@ class FifthScene: SKScene {
         continueLabel.alpha = 0
         addChild(continueLabel)
         
-        
+        cutsceneNode = SKSpriteNode(imageNamed: "cutscene_scene5_1")
+        cutsceneNode.scale(to: CGSize(width: size.width, height: size.height))
+        cutsceneNode.position = CGPoint(x: size.width/2, y: size.height/2)
+        cutsceneNode.zPosition = 2
+        cutsceneNode.alpha = 0
+        addChild(cutsceneNode)
+
         
         showNextDialogue()
         
@@ -212,6 +219,10 @@ class FifthScene: SKScene {
                 continueLabel.alpha = 1
             }
             
+            if gameState.currentDialog?.id == 13 {
+                
+                showCutscene()
+            }
         }
     }
     
@@ -303,6 +314,10 @@ class FifthScene: SKScene {
                     
                     continueLabel.alpha = 1
                 }
+                if gameState.currentDialog?.id == 13 {
+                    showCutscene()
+                }
+
             }
             
         }
@@ -322,4 +337,27 @@ class FifthScene: SKScene {
             }
         }
     }
+    func showCutscene(){
+        let notInteractive = SKAction.run {
+            self.isUserInteractionEnabled = false
+        }
+        let fadeInAction = SKAction.fadeIn(withDuration: 2)
+        let delayAction = SKAction.wait(forDuration: 2)
+        let fadeOutAction = SKAction.fadeOut(withDuration: 1)
+        let interactiveAction = SKAction.run {
+            self.isUserInteractionEnabled = true
+        }
+        
+        let removeCutscene = SKAction.removeFromParent()
+        let nextDialogue = SKAction.run {
+            self.gameState.selectDecision(self.gameState.decisions.first(where: {$0.dialogID == (self.gameState.currentDialog?.nextDialogIDs.first)})!)
+            
+            self.dialogueLabel.text = self.gameState.currentDialog?.text
+            self.showNextDialogue()
+        }
+        
+        let sequence = SKAction.sequence([notInteractive, fadeInAction, delayAction, fadeOutAction, interactiveAction, removeCutscene, nextDialogue])
+        self.cutsceneNode.run(sequence)
+    }
+
 }
