@@ -11,5 +11,5 @@ import Foundation
 class ChoresPuzzleHelper{
     init () {}
     
-    static var completedTask = 0
+    static var completedTask: Set<Int> = []
 }

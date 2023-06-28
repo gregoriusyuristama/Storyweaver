@@ -85,6 +85,13 @@ class TrimBushesScene: SKScene {
                             // Check if all bushes are trimmed
                             if trimmedBushes.count == bushes.count {
                                 showCongratsLabel()
+                                // ID Dialog Trim Bushes
+                                ChoresPuzzleHelper.completedTask.insert(7)
+                                let gameScene = SeventhScene(size: size, gameState: GameState(dialogTree: DialogTree.DialogTreeScene7, currentID: 1))
+                                gameScene.scaleMode = .aspectFill
+                                let transition = SKTransition.crossFade(withDuration: 1.0)
+                                view?.presentScene(gameScene, transition: transition)
+                                return
                             }
                         }
                     }

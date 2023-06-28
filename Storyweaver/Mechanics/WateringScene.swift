@@ -106,6 +106,12 @@ class WateringScene: SKScene {
         if allPlantsWatered {
             // Show the "Congratulations" label
             congratulationsLabel?.run(SKAction.fadeIn(withDuration: 0.5))
+            // ID button watering scene = 1
+            ChoresPuzzleHelper.completedTask.insert(2)
+            let gameScene = SeventhScene(size: size, gameState: GameState(dialogTree: DialogTree.DialogTreeScene7, currentID: 1))
+            gameScene.scaleMode = .aspectFill
+            let transition = SKTransition.crossFade(withDuration: 1.0)
+            view?.presentScene(gameScene, transition: transition)
         }
     }
     
