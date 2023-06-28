@@ -188,11 +188,10 @@ class FourthScene: SKScene {
                     characterLabelBackground.alpha = 1
                     characterLabel.text = component.type.rawValue
                 } else {
-                    component.characterNode.alpha = 0.5
                     if component.type == .storyweaver {
                         component.characterNode.alpha = 0
                     }
-                    component.characterNode.texture = SKTexture(imageNamed: component.type.rawValue)
+                    component.characterNode.texture = SKTexture(imageNamed: "\(component.type.rawValue)_idle")
                 }
             }
             

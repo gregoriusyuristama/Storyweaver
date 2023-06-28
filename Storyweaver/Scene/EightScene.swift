@@ -161,8 +161,7 @@ class EightScene: SKScene {
                     component.characterNode.texture = SKTexture(imageNamed: "\(component.type.rawValue)_talk")
                     characterLabel.text = component.type.rawValue
                 } else {
-                    component.characterNode.alpha = 0.5
-                    component.characterNode.texture = SKTexture(imageNamed: component.type.rawValue)
+                    component.characterNode.texture = SKTexture(imageNamed: "\(component.type.rawValue)_idle")
                 }
             }
             
