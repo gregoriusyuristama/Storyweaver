@@ -30,7 +30,6 @@
 		B603BD852A49569F00908E34 /* PrologueScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B603BD842A49569F00908E34 /* PrologueScene.swift */; };
 		B603BD882A497B8F00908E34 /* InsertTimunName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B603BD872A497B8F00908E34 /* InsertTimunName.swift */; };
 		B603BD8A2A49A75700908E34 /* SwipeToClearImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B603BD892A49A75700908E34 /* SwipeToClearImage.swift */; };
-		B603BD8C2A49AA5700908E34 /* EraseShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B603BD8B2A49AA5700908E34 /* EraseShader.fsh */; };
 		B603BDB92A4BD83600908E34 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B603BDB82A4BD83600908E34 /* AppColor.swift */; };
 		B603BDBB2A4BE47400908E34 /* Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B603BDBA2A4BE47400908E34 /* Homepage.swift */; };
 		B603BDBE2A4BE5C400908E34 /* Baskervville-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B603BDBC2A4BE5C400908E34 /* Baskervville-Regular.ttf */; };
@@ -104,7 +103,6 @@
 		B603BD842A49569F00908E34 /* PrologueScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrologueScene.swift; sourceTree = "<group>"; };
 		B603BD872A497B8F00908E34 /* InsertTimunName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertTimunName.swift; sourceTree = "<group>"; };
 		B603BD892A49A75700908E34 /* SwipeToClearImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToClearImage.swift; sourceTree = "<group>"; };
-		B603BD8B2A49AA5700908E34 /* EraseShader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = EraseShader.fsh; sourceTree = "<group>"; };
 		B603BDB82A4BD83600908E34 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		B603BDBA2A4BE47400908E34 /* Homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage.swift; sourceTree = "<group>"; };
 		B603BDBC2A4BE5C400908E34 /* Baskervville-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Baskervville-Regular.ttf"; sourceTree = "<group>"; };
@@ -369,7 +367,6 @@
 				B6BEEA992A3C1829007718AB /* Main.storyboard */,
 				B6BEEA9E2A3C182B007718AB /* LaunchScreen.storyboard */,
 				B6B234BA2A404675007AFDEF /* GameState.swift */,
-				B603BD8B2A49AA5700908E34 /* EraseShader.fsh */,
 			);
 			path = Storyweaver;
 			sourceTree = "<group>";
@@ -458,7 +455,6 @@
 				B6BEEA9B2A3C1829007718AB /* Main.storyboard in Resources */,
 				81A9E5752A495395004B8609 /* scene4_audio1_reliefSigh.mp3 in Resources */,
 				B613EF472A42FDEF00536EB7 /* SecondScene.sks in Resources */,
-				B603BD8C2A49AA5700908E34 /* EraseShader.fsh in Resources */,
 				81A9E56F2A49279D004B8609 /* scene3_audio1_butoIjoGrowling.mp3 in Resources */,
 				B6BEEA9D2A3C182B007718AB /* Assets.xcassets in Resources */,
 				8157532B2A4C213300E0E2A0 /* scene7_audio2_pullingWeeds.mp3 in Resources */,
