@@ -34,7 +34,6 @@ class PrologueScene: SKScene {
         // Add the scrolling action to the text node
         textNode.run(moveAction) {
             // The scrolling has finished, transition to the next scene or perform other actions
-            print("Move Animation Finished")
             let gameScene = ActTitleScene(fileNamed: "ActTitleScene")
             //            gameScene!.scaleMode = .aspectFill
             let transition = SKTransition.crossFade(withDuration: 1.0)
@@ -44,6 +43,18 @@ class PrologueScene: SKScene {
             
             view.presentScene(gameScene!, transition: transition)
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        textNode.removeAllActions()
+        let gameScene = ActTitleScene(fileNamed: "ActTitleScene")
+        //            gameScene!.scaleMode = .aspectFill
+        let transition = SKTransition.crossFade(withDuration: 1.0)
+        
+        gameScene!.actNumber = 1
+        gameScene!.actTitle = "The Birth of Legend"
+        
+        view?.presentScene(gameScene!, transition: transition)
     }
 
     

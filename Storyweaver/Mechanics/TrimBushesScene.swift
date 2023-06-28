@@ -65,7 +65,6 @@ class TrimBushesScene: SKScene {
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Check if the touch is moving across a bush node
         
-        let trimmedBushesTexture = SKTexture(imageNamed: "bushes_after")
         
         for touch in touches {
             let location = touch.location(in: self)
@@ -87,7 +86,7 @@ class TrimBushesScene: SKScene {
                             // bushes.texture = trimmedBushesTexture
                             
                             // Fade out and remove the bush
-                            fadeOutAndRemove(node: bush)
+                            changeToTrimmedTexture(node: bush)
                             trimmedBushes.append(bush)
                             
                             // Check if all bushes are trimmed
@@ -117,7 +116,7 @@ class TrimBushesScene: SKScene {
         return nil
     }
     
-    func fadeOutAndRemove(node: SKSpriteNode) {
+    func changeToTrimmedTexture(node: SKSpriteNode) {
         // Create a fade out action
         //        let fadeOut = SKAction.fadeOut(withDuration: 0.5)
         
