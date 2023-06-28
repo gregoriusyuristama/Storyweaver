@@ -20,7 +20,7 @@ class GameViewController: UIViewController {
         // Configure the view
         let skView = view as! SKView
         skView.frame = view.bounds
-        let initialScene = SeventhScene(size: skView.bounds.size)
+        let initialScene = Homepage(size: skView.bounds.size)
         initialScene.scaleMode = .aspectFill
 
         skView.presentScene(initialScene)
