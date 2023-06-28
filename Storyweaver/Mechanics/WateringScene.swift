@@ -28,9 +28,9 @@ class WateringScene: SKScene {
         // Create and position the label and spinnyNode as before...
         
         // Create the watering pot node
-        wateringPot = SKSpriteNode(imageNamed: "watering_pot")
+        wateringPot = SKSpriteNode(imageNamed: "wateringPot")
         wateringPot?.position = CGPoint(x: 800, y: 700)
-        wateringPot?.setScale(0.1)
+        wateringPot?.setScale(0.5)
         addChild(wateringPot!)
         
         // Create and position the plant nodes
@@ -41,6 +41,10 @@ class WateringScene: SKScene {
         for plant in plants {
             addChild(plant)
         }
+        
+        // For after watered textures
+//        let wateredPlantTexture = SKTexture(imageNamed: "plant_after")
+
         
         
         // Create the "Congratulations" label
@@ -54,9 +58,9 @@ class WateringScene: SKScene {
     
     
     private func createPlantNode(position: CGPoint) -> SKSpriteNode {
-        let plantNode = SKSpriteNode(imageNamed: "plant")
+        let plantNode = SKSpriteNode(imageNamed: "plant_before")
         plantNode.position = position
-        plantNode.setScale(0.3)
+        plantNode.setScale(0.5)
         return plantNode
     }
     
@@ -66,18 +70,22 @@ class WateringScene: SKScene {
         
         let touchLocation = touch.location(in: self)
         
+        // For after watering texture
+        let wateredPlantTexture = SKTexture(imageNamed: "plant_after")
+        let wateringPotTexture = SKTexture(imageNamed: "wateringPot_skew")
+        
         // Update the position of the watering pot
         wateringPot?.position = touchLocation
         
         // Calculate the skew angle based on the touch position
-        let maxX = size.width
-        let skewFactor: CGFloat = 0.1 // Adjust the skew factor to control the amount of skewing
+        // let maxX = size.width
+        // let skewFactor: CGFloat = 0.1 // Adjust the skew factor to control the amount of skewing
         
         // Calculate the skew angle based on the X position of the touch
-        let skewAngle = 45
+        // let skewAngle = 45
         
         // Apply the skew transformation to the watering pot
-        wateringPot?.zRotation = CGFloat(skewAngle)
+        // wateringPot?.zRotation = CGFloat(skewAngle)
         
         // Check if the watering pot is above any plant nodes
         for plant in plants {
@@ -86,8 +94,11 @@ class WateringScene: SKScene {
             
             if distance <= wateringThreshold && abs(touchLocation.x - plantPosition.x) <= plant.size.width/2 {
                 // Water the plant
-                plant.colorBlendFactor = 0.5  // Change appearance to indicate watering
+                // plant.colorBlendFactor = 0.5  // Change appearance to indicate watering
                 // Update plant state or perform other watering logic
+//                let wateredPlantTexture = SKTexture(imageNamed: "plant_after")
+                plant.texture = wateredPlantTexture
+                wateringPot?.texture = wateringPotTexture
             }
         }
         
@@ -100,8 +111,9 @@ class WateringScene: SKScene {
 //                  }
 //              }
         
+        
         // Check if all plants are watered
-        let allPlantsWatered = plants.allSatisfy { $0.colorBlendFactor == 0.5 }
+        let allPlantsWatered = plants.allSatisfy { $0.texture == wateredPlantTexture }
         
         if allPlantsWatered {
             // Show the "Congratulations" label
