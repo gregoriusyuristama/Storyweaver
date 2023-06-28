@@ -12,12 +12,13 @@ class PullingWeedScene: SKScene {
     var selectedWeed: SKSpriteNode?
     var remainingWeeds: Int = 0
     var congratsLabel: SKLabelNode?
+    var backgroundNode: SKSpriteNode = SKSpriteNode(imageNamed: "background_houseYardPuzzle")
     
     override func didMove(to view: SKView) {
         // Create the background
-//        let background = SKSpriteNode(imageNamed: "background")
-//        background.position = CGPoint(x: size.width / 2, y: size.height / 2)
-//        addChild(background)
+        backgroundNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        backgroundNode.scale(to: size)
+        addChild(backgroundNode)
         
         // Create weeds/grass nodes
         let weed1 = createWeedNode()

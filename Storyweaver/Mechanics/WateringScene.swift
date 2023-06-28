@@ -17,13 +17,15 @@ class WateringScene: SKScene {
     private var plants: [SKSpriteNode] = []
     private var congratulationsLabel: SKLabelNode?
     private let wateringThreshold: CGFloat = 450.0
+    var backgroundNode: SKSpriteNode = SKSpriteNode(imageNamed: "background_houseYardPuzzle")
     
     override func didMove(to view: SKView) {
         
         // Create the background
-//        let background = SKSpriteNode(imageNamed: "background")
-//        background.position = CGPoint(x: size.width / 2, y: size.height / 2)
-//        addChild(background)
+        backgroundNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        backgroundNode.scale(to: size)
+        addChild(backgroundNode)
+
         
         // Create and position the label and spinnyNode as before...
         
