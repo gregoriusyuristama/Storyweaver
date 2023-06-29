@@ -179,10 +179,14 @@ class FourthScene: SKScene {
                         
                     }
                     
-                    //MARK: masih belum ada gambar storyweaver ngomong
                     
                     if component.type != .storyweaver {
-                        component.characterNode.texture = SKTexture(imageNamed: "\(component.type.rawValue)_talk")
+                        if gameState.currentDialog?.emotion == .normal {
+                            component.characterNode.texture = SKTexture(imageNamed: "\(component.type.rawValue)_talk")
+                            
+                        }else {
+                            component.characterNode.texture = SKTexture(imageNamed: "\(component.type.rawValue)_\(gameState.currentDialog!.emotion.rawValue)")
+                        }
                     }
                     
                     characterLabelBackground.alpha = 1

@@ -47,9 +47,9 @@ class DialogTree {
                 Dialog(id: 1, text: "Its face was contorted with a menacing scowl, marked by sharp and jagged teeth that protruded from its snarling mouth.", outcome: "Continue", nextDialogIDs: [2], character: .narrator),
                 Dialog(id: 2, text: "\"You…Steal…Buto Ijo…Property!\"", outcome: "Continue", nextDialogIDs: [3], character: .giant),
                 Dialog(id: 3, text: "The words dripped with fury and a warning, conveying the severity of the offense committed.", outcome: "Continue", nextDialogIDs: [4], character: .narrator),
-                Dialog(id: 4, text: "\"In the name of Buto Ijo, I beg your forgiveness.\"", outcome: "Continue", nextDialogIDs: [5], character: .mbokSrini),
+                Dialog(id: 4, text: "\"In the name of Buto Ijo, I beg your forgiveness.\"", outcome: "Continue", nextDialogIDs: [5], character: .mbokSrini, emotion: .scared),
                 Dialog(id: 5, text: "The woman pleaded as her voice trembled with fear and humility. ", outcome: "Continue", nextDialogIDs: [6], character: .narrator),
-                Dialog(id: 6, text: "\"This mere human was only attempting to rescue this young girl.\"", outcome: "Continue", nextDialogIDs: [7], character: .mbokSrini),
+                Dialog(id: 6, text: "\"This mere human was only attempting to rescue this young girl.\"", outcome: "Continue", nextDialogIDs: [7], character: .mbokSrini, emotion: .scared),
                 Dialog(id: 7, text: "Her voice quivered with sincerity as she implore for mercy.", outcome: "Continue", nextDialogIDs: [8, 9], character: .narrator),
                 Dialog(id: 8, text: "BRANCH", outcome: "Crying out of fear", nextDialogIDs: [1000], character: .narrator),
                 Dialog(id: 9, text: "\"Strong… Eyes… Quality… Livestock.\" he said with a sinister smile.", outcome: "Stare at Buto Ijo with anger", nextDialogIDs: [11], character: .giant),
@@ -58,7 +58,7 @@ class DialogTree {
                 Dialog(id: 12, text: "Tears streamed down your face as the colossal arm neared, poised to snatch you away. ", outcome: "Plea for assistance", nextDialogIDs: [14], character: .narrator),
                 Dialog(id: 13, text: "BRANCH 3", outcome: "Exercise Storyweaver's authority", nextDialogIDs: [1000], character: .narrator),
                 Dialog(id: 14, text: "Just as it was about to grasp you, the old woman swiftly shielded you within the safety of her embrace. ", outcome: "Continue", nextDialogIDs: [15], character: .narrator),
-                Dialog(id: 15, text: "\"I wish to negotiate…\"", outcome: "Continue", nextDialogIDs: [16], character: .mbokSrini),
+                Dialog(id: 15, text: "\"I wish to negotiate…\"", outcome: "Continue", nextDialogIDs: [16], character: .mbokSrini, emotion: .scared),
                 Dialog(id: 16, text: "Her tone took on an intimidating edge, hinting at a hidden strength within her frightened self.", outcome: "Continue", nextDialogIDs: [17], character: .narrator),
                 Dialog(id: 17, text: "Carefully, she placed you into a basket she had been carrying and cautiously approached the towering giant and engage in a conversation with him. ", outcome: "Continue", nextDialogIDs: [18, 19], character: .narrator),
                 Dialog(id: 18, text: "Unable to discern their conversation, you anxiously watched and approached them as they exchanged words where you ears only caught two distinct words. ", outcome: "Try to listen", nextDialogIDs: [20], character: .narrator),
@@ -125,7 +125,7 @@ class DialogTree {
                 Dialog(id: 2, text: "\"I will be doing the yard, dear Mother.\"", outcome: "Your daily routine", nextDialogIDs: [3], character: .timunMas),
                 Dialog(id: 3, text: "Your determined words brought a smile to your mother. Mbok Srini looked at you with a mix of pride and appreciation.", outcome: "Continue", nextDialogIDs: [4], character: .narrator),
                 Dialog(id: 4, text: "\"Take your time, Timun Mas.\"", outcome: "Continue", nextDialogIDs: [5], character: .mbokSrini),
-                Dialog(id: 5, text: "\"The yard will flourish under your loving touch. I am grateful for all the effort you put into making our surroundings beautiful.\"", outcome: "Continue", nextDialogIDs: [], character: .mbokSrini),
+                Dialog(id: 5, text: "\"The yard will flourish under your loving touch. I am grateful for all the effort you put into making our surroundings beautiful.\"", outcome: "Continue", nextDialogIDs: [], character: .mbokSrini, emotion: .happy),
                 
     ]
     
@@ -145,7 +145,7 @@ class DialogTree {
     
     static let DialogTreeScene8: [Dialog] = [
                 Dialog(id: 0, text: "Mbok Srini arrived with her face beaming with joy as she surveyed the transformed yard. ", outcome: "Continue", nextDialogIDs: [1], character: .narrator),
-                Dialog(id: 1, text: "\"The yard is looking beautiful!\"", outcome: "Continue", nextDialogIDs: [2], character: .mbokSrini),
+                Dialog(id: 1, text: "\"The yard is looking beautiful!\"", outcome: "Continue", nextDialogIDs: [2], character: .mbokSrini, emotion: .happy),
                 Dialog(id: 2, text: "she exclaimed with delight. Her words filled me with a sense of accomplishment, knowing that my efforts had not gone unnoticed.", outcome: "Continue", nextDialogIDs: [3], character: .narrator),
                 Dialog(id: 3, text: "\"It must have been tiring.\"", outcome: "Continue", nextDialogIDs: [4], character: .mbokSrini),
                 Dialog(id: 4, text: "she continued, her voice filled with concern.", outcome: "Continue", nextDialogIDs: [5], character: .narrator),
