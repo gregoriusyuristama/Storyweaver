@@ -68,6 +68,7 @@
 		B6BEEA9B2A3C1829007718AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6BEEA992A3C1829007718AB /* Main.storyboard */; };
 		B6BEEA9D2A3C182B007718AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6BEEA9C2A3C182B007718AB /* Assets.xcassets */; };
 		B6BEEAA02A3C182B007718AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6BEEA9E2A3C182B007718AB /* LaunchScreen.storyboard */; };
+		B6C341902A4D45240044AACC /* EmotionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C3418F2A4D45240044AACC /* EmotionEnum.swift */; };
 		B6EE4B3C2A4585E300A487E6 /* FifthScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EE4B3B2A4585E300A487E6 /* FifthScene.swift */; };
 		B6EE4B3E2A4586F900A487E6 /* SixthScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EE4B3D2A4586F900A487E6 /* SixthScene.swift */; };
 		B6EE4B402A4587A000A487E6 /* SeventhScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EE4B3F2A4587A000A487E6 /* SeventhScene.swift */; };
@@ -146,6 +147,7 @@
 		B6BEEA9A2A3C1829007718AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B6BEEA9C2A3C182B007718AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6BEEA9F2A3C182B007718AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B6C3418F2A4D45240044AACC /* EmotionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionEnum.swift; sourceTree = "<group>"; };
 		B6EE4B3B2A4585E300A487E6 /* FifthScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthScene.swift; sourceTree = "<group>"; };
 		B6EE4B3D2A4586F900A487E6 /* SixthScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixthScene.swift; sourceTree = "<group>"; };
 		B6EE4B3F2A4587A000A487E6 /* SeventhScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeventhScene.swift; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 				B6F755A22A45AC3F0058376D /* GameConfig.swift */,
 				B6F755A62A48369B0058376D /* CharacterPosition.swift */,
 				B603BDB82A4BD83600908E34 /* AppColor.swift */,
+				B6C3418F2A4D45240044AACC /* EmotionEnum.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -330,7 +333,6 @@
 		B6B234BF2A404BAF007AFDEF /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				B6B234C02A404BB8007AFDEF /* Model */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -371,6 +373,7 @@
 				B6B234BF2A404BAF007AFDEF /* Features */,
 				B6B234BC2A404A8A007AFDEF /* Constants */,
 				B6B234B52A3F2368007AFDEF /* Config */,
+				B6B234C02A404BB8007AFDEF /* Model */,
 				B6B234B22A3F1CDB007AFDEF /* Components */,
 				B6BEEA8F2A3C1829007718AB /* AppDelegate.swift */,
 				B6BEEA972A3C1829007718AB /* GameViewController.swift */,
@@ -490,6 +493,7 @@
 			files = (
 				B6BEEA962A3C1829007718AB /* ThirdScene.swift in Sources */,
 				B603BDC32A4C32A200908E34 /* ChoresPuzzleHelper.swift in Sources */,
+				B6C341902A4D45240044AACC /* EmotionEnum.swift in Sources */,
 				B6B234B42A3F1CF2007AFDEF /* CharacterVisualComponent.swift in Sources */,
 				B6EE4B442A45886400A487E6 /* NinthScene.swift in Sources */,
 				B6B234BB2A404676007AFDEF /* GameState.swift in Sources */,

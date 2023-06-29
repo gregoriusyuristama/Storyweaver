@@ -13,4 +13,5 @@ struct Dialog {
     let outcome: String
     let nextDialogIDs: [Int]
     let character: CharacterList
+    var emotion: EmotionEnum = .normal
 }

@@ -160,7 +160,12 @@ class SixthScene: SKScene {
                 if gameState.currentDialog?.character == component.type {
                     component.characterNode.alpha = 1
                     characterLabelBackground.alpha = 1
-                    component.characterNode.texture = SKTexture(imageNamed: "\(component.type.rawValue)_talk")
+                    if gameState.currentDialog?.emotion == .normal {
+                        component.characterNode.texture = SKTexture(imageNamed: "\(component.type.rawValue)_talk")
+                        
+                    }else {
+                        component.characterNode.texture = SKTexture(imageNamed: "\(component.type.rawValue)_\(gameState.currentDialog!.emotion.rawValue)")
+                    }
                     characterLabel.text = component.type.rawValue
                 } else {
                     component.characterNode.texture = SKTexture(imageNamed: "\(component.type.rawValue)_idle")
