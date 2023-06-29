@@ -222,24 +222,24 @@ class NinthScene: SKScene {
         } else {
             // Text display completed, wait for user interaction
             if gameState.currentDialog?.nextDialogIDs.count != 1 {
-                if gameState.currentDialog?.id == 11 {
-                    let gameScene = SwipeToClearImage(size: size, character: .giant)
-                    gameScene.scaleMode = .aspectFill
-                    let transition = SKTransition.crossFade(withDuration: 1.0)
-                    view?.presentScene(gameScene, transition: transition)
-                    return
-                }
-                if gameState.currentDialog?.id == 14 {
-                    let gameScene = SwipeToClearImage(size: size, character: .mbokSrini)
-                    gameScene.scaleMode = .aspectFill
-                    let transition = SKTransition.crossFade(withDuration: 1.0)
-                    view?.presentScene(gameScene, transition: transition)
-                    return
-                }
                 createButtons()
                 showButtons()
             } else {
                 continueLabel.alpha = 1
+            }
+            if gameState.currentDialog?.id == 11 {
+                let gameScene = SwipeToClearImage(size: size, character: .giant)
+                gameScene.scaleMode = .aspectFill
+                let transition = SKTransition.crossFade(withDuration: 1.0)
+                view?.presentScene(gameScene, transition: transition)
+                return
+            }
+            if gameState.currentDialog?.id == 14 {
+                let gameScene = SwipeToClearImage(size: size, character: .mbokSrini)
+                gameScene.scaleMode = .aspectFill
+                let transition = SKTransition.crossFade(withDuration: 1.0)
+                view?.presentScene(gameScene, transition: transition)
+                return
             }
             
         }

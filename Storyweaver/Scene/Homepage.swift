@@ -16,6 +16,7 @@ class Homepage: SKScene{
     
     override func didMove(to view: SKView) {
         AudioManager.shared.playBackgroundMusic(fileName: "prologue")
+        ChoresPuzzleHelper.completedTask.removeAll()
         backgroundNode.scale(to: size)
         backgroundNode.position = CGPoint(x: size.width/2, y: size.height/2)
         addChild(backgroundNode)

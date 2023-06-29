@@ -248,23 +248,26 @@ class FourthScene: SKScene {
             hideButtons()
         } else {
             // Text display completed, wait for user interaction
+            
             if gameState.currentDialog?.nextDialogIDs.count != 1 {
-                if gameState.currentDialog?.id == 11 {
-                    let gameScene = InsertTimunName(size: size)
-                    gameScene.scaleMode = .aspectFill
-                    let transition = SKTransition.crossFade(withDuration: 1.0)
-                    view?.presentScene(gameScene, transition: transition)
-                    return
-                }
+
                 createButtons()
                 showButtons()
             } else {
                 continueLabel.alpha = 1
             }
             
+            
             if gameState.currentDialog?.id == 1 {
-                
                 showCutscene()
+            }
+            
+            if gameState.currentDialog?.id == 11 {
+                let gameScene = InsertTimunName(size: size)
+                gameScene.scaleMode = .aspectFill
+                let transition = SKTransition.crossFade(withDuration: 1.0)
+                view?.presentScene(gameScene, transition: transition)
+                return
             }
             
         }
