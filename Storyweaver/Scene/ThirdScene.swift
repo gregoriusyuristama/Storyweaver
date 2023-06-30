@@ -11,6 +11,7 @@ class ThirdScene: SKScene {
     var giantImage: SKSpriteNode = SKSpriteNode()
     var backgroundNode: SKSpriteNode = SKSpriteNode()
     var dialogueBackground: SKShapeNode = SKShapeNode()
+    var characterLabelBackground: SKSpriteNode = SKSpriteNode()
     
     
     var currentIndex: Int = 0
@@ -43,34 +44,44 @@ class ThirdScene: SKScene {
     
     override func didMove(to view: SKView) {
         //        backgroundColor = .brown
-        backgroundNode = SKSpriteNode(imageNamed: "Scene3.png")
+        backgroundNode = SKSpriteNode(imageNamed: "background_wood.png")
         backgroundNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
         backgroundNode.scale(to: CGSize(width: size.width, height: size.height))
         backgroundNode.zPosition = -5  // Ensure the background is behind other nodes
         addChild(backgroundNode)
         
         dialogueBackground = SKShapeNode(rectOf: CGSize(width: size.width - (size.width * 0.1), height: size.height/3 - (size.height*0.1))) // Customize the size of the rectangle
-        dialogueBackground.fillColor = SKColor.black // Customize the background color
-        dialogueBackground.strokeColor = SKColor.clear // Hide the border of the rectangle
+        dialogueBackground.fillColor = AppColor.blackColor ?? .black // Customize the background color
+        dialogueBackground.strokeColor = SKColor.white // Hide the border of the rectangle
+        dialogueBackground.lineWidth = 2
         dialogueBackground.position = CGPoint(x: size.width/2, y: dialogueBackground.frame.height/3 + (size.height*0.1))
         dialogueBackground.zPosition = 1
         addChild(dialogueBackground)
         
-        characterLabel = SKLabelNode(fontNamed: "Aleo-Bold")
-        characterLabel.fontSize = 36
+        characterLabel = SKLabelNode(fontNamed: "Aleo-Regular")
+        characterLabel.fontSize = 32
         characterLabel.fontColor = SKColor.white
         characterLabel.horizontalAlignmentMode = .left
         characterLabel.verticalAlignmentMode = .top
-        characterLabel.position = CGPoint(x: dialogueBackground.frame.minX + 10, y: dialogueBackground.frame.maxY - 10)
         characterLabel.zPosition = 2
+        
+        characterLabelBackground = SKSpriteNode(imageNamed: "CharacterLabel")
+        characterLabelBackground.scale(to: CGSize(width: 225, height: 51))
+        characterLabelBackground.position = CGPoint(x: dialogueBackground.frame.minX + characterLabelBackground.frame.width/2, y: dialogueBackground.frame.maxY)
+        characterLabelBackground.zPosition = 1
+        addChild(characterLabelBackground)
+        
+        characterLabel.position = CGPoint(x: characterLabelBackground.position.x - characterLabelBackground.frame.width/2 + 25, y: characterLabelBackground.position.y + 15)
+        
         addChild(characterLabel)
+//        addChild(characterLabel)
         
         dialogueLabel = SKLabelNode(fontNamed: "Aleo-Regular")
         dialogueLabel.fontSize = 24
         dialogueLabel.fontColor = SKColor.white // Set text color to black
         dialogueLabel.horizontalAlignmentMode = .center // Align text to the left
         dialogueLabel.verticalAlignmentMode = .top
-        dialogueLabel.position = CGPoint(x: size.width/2, y: characterLabel.position.y - 50)
+        dialogueLabel.position = CGPoint(x: size.width/2, y: characterLabel.position.y - 70)
         dialogueLabel.lineBreakMode = .byWordWrapping
         dialogueLabel.preferredMaxLayoutWidth = dialogueBackground.frame.width - size.width * 0.05
         dialogueLabel.numberOfLines = 5
@@ -78,12 +89,12 @@ class ThirdScene: SKScene {
         addChild(dialogueLabel)
         
         continueLabel = SKLabelNode(fontNamed: "Aleo-Regular")
-        continueLabel.text = "Tap to continue..."
-        continueLabel.fontSize = 16
+        continueLabel.text = "▼"
+        continueLabel.fontSize = 24
         continueLabel.fontColor = SKColor.white
         continueLabel.horizontalAlignmentMode = .right
         continueLabel.verticalAlignmentMode = .bottom
-        continueLabel.position = CGPoint(x: dialogueBackground.frame.maxX - 10, y: dialogueBackground.frame.minY + 10)
+        continueLabel.position = CGPoint(x: dialogueBackground.frame.maxX - 15, y: dialogueBackground.frame.minY + 15)
         continueLabel.zPosition = 2
         continueLabel.alpha = 0
         addChild(continueLabel)
@@ -94,7 +105,7 @@ class ThirdScene: SKScene {
         
     }
     func createButtons() {
-        let buttonSize = CGSize(width: 300, height: 50)
+        let buttonSize = CGSize(width: 730, height: 92)
         let buttonSpacing: CGFloat = 20
         let totalButtonHeight = CGFloat(gameState.decisions.count) * (buttonSize.height + buttonSpacing)
         let buttonsYPosition = size.height/2 - totalButtonHeight / 2
@@ -107,17 +118,18 @@ class ThirdScene: SKScene {
             let buttonLabel = SKLabelNode(text: gameState.decisions[index].text)
             buttonLabel.name = "\(gameState.decisions[index].dialogID)"
             buttonLabel.fontName = "Aleo-Regular"
-            buttonLabel.fontSize = 24
-            buttonLabel.fontColor = SKColor.black
+            buttonLabel.fontSize = 32
+            buttonLabel.fontColor = SKColor.white
             buttonLabel.horizontalAlignmentMode = .center
             buttonLabel.verticalAlignmentMode = .center
             buttonLabel.position = CGPoint(x: 0, y: -5) // Adjust label position if needed
             
-            let buttonSize = CGSize(width: buttonLabel.frame.width + 20, height: 50) // Adjust the padding as needed
+            let buttonSize = CGSize(width: buttonSize.width, height: buttonSize.height) // Adjust the padding as needed
             
             let buttonNode = SKShapeNode(rectOf: buttonSize)
-            buttonNode.fillColor = SKColor.white
-            buttonNode.strokeColor = SKColor.black
+            buttonNode.fillColor = AppColor.blackColor ?? .black
+            buttonNode.strokeColor = SKColor.white
+            buttonNode.lineWidth = CGFloat(2)
             buttonNode.position = CGPoint(x: size.width/2, y: buttonsYPosition + CGFloat(index) * (buttonSize.height + buttonSpacing))
             buttonNode.alpha = 0.0
             isButtonVisible = false
@@ -137,16 +149,22 @@ class ThirdScene: SKScene {
             if component.type == .mbokSrini || component.type == .giant {
                 if gameState.currentDialog?.character == component.type {
                     component.characterNode.alpha = 1
-                    component.characterNode.texture = SKTexture(imageNamed: "\(component.type.rawValue)_talk")
+                    characterLabelBackground.alpha = 1
+                    if gameState.currentDialog?.emotion == .normal {
+                        component.characterNode.texture = SKTexture(imageNamed: "\(component.type.rawValue)_talk")
+                        
+                    }else {
+                        component.characterNode.texture = SKTexture(imageNamed: "\(component.type.rawValue)_\(gameState.currentDialog!.emotion.rawValue)")
+                    }
                     characterLabel.text = component.type.rawValue
                 } else {
-                    component.characterNode.alpha = 0.5
-                    component.characterNode.texture = SKTexture(imageNamed: component.type.rawValue)
+                    component.characterNode.texture = SKTexture(imageNamed: "\(component.type.rawValue)_idle")
                 }
             }
             
             if gameState.currentDialog?.character != .mbokSrini && gameState.currentDialog?.character != .giant{
                 characterLabel.text = ""
+                characterLabelBackground.alpha = 0
             }
         }
         
@@ -262,9 +280,17 @@ class ThirdScene: SKScene {
                     view?.presentScene(gameScene, transition: transition)
                     return
                 } else if gameState.currentDialog?.nextDialogIDs.count == 1 {
-                    gameState.selectDecision(gameState.decisions.first(where: {$0.dialogID == (gameState.currentDialog?.nextDialogIDs.first)})!)
-                    dialogueLabel.text = gameState.currentDialog?.text
-                    showNextDialogue()
+                    if gameState.currentDialog?.nextDialogIDs.first == 1000 {
+                        let gameScene = ToBeContinueScene(size: size)
+                        gameScene.scaleMode = .aspectFill
+                        let transition = SKTransition.crossFade(withDuration: 1.0)
+                        view?.presentScene(gameScene, transition: transition)
+                    } else {
+                        gameState.selectDecision(gameState.decisions.first(where: {$0.dialogID == (gameState.currentDialog?.nextDialogIDs.first)})!)
+                        dialogueLabel.text = gameState.currentDialog?.text
+                        showNextDialogue()
+                    }
+                    
                     return
                 }
             }
