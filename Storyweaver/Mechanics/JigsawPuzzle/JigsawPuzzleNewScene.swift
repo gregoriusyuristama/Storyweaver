@@ -130,20 +130,27 @@ class JigsawPuzzleScene: SKScene {
     }
     
     func handleWinCondition() {
-        self.winLabel.isHidden = false
+//        self.winLabel.isHidden = false
         entities.forEach() { $0.removeComponent(ofType: InteractionComponent.self) }
-        let wait = SKAction.wait(forDuration: 3)
+        let wait = SKAction.wait(forDuration: 1.5)
         let transition = SKAction.run {
-            let scene : JigsawPuzzleScene
-            if let hasNewPuzzle = self.puzzle.nextPuzzle {
-                scene = JigsawPuzzleScene.scene(named: hasNewPuzzle)
-            } else {
-                scene = JigsawPuzzleScene(size: self.size)
-                scene.puzzle = self.puzzle
-                scene.scaleMode = self.scaleMode
-            }
-            let transition = SKTransition.crossFade(withDuration: 1)
-            self.view?.presentScene(scene, transition: transition)
+            let gameScene = EleventhScene(size: self.size, gameState: GameState(dialogTree: DialogTree.DialogTreeScene11, currentID: 10))
+//                        gameScene.gameState = GameState(dialogTree: DialogTree.DialogTreeScene4, currentID: 12)
+            gameScene.scaleMode = .aspectFill
+            let transition = SKTransition.crossFade(withDuration: 1.0)
+            self.view?.presentScene(gameScene, transition: transition)
+            return
+            
+//            let scene : JigsawPuzzleScene
+//            if let hasNewPuzzle = self.puzzle.nextPuzzle {
+//                scene = JigsawPuzzleScene.scene(named: hasNewPuzzle)
+//            } else {
+//                scene = JigsawPuzzleScene(size: self.size)
+//                scene.puzzle = self.puzzle
+//                scene.scaleMode = self.scaleMode
+//            }
+//            let transition = SKTransition.crossFade(withDuration: 1)
+//            self.view?.presentScene(scene, transition: transition)
         }
         let newScene = SKAction.sequence([wait, transition])
         self.run(newScene)
