@@ -387,13 +387,6 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
-		B6B234BF2A404BAF007AFDEF /* Features */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Features;
-			sourceTree = "<group>";
-		};
 		B6B234C02A404BB8007AFDEF /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -427,7 +420,6 @@
 				B6239EC62A44911600C1420A /* Utilities */,
 				B613EF452A42FD5500536EB7 /* Info.plist */,
 				B613EF352A42A6C500536EB7 /* Scene */,
-				B6B234BF2A404BAF007AFDEF /* Features */,
 				B6B234BC2A404A8A007AFDEF /* Constants */,
 				B6B234B52A3F2368007AFDEF /* Config */,
 				B6B234C02A404BB8007AFDEF /* Model */,
