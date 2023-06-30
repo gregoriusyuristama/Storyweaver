@@ -92,7 +92,7 @@ class DialogTree {
                 Dialog(id: 38, text: "For you had emerged from the clutches of the giant, alive and breathing.", outcome: "Continue", nextDialogIDs: [39], character: .narrator),
                 Dialog(id: 39, text: "And in that precious breath…", outcome: "Continue", nextDialogIDs: [40], character: .narrator),
                 Dialog(id: 40, text: "You found the strength to seek tales that would ignite your spirit…", outcome: "Continue", nextDialogIDs: [41], character: .narrator),
-                Dialog(id: 41, text: "Without plunging you into the perilous depths of oblivion…", outcome: "Continue", nextDialogIDs: [], character: .narrator),
+                Dialog(id: 41, text: "Without plunging you into the perilous depths of oblivion…", outcome: "Continue", nextDialogIDs: [0], character: .narrator),
                 
                 // END DIALOGUE SUB ENDING 0
                 
@@ -103,6 +103,7 @@ class DialogTree {
                 
                
     ]
+    
     
     
     static let DialogTreeScene4: [Dialog] = [
@@ -337,14 +338,14 @@ class DialogTree {
                 Dialog(id: 36, text: "With a swift motion, you unfolded another small object, revealing a cluster of shrimp paste. Channeling your emotions into the act, you cast the shrimp paste onto the ground. ", outcome: "Continue", nextDialogIDs: [37], character: .narrator),
                 Dialog(id: 37, text: "In a dramatic transformation, the paste melted and melded with the surrounding terrain, creating a scorching sea of boiling mud.", outcome: "Continue", nextDialogIDs: [38], character: .narrator),
                 Dialog(id: 38, text: "The hot sea of mud materialized instantly, its intense heat radiating and filling the air. Buto Ijo, caught off guard by the sudden change, found himself sinking into the murky depths of the mud.", outcome: "Continue", nextDialogIDs: [39], character: .narrator),
-                Dialog(id: 39, text: "The searing heat made each movement a struggle, as he fought against the unbearable temperatures.", outcome: "Timun Mas", nextDialogIDs: [], character: .narrator),
-                Dialog(id: 36, text: "With each passing moment, his strength waned, and despair flickered in his eyes. The once-mighty giant, now reduced to a fearful and defeated creature, gazed up at you with wide eyes filled with terror and confusion.", outcome: "Continue", nextDialogIDs: [37], character: .narrator),
-                Dialog(id: 37, text: "\"Who… Are… You?\"", outcome: "Continue", nextDialogIDs: [38], character: .giant),
-                Dialog(id: 38, text: "\"I am the Storyweaver.\"", outcome: "Continue", nextDialogIDs: [39], character: .timunMas),
-                Dialog(id: 39, text: "You responded, your voice steady and filled with a newfound sense of purpose. ", outcome: "Continue", nextDialogIDs: [], character: .narrator),
-                Dialog(id: 38, text: "\"But for now, I am Timun Mas.\"", outcome: "Continue", nextDialogIDs: [39], character: .timunMas),
-                Dialog(id: 39, text: "The words carried the weight of your dual existence as both the weaver of tales and the character immersed in the story.", outcome: "Continue", nextDialogIDs: [40], character: .narrator),
-                Dialog(id: 40, text: "You stood there, witnessing the lifeless giant being consumed by the engulfing flames and mud.", outcome: "Continue", nextDialogIDs: [], character: .narrator),
+                Dialog(id: 39, text: "The searing heat made each movement a struggle, as he fought against the unbearable temperatures.", outcome: "Timun Mas", nextDialogIDs: [40], character: .narrator),
+                Dialog(id: 40, text: "With each passing moment, his strength waned, and despair flickered in his eyes. The once-mighty giant, now reduced to a fearful and defeated creature, gazed up at you with wide eyes filled with terror and confusion.", outcome: "Continue", nextDialogIDs: [41], character: .narrator),
+                Dialog(id: 41, text: "\"Who… Are… You?\"", outcome: "Continue", nextDialogIDs: [42], character: .giant),
+                Dialog(id: 42, text: "\"I am the Storyweaver.\"", outcome: "Continue", nextDialogIDs: [43], character: .timunMas),
+                Dialog(id: 43, text: "You responded, your voice steady and filled with a newfound sense of purpose. ", outcome: "Continue", nextDialogIDs: [44], character: .narrator),
+                Dialog(id: 44, text: "\"But for now, I am Timun Mas.\"", outcome: "Continue", nextDialogIDs: [45], character: .timunMas),
+                Dialog(id: 45, text: "The words carried the weight of your dual existence as both the weaver of tales and the character immersed in the story.", outcome: "Continue", nextDialogIDs: [46], character: .narrator),
+                Dialog(id: 46, text: "You stood there, witnessing the lifeless giant being consumed by the engulfing flames and mud.", outcome: "Continue", nextDialogIDs: [], character: .narrator),
         ]
     
     static let DialogTreeSE2Scene5: [Dialog] = [
@@ -560,14 +561,14 @@ class DialogTree {
                 Dialog(id: 36, text: "With a swift motion, you unfolded another small object, revealing a cluster of shrimp paste. Channeling your emotions into the act, you cast the shrimp paste onto the ground. ", outcome: "Continue", nextDialogIDs: [37], character: .narrator),
                 Dialog(id: 37, text: "In a dramatic transformation, the paste melted and melded with the surrounding terrain, creating a scorching sea of boiling mud.", outcome: "Continue", nextDialogIDs: [38], character: .narrator),
                 Dialog(id: 38, text: "The hot sea of mud materialized instantly, its intense heat radiating and filling the air. Buto Ijo, caught off guard by the sudden change, found himself sinking into the murky depths of the mud.", outcome: "Continue", nextDialogIDs: [39], character: .narrator),
-                Dialog(id: 39, text: "The searing heat made each movement a struggle, as he fought against the unbearable temperatures.", outcome: "Timun Mas", nextDialogIDs: [], character: .narrator),
-                Dialog(id: 36, text: "With each passing moment, his strength waned, and despair flickered in his eyes. The once-mighty giant, now reduced to a fearful and defeated creature, gazed up at you with wide eyes filled with terror and confusion.", outcome: "Continue", nextDialogIDs: [37], character: .narrator),
-                Dialog(id: 37, text: "\"Who… Are… You?\"", outcome: "Continue", nextDialogIDs: [38], character: .giant),
-                Dialog(id: 38, text: "\"I am the Storyweaver.\"", outcome: "Continue", nextDialogIDs: [39], character: .timunMas),
-                Dialog(id: 39, text: "You responded, your voice steady and filled with a newfound sense of purpose. ", outcome: "Continue", nextDialogIDs: [], character: .narrator),
-                Dialog(id: 38, text: "\"But for now, I am Timun Mas.\"", outcome: "Continue", nextDialogIDs: [39], character: .timunMas),
-                Dialog(id: 39, text: "The words carried the weight of your dual existence as both the weaver of tales and the character immersed in the story.", outcome: "Continue", nextDialogIDs: [40], character: .narrator),
-                Dialog(id: 40, text: "You stood there, witnessing the lifeless giant being consumed by the engulfing flames and mud.", outcome: "Continue", nextDialogIDs: [], character: .narrator),
+                Dialog(id: 39, text: "The searing heat made each movement a struggle, as he faought against the unbearable temperatures.", outcome: "Timun Mas", nextDialogIDs: [40], character: .narrator),
+                Dialog(id: 40, text: "With each passing moment, his strength waned, and despair flickered in his eyes. The once-mighty giant, now reduced to a fearful and defeated creature, gazed up at you with wide eyes filled with terror and confusion.", outcome: "Continue", nextDialogIDs: [41], character: .narrator),
+                Dialog(id: 41, text: "\"Who… Are… You?\"", outcome: "Continue", nextDialogIDs: [42], character: .giant),
+                Dialog(id: 42, text: "\"I am the Storyweaver.\"", outcome: "Continue", nextDialogIDs: [43], character: .timunMas),
+                Dialog(id: 43, text: "You responded, your voice steady and filled with a newfound sense of purpose. ", outcome: "Continue", nextDialogIDs: [44], character: .narrator),
+                Dialog(id: 44, text: "\"But for now, I am Timun Mas.\"", outcome: "Continue", nextDialogIDs: [45], character: .timunMas),
+                Dialog(id: 45, text: "The words carried the weight of your dual existence as both the weaver of tales and the character immersed in the story.", outcome: "Continue", nextDialogIDs: [46], character: .narrator),
+                Dialog(id: 46, text: "You stood there, witnessing the lifeless giant being consumed by the engulfing flames and mud.", outcome: "Continue", nextDialogIDs: [], character: .narrator),
         ]
     
     static let DialogTreeSE3Scene5: [Dialog] = [
@@ -795,14 +796,14 @@ class DialogTree {
                 Dialog(id: 36, text: "With a swift motion, you unfolded another small object, revealing a cluster of shrimp paste. Channeling your emotions into the act, you cast the shrimp paste onto the ground. ", outcome: "Continue", nextDialogIDs: [37], character: .narrator),
                 Dialog(id: 37, text: "In a dramatic transformation, the paste melted and melded with the surrounding terrain, creating a scorching sea of boiling mud.", outcome: "Continue", nextDialogIDs: [38], character: .narrator),
                 Dialog(id: 38, text: "The hot sea of mud materialized instantly, its intense heat radiating and filling the air. Buto Ijo, caught off guard by the sudden change, found himself sinking into the murky depths of the mud.", outcome: "Continue", nextDialogIDs: [39], character: .narrator),
-                Dialog(id: 39, text: "The searing heat made each movement a struggle, as he fought against the unbearable temperatures.", outcome: "Timun Mas", nextDialogIDs: [], character: .narrator),
-                Dialog(id: 36, text: "With each passing moment, his strength waned, and despair flickered in his eyes. The once-mighty giant, now reduced to a fearful and defeated creature, gazed up at you with wide eyes filled with terror and confusion.", outcome: "Continue", nextDialogIDs: [37], character: .narrator),
-                Dialog(id: 37, text: "\"Who… Are… You?\"", outcome: "Continue", nextDialogIDs: [38], character: .giant),
-                Dialog(id: 38, text: "\"I am the Storyweaver.\"", outcome: "Continue", nextDialogIDs: [39], character: .timunMas),
-                Dialog(id: 39, text: "You responded, your voice steady and filled with a newfound sense of purpose. ", outcome: "Continue", nextDialogIDs: [], character: .narrator),
-                Dialog(id: 38, text: "\"But for now, I am Timun Mas.\"", outcome: "Continue", nextDialogIDs: [39], character: .timunMas),
-                Dialog(id: 39, text: "The words carried the weight of your dual existence as both the weaver of tales and the character immersed in the story.", outcome: "Continue", nextDialogIDs: [40], character: .narrator),
-                Dialog(id: 40, text: "You stood there, witnessing the lifeless giant being consumed by the engulfing flames and mud.", outcome: "Continue", nextDialogIDs: [], character: .narrator),
+                Dialog(id: 39, text: "The searing heat made each movement a struggle, as he fought against the unbearable temperatures.", outcome: "Timun Mas", nextDialogIDs: [40], character: .narrator),
+                Dialog(id: 40, text: "With each passing moment, his strength waned, and despair flickered in his eyes. The once-mighty giant, now reduced to a fearful and defeated creature, gazed up at you with wide eyes filled with terror and confusion.", outcome: "Continue", nextDialogIDs: [41], character: .narrator),
+                Dialog(id: 41, text: "\"Who… Are… You?\"", outcome: "Continue", nextDialogIDs: [42], character: .giant),
+                Dialog(id: 42, text: "\"I am the Storyweaver.\"", outcome: "Continue", nextDialogIDs: [43], character: .timunMas),
+                Dialog(id: 43, text: "You responded, your voice steady and filled with a newfound sense of purpose. ", outcome: "Continue", nextDialogIDs: [44], character: .narrator),
+                Dialog(id: 44, text: "\"But for now, I am Timun Mas.\"", outcome: "Continue", nextDialogIDs: [45], character: .timunMas),
+                Dialog(id: 45, text: "The words carried the weight of your dual existence as both the weaver of tales and the character immersed in the story.", outcome: "Continue", nextDialogIDs: [46], character: .narrator),
+                Dialog(id: 46, text: "You stood there, witnessing the lifeless giant being consumed by the engulfing flames and mud.", outcome: "Continue", nextDialogIDs: [], character: .narrator),
         ]
     
     static let DialogTreeSE4Scene5: [Dialog] = [
@@ -938,7 +939,7 @@ class DialogTree {
                 Dialog(id: 48, text: "It was a cherished gift, one that you would forever hold dear in your heart.", outcome: "Continue", nextDialogIDs: [49], character: .narrator),
                 Dialog(id: 49, text: "Yet, within the depths of your being, a spark of unwavering determination flickered to life.", outcome: "Continue", nextDialogIDs: [50], character: .narrator),
                 Dialog(id: 50, text: "Despite the weariness that clung to your bones and the wounds etched upon your spirit, you yearned for the allure of another tale.", outcome: "Continue", nextDialogIDs: [51], character: .narrator),
-                Dialog(id: 51, text: "The hunger for storytelling, for delving into the realms of imagination, burned brightly within you.", outcome: "Continue", nextDialogIDs: [], character: .storyweaver),
+                Dialog(id: 51, text: "The hunger for storytelling, for delving into the realms of imagination, burned brightly within you.", outcome: "Continue", nextDialogIDs: [1000], character: .storyweaver),
 
         ]
     

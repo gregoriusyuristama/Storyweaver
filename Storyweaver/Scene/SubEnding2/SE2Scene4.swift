@@ -1,5 +1,5 @@
 //
-//  ThirteenthScene.swift
+//  SE2Scene4.swift
 //  Storyweaver
 //
 //  Created by Gregorius Yuristama Nugraha on 6/30/23.
@@ -11,7 +11,7 @@ import SpriteKit
 import GameplayKit
 import SwiftUI
 
-class ThirteenthScene: SKScene {
+class SE2Scene4: SKScene {
     var dialogueLabel: SKLabelNode = SKLabelNode()
     var characterLabel: SKLabelNode = SKLabelNode()
     var continueLabel: SKLabelNode = SKLabelNode()
@@ -32,7 +32,7 @@ class ThirteenthScene: SKScene {
     let characterVisualComponentSytem = GKComponentSystem(componentClass: CharacterVisualComponent.self)
     
     
-    @ObservedObject private var gameState = GameState(dialogTree: DialogTree.DialogTreeScene13)
+    @ObservedObject private var gameState = GameState(dialogTree: DialogTree.DialogTreeSE2Scene4)
     
     override init(){
         super.init()
@@ -42,16 +42,6 @@ class ThirteenthScene: SKScene {
     
     override init(size: CGSize){
         super.init(size: size)
-        setupEntities()
-        setupSystemComponents()
-    }
-    
-    
-    
-    
-    init(size: CGSize, gameState: GameState) {
-        super.init(size: size)
-        self.gameState = gameState
         setupEntities()
         setupSystemComponents()
     }
@@ -121,6 +111,7 @@ class ThirteenthScene: SKScene {
         
         showNextDialogue()
         
+        
     }
     
     func createButtons() {
@@ -151,10 +142,10 @@ class ThirteenthScene: SKScene {
             buttonNode.lineWidth = CGFloat(2)
             buttonNode.position = CGPoint(x: size.width/2, y: buttonsYPosition + CGFloat(index) * (buttonSize.height + buttonSpacing))
             buttonNode.alpha = 0.0
-            buttonNode.zPosition = 5
             isButtonVisible = false
             addChild(buttonNode)
             
+            buttonLabel.zPosition = 3
             buttonNode.addChild(buttonLabel)
             
             buttons.append(buttonNode)
@@ -168,7 +159,7 @@ class ThirteenthScene: SKScene {
             if component.type == .mbokSrini || component.type == .giant || component.type == .timunMas{
                 if gameState.currentDialog?.character == component.type {
                     component.characterNode.alpha = 1
-                   
+                    
                     component.characterNode.zPosition = 2
                     characterLabelBackground.alpha = 1
                     if gameState.currentDialog?.emotion == .normal {
@@ -179,10 +170,10 @@ class ThirteenthScene: SKScene {
                     }
                     characterLabel.text = component.type.rawValue
                     
-//                    if gameState.currentDialog?.character == .timunMas && component.type == .mbokSrini{
-//                        component.characterNode.zPosition = 0
-//                        component.characterNode.alpha = 0
-//                    }
+                    //                    if gameState.currentDialog?.character == .timunMas && component.type == .mbokSrini{
+                    //                        component.characterNode.zPosition = 0
+                    //                        component.characterNode.alpha = 0
+                    //                    }
                     
                     
                 } else {
@@ -205,11 +196,19 @@ class ThirteenthScene: SKScene {
         currentIndex = 0
         animateTextDisplay(dialogueText: currentDialogueText)
         
-        // BGM
-        if gameState.currentDialog?.id == 0 {
-            AudioManager.shared.playBackgroundMusic(fileName: "scene13")
-        }
-
+        //        // BGM
+        //        if gameState.currentDialog?.id == 0 {
+        //            AudioManager.shared.playBackgroundMusic(fileName: "scene6to8")
+        //        }
+        //
+        //
+        //        // Sound Effect
+        //        if gameState.currentDialog?.id == 0 {
+        //            AudioManager.shared.playSoundEffect(fileName: "scene6_audio1_kukuruyuk")
+        //        }
+        
+        // In game sound effect
+        
     }
     
     func animateTextDisplay(dialogueText: String) {
@@ -234,21 +233,6 @@ class ThirteenthScene: SKScene {
                 continueLabel.alpha = 1
             }
             
-            //            if gameState.currentDialog?.id == 11 {
-            //                let gameScene = SwipeToClearImage(size: size, character: .giant)
-            //                gameScene.scaleMode = .aspectFill
-            //                let transition = SKTransition.crossFade(withDuration: 1.0)
-            //                view?.presentScene(gameScene, transition: transition)
-            //                return
-            //            }
-            //            if gameState.currentDialog?.id == 14 {
-            //                let gameScene = SwipeToClearImage(size: size, character: .mbokSrini)
-            //                gameScene.scaleMode = .aspectFill
-            //                let transition = SKTransition.crossFade(withDuration: 1.0)
-            //                view?.presentScene(gameScene, transition: transition)
-            //                return
-            //            }
-            
         }
     }
     
@@ -266,7 +250,7 @@ class ThirteenthScene: SKScene {
         isButtonVisible = false
     }
     
-    private func setupEntities() {
+    private func setupEntities() { 
         
         let timunMas = CreateEntity.timunMasEntity(scene: self, pos: .left)
         timunMas.component(ofType: CharacterVisualComponent.self)?.characterNode.alpha = 0
@@ -276,14 +260,13 @@ class ThirteenthScene: SKScene {
         let giant = CreateEntity.giantEntity(scene: self, pos: .right)
         characters.append(giant)
         
-        
         let narrator = CreateEntity.narratorEntity(scene: self)
         narrator.component(ofType: CharacterVisualComponent.self)?.characterNode.alpha = 0
         characters.append(narrator)
         
         //                let storyweaver = CreateEntity.storyWeaverEntity(scene: self)
         //                characters.append(storyweaver)
-        
+        //
         let mbokSrini = CreateEntity.mbokSriniEntity(scene: self, pos: .left)
         characters.append(mbokSrini)
     }
@@ -312,15 +295,22 @@ class ThirteenthScene: SKScene {
                 }
             }
             if currentIndex >= (gameState.currentDialog?.text.count)!{
-                if gameState.currentDialog?.id == 39 {
-                    let gameScene = ThirteenthAScene(size: size)
+                if gameState.currentDialog?.id == 27 {
+                    let gameScene = SE2Scene4a(size: size)
                     gameScene.scaleMode = .aspectFill
                     let transition = SKTransition.crossFade(withDuration: 1.0)
                     view?.presentScene(gameScene, transition: transition)
                     return
-                } else if gameState.currentDialog?.nextDialogIDs.count == 1 {
+                } else if gameState.currentDialog?.id == 37 {
+                    let gameScene = Homepage(size: size)
+                    gameScene.scaleMode = .aspectFill
+                    let transition = SKTransition.crossFade(withDuration: 1.0)
+                    view?.presentScene(gameScene, transition: transition)
+                    return
+                }
+                else if gameState.currentDialog?.nextDialogIDs.count == 1 {
                     if gameState.currentDialog?.nextDialogIDs.first == 1000 {
-                        let gameScene = Homepage(size: size)
+                        let gameScene = ToBeContinueScene(size: size)
                         gameScene.scaleMode = .aspectFill
                         let transition = SKTransition.crossFade(withDuration: 1.0)
                         view?.presentScene(gameScene, transition: transition)
@@ -345,6 +335,7 @@ class ThirteenthScene: SKScene {
                     createButtons()
                     showButtons()
                 } else {
+                    
                     continueLabel.alpha = 1
                 }
             }
@@ -366,5 +357,4 @@ class ThirteenthScene: SKScene {
             }
         }
     }
-    
 }
