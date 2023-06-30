@@ -54,6 +54,20 @@
 		B6239ED62A44A3C700C1420A /* scene1_audio4_transition.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B6239ED52A44A3C700C1420A /* scene1_audio4_transition.mp3 */; };
 		B6239ED82A44A69400C1420A /* scene2_audio1_babyCrying.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B6239ED72A44A69400C1420A /* scene2_audio1_babyCrying.mp3 */; };
 		B6239EDA2A44A72700C1420A /* scene2and3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B6239ED92A44A72700C1420A /* scene2and3.mp3 */; };
+		B66A50372A4E73AE003D1D17 /* TenthScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A50362A4E73AE003D1D17 /* TenthScene.swift */; };
+		B66A50392A4E74E7003D1D17 /* EleventhScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A50382A4E74E7003D1D17 /* EleventhScene.swift */; };
+		B66A503B2A4E7A55003D1D17 /* NinthAScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A503A2A4E7A55003D1D17 /* NinthAScene.swift */; };
+		B66A503D2A4E7E79003D1D17 /* TwelfthScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A503C2A4E7E79003D1D17 /* TwelfthScene.swift */; };
+		B66A503F2A4E7F91003D1D17 /* ThirteenthScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A503E2A4E7F91003D1D17 /* ThirteenthScene.swift */; };
+		B66A50412A4E85BA003D1D17 /* ThirteenthAScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A50402A4E85BA003D1D17 /* ThirteenthAScene.swift */; };
+		B66A50432A4E86FB003D1D17 /* FourteenthScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A50422A4E86FB003D1D17 /* FourteenthScene.swift */; };
+		B66A50452A4E887D003D1D17 /* EpilogueScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A50442A4E887D003D1D17 /* EpilogueScene.swift */; };
+		B66A50492A4E8CC3003D1D17 /* scene11.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B66A50482A4E8CC3003D1D17 /* scene11.mp3 */; };
+		B66A504B2A4E8D7B003D1D17 /* scene12_audio1_butoIjoGrowling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B66A504A2A4E8D7B003D1D17 /* scene12_audio1_butoIjoGrowling.mp3 */; };
+		B66A504D2A4E8DC9003D1D17 /* scene12_audio2_butoIjoGrowling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B66A504C2A4E8DC9003D1D17 /* scene12_audio2_butoIjoGrowling.mp3 */; };
+		B66A504F2A4E9141003D1D17 /* scene13a_battle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B66A504E2A4E9141003D1D17 /* scene13a_battle.mp3 */; };
+		B66A50512A4E918D003D1D17 /* scene13a_audio1_butoIjoGrowling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B66A50502A4E918D003D1D17 /* scene13a_audio1_butoIjoGrowling.mp3 */; };
+		B66A50532A4E9305003D1D17 /* scene14_audio_end.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B66A50522A4E9305003D1D17 /* scene14_audio_end.mp3 */; };
 		B6B234B42A3F1CF2007AFDEF /* CharacterVisualComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B234B32A3F1CF2007AFDEF /* CharacterVisualComponent.swift */; };
 		B6B234B72A3F2373007AFDEF /* NodesName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B234B62A3F2373007AFDEF /* NodesName.swift */; };
 		B6B234BB2A404676007AFDEF /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B234BA2A404675007AFDEF /* GameState.swift */; };
@@ -132,6 +146,20 @@
 		B6239ED52A44A3C700C1420A /* scene1_audio4_transition.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene1_audio4_transition.mp3; sourceTree = "<group>"; };
 		B6239ED72A44A69400C1420A /* scene2_audio1_babyCrying.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene2_audio1_babyCrying.mp3; sourceTree = "<group>"; };
 		B6239ED92A44A72700C1420A /* scene2and3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene2and3.mp3; sourceTree = "<group>"; };
+		B66A50362A4E73AE003D1D17 /* TenthScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenthScene.swift; sourceTree = "<group>"; };
+		B66A50382A4E74E7003D1D17 /* EleventhScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EleventhScene.swift; sourceTree = "<group>"; };
+		B66A503A2A4E7A55003D1D17 /* NinthAScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NinthAScene.swift; sourceTree = "<group>"; };
+		B66A503C2A4E7E79003D1D17 /* TwelfthScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwelfthScene.swift; sourceTree = "<group>"; };
+		B66A503E2A4E7F91003D1D17 /* ThirteenthScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirteenthScene.swift; sourceTree = "<group>"; };
+		B66A50402A4E85BA003D1D17 /* ThirteenthAScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirteenthAScene.swift; sourceTree = "<group>"; };
+		B66A50422A4E86FB003D1D17 /* FourteenthScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourteenthScene.swift; sourceTree = "<group>"; };
+		B66A50442A4E887D003D1D17 /* EpilogueScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpilogueScene.swift; sourceTree = "<group>"; };
+		B66A50482A4E8CC3003D1D17 /* scene11.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene11.mp3; sourceTree = "<group>"; };
+		B66A504A2A4E8D7B003D1D17 /* scene12_audio1_butoIjoGrowling.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene12_audio1_butoIjoGrowling.mp3; sourceTree = "<group>"; };
+		B66A504C2A4E8DC9003D1D17 /* scene12_audio2_butoIjoGrowling.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene12_audio2_butoIjoGrowling.mp3; sourceTree = "<group>"; };
+		B66A504E2A4E9141003D1D17 /* scene13a_battle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene13a_battle.mp3; sourceTree = "<group>"; };
+		B66A50502A4E918D003D1D17 /* scene13a_audio1_butoIjoGrowling.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene13a_audio1_butoIjoGrowling.mp3; sourceTree = "<group>"; };
+		B66A50522A4E9305003D1D17 /* scene14_audio_end.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene14_audio_end.mp3; sourceTree = "<group>"; };
 		B6B234B32A3F1CF2007AFDEF /* CharacterVisualComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterVisualComponent.swift; sourceTree = "<group>"; };
 		B6B234B62A3F2373007AFDEF /* NodesName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodesName.swift; sourceTree = "<group>"; };
 		B6B234BA2A404675007AFDEF /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
@@ -225,6 +253,14 @@
 				B6EE4B3F2A4587A000A487E6 /* SeventhScene.swift */,
 				B6EE4B412A4587E100A487E6 /* EightScene.swift */,
 				B6EE4B432A45886400A487E6 /* NinthScene.swift */,
+				B66A503A2A4E7A55003D1D17 /* NinthAScene.swift */,
+				B66A50362A4E73AE003D1D17 /* TenthScene.swift */,
+				B66A50382A4E74E7003D1D17 /* EleventhScene.swift */,
+				B66A503C2A4E7E79003D1D17 /* TwelfthScene.swift */,
+				B66A503E2A4E7F91003D1D17 /* ThirteenthScene.swift */,
+				B66A50402A4E85BA003D1D17 /* ThirteenthAScene.swift */,
+				B66A50422A4E86FB003D1D17 /* FourteenthScene.swift */,
+				B66A50442A4E887D003D1D17 /* EpilogueScene.swift */,
 				B603BDC42A4C34DB00908E34 /* ToBeContinueScene.swift */,
 			);
 			path = Scene;
@@ -264,6 +300,8 @@
 		B6239ECB2A4491B500C1420A /* BGM */ = {
 			isa = PBXGroup;
 			children = (
+				B66A504E2A4E9141003D1D17 /* scene13a_battle.mp3 */,
+				B66A50482A4E8CC3003D1D17 /* scene11.mp3 */,
 				81A9E58E2A4A8231004B8609 /* prologue.mp3 */,
 				B6239ED92A44A72700C1420A /* scene2and3.mp3 */,
 				B6239ECC2A4491EB00C1420A /* scene1.mp3 */,
@@ -296,6 +334,10 @@
 				815753272A4C213300E0E2A0 /* scene7_audio4_pullingWeeds.mp3 */,
 				815753252A4C213300E0E2A0 /* scene7_audio5_trimBushes.mp3 */,
 				815753282A4C213300E0E2A0 /* scene9_audio1_forest.mp3 */,
+				B66A504C2A4E8DC9003D1D17 /* scene12_audio2_butoIjoGrowling.mp3 */,
+				B66A504A2A4E8D7B003D1D17 /* scene12_audio1_butoIjoGrowling.mp3 */,
+				B66A50502A4E918D003D1D17 /* scene13a_audio1_butoIjoGrowling.mp3 */,
+				B66A50522A4E9305003D1D17 /* scene14_audio_end.mp3 */,
 				815753312A4C214500E0E2A0 /* puzzle_audio1_typing.mp3 */,
 			);
 			path = SFX;
@@ -441,6 +483,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B66A504F2A4E9141003D1D17 /* scene13a_battle.mp3 in Resources */,
+				B66A50512A4E918D003D1D17 /* scene13a_audio1_butoIjoGrowling.mp3 in Resources */,
 				B603BDBF2A4BE5C400908E34 /* Baskervville-Italic.ttf in Resources */,
 				B613EF3F2A42FD2200536EB7 /* Aleo-Italic.ttf in Resources */,
 				B613EF372A42A6D900536EB7 /* ActTitleScene.sks in Resources */,
@@ -454,6 +498,7 @@
 				B603BDBE2A4BE5C400908E34 /* Baskervville-Regular.ttf in Resources */,
 				B613EF402A42FD2200536EB7 /* Aleo-Light.ttf in Resources */,
 				B6239EDA2A44A72700C1420A /* scene2and3.mp3 in Resources */,
+				B66A504B2A4E8D7B003D1D17 /* scene12_audio1_butoIjoGrowling.mp3 in Resources */,
 				8157532C2A4C213300E0E2A0 /* scene7_audio5_trimBushes.mp3 in Resources */,
 				B613EF432A42FD2200536EB7 /* Aleo-BoldItalic.ttf in Resources */,
 				B603BDC72A4C375B00908E34 /* Baskerville SemiBold.ttf in Resources */,
@@ -480,6 +525,9 @@
 				81A9E58D2A4A8216004B8609 /* scene5.mp3 in Resources */,
 				81A9E5772A49542E004B8609 /* scene4_audio2_mbokSriniLaugh.mp3 in Resources */,
 				81A9E58F2A4A8231004B8609 /* prologue.mp3 in Resources */,
+				B66A50492A4E8CC3003D1D17 /* scene11.mp3 in Resources */,
+				B66A504D2A4E8DC9003D1D17 /* scene12_audio2_butoIjoGrowling.mp3 in Resources */,
+				B66A50532A4E9305003D1D17 /* scene14_audio_end.mp3 in Resources */,
 				B6239ED82A44A69400C1420A /* scene2_audio1_babyCrying.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,23 +541,29 @@
 			files = (
 				B6BEEA962A3C1829007718AB /* ThirdScene.swift in Sources */,
 				B603BDC32A4C32A200908E34 /* ChoresPuzzleHelper.swift in Sources */,
+				B66A503D2A4E7E79003D1D17 /* TwelfthScene.swift in Sources */,
 				B6C341902A4D45240044AACC /* EmotionEnum.swift in Sources */,
 				B6B234B42A3F1CF2007AFDEF /* CharacterVisualComponent.swift in Sources */,
 				B6EE4B442A45886400A487E6 /* NinthScene.swift in Sources */,
 				B6B234BB2A404676007AFDEF /* GameState.swift in Sources */,
+				B66A50412A4E85BA003D1D17 /* ThirteenthAScene.swift in Sources */,
 				B6B234C42A404BEB007AFDEF /* Dialog.swift in Sources */,
+				B66A50392A4E74E7003D1D17 /* EleventhScene.swift in Sources */,
 				B6EE4B402A4587A000A487E6 /* SeventhScene.swift in Sources */,
 				DB1DC9092A4A8C15008697B3 /* PullingWeedScene.swift in Sources */,
+				B66A50432A4E86FB003D1D17 /* FourteenthScene.swift in Sources */,
 				B6F755A72A48369B0058376D /* CharacterPosition.swift in Sources */,
 				B603BD8A2A49A75700908E34 /* SwipeToClearImage.swift in Sources */,
 				DB1DC90B2A4A8C36008697B3 /* TrimBushesScene.swift in Sources */,
 				B6BEEA982A3C1829007718AB /* GameViewController.swift in Sources */,
+				B66A503F2A4E7F91003D1D17 /* ThirteenthScene.swift in Sources */,
 				B603BDB92A4BD83600908E34 /* AppColor.swift in Sources */,
 				B6B234BE2A404A96007AFDEF /* DialogTree.swift in Sources */,
 				B603BDBB2A4BE47400908E34 /* Homepage.swift in Sources */,
 				B603BD852A49569F00908E34 /* PrologueScene.swift in Sources */,
 				B6B234CA2A419F8D007AFDEF /* ActTitleScene.swift in Sources */,
 				B6EE4B3E2A4586F900A487E6 /* SixthScene.swift in Sources */,
+				B66A50452A4E887D003D1D17 /* EpilogueScene.swift in Sources */,
 				B6F755A52A482DD60058376D /* CreateEntity.swift in Sources */,
 				B613EF4D2A42FEE500536EB7 /* FirstScene.swift in Sources */,
 				B6239EC82A44912200C1420A /* AudioManager.swift in Sources */,
@@ -523,6 +577,8 @@
 				B6F755A32A45AC3F0058376D /* GameConfig.swift in Sources */,
 				B6B234C62A40B427007AFDEF /* CharacterList.swift in Sources */,
 				B6B234B72A3F2373007AFDEF /* NodesName.swift in Sources */,
+				B66A503B2A4E7A55003D1D17 /* NinthAScene.swift in Sources */,
+				B66A50372A4E73AE003D1D17 /* TenthScene.swift in Sources */,
 				B613EF492A42FE1B00536EB7 /* SecondScene.swift in Sources */,
 				B6B234C22A404BBF007AFDEF /* Decision.swift in Sources */,
 			);

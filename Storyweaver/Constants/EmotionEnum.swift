@@ -13,5 +13,6 @@ enum EmotionEnum: String, CaseIterable {
     case crying2 = "crying2"
     case happy = "happy"
     case scared = "scared"
+    case confused = "confused"
     case normal = ""
 }
