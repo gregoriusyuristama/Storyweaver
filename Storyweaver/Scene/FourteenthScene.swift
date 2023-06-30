@@ -202,6 +202,11 @@ class FourteenthScene: SKScene {
         currentIndex = 0
         animateTextDisplay(dialogueText: currentDialogueText)
         
+        // BGM
+        if gameState.currentDialog?.id == 0 {
+            AudioManager.shared.playBackgroundMusic(fileName: "scene14")
+        }
+        
         if gameState.currentDialog?.id == 32 {
             AudioManager.shared.playSoundEffect(fileName: "scene14_audio_end")
         }

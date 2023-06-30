@@ -102,6 +102,7 @@ class WateringScene: SKScene {
                 plant.name = "Watered"
                 plant.texture = wateredPlantTexture
                 wateringPot?.texture = wateringPotTexture
+                AudioManager.shared.playSoundEffect(fileName: "scene7_audio1_wateringPlants")
             }
         }
         
