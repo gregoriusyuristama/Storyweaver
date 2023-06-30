@@ -48,15 +48,13 @@ class EleventhScene: SKScene {
         setupSystemComponents()
     }
     
-    
-    
-    
     init(size: CGSize, gameState: GameState) {
         super.init(size: size)
         self.gameState = gameState
         setupEntities()
         setupSystemComponents()
     }
+    
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -228,9 +226,21 @@ class EleventhScene: SKScene {
             if gameState.currentDialog?.id == 3 {
                 showCutscene()
             }
-            else if gameState.currentDialog?.id == 10 {
-                cutsceneNode.texture = SKTexture(imageNamed: "cutscene_scene11_2")
-                showCutscene()
+//            if gameState.currentDialog?.id == 10 {
+//                cutsceneNode.texture = SKTexture(imageNamed: "cutscene_scene11_2")
+//                showCutscene()
+//            }
+            
+            if gameState.currentDialog?.id == 9 {
+                view?.scene?.isUserInteractionEnabled = false
+                view?.scene?.run(SKAction.wait(forDuration: 1.5)){
+                    let gameScene = JigsawPuzzleScene.scene(named: "letter-pieces.json")
+                    gameScene.scaleMode = .aspectFill
+                    let transition = SKTransition.crossFade(withDuration: 1.0)
+                    self.view?.presentScene(gameScene, transition: transition)
+                    return
+                }
+                
             }
             //            if gameState.currentDialog?.id == 11 {
             //                let gameScene = SwipeToClearImage(size: size, character: .giant)
@@ -343,15 +353,27 @@ class EleventhScene: SKScene {
                     createButtons()
                     showButtons()
                 } else {
+                    if gameState.currentDialog?.id == 9 {
+                        view?.scene?.isUserInteractionEnabled = false
+                        view?.scene?.run(SKAction.wait(forDuration: 1.5)){
+                            let gameScene = JigsawPuzzleScene.scene(named: "letter-pieces.json")
+                            gameScene.scaleMode = .aspectFill
+                            let transition = SKTransition.crossFade(withDuration: 1.0)
+                            self.view?.presentScene(gameScene, transition: transition)
+                            return
+                        }
+                        
+                    }
+                    
                     continueLabel.alpha = 1
                 }
                 if gameState.currentDialog?.id == 3 {
                     showCutscene()
                 }
-                if gameState.currentDialog?.id == 10 {
-                    cutsceneNode.texture = SKTexture(imageNamed: "cutscene_scene11_2")
-                    showCutscene()
-                }
+//                if gameState.currentDialog?.id == 10 {
+//                    cutsceneNode.texture = SKTexture(imageNamed: "cutscene_scene11_2")
+//                    showCutscene()
+//                }
             }
             
         }
