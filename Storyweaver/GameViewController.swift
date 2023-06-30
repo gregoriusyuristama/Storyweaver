@@ -21,7 +21,7 @@ class GameViewController: UIViewController {
         let skView = view as! SKView
         skView.frame = view.bounds
 
-        let initialScene = PullingWeedScene(size: skView.bounds.size)
+        let initialScene = Homepage(size: skView.bounds.size)
         initialScene.scaleMode = .aspectFill
 
         skView.presentScene(initialScene)
