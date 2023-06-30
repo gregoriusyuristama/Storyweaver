@@ -205,6 +205,11 @@ class ThirteenthScene: SKScene {
         currentIndex = 0
         animateTextDisplay(dialogueText: currentDialogueText)
         
+        // BGM
+        if gameState.currentDialog?.id == 0 {
+            AudioManager.shared.playBackgroundMusic(fileName: "scene13")
+        }
+
     }
     
     func animateTextDisplay(dialogueText: String) {

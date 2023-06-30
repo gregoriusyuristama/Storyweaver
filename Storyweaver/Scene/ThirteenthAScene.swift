@@ -202,10 +202,18 @@ class ThirteenthAScene: SKScene {
         
         
         // BGM
+        if gameState.currentDialog?.id == 0 {
+            AudioManager.shared.playBackgroundMusic(fileName: "scene13a_intro")
+        }
+
         if gameState.currentDialog?.id == 10 {
             AudioManager.shared.playBackgroundMusic(fileName: "scene13a_battle")
         }
         
+        if gameState.currentDialog?.id == 37 {
+            AudioManager.shared.playBackgroundMusic(fileName: "scene13a_outro")
+        }
+
         // Sound Effect
         
         if gameState.currentDialog?.id == 39 {

@@ -194,6 +194,12 @@ class TenthScene: SKScene {
         currentIndex = 0
         animateTextDisplay(dialogueText: currentDialogueText)
         
+        // BGM
+        if gameState.currentDialog?.id == 0 {
+            AudioManager.shared.playBackgroundMusic(fileName: "scene10")
+        }
+
+        
     }
     
     func animateTextDisplay(dialogueText: String) {
