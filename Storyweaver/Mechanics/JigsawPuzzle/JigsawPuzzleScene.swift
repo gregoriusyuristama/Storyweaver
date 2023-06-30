@@ -204,18 +204,26 @@ class JigsawPuzzleScene: SKScene {
         if UIDevice.current.userInterfaceIdiom == .pad {
             if let hasPuzzle = puzzle, hasPuzzle.type == "vector" {
                 sceneSize = CGSize(width: 2219, height: 1024)
-            } else {
+            } else if let hasPuzzle = puzzle, hasPuzzle.type == "letter"{
+                sceneSize = CGSize(width: 1366, height: 1024)
+            }
+            
+            else {
                 sceneSize = CGSize(width: 4438, height: 2048)
             }
         } else {
             if let hasPuzzle = puzzle, hasPuzzle.type == "vector" {
                 sceneSize = CGSize(width: 1109, height: 512)
-            } else {
+            }
+            else if let hasPuzzle = puzzle, hasPuzzle.type == "letter"{
+                sceneSize = CGSize(width: 2219, height: 1024)
+            }
+            else {
                 sceneSize = CGSize(width: 2219, height: 1024)
             }
         }
         let scene = JigsawPuzzleScene(size: sceneSize)
-        scene.scaleMode = .aspectFill
+        scene.scaleMode = .aspectFit
         scene.puzzle = puzzle
         return scene
     }
