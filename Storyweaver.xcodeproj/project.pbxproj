@@ -73,6 +73,18 @@
 		B66A504F2A4E9141003D1D17 /* scene13a_battle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B66A504E2A4E9141003D1D17 /* scene13a_battle.mp3 */; };
 		B66A50512A4E918D003D1D17 /* scene13a_audio1_butoIjoGrowling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B66A50502A4E918D003D1D17 /* scene13a_audio1_butoIjoGrowling.mp3 */; };
 		B66A50532A4E9305003D1D17 /* scene14_audio_end.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B66A50522A4E9305003D1D17 /* scene14_audio_end.mp3 */; };
+		B66A505E2A4EC6B8003D1D17 /* JigsawPuzzleNewScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A505D2A4EC6B8003D1D17 /* JigsawPuzzleNewScene.swift */; };
+		B66A50632A4EC6D0003D1D17 /* Puzzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A50612A4EC6D0003D1D17 /* Puzzle.swift */; };
+		B66A50642A4EC6D0003D1D17 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A50622A4EC6D0003D1D17 /* Piece.swift */; };
+		B66A506C2A4EC6ED003D1D17 /* RotationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A50662A4EC6ED003D1D17 /* RotationComponent.swift */; };
+		B66A506D2A4EC6ED003D1D17 /* InteractionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A50672A4EC6ED003D1D17 /* InteractionComponent.swift */; };
+		B66A506E2A4EC6ED003D1D17 /* PositionComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A50682A4EC6ED003D1D17 /* PositionComponent.swift */; };
+		B66A506F2A4EC6ED003D1D17 /* SnappingComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A50692A4EC6ED003D1D17 /* SnappingComponent.swift */; };
+		B66A50702A4EC6ED003D1D17 /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A506A2A4EC6ED003D1D17 /* SpriteComponent.swift */; };
+		B66A50712A4EC6ED003D1D17 /* ScaleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A506B2A4EC6ED003D1D17 /* ScaleComponent.swift */; };
+		B66A50762A4EC75D003D1D17 /* CGFloat+rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A50742A4EC75D003D1D17 /* CGFloat+rotation.swift */; };
+		B66A50772A4EC75D003D1D17 /* CGPoint+math.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A50752A4EC75D003D1D17 /* CGPoint+math.swift */; };
+		B66A50792A4EC829003D1D17 /* letter-pieces.json in Resources */ = {isa = PBXBuildFile; fileRef = B66A50782A4EC829003D1D17 /* letter-pieces.json */; };
 		B6B234B42A3F1CF2007AFDEF /* CharacterVisualComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B234B32A3F1CF2007AFDEF /* CharacterVisualComponent.swift */; };
 		B6B234B72A3F2373007AFDEF /* NodesName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B234B62A3F2373007AFDEF /* NodesName.swift */; };
 		B6B234BB2A404676007AFDEF /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B234BA2A404675007AFDEF /* GameState.swift */; };
@@ -170,6 +182,18 @@
 		B66A504E2A4E9141003D1D17 /* scene13a_battle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene13a_battle.mp3; sourceTree = "<group>"; };
 		B66A50502A4E918D003D1D17 /* scene13a_audio1_butoIjoGrowling.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene13a_audio1_butoIjoGrowling.mp3; sourceTree = "<group>"; };
 		B66A50522A4E9305003D1D17 /* scene14_audio_end.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene14_audio_end.mp3; sourceTree = "<group>"; };
+		B66A505D2A4EC6B8003D1D17 /* JigsawPuzzleNewScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JigsawPuzzleNewScene.swift; sourceTree = "<group>"; };
+		B66A50612A4EC6D0003D1D17 /* Puzzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Puzzle.swift; sourceTree = "<group>"; };
+		B66A50622A4EC6D0003D1D17 /* Piece.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
+		B66A50662A4EC6ED003D1D17 /* RotationComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotationComponent.swift; sourceTree = "<group>"; };
+		B66A50672A4EC6ED003D1D17 /* InteractionComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractionComponent.swift; sourceTree = "<group>"; };
+		B66A50682A4EC6ED003D1D17 /* PositionComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PositionComponent.swift; sourceTree = "<group>"; };
+		B66A50692A4EC6ED003D1D17 /* SnappingComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnappingComponent.swift; sourceTree = "<group>"; };
+		B66A506A2A4EC6ED003D1D17 /* SpriteComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteComponent.swift; sourceTree = "<group>"; };
+		B66A506B2A4EC6ED003D1D17 /* ScaleComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleComponent.swift; sourceTree = "<group>"; };
+		B66A50742A4EC75D003D1D17 /* CGFloat+rotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+rotation.swift"; sourceTree = "<group>"; };
+		B66A50752A4EC75D003D1D17 /* CGPoint+math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+math.swift"; sourceTree = "<group>"; };
+		B66A50782A4EC829003D1D17 /* letter-pieces.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "letter-pieces.json"; sourceTree = "<group>"; };
 		B6B234B32A3F1CF2007AFDEF /* CharacterVisualComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterVisualComponent.swift; sourceTree = "<group>"; };
 		B6B234B62A3F2373007AFDEF /* NodesName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodesName.swift; sourceTree = "<group>"; };
 		B6B234BA2A404675007AFDEF /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
@@ -214,6 +238,7 @@
 		B603BD862A497B6F00908E34 /* Mechanics */ = {
 			isa = PBXGroup;
 			children = (
+				B66A505C2A4EC6A0003D1D17 /* JigsawPuzzle */,
 				B603BD872A497B8F00908E34 /* InsertTimunName.swift */,
 				B603BD892A49A75700908E34 /* SwipeToClearImage.swift */,
 				DB1DC9062A4A8BF1008697B3 /* WateringScene.swift */,
@@ -358,6 +383,48 @@
 			path = SFX;
 			sourceTree = "<group>";
 		};
+		B66A505C2A4EC6A0003D1D17 /* JigsawPuzzle */ = {
+			isa = PBXGroup;
+			children = (
+				B66A50652A4EC6DC003D1D17 /* Components */,
+				B66A50602A4EC6C9003D1D17 /* Model */,
+				B66A505D2A4EC6B8003D1D17 /* JigsawPuzzleNewScene.swift */,
+				B66A50782A4EC829003D1D17 /* letter-pieces.json */,
+			);
+			path = JigsawPuzzle;
+			sourceTree = "<group>";
+		};
+		B66A50602A4EC6C9003D1D17 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B66A50622A4EC6D0003D1D17 /* Piece.swift */,
+				B66A50612A4EC6D0003D1D17 /* Puzzle.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B66A50652A4EC6DC003D1D17 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B66A50672A4EC6ED003D1D17 /* InteractionComponent.swift */,
+				B66A50682A4EC6ED003D1D17 /* PositionComponent.swift */,
+				B66A50662A4EC6ED003D1D17 /* RotationComponent.swift */,
+				B66A506B2A4EC6ED003D1D17 /* ScaleComponent.swift */,
+				B66A50692A4EC6ED003D1D17 /* SnappingComponent.swift */,
+				B66A506A2A4EC6ED003D1D17 /* SpriteComponent.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B66A50732A4EC751003D1D17 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B66A50742A4EC75D003D1D17 /* CGFloat+rotation.swift */,
+				B66A50752A4EC75D003D1D17 /* CGPoint+math.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		B6B234B22A3F1CDB007AFDEF /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -415,6 +482,7 @@
 		B6BEEA8E2A3C1829007718AB /* Storyweaver */ = {
 			isa = PBXGroup;
 			children = (
+				B66A50732A4EC751003D1D17 /* Extension */,
 				B603BD862A497B6F00908E34 /* Mechanics */,
 				B6239EC92A44919300C1420A /* Resources */,
 				B6239EC62A44911600C1420A /* Utilities */,
@@ -506,6 +574,7 @@
 				B613EF402A42FD2200536EB7 /* Aleo-Light.ttf in Resources */,
 				B6239EDA2A44A72700C1420A /* scene2and3.mp3 in Resources */,
 				B66A504B2A4E8D7B003D1D17 /* scene12_audio1_butoIjoGrowling.mp3 in Resources */,
+				B66A50792A4EC829003D1D17 /* letter-pieces.json in Resources */,
 				8157532C2A4C213300E0E2A0 /* scene7_audio5_trimBushes.mp3 in Resources */,
 				B613EF432A42FD2200536EB7 /* Aleo-BoldItalic.ttf in Resources */,
 				B603BDC72A4C375B00908E34 /* Baskerville SemiBold.ttf in Resources */,
@@ -552,6 +621,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6BEEA962A3C1829007718AB /* ThirdScene.swift in Sources */,
+				B66A50632A4EC6D0003D1D17 /* Puzzle.swift in Sources */,
 				B603BDC32A4C32A200908E34 /* ChoresPuzzleHelper.swift in Sources */,
 				B66A503D2A4E7E79003D1D17 /* TwelfthScene.swift in Sources */,
 				B6C341902A4D45240044AACC /* EmotionEnum.swift in Sources */,
@@ -573,14 +643,20 @@
 				B6B234BE2A404A96007AFDEF /* DialogTree.swift in Sources */,
 				B603BDBB2A4BE47400908E34 /* Homepage.swift in Sources */,
 				B603BD852A49569F00908E34 /* PrologueScene.swift in Sources */,
+				B66A50712A4EC6ED003D1D17 /* ScaleComponent.swift in Sources */,
 				B6B234CA2A419F8D007AFDEF /* ActTitleScene.swift in Sources */,
 				B6EE4B3E2A4586F900A487E6 /* SixthScene.swift in Sources */,
 				B66A50452A4E887D003D1D17 /* EpilogueScene.swift in Sources */,
+				B66A50702A4EC6ED003D1D17 /* SpriteComponent.swift in Sources */,
+				B66A506D2A4EC6ED003D1D17 /* InteractionComponent.swift in Sources */,
 				B6F755A52A482DD60058376D /* CreateEntity.swift in Sources */,
 				B613EF4D2A42FEE500536EB7 /* FirstScene.swift in Sources */,
 				B6239EC82A44912200C1420A /* AudioManager.swift in Sources */,
+				B66A50762A4EC75D003D1D17 /* CGFloat+rotation.swift in Sources */,
+				B66A505E2A4EC6B8003D1D17 /* JigsawPuzzleNewScene.swift in Sources */,
 				DB1DC9072A4A8BF1008697B3 /* WateringScene.swift in Sources */,
 				B6F755A92A488DE60058376D /* FourthScene.swift in Sources */,
+				B66A50642A4EC6D0003D1D17 /* Piece.swift in Sources */,
 				B6EE4B3C2A4585E300A487E6 /* FifthScene.swift in Sources */,
 				B603BDC52A4C34DB00908E34 /* ToBeContinueScene.swift in Sources */,
 				B6EE4B422A4587E100A487E6 /* EightScene.swift in Sources */,
@@ -589,10 +665,14 @@
 				B6F755A32A45AC3F0058376D /* GameConfig.swift in Sources */,
 				B6B234C62A40B427007AFDEF /* CharacterList.swift in Sources */,
 				B6B234B72A3F2373007AFDEF /* NodesName.swift in Sources */,
+				B66A506E2A4EC6ED003D1D17 /* PositionComponent.swift in Sources */,
 				B66A503B2A4E7A55003D1D17 /* NinthAScene.swift in Sources */,
 				B66A50372A4E73AE003D1D17 /* TenthScene.swift in Sources */,
+				B66A50772A4EC75D003D1D17 /* CGPoint+math.swift in Sources */,
 				B613EF492A42FE1B00536EB7 /* SecondScene.swift in Sources */,
 				B6B234C22A404BBF007AFDEF /* Decision.swift in Sources */,
+				B66A506C2A4EC6ED003D1D17 /* RotationComponent.swift in Sources */,
+				B66A506F2A4EC6ED003D1D17 /* SnappingComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
