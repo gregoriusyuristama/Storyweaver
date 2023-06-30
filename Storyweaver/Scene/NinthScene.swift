@@ -21,6 +21,7 @@ class NinthScene: SKScene {
     var backgroundNode: SKSpriteNode = SKSpriteNode()
     var dialogueBackground: SKShapeNode = SKShapeNode()
     var characterLabelBackground: SKSpriteNode = SKSpriteNode()
+    var cutsceneNode: SKSpriteNode = SKSpriteNode()
     
     
     var currentIndex: Int = 0
@@ -117,6 +118,14 @@ class NinthScene: SKScene {
         continueLabel.zPosition = 2
         continueLabel.alpha = 0
         addChild(continueLabel)
+        
+        
+        cutsceneNode = SKSpriteNode(imageNamed: "cutscene_scene9_1")
+        cutsceneNode.scale(to: CGSize(width: size.width, height: size.height))
+        cutsceneNode.position = CGPoint(x: size.width/2, y: size.height/2)
+        cutsceneNode.zPosition = 2
+        cutsceneNode.alpha = 0
+        addChild(cutsceneNode)
         
         
         
@@ -227,19 +236,9 @@ class NinthScene: SKScene {
             } else {
                 continueLabel.alpha = 1
             }
-            if gameState.currentDialog?.id == 11 {
-                let gameScene = SwipeToClearImage(size: size, character: .giant)
-                gameScene.scaleMode = .aspectFill
-                let transition = SKTransition.crossFade(withDuration: 1.0)
-                view?.presentScene(gameScene, transition: transition)
-                return
-            }
-            if gameState.currentDialog?.id == 14 {
-                let gameScene = SwipeToClearImage(size: size, character: .mbokSrini)
-                gameScene.scaleMode = .aspectFill
-                let transition = SKTransition.crossFade(withDuration: 1.0)
-                view?.presentScene(gameScene, transition: transition)
-                return
+            
+            if gameState.currentDialog?.id == 23 {
+                showCutscene()
             }
             
         }
@@ -306,7 +305,7 @@ class NinthScene: SKScene {
             }
             if currentIndex >= (gameState.currentDialog?.text.count)!{
                 if gameState.currentDialog?.id == gameState.dialogTree.count - 1 {
-                    let gameScene = ToBeContinueScene(size: size)
+                    let gameScene = NinthAScene(size: size)
                     gameScene.scaleMode = .aspectFill
                     let transition = SKTransition.crossFade(withDuration: 1.0)
                     view?.presentScene(gameScene, transition: transition)
@@ -361,6 +360,10 @@ class NinthScene: SKScene {
                     }
                     continueLabel.alpha = 1
                 }
+                if gameState.currentDialog?.id == 23 {
+                    showCutscene()
+                    
+                }
             }
             
         }
@@ -379,5 +382,28 @@ class NinthScene: SKScene {
                 showNextDialogue()
             }
         }
+    }
+    
+    func showCutscene(){
+        let notInteractive = SKAction.run {
+            self.isUserInteractionEnabled = false
+        }
+        let fadeInAction = SKAction.fadeIn(withDuration: 2)
+        let delayAction = SKAction.wait(forDuration: 2)
+        let fadeOutAction = SKAction.fadeOut(withDuration: 1)
+        let interactiveAction = SKAction.run {
+            self.isUserInteractionEnabled = true
+        }
+        
+        let removeCutscene = SKAction.removeFromParent()
+        let nextDialogue = SKAction.run {
+            self.gameState.selectDecision(self.gameState.decisions.first(where: {$0.dialogID == (self.gameState.currentDialog?.nextDialogIDs.first)})!)
+            
+            self.dialogueLabel.text = self.gameState.currentDialog?.text
+            self.showNextDialogue()
+        }
+        
+        let sequence = SKAction.sequence([notInteractive, fadeInAction, delayAction, fadeOutAction, interactiveAction, removeCutscene, nextDialogue])
+        self.cutsceneNode.run(sequence)
     }
 }
