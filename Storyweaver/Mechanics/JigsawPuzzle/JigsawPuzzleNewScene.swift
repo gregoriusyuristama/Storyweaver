@@ -16,6 +16,7 @@ class JigsawPuzzleScene: SKScene {
     
     var entityBeingInteractedWith : GKEntity?
     var startingPosition : CGPoint = .zero
+    var nextScene: SKScene = EleventhScene(gameState: GameState(dialogTree: DialogTree.DialogTreeScene11, currentID: 10))
     
     private var lastUpdateTime : TimeInterval = 0
     
@@ -134,7 +135,7 @@ class JigsawPuzzleScene: SKScene {
         entities.forEach() { $0.removeComponent(ofType: InteractionComponent.self) }
         let wait = SKAction.wait(forDuration: 1.5)
         let transition = SKAction.run {
-            let gameScene = EleventhScene(size: self.size, gameState: GameState(dialogTree: DialogTree.DialogTreeScene11, currentID: 10))
+            let gameScene = self.nextScene
 //                        gameScene.gameState = GameState(dialogTree: DialogTree.DialogTreeScene4, currentID: 12)
             gameScene.scaleMode = .aspectFill
             let transition = SKTransition.crossFade(withDuration: 1.0)

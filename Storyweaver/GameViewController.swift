@@ -21,7 +21,7 @@ class GameViewController: UIViewController {
         let skView = view as! SKView
         skView.frame = view.bounds
 
-        let initialScene = Homepage(size: skView.bounds.size)
+        let initialScene = SE4Scene2(size: skView.bounds.size)
         
 //        let initialScene = JigsawPuzzleScene.scene(named: "letter-pieces.json")
         initialScene.scaleMode = .aspectFill

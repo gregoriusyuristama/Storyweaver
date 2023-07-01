@@ -185,6 +185,10 @@ class EightScene: SKScene {
         if gameState.currentDialog?.id == 0 {
             AudioManager.shared.playBackgroundMusic(fileName: "scene6to8")
         }
+        
+        if gameState.currentDialog?.id == 10 {
+            backgroundNode.texture = SKTexture(imageNamed: "background_mbokSriniWindowClosed")
+        }
 
         
         // Sound Effect
@@ -277,13 +281,20 @@ class EightScene: SKScene {
                 }
             }
             if currentIndex >= (gameState.currentDialog?.text.count)!{
-                if gameState.currentDialog?.id == gameState.dialogTree.count - 1 {
+                if gameState.currentDialog?.id == 9 {
                     let gameScene = NinthScene(size: size)
                     gameScene.scaleMode = .aspectFill
                     let transition = SKTransition.crossFade(withDuration: 1.0)
                     view?.presentScene(gameScene, transition: transition)
                     return
-                } else if gameState.currentDialog?.nextDialogIDs.count == 1 {
+                }else if gameState.currentDialog?.id == 32 {
+                    let gameScene = SE3Scene2(size: size)
+                    gameScene.scaleMode = .aspectFill
+                    let transition = SKTransition.crossFade(withDuration: 1.0)
+                    view?.presentScene(gameScene, transition: transition)
+                    return
+                }
+                else if gameState.currentDialog?.nextDialogIDs.count == 1 {
                     if gameState.currentDialog?.nextDialogIDs.first == 1000 {
                         let gameScene = ToBeContinueScene(size: size)
                         gameScene.scaleMode = .aspectFill

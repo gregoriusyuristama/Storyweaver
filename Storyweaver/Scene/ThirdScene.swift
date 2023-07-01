@@ -12,6 +12,7 @@ class ThirdScene: SKScene {
     var backgroundNode: SKSpriteNode = SKSpriteNode()
     var dialogueBackground: SKShapeNode = SKShapeNode()
     var characterLabelBackground: SKSpriteNode = SKSpriteNode()
+    var cutsceneNode: SKSpriteNode = SKSpriteNode()
     
     
     var currentIndex: Int = 0
@@ -99,6 +100,12 @@ class ThirdScene: SKScene {
         continueLabel.alpha = 0
         addChild(continueLabel)
         
+        cutsceneNode = SKSpriteNode(imageNamed: "cutscene_subending0and1")
+        cutsceneNode.scale(to: CGSize(width: size.width, height: size.height))
+        cutsceneNode.position = CGPoint(x: size.width/2, y: size.height/2)
+        cutsceneNode.zPosition = 2
+        cutsceneNode.alpha = 0
+        addChild(cutsceneNode)
         
         
         showNextDialogue()
@@ -183,6 +190,13 @@ class ThirdScene: SKScene {
         
         if gameState.currentDialog?.id == 20 {
             AudioManager.shared.playSoundEffect(fileName: "scene3_audio1_butoIjoGrowling")
+        }
+        
+        if gameState.currentDialog?.id == 29 {
+            AudioManager.shared.playSoundEffect(fileName: "scene3_subending0")
+        }
+        if gameState.currentDialog?.id == 35 {
+            AudioManager.shared.playSoundEffect(fileName: "scene3_subending0_laugh")
         }
 
 
@@ -273,13 +287,20 @@ class ThirdScene: SKScene {
                 }
             }
             if currentIndex >= (gameState.currentDialog?.text.count)!{
-                if gameState.currentDialog?.id == gameState.dialogTree.count - 1 {
+                if gameState.currentDialog?.id == 20 {
                     let gameScene = FourthScene(size: size)
                     gameScene.scaleMode = .aspectFill
                     let transition = SKTransition.crossFade(withDuration: 1.0)
                     view?.presentScene(gameScene, transition: transition)
                     return
-                } else if gameState.currentDialog?.nextDialogIDs.count == 1 {
+                }else if gameState.currentDialog?.id == 41 {
+                    let gameScene = Homepage(size: size)
+                    gameScene.scaleMode = .aspectFill
+                    let transition = SKTransition.crossFade(withDuration: 1.0)
+                    view?.presentScene(gameScene, transition: transition)
+                    return
+                }
+                else if gameState.currentDialog?.nextDialogIDs.count == 1 {
                     if gameState.currentDialog?.nextDialogIDs.first == 1000 {
                         let gameScene = ToBeContinueScene(size: size)
                         gameScene.scaleMode = .aspectFill
@@ -309,6 +330,9 @@ class ThirdScene: SKScene {
                     
                     continueLabel.alpha = 1
                 }
+                if gameState.currentDialog?.id == 32 {
+                    showCutscene()
+                }
             }
             
         }
@@ -327,5 +351,27 @@ class ThirdScene: SKScene {
                 showNextDialogue()
             }
         }
+    }
+    
+    func showCutscene(){
+        let notInteractive = SKAction.run {
+            self.isUserInteractionEnabled = false
+        }
+        let fadeInAction = SKAction.fadeIn(withDuration: 2)
+        let delayAction = SKAction.wait(forDuration: 2)
+        let fadeOutAction = SKAction.fadeOut(withDuration: 1)
+        let interactiveAction = SKAction.run {
+            self.isUserInteractionEnabled = true
+        }
+        
+        let nextDialogue = SKAction.run {
+            self.gameState.selectDecision(self.gameState.decisions.first(where: {$0.dialogID == (self.gameState.currentDialog?.nextDialogIDs.first)})!)
+
+            self.dialogueLabel.text = self.gameState.currentDialog?.text
+            self.showNextDialogue()
+        }
+        
+        let sequence = SKAction.sequence([notInteractive, fadeInAction, delayAction, fadeOutAction, interactiveAction])
+        self.cutsceneNode.run(sequence)
     }
 }

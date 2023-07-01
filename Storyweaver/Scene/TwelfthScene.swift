@@ -28,6 +28,8 @@ class TwelfthScene: SKScene {
     
     var characters: [GKEntity] = []
     var buttons: [SKShapeNode] = []
+    
+    var isFromSE4: Bool = false
 
     let characterVisualComponentSytem = GKComponentSystem(componentClass: CharacterVisualComponent.self)
     
@@ -38,15 +40,23 @@ class TwelfthScene: SKScene {
         super.init()
         setupEntities()
         setupSystemComponents()
+        self.isFromSE4 = false
     }
     
     override init(size: CGSize){
         super.init(size: size)
         setupEntities()
         setupSystemComponents()
+        self.isFromSE4 = false
     }
     
-    
+    init(size: CGSize, isFromSE4: Bool){
+        super.init(size: size)
+        self.isFromSE4 = isFromSE4
+        setupEntities()
+        setupSystemComponents()
+        
+    }
     
     
     init(size: CGSize, gameState: GameState) {
@@ -303,11 +313,20 @@ class TwelfthScene: SKScene {
             }
             if currentIndex >= (gameState.currentDialog?.text.count)!{
                 if gameState.currentDialog?.id == gameState.dialogTree.count - 1 {
-                    let gameScene = ThirteenthScene(size: size)
-                    gameScene.scaleMode = .aspectFill
-                    let transition = SKTransition.crossFade(withDuration: 1.0)
-                    view?.presentScene(gameScene, transition: transition)
-                    return
+                    if isFromSE4 {
+                        let gameScene = SE2Scene4(size: size)
+                        gameScene.scaleMode = .aspectFill
+                        let transition = SKTransition.crossFade(withDuration: 1.0)
+                        view?.presentScene(gameScene, transition: transition)
+                        return
+                    }else {
+                        let gameScene = ThirteenthScene(size: size)
+                        gameScene.scaleMode = .aspectFill
+                        let transition = SKTransition.crossFade(withDuration: 1.0)
+                        view?.presentScene(gameScene, transition: transition)
+                        return
+                    }
+                   
                 } else if gameState.currentDialog?.nextDialogIDs.count == 1 {
                     if gameState.currentDialog?.nextDialogIDs.first == 1000 {
                         let gameScene = ToBeContinueScene(size: size)
