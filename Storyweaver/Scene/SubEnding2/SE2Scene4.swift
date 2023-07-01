@@ -21,6 +21,7 @@ class SE2Scene4: SKScene {
     var backgroundNode: SKSpriteNode = SKSpriteNode()
     var dialogueBackground: SKShapeNode = SKShapeNode()
     var characterLabelBackground: SKSpriteNode = SKSpriteNode()
+    var cutsceneNode: SKSpriteNode = SKSpriteNode()
     
     
     var currentIndex: Int = 0
@@ -42,6 +43,13 @@ class SE2Scene4: SKScene {
     
     override init(size: CGSize){
         super.init(size: size)
+        setupEntities()
+        setupSystemComponents()
+    }
+    
+    init(size: CGSize, gameState: GameState) {
+        super.init(size: size)
+        self.gameState = gameState
         setupEntities()
         setupSystemComponents()
     }
@@ -108,6 +116,12 @@ class SE2Scene4: SKScene {
         continueLabel.alpha = 0
         addChild(continueLabel)
         
+        cutsceneNode = SKSpriteNode(imageNamed: "cutscene_SE2-1_1")
+        cutsceneNode.scale(to: CGSize(width: size.width, height: size.height))
+        cutsceneNode.position = CGPoint(x: size.width/2, y: size.height/2)
+        cutsceneNode.zPosition = 2
+        cutsceneNode.alpha = 0
+        addChild(cutsceneNode)
         
         showNextDialogue()
         
@@ -177,7 +191,7 @@ class SE2Scene4: SKScene {
                     
                     
                 } else {
-                    if component.type == .timunMas {
+                    if component.type == .mbokSrini {
                         component.characterNode.alpha = 0
                     }
                     component.characterNode.zPosition = 0
@@ -185,7 +199,7 @@ class SE2Scene4: SKScene {
                 }
             }
             
-            if gameState.currentDialog?.character != .mbokSrini && gameState.currentDialog?.character != .giant{
+            if gameState.currentDialog?.character != .mbokSrini && gameState.currentDialog?.character != .giant && gameState.currentDialog?.character != .timunMas{
                 characterLabel.text = ""
                 characterLabelBackground.alpha = 0
             }
@@ -195,6 +209,8 @@ class SE2Scene4: SKScene {
         dialogueLabel.text = ""
         currentIndex = 0
         animateTextDisplay(dialogueText: currentDialogueText)
+        
+
         
         //        // BGM
         //        if gameState.currentDialog?.id == 0 {
@@ -232,6 +248,9 @@ class SE2Scene4: SKScene {
             } else {
                 continueLabel.alpha = 1
             }
+            if gameState.currentDialog?.id == 31 {
+                showCutscene()
+            }
             
         }
     }
@@ -250,14 +269,13 @@ class SE2Scene4: SKScene {
         isButtonVisible = false
     }
     
-    private func setupEntities() { 
+    private func setupEntities() {
         
-        let timunMas = CreateEntity.timunMasEntity(scene: self, pos: .left)
-        timunMas.component(ofType: CharacterVisualComponent.self)?.characterNode.alpha = 0
+        let timunMas = CreateEntity.timunMasEntity(scene: self, pos: .right)
         characters.append(timunMas)
         
         
-        let giant = CreateEntity.giantEntity(scene: self, pos: .right)
+        let giant = CreateEntity.giantEntity(scene: self, pos: .left)
         characters.append(giant)
         
         let narrator = CreateEntity.narratorEntity(scene: self)
@@ -267,7 +285,8 @@ class SE2Scene4: SKScene {
         //                let storyweaver = CreateEntity.storyWeaverEntity(scene: self)
         //                characters.append(storyweaver)
         //
-        let mbokSrini = CreateEntity.mbokSriniEntity(scene: self, pos: .left)
+        let mbokSrini = CreateEntity.mbokSriniEntity(scene: self, pos: .right)
+        mbokSrini.component(ofType: CharacterVisualComponent.self)?.characterNode.alpha = 0
         characters.append(mbokSrini)
     }
     
@@ -338,7 +357,11 @@ class SE2Scene4: SKScene {
                     
                     continueLabel.alpha = 1
                 }
+                if gameState.currentDialog?.id == 31 {
+                    showCutscene()
+                }
             }
+            
             
         }
         
@@ -356,5 +379,28 @@ class SE2Scene4: SKScene {
                 showNextDialogue()
             }
         }
+    }
+    func showCutscene(){
+        let notInteractive = SKAction.run {
+            self.isUserInteractionEnabled = false
+        }
+        let fadeInAction = SKAction.fadeIn(withDuration: 2)
+        let delayAction = SKAction.wait(forDuration: 2)
+        let fadeOutAction = SKAction.fadeOut(withDuration: 1)
+        let interactiveAction = SKAction.run {
+            self.isUserInteractionEnabled = true
+        }
+        
+        
+        
+//        let nextDialogue = SKAction.run {
+//            self.gameState.selectDecision(self.gameState.decisions.first(where: {$0.dialogID == (self.gameState.currentDialog?.nextDialogIDs.first)})!)
+//
+//            self.dialogueLabel.text = self.gameState.currentDialog?.text
+//            self.showNextDialogue()
+//        }
+        
+        let sequence = SKAction.sequence([notInteractive, fadeInAction, delayAction, fadeOutAction, interactiveAction])
+        self.cutsceneNode.run(sequence)
     }
 }

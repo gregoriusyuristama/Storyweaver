@@ -284,13 +284,13 @@ class SE3Scene4: SKScene {
             }
             if currentIndex >= (gameState.currentDialog?.text.count)!{
                 if gameState.currentDialog?.id == 27 {
-                    let gameScene = SE2Scene4(size: size)
+                    let gameScene = SE2Scene4a(size: size)
                     gameScene.scaleMode = .aspectFill
                     let transition = SKTransition.crossFade(withDuration: 1.0)
                     view?.presentScene(gameScene, transition: transition)
                     return
-                } else                 if gameState.currentDialog?.id == gameState.dialogTree.count - 1 {
-                    let gameScene = Homepage(size: size)
+                } else if gameState.currentDialog?.id == 28 {
+                    let gameScene = SE2Scene4(size: size, gameState: GameState(dialogTree: DialogTree.DialogTreeSE2Scene4, currentID: 28))
                     gameScene.scaleMode = .aspectFill
                     let transition = SKTransition.crossFade(withDuration: 1.0)
                     view?.presentScene(gameScene, transition: transition)

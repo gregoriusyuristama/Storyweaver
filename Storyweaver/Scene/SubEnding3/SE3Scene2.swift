@@ -46,6 +46,13 @@ class SE3Scene2: SKScene {
         setupSystemComponents()
     }
     
+    init(size: CGSize, gameState: GameState) {
+        super.init(size: size)
+        self.gameState = gameState
+        setupEntities()
+        setupSystemComponents()
+    }
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -220,6 +227,19 @@ class SE3Scene2: SKScene {
                 continueLabel.alpha = 1
             }
             
+            if gameState.currentDialog?.id == 12 {
+                view?.scene?.isUserInteractionEnabled = false
+                view?.scene?.run(SKAction.wait(forDuration: 1.5)){
+                    let gameScene = JigsawPuzzleScene.scene(named: "letter-pieces.json")
+                    gameScene.nextScene = SE3Scene2(size: self.size, gameState: GameState(dialogTree: DialogTree.DialogTreeSE3Scene2, currentID: 13))
+                    gameScene.scaleMode = .aspectFill
+                    let transition = SKTransition.crossFade(withDuration: 1.0)
+                    self.view?.presentScene(gameScene, transition: transition)
+                    return
+                }
+                
+            }
+            
         }
     }
     
@@ -319,6 +339,18 @@ class SE3Scene2: SKScene {
                 } else {
                     
                     continueLabel.alpha = 1
+                }
+                if gameState.currentDialog?.id == 12 {
+                    view?.scene?.isUserInteractionEnabled = false
+                    view?.scene?.run(SKAction.wait(forDuration: 1.5)){
+                        let gameScene = JigsawPuzzleScene.scene(named: "letter-pieces.json")
+                        gameScene.nextScene = SE3Scene2(size: self.size, gameState: GameState(dialogTree: DialogTree.DialogTreeSE3Scene2, currentID: 13))
+                        gameScene.scaleMode = .aspectFill
+                        let transition = SKTransition.crossFade(withDuration: 1.0)
+                        self.view?.presentScene(gameScene, transition: transition)
+                        return
+                    }
+                    
                 }
             }
             

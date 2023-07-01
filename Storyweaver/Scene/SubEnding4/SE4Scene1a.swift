@@ -284,7 +284,7 @@ class SE4Scene1a: SKScene {
             }
             if currentIndex >= (gameState.currentDialog?.text.count)!{
                if gameState.currentDialog?.id == gameState.dialogTree.count - 1 {
-                    let gameScene = SE4Scene1b(size: size)
+                    let gameScene = NinthAScene(size: size, isFromSE4: true)
                     gameScene.scaleMode = .aspectFill
                     let transition = SKTransition.crossFade(withDuration: 1.0)
                     view?.presentScene(gameScene, transition: transition)

@@ -165,11 +165,12 @@ class ThirteenthScene: SKScene {
         continueLabel.alpha = 0
         
         for case let component as CharacterVisualComponent in characterVisualComponentSytem.components {
-            if component.type == .mbokSrini || component.type == .giant || component.type == .timunMas{
+            if component.type == .mbokSrini || component.type == .giant || component.type == .timunMas {
                 if gameState.currentDialog?.character == component.type {
                     component.characterNode.alpha = 1
                    
                     component.characterNode.zPosition = 2
+                    
                     characterLabelBackground.alpha = 1
                     if gameState.currentDialog?.emotion == .normal {
                         component.characterNode.texture = SKTexture(imageNamed: "\(component.type.rawValue)_talk")
@@ -194,7 +195,7 @@ class ThirteenthScene: SKScene {
                 }
             }
             
-            if gameState.currentDialog?.character != .mbokSrini && gameState.currentDialog?.character != .giant{
+            if gameState.currentDialog?.character != .mbokSrini && gameState.currentDialog?.character != .giant && gameState.currentDialog?.character != .timunMas{
                 characterLabel.text = ""
                 characterLabelBackground.alpha = 0
             }

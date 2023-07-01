@@ -21,6 +21,7 @@ class SE2Scene4a: SKScene {
     var backgroundNode: SKSpriteNode = SKSpriteNode()
     var dialogueBackground: SKShapeNode = SKShapeNode()
     var characterLabelBackground: SKSpriteNode = SKSpriteNode()
+    var cutsceneNode: SKSpriteNode = SKSpriteNode()
     
     
     var currentIndex: Int = 0
@@ -64,7 +65,7 @@ class SE2Scene4a: SKScene {
         dialogueBackground.strokeColor = SKColor.white // Hide the border of the rectangle
         dialogueBackground.lineWidth = 2
         dialogueBackground.position = CGPoint(x: size.width/2, y: dialogueBackground.frame.height/3 + (size.height*0.1))
-        dialogueBackground.zPosition = 1
+        dialogueBackground.zPosition = 2
         addChild(dialogueBackground)
         
         characterLabel = SKLabelNode(fontNamed: "Aleo-Regular")
@@ -72,18 +73,18 @@ class SE2Scene4a: SKScene {
         characterLabel.fontColor = SKColor.white
         characterLabel.horizontalAlignmentMode = .left
         characterLabel.verticalAlignmentMode = .top
-        characterLabel.zPosition = 2
+        characterLabel.zPosition = 3
         
         characterLabelBackground = SKSpriteNode(imageNamed: "CharacterLabel")
         characterLabelBackground.scale(to: CGSize(width: 225, height: 51))
         characterLabelBackground.position = CGPoint(x: dialogueBackground.frame.minX + characterLabelBackground.frame.width/2, y: dialogueBackground.frame.maxY)
-        characterLabelBackground.zPosition = 1
+        characterLabelBackground.zPosition = 2
         addChild(characterLabelBackground)
         
         characterLabel.position = CGPoint(x: characterLabelBackground.position.x - characterLabelBackground.frame.width/2 + 25, y: characterLabelBackground.position.y + 15)
         
         addChild(characterLabel)
-//        addChild(characterLabel)
+        //        addChild(characterLabel)
         
         dialogueLabel = SKLabelNode(fontNamed: "Aleo-Regular")
         dialogueLabel.fontSize = 24
@@ -94,7 +95,7 @@ class SE2Scene4a: SKScene {
         dialogueLabel.lineBreakMode = .byWordWrapping
         dialogueLabel.preferredMaxLayoutWidth = dialogueBackground.frame.width - size.width * 0.05
         dialogueLabel.numberOfLines = 5
-        dialogueLabel.zPosition = 2
+        dialogueLabel.zPosition = 3
         addChild(dialogueLabel)
         
         continueLabel = SKLabelNode(fontNamed: "Aleo-Regular")
@@ -104,11 +105,16 @@ class SE2Scene4a: SKScene {
         continueLabel.horizontalAlignmentMode = .right
         continueLabel.verticalAlignmentMode = .bottom
         continueLabel.position = CGPoint(x: dialogueBackground.frame.maxX - 15, y: dialogueBackground.frame.minY + 15)
-        continueLabel.zPosition = 2
+        continueLabel.zPosition = 3
         continueLabel.alpha = 0
         addChild(continueLabel)
         
-        
+        cutsceneNode = SKSpriteNode(imageNamed: "cutscene_scene4a_1")
+        cutsceneNode.scale(to: CGSize(width: size.width, height: size.height))
+        cutsceneNode.position = CGPoint(x: size.width/2, y: size.height/2)
+        cutsceneNode.zPosition = 5
+        cutsceneNode.alpha = 0
+        addChild(cutsceneNode)
         
         showNextDialogue()
         
@@ -156,9 +162,12 @@ class SE2Scene4a: SKScene {
         continueLabel.alpha = 0
         
         for case let component as CharacterVisualComponent in characterVisualComponentSytem.components {
-            if component.type == .mbokSrini || component.type == .giant {
+            if component.type == .mbokSrini || component.type == .giant || component.type == .timunMas {
                 if gameState.currentDialog?.character == component.type {
                     component.characterNode.alpha = 1
+                   
+                    component.characterNode.zPosition = 2
+                    
                     characterLabelBackground.alpha = 1
                     if gameState.currentDialog?.emotion == .normal {
                         component.characterNode.texture = SKTexture(imageNamed: "\(component.type.rawValue)_talk")
@@ -167,12 +176,23 @@ class SE2Scene4a: SKScene {
                         component.characterNode.texture = SKTexture(imageNamed: "\(component.type.rawValue)_\(gameState.currentDialog!.emotion.rawValue)")
                     }
                     characterLabel.text = component.type.rawValue
+                    
+//                    if gameState.currentDialog?.character == .timunMas && component.type == .mbokSrini{
+//                        component.characterNode.zPosition = 0
+//                        component.characterNode.alpha = 0
+//                    }
+                    
+                    
                 } else {
+                    if component.type == .mbokSrini {
+                        component.characterNode.alpha = 0
+                    }
+                    component.characterNode.zPosition = 0
                     component.characterNode.texture = SKTexture(imageNamed: "\(component.type.rawValue)_idle")
                 }
             }
             
-            if gameState.currentDialog?.character != .mbokSrini && gameState.currentDialog?.character != .giant{
+            if gameState.currentDialog?.character != .mbokSrini && gameState.currentDialog?.character != .giant && gameState.currentDialog?.character != .timunMas{
                 characterLabel.text = ""
                 characterLabelBackground.alpha = 0
             }
@@ -189,10 +209,10 @@ class SE2Scene4a: SKScene {
 //        }
 //
 //
-//        // Sound Effect
-//        if gameState.currentDialog?.id == 0 {
-//            AudioManager.shared.playSoundEffect(fileName: "scene6_audio1_kukuruyuk")
-//        }
+        // Sound Effect
+        if gameState.currentDialog?.id == 39 {
+            AudioManager.shared.playSoundEffect(fileName: "scene13a_audio1_butoIjoGrowling")
+        }
         
         // In game sound effect
         
@@ -219,7 +239,29 @@ class SE2Scene4a: SKScene {
             } else {
                 continueLabel.alpha = 1
             }
-            
+            if gameState.currentDialog?.id == 6 {
+                showCutscene()
+            }
+            if gameState.currentDialog?.id == 12 {
+                cutsceneNode.texture = SKTexture(imageNamed: "cutscene_scene13a_2")
+                showCutscene()
+            }
+            if gameState.currentDialog?.id == 19 {
+                cutsceneNode.texture = SKTexture(imageNamed: "cutscene_scene13a_3")
+                showCutscene()
+            }
+            if gameState.currentDialog?.id == 27 {
+                cutsceneNode.texture = SKTexture(imageNamed: "cutscene_scene13a_4")
+                showCutscene()
+            }
+            if gameState.currentDialog?.id == 35 {
+                cutsceneNode.texture = SKTexture(imageNamed: "cutscene_scene13a_5")
+                showCutscene()
+            }
+            if gameState.currentDialog?.id == 31 {
+                cutsceneNode.texture = SKTexture(imageNamed: "cutscene_SE2-1_1")
+                showCutscene()
+            }
         }
     }
     
@@ -239,22 +281,22 @@ class SE2Scene4a: SKScene {
     
     private func setupEntities() {
         
-//        let timunMas = CreateEntity.timunMasEntity(scene: self)
-//        timunMas.component(ofType: CharacterVisualComponent.self)?.characterNode.alpha = 0
-//        characters.append(timunMas)
+        let timunMas = CreateEntity.timunMasEntity(scene: self, pos: .right)
+        characters.append(timunMas)
         
         
-        let giant = CreateEntity.giantEntity(scene: self, pos: .right)
+        let giant = CreateEntity.giantEntity(scene: self, pos: .left)
         characters.append(giant)
         
         let narrator = CreateEntity.narratorEntity(scene: self)
         narrator.component(ofType: CharacterVisualComponent.self)?.characterNode.alpha = 0
         characters.append(narrator)
         
-//                let storyweaver = CreateEntity.storyWeaverEntity(scene: self)
-//                characters.append(storyweaver)
-//
-        let mbokSrini = CreateEntity.mbokSriniEntity(scene: self, pos: .left)
+        //                let storyweaver = CreateEntity.storyWeaverEntity(scene: self)
+        //                characters.append(storyweaver)
+        //
+        let mbokSrini = CreateEntity.mbokSriniEntity(scene: self, pos: .right)
+        mbokSrini.component(ofType: CharacterVisualComponent.self)?.characterNode.alpha = 0
         characters.append(mbokSrini)
     }
     
@@ -319,6 +361,25 @@ class SE2Scene4a: SKScene {
                     
                     continueLabel.alpha = 1
                 }
+                if gameState.currentDialog?.id == 6 {
+                    showCutscene()
+                }
+                if gameState.currentDialog?.id == 12 {
+                    cutsceneNode.texture = SKTexture(imageNamed: "cutscene_scene13a_2")
+                    showCutscene()
+                }
+                if gameState.currentDialog?.id == 19 {
+                    cutsceneNode.texture = SKTexture(imageNamed: "cutscene_scene13a_3")
+                    showCutscene()
+                }
+                if gameState.currentDialog?.id == 27 {
+                    cutsceneNode.texture = SKTexture(imageNamed: "cutscene_scene13a_4")
+                    showCutscene()
+                }
+                if gameState.currentDialog?.id == 35 {
+                    cutsceneNode.texture = SKTexture(imageNamed: "cutscene_scene13a_5")
+                    showCutscene()
+                }
             }
             
         }
@@ -337,5 +398,28 @@ class SE2Scene4a: SKScene {
                 showNextDialogue()
             }
         }
+    }
+    func showCutscene(){
+        let notInteractive = SKAction.run {
+            self.isUserInteractionEnabled = false
+        }
+        let fadeInAction = SKAction.fadeIn(withDuration: 2)
+        let delayAction = SKAction.wait(forDuration: 2)
+        let fadeOutAction = SKAction.fadeOut(withDuration: 1)
+        let interactiveAction = SKAction.run {
+            self.isUserInteractionEnabled = true
+        }
+        
+        
+        
+        //        let nextDialogue = SKAction.run {
+        //            self.gameState.selectDecision(self.gameState.decisions.first(where: {$0.dialogID == (self.gameState.currentDialog?.nextDialogIDs.first)})!)
+        //
+        //            self.dialogueLabel.text = self.gameState.currentDialog?.text
+        //            self.showNextDialogue()
+        //        }
+        
+        let sequence = SKAction.sequence([notInteractive, fadeInAction, delayAction, fadeOutAction, interactiveAction])
+        self.cutsceneNode.run(sequence)
     }
 }

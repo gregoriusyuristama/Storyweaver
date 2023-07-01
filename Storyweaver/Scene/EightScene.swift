@@ -185,6 +185,10 @@ class EightScene: SKScene {
         if gameState.currentDialog?.id == 0 {
             AudioManager.shared.playBackgroundMusic(fileName: "scene6to8")
         }
+        
+        if gameState.currentDialog?.id == 10 {
+            backgroundNode.texture = SKTexture(imageNamed: "background_mbokSriniWindowClosed")
+        }
 
         
         // Sound Effect

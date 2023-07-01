@@ -55,6 +55,13 @@ class EleventhScene: SKScene {
         setupSystemComponents()
     }
     
+    init(gameState: GameState){
+        super.init()
+        self.gameState = gameState
+        setupEntities()
+        setupSystemComponents()
+    }
+    
     
     
     required init?(coder aDecoder: NSCoder) {

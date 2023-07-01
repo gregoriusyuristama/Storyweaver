@@ -47,6 +47,15 @@ class SE4Scene2: SKScene {
     }
     
     
+    init(size: CGSize, gameState: GameState){
+        super.init(size: size)
+        self.gameState = gameState
+        setupEntities()
+        setupSystemComponents()
+    }
+    
+    
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -220,6 +229,19 @@ class SE4Scene2: SKScene {
                 continueLabel.alpha = 1
             }
             
+            if gameState.currentDialog?.id == 9 {
+                view?.scene?.isUserInteractionEnabled = false
+                view?.scene?.run(SKAction.wait(forDuration: 1.5)){
+                    let gameScene = JigsawPuzzleScene.scene(named: "letter-pieces.json")
+                    gameScene.nextScene = SE4Scene2(size: self.size, gameState: GameState(dialogTree: DialogTree.DialogTreeSE4Scene2, currentID: 10))
+                    gameScene.scaleMode = .aspectFill
+                    let transition = SKTransition.crossFade(withDuration: 1.0)
+                    self.view?.presentScene(gameScene, transition: transition)
+                    return
+                }
+                
+            }
+            
         }
     }
     
@@ -284,7 +306,7 @@ class SE4Scene2: SKScene {
             }
             if currentIndex >= (gameState.currentDialog?.text.count)!{
                if gameState.currentDialog?.id == gameState.dialogTree.count - 1 {
-                    let gameScene = SE4Scene3(size: size)
+                    let gameScene = TwelfthScene(size: size, isFromSE4: true)
                     gameScene.scaleMode = .aspectFill
                     let transition = SKTransition.crossFade(withDuration: 1.0)
                     view?.presentScene(gameScene, transition: transition)
@@ -319,6 +341,19 @@ class SE4Scene2: SKScene {
                 } else {
                     
                     continueLabel.alpha = 1
+                }
+                
+                if gameState.currentDialog?.id == 9 {
+                    view?.scene?.isUserInteractionEnabled = false
+                    view?.scene?.run(SKAction.wait(forDuration: 1.5)){
+                        let gameScene = JigsawPuzzleScene.scene(named: "letter-pieces.json")
+                        gameScene.nextScene = SE4Scene2(size: self.size, gameState: GameState(dialogTree: DialogTree.DialogTreeSE4Scene2, currentID: 10))
+                        gameScene.scaleMode = .aspectFill
+                        let transition = SKTransition.crossFade(withDuration: 1.0)
+                        self.view?.presentScene(gameScene, transition: transition)
+                        return
+                    }
+                    
                 }
             }
             

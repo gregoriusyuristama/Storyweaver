@@ -46,6 +46,13 @@ class SE3Scene3: SKScene {
         setupSystemComponents()
     }
     
+    init(size: CGSize, gameState: GameState) {
+        super.init(size: size)
+        self.gameState = gameState
+        setupEntities()
+        setupSystemComponents()
+    }
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -115,7 +122,7 @@ class SE3Scene3: SKScene {
     }
     
     func createButtons() {
-        let buttonSize = CGSize(width: 730, height: 92)
+        let buttonSize = CGSize(width: 800, height: 92)
         let buttonSpacing: CGFloat = 20
         let totalButtonHeight = CGFloat(gameState.decisions.count) * (buttonSize.height + buttonSpacing)
         let buttonsYPosition = size.height/2 - totalButtonHeight / 2
@@ -189,10 +196,14 @@ class SE3Scene3: SKScene {
 //        }
 //
 //
-//        // Sound Effect
-//        if gameState.currentDialog?.id == 0 {
-//            AudioManager.shared.playSoundEffect(fileName: "scene6_audio1_kukuruyuk")
-//        }
+        // Sound Effect
+        if gameState.currentDialog?.id == 8 {
+            AudioManager.shared.playSoundEffect(fileName: "scene12_audio1_butoIjoGrowling")
+        }
+        
+        if gameState.currentDialog?.id == 11 {
+            AudioManager.shared.playSoundEffect(fileName: "scene12_audio2_butoIjoGrowling")
+        }
         
         // In game sound effect
         
@@ -284,7 +295,7 @@ class SE3Scene3: SKScene {
             }
             if currentIndex >= (gameState.currentDialog?.text.count)!{
                 if gameState.currentDialog?.id == gameState.dialogTree.count - 1 {
-                    let gameScene = SE2Scene4(size: size)
+                    let gameScene = SE3Scene4(size: size)
                     gameScene.scaleMode = .aspectFill
                     let transition = SKTransition.crossFade(withDuration: 1.0)
                     view?.presentScene(gameScene, transition: transition)
