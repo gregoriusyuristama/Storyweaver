@@ -94,9 +94,7 @@
 		B66A50892A4F344F003D1D17 /* SE3Scene3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A50882A4F344F003D1D17 /* SE3Scene3.swift */; };
 		B66A508B2A4F3475003D1D17 /* SE3Scene4.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A508A2A4F3475003D1D17 /* SE3Scene4.swift */; };
 		B66A50922A4F37EF003D1D17 /* SE4Scene1a.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A50912A4F37EF003D1D17 /* SE4Scene1a.swift */; };
-		B66A50942A4F387E003D1D17 /* SE4Scene1b.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A50932A4F387E003D1D17 /* SE4Scene1b.swift */; };
 		B66A50962A4F38CF003D1D17 /* SE4Scene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A50952A4F38CF003D1D17 /* SE4Scene2.swift */; };
-		B66A50982A4F3958003D1D17 /* SE4Scene3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A50972A4F3958003D1D17 /* SE4Scene3.swift */; };
 		B66A509A2A4F39A7003D1D17 /* SE4Scene4.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A50992A4F39A7003D1D17 /* SE4Scene4.swift */; };
 		B66A509C2A4F3A57003D1D17 /* SE4Scene4a.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A509B2A4F3A57003D1D17 /* SE4Scene4a.swift */; };
 		B66A509E2A4F3A9F003D1D17 /* SE4Scene5.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A509D2A4F3A9F003D1D17 /* SE4Scene5.swift */; };
@@ -219,9 +217,7 @@
 		B66A50882A4F344F003D1D17 /* SE3Scene3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SE3Scene3.swift; sourceTree = "<group>"; };
 		B66A508A2A4F3475003D1D17 /* SE3Scene4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SE3Scene4.swift; sourceTree = "<group>"; };
 		B66A50912A4F37EF003D1D17 /* SE4Scene1a.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SE4Scene1a.swift; sourceTree = "<group>"; };
-		B66A50932A4F387E003D1D17 /* SE4Scene1b.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SE4Scene1b.swift; sourceTree = "<group>"; };
 		B66A50952A4F38CF003D1D17 /* SE4Scene2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SE4Scene2.swift; sourceTree = "<group>"; };
-		B66A50972A4F3958003D1D17 /* SE4Scene3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SE4Scene3.swift; sourceTree = "<group>"; };
 		B66A50992A4F39A7003D1D17 /* SE4Scene4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SE4Scene4.swift; sourceTree = "<group>"; };
 		B66A509B2A4F3A57003D1D17 /* SE4Scene4a.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SE4Scene4a.swift; sourceTree = "<group>"; };
 		B66A509D2A4F3A9F003D1D17 /* SE4Scene5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SE4Scene5.swift; sourceTree = "<group>"; };
@@ -488,9 +484,7 @@
 			isa = PBXGroup;
 			children = (
 				B66A50912A4F37EF003D1D17 /* SE4Scene1a.swift */,
-				B66A50932A4F387E003D1D17 /* SE4Scene1b.swift */,
 				B66A50952A4F38CF003D1D17 /* SE4Scene2.swift */,
-				B66A50972A4F3958003D1D17 /* SE4Scene3.swift */,
 				B66A50992A4F39A7003D1D17 /* SE4Scene4.swift */,
 				B66A509B2A4F3A57003D1D17 /* SE4Scene4a.swift */,
 				B66A509D2A4F3A9F003D1D17 /* SE4Scene5.swift */,
@@ -690,7 +684,6 @@
 				B66A50632A4EC6D0003D1D17 /* Puzzle.swift in Sources */,
 				B603BDC32A4C32A200908E34 /* ChoresPuzzleHelper.swift in Sources */,
 				B66A503D2A4E7E79003D1D17 /* TwelfthScene.swift in Sources */,
-				B66A50942A4F387E003D1D17 /* SE4Scene1b.swift in Sources */,
 				B6C341902A4D45240044AACC /* EmotionEnum.swift in Sources */,
 				B6B234B42A3F1CF2007AFDEF /* CharacterVisualComponent.swift in Sources */,
 				B6EE4B442A45886400A487E6 /* NinthScene.swift in Sources */,
@@ -746,7 +739,6 @@
 				B66A503B2A4E7A55003D1D17 /* NinthAScene.swift in Sources */,
 				B66A50372A4E73AE003D1D17 /* TenthScene.swift in Sources */,
 				B66A50892A4F344F003D1D17 /* SE3Scene3.swift in Sources */,
-				B66A50982A4F3958003D1D17 /* SE4Scene3.swift in Sources */,
 				B66A50772A4EC75D003D1D17 /* CGPoint+math.swift in Sources */,
 				B613EF492A42FE1B00536EB7 /* SecondScene.swift in Sources */,
 				B6B234C22A404BBF007AFDEF /* Decision.swift in Sources */,
