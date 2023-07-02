@@ -20,6 +20,7 @@ class ActTitleScene: SKScene {
     var nextScene: SKScene = FirstScene()
     
     override func didMove(to view: SKView) {
+        backgroundColor = SKColor.black
         numOfAct = childNode(withName: "noActLabel") as? SKLabelNode
         numOfAct.text = "ACT \(actNumber)"
         

@@ -34,7 +34,12 @@ class FirstScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
-        dialogueLabel = SKLabelNode(fontNamed: "Aleo-Regular")
+        let backgroundNode = SKSpriteNode(imageNamed: "background_firstScene")
+        backgroundNode.scale(to: size)
+        backgroundNode.position = CGPoint(x: size.width/2, y: size.height/2)
+        addChild(backgroundNode)
+        
+        dialogueLabel = SKLabelNode(fontNamed: "Baskervville-Regular")
         dialogueLabel.fontSize = 32
         dialogueLabel.fontColor = SKColor.white // Set text color to black
         dialogueLabel.horizontalAlignmentMode = .center
