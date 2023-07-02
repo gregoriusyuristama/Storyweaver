@@ -189,10 +189,10 @@ class SE2Scene5: SKScene {
         currentIndex = 0
         animateTextDisplay(dialogueText: currentDialogueText)
         
-        //        // BGM
-        //        if gameState.currentDialog?.id == 0 {
-        //            AudioManager.shared.playBackgroundMusic(fileName: "scene6to8")
-        //        }
+        // BGM
+        if gameState.currentDialog?.id == 0 {
+            AudioManager.shared.playBackgroundMusic(fileName: "scene11")
+        }
         //
         //
         //        // Sound Effect
@@ -254,7 +254,7 @@ class SE2Scene5: SKScene {
     
     private func setupEntities() {
         
-        let timunMas = CreateEntity.timunMasEntity(scene: self, pos: .left)
+        let timunMas = CreateEntity.timunMasEntity(scene: self)
                 timunMas.component(ofType: CharacterVisualComponent.self)?.characterNode.alpha = 0
                 characters.append(timunMas)
         
@@ -269,8 +269,8 @@ class SE2Scene5: SKScene {
         //                let storyweaver = CreateEntity.storyWeaverEntity(scene: self)
         //                characters.append(storyweaver)
         //
-        let mbokSrini = CreateEntity.mbokSriniEntity(scene: self, pos: .right)
-        characters.append(mbokSrini)
+//        let mbokSrini = CreateEntity.mbokSriniEntity(scene: self, pos: .right)
+//        characters.append(mbokSrini)
     }
     
     private func setupSystemComponents() {

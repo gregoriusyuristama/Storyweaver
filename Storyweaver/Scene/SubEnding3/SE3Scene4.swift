@@ -156,7 +156,7 @@ class SE3Scene4: SKScene {
         continueLabel.alpha = 0
         
         for case let component as CharacterVisualComponent in characterVisualComponentSytem.components {
-            if component.type == .mbokSrini || component.type == .giant {
+            if component.type == .timunMas || component.type == .giant {
                 if gameState.currentDialog?.character == component.type {
                     component.characterNode.alpha = 1
                     characterLabelBackground.alpha = 1
@@ -172,7 +172,7 @@ class SE3Scene4: SKScene {
                 }
             }
             
-            if gameState.currentDialog?.character != .mbokSrini && gameState.currentDialog?.character != .giant{
+            if gameState.currentDialog?.character != .timunMas && gameState.currentDialog?.character != .giant{
                 characterLabel.text = ""
                 characterLabelBackground.alpha = 0
             }
@@ -182,6 +182,24 @@ class SE3Scene4: SKScene {
         dialogueLabel.text = ""
         currentIndex = 0
         animateTextDisplay(dialogueText: currentDialogueText)
+        
+        if gameState.currentDialog?.id == 0 {
+            AudioManager.shared.playBackgroundMusic(fileName: "scene13a_intro")
+        }
+
+//        if gameState.currentDialog?.id == 12 {
+//            AudioManager.shared.playBackgroundMusic(fileName: "scene13a_battle")
+//        }
+//        
+//        if gameState.currentDialog?.id == 18 {
+//            AudioManager.shared.playBackgroundMusic(fileName: "scene13a_outro")
+//        }
+//
+//
+        // Sound Effect
+//        if gameState.currentDialog?.id == 39 {
+//            AudioManager.shared.playSoundEffect(fileName: "scene13a_audio1_butoIjoGrowling")
+//        }
         
 //        // BGM
 //        if gameState.currentDialog?.id == 0 {
@@ -239,13 +257,13 @@ class SE3Scene4: SKScene {
     
     private func setupEntities() {
         
-//        let timunMas = CreateEntity.timunMasEntity(scene: self)
+        let timunMas = CreateEntity.timunMasEntity(scene: self, pos: .right)
 //        timunMas.component(ofType: CharacterVisualComponent.self)?.characterNode.alpha = 0
-//        characters.append(timunMas)
+        characters.append(timunMas)
         
         
-//        let giant = CreateEntity.giantEntity(scene: self, pos: .right)
-//        characters.append(giant)
+        let giant = CreateEntity.giantEntity(scene: self, pos: .left)
+        characters.append(giant)
         
         
         let narrator = CreateEntity.narratorEntity(scene: self)

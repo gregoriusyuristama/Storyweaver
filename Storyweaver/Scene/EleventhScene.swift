@@ -364,6 +364,7 @@ class EleventhScene: SKScene {
                         view?.scene?.isUserInteractionEnabled = false
                         view?.scene?.run(SKAction.wait(forDuration: 1.5)){
                             let gameScene = JigsawPuzzleScene.scene(named: "letter-pieces.json")
+                            gameScene.nextScene = EleventhScene(size: self.size, gameState: GameState(dialogTree: DialogTree.DialogTreeScene11, currentID: 10))
                             gameScene.scaleMode = .aspectFill
                             let transition = SKTransition.crossFade(withDuration: 1.0)
                             self.view?.presentScene(gameScene, transition: transition)

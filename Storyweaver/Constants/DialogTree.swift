@@ -1065,11 +1065,9 @@ class DialogTree {
         Dialog(id: 7, text: "(…)", outcome: "(How could she have played such a cruel charade?)", nextDialogIDs: [9], character: .narrator),
         Dialog(id: 8, text: "(She may have been a character in a different tale, a part of the vast and intricate web of stories I have explored.)", outcome: "(How could she discards me in such heartless manner?)", nextDialogIDs: [9], character: .narrator),
         Dialog(id: 9, text: "(But in her eyes, I was simply her peculiar daughter — one she nurtured and raised as her own, providing love, guidance, and support…)", outcome: "Continue", nextDialogIDs: [10], character: .narrator),
-        Dialog(id: 10, text: "The puzzle pieces began to align, and the truth behind Buto Ijo’s sinister smile and your foster mother's lingering sadness.", outcome: "Continue", nextDialogIDs: [11], character: .narrator),
-        Dialog(id: 11, text: "The realization hit you like a wave, and your dual consciousness shifted.", outcome: "Continue", nextDialogIDs: [12], character: .narrator),
-        Dialog(id: 12, text: "As the consciousness of Timun Mas, the daughter of Mbok Srini, took over, a wave of determination and concern washed over you.", outcome: "Continue", nextDialogIDs: [13], character: .narrator),
-        Dialog(id: 13, text: "Without a moment's hesitation, your body moved on its own accord, drawn towards the sound of Buto Ijo's laughter.", outcome: "Continue", nextDialogIDs: [14], character: .narrator),
-        Dialog(id: 14, text: "Your steps quickened, driven by both worry for Mbok Srini's safety and a burning desire to confront her about the truth revealed in the letter.", outcome: "Continue", nextDialogIDs: [], character: .narrator),
+        
+        Dialog(id: 10, text: "(…)", outcome: "(How could she have played such a cruel charade?)", nextDialogIDs: [11], character: .narrator),
+        Dialog(id: 11, text: "(Or perhaps, it was my own longing for parental love that propelled me to intervene?)", outcome: "(How could she have played such a cruel charade?)", nextDialogIDs: [], character: .narrator),
     ]
 }
 

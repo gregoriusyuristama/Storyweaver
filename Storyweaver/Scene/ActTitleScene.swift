@@ -20,6 +20,7 @@ class ActTitleScene: SKScene {
     var nextScene: SKScene = FirstScene()
     
     override func didMove(to view: SKView) {
+        backgroundColor = SKColor.black
         numOfAct = childNode(withName: "noActLabel") as? SKLabelNode
         numOfAct.text = "ACT \(actNumber)"
         
@@ -34,7 +35,8 @@ class ActTitleScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         let gameScene = nextScene
-        gameScene.size = size
+        gameScene.size = (self.view?.bounds.size)!
+        gameScene.scaleMode = .aspectFill
         let transition = SKTransition.fade(with: .white, duration: 1.5)
         scene?.view?.presentScene(gameScene, transition: transition)
     }

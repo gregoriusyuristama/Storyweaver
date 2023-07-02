@@ -19,6 +19,10 @@ class WateringScene: SKScene {
     private let wateringThreshold: CGFloat = 450.0
     var backgroundNode: SKSpriteNode = SKSpriteNode(imageNamed: "background_houseYardPuzzle")
     
+    private let wateredPlantTexture = SKTexture(imageNamed: "plant_after")
+    private let wateringPotTexture = SKTexture(imageNamed: "wateringPot_skew")
+    
+    
     override func didMove(to view: SKView) {
         
         // Create the background
@@ -50,12 +54,12 @@ class WateringScene: SKScene {
         
         
         // Create the "Congratulations" label
-        congratulationsLabel = SKLabelNode(text: "Congratulations!")
-        congratulationsLabel?.position = CGPoint(x: size.width / 2, y: size.height / 2)
-        congratulationsLabel?.fontSize = 40
-        congratulationsLabel?.fontColor = SKColor.green
-        congratulationsLabel?.alpha = 0.0
-        addChild(congratulationsLabel!)
+//        congratulationsLabel = SKLabelNode(text: "Congratulations!")
+//        congratulationsLabel?.position = CGPoint(x: size.width / 2, y: size.height / 2)
+//        congratulationsLabel?.fontSize = 40
+//        congratulationsLabel?.fontColor = SKColor.green
+//        congratulationsLabel?.alpha = 0.0
+//        addChild(congratulationsLabel!)
     }
     
     
@@ -73,9 +77,7 @@ class WateringScene: SKScene {
         let touchLocation = touch.location(in: self)
         
         // For after watering texture
-        let wateredPlantTexture = SKTexture(imageNamed: "plant_after")
-        let wateringPotTexture = SKTexture(imageNamed: "wateringPot_skew")
-        
+       
         // Update the position of the watering pot
         wateringPot?.position = touchLocation
         
@@ -121,7 +123,8 @@ class WateringScene: SKScene {
         
         if allPlantsWatered {
             // Show the "Congratulations" label
-            congratulationsLabel?.run(SKAction.fadeIn(withDuration: 0.5))
+//            congratulationsLabel?.run(SKAction.fadeIn(withDuration: 0.5))
+            AudioManager.shared.stopSoundEffect()
             // ID button watering scene = 1
             ChoresPuzzleHelper.completedTask.insert(2)
             let gameScene = SeventhScene(size: size, gameState: GameState(dialogTree: DialogTree.DialogTreeScene7, currentID: 1))

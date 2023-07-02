@@ -1,18 +1,17 @@
 //
-//  SeventhScene.swift
+//  SE2Scene2.swift
 //  Storyweaver
 //
-//  Created by Gregorius Yuristama Nugraha on 6/23/23.
+//  Created by Gregorius Yuristama Nugraha on 6/30/23.
 //
 
 import Foundation
-
 
 import SpriteKit
 import GameplayKit
 import SwiftUI
 
-class SeventhScene: SKScene {
+class SE2Scene2: SKScene {
     var dialogueLabel: SKLabelNode = SKLabelNode()
     var characterLabel: SKLabelNode = SKLabelNode()
     var continueLabel: SKLabelNode = SKLabelNode()
@@ -29,13 +28,11 @@ class SeventhScene: SKScene {
     
     var characters: [GKEntity] = []
     var buttons: [SKShapeNode] = []
-    
+
     let characterVisualComponentSytem = GKComponentSystem(componentClass: CharacterVisualComponent.self)
     
-    let completedTaskSet: Set<Int> = [2,5,7]
     
-    
-    @ObservedObject private var gameState = GameState(dialogTree: DialogTree.DialogTreeScene7)
+    @ObservedObject private var gameState = GameState(dialogTree: DialogTree.DialogTreeSE2Scene2)
     
     override init(){
         super.init()
@@ -50,21 +47,13 @@ class SeventhScene: SKScene {
     }
     
     
-    init(size: CGSize, gameState: GameState) {
-        super.init(size: size)
-        self.gameState = gameState
-        setupEntities()
-        setupSystemComponents()
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     override func didMove(to view: SKView) {
-        print(ChoresPuzzleHelper.completedTask)
         //        backgroundColor = .brown
-        backgroundNode = SKSpriteNode(imageNamed: "background_mbokSriniHouseYard.png")
+        backgroundNode = SKSpriteNode(imageNamed: "background_mbokSriniWindowClosed")
         backgroundNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
         backgroundNode.scale(to: CGSize(width: size.width, height: size.height))
         backgroundNode.zPosition = -5  // Ensure the background is behind other nodes
@@ -94,7 +83,7 @@ class SeventhScene: SKScene {
         characterLabel.position = CGPoint(x: characterLabelBackground.position.x - characterLabelBackground.frame.width/2 + 25, y: characterLabelBackground.position.y + 15)
         
         addChild(characterLabel)
-        //        addChild(characterLabel)
+//        addChild(characterLabel)
         
         dialogueLabel = SKLabelNode(fontNamed: "Aleo-Regular")
         dialogueLabel.fontSize = 24
@@ -129,28 +118,13 @@ class SeventhScene: SKScene {
         let buttonSize = CGSize(width: 730, height: 92)
         let buttonSpacing: CGFloat = 20
         let totalButtonHeight = CGFloat(gameState.decisions.count) * (buttonSize.height + buttonSpacing)
-        let buttonsYPosition = size.height - (size.height * 0.35) - totalButtonHeight / 2
+        let buttonsYPosition = size.height/2 - totalButtonHeight / 2
         
         // Remove previously created buttons
         buttons.forEach { $0.removeFromParent() }
         buttons.removeAll()
         
         for index in 0..<gameState.decisions.count {
-            
-            if ChoresPuzzleHelper.completedTask.contains(where: {$0 == gameState.decisions[index].dialogID}){
-                continue
-            }
-            
-            //            print(ChoresPuzzleHelper.completedTask.contains([2,5,7]))
-            
-            if gameState.decisions[index].dialogID == 8{
-                if ChoresPuzzleHelper.completedTask != completedTaskSet{
-                    continue
-                }
-            }
-            
-            print(gameState.decisions[index].dialogID)
-            
             let buttonLabel = SKLabelNode(text: gameState.decisions[index].text)
             buttonLabel.name = "\(gameState.decisions[index].dialogID)"
             buttonLabel.fontName = "Aleo-Regular"
@@ -181,8 +155,6 @@ class SeventhScene: SKScene {
     func showNextDialogue() {
         continueLabel.alpha = 0
         
-        
-        
         for case let component as CharacterVisualComponent in characterVisualComponentSytem.components {
             if component.type == .mbokSrini || component.type == .giant {
                 if gameState.currentDialog?.character == component.type {
@@ -211,13 +183,17 @@ class SeventhScene: SKScene {
         currentIndex = 0
         animateTextDisplay(dialogueText: currentDialogueText)
         
-        // BGM
-        if gameState.currentDialog?.id == 0 {
-            AudioManager.shared.playBackgroundMusic(fileName: "scene6to8")
-        }
+//        // BGM
+//        if gameState.currentDialog?.id == 0 {
+//            AudioManager.shared.playBackgroundMusic(fileName: "scene6to8")
+//        }
+//
+//
+//        // Sound Effect
+//        if gameState.currentDialog?.id == 0 {
+//            AudioManager.shared.playSoundEffect(fileName: "scene6_audio1_kukuruyuk")
+//        }
         
-        
-        // Sound Effect
         // In game sound effect
         
     }
@@ -244,28 +220,17 @@ class SeventhScene: SKScene {
                 continueLabel.alpha = 1
             }
             
-            if gameState.currentDialog?.id == 4 {
-                let gameScene = WateringScene(size: size)
-                gameScene.scaleMode = .aspectFill
-                let transition = SKTransition.crossFade(withDuration: 1.0)
-                view?.presentScene(gameScene, transition: transition)
-                return
-            }
-            
-            if gameState.currentDialog?.id == 6 {
-                let gameScene = PullingWeedScene(size: size)
-                gameScene.scaleMode = .aspectFill
-                let transition = SKTransition.crossFade(withDuration: 1.0)
-                view?.presentScene(gameScene, transition: transition)
-                return
-            }
-            
-            if gameState.currentDialog?.id == 7 {
-                let gameScene = TrimBushesScene(size: size)
-                gameScene.scaleMode = .aspectFill
-                let transition = SKTransition.crossFade(withDuration: 1.0)
-                view?.presentScene(gameScene, transition: transition)
-                return
+            if gameState.currentDialog?.id == 15 {
+                view?.scene?.isUserInteractionEnabled = false
+                view?.scene?.run(SKAction.wait(forDuration: 1.5)){
+                    let gameScene = JigsawPuzzleScene.scene(named: "letter-pieces.json")
+                    gameScene.nextScene = SE2Scene3(size: self.size)
+                    gameScene.scaleMode = .aspectFill
+                    let transition = SKTransition.crossFade(withDuration: 1.0)
+                    self.view?.presentScene(gameScene, transition: transition)
+                    return
+                }
+                
             }
             
         }
@@ -287,24 +252,24 @@ class SeventhScene: SKScene {
     
     private func setupEntities() {
         
-        //        let timunMas = CreateEntity.timunMasEntity(scene: self)
-        //        timunMas.component(ofType: CharacterVisualComponent.self)?.characterNode.alpha = 0
-        //        characters.append(timunMas)
+//        let timunMas = CreateEntity.timunMasEntity(scene: self)
+//        timunMas.component(ofType: CharacterVisualComponent.self)?.characterNode.alpha = 0
+//        characters.append(timunMas)
         
         
-        //        let giant = CreateEntity.giantEntity(scene: self, pos: .right)
-        //        characters.append(giant)
+//        let giant = CreateEntity.giantEntity(scene: self, pos: .right)
+//        characters.append(giant)
         
         
         let narrator = CreateEntity.narratorEntity(scene: self)
         narrator.component(ofType: CharacterVisualComponent.self)?.characterNode.alpha = 0
         characters.append(narrator)
         
-        //                let storyweaver = CreateEntity.storyWeaverEntity(scene: self)
-        //                characters.append(storyweaver)
-        //
-        //        let mbokSrini = CreateEntity.mbokSriniEntity(scene: self, pos: .left)
-        //        characters.append(mbokSrini)
+//                let storyweaver = CreateEntity.storyWeaverEntity(scene: self)
+//                characters.append(storyweaver)
+//
+//        let mbokSrini = CreateEntity.mbokSriniEntity(scene: self, pos: .left)
+//        characters.append(mbokSrini)
     }
     
     private func setupSystemComponents() {
@@ -332,15 +297,24 @@ class SeventhScene: SKScene {
             }
             if currentIndex >= (gameState.currentDialog?.text.count)!{
                 if gameState.currentDialog?.id == gameState.dialogTree.count - 1 {
-                    let gameScene = EightScene(size: size)
+                    let gameScene = SE2Scene3(size: size)
                     gameScene.scaleMode = .aspectFill
                     let transition = SKTransition.crossFade(withDuration: 1.0)
                     view?.presentScene(gameScene, transition: transition)
                     return
-                } else if gameState.currentDialog?.nextDialogIDs.count == 1 {
-                    gameState.selectDecision(gameState.decisions.first(where: {$0.dialogID == (gameState.currentDialog?.nextDialogIDs.first)})!)
-                    dialogueLabel.text = gameState.currentDialog?.text
-                    showNextDialogue()
+                }
+                else if gameState.currentDialog?.nextDialogIDs.count == 1 {
+                    if gameState.currentDialog?.nextDialogIDs.first == 1000 {
+                        let gameScene = ToBeContinueScene(size: size)
+                        gameScene.scaleMode = .aspectFill
+                        let transition = SKTransition.crossFade(withDuration: 1.0)
+                        view?.presentScene(gameScene, transition: transition)
+                    } else {
+                        gameState.selectDecision(gameState.decisions.first(where: {$0.dialogID == (gameState.currentDialog?.nextDialogIDs.first)})!)
+                        dialogueLabel.text = gameState.currentDialog?.text
+                        showNextDialogue()
+                    }
+
                     return
                 }
             }
@@ -360,39 +334,17 @@ class SeventhScene: SKScene {
                     continueLabel.alpha = 1
                 }
                 
-                if gameState.currentDialog?.id == 4 {
-                    self.isUserInteractionEnabled = false
-                    self.run(SKAction.wait(forDuration: 1.5)){
-                        let gameScene = WateringScene(size: self.size)
+                if gameState.currentDialog?.id == 15 {
+                    view?.scene?.isUserInteractionEnabled = false
+                    view?.scene?.run(SKAction.wait(forDuration: 1.5)){
+                        let gameScene = JigsawPuzzleScene.scene(named: "letter-pieces.json")
+                        gameScene.nextScene = SE2Scene3(size: self.size)
                         gameScene.scaleMode = .aspectFill
                         let transition = SKTransition.crossFade(withDuration: 1.0)
                         self.view?.presentScene(gameScene, transition: transition)
                         return
                     }
                     
-                }
-                
-                if gameState.currentDialog?.id == 6 {
-                    self.isUserInteractionEnabled = false
-                    self.run(SKAction.wait(forDuration: 1.5)){
-                        let gameScene = PullingWeedScene(size: self.size)
-                        gameScene.scaleMode = .aspectFill
-                        let transition = SKTransition.crossFade(withDuration: 1.0)
-                        self.view?.presentScene(gameScene, transition: transition)
-                        return
-                    }
-                    
-                }
-                
-                if gameState.currentDialog?.id == 7 {
-                    self.isUserInteractionEnabled = false
-                    self.run(SKAction.wait(forDuration: 1.5)){
-                        let gameScene = TrimBushesScene(size: self.size)
-                        gameScene.scaleMode = .aspectFill
-                        let transition = SKTransition.crossFade(withDuration: 1.0)
-                        self.view?.presentScene(gameScene, transition: transition)
-                        return
-                    }
                 }
             }
             
@@ -407,25 +359,9 @@ class SeventhScene: SKScene {
             
             if let dialogIDCast = Int(buttonLabel.name!){
                 print("current dialog ID: \(dialogIDCast)")
-                //                if dialogIDCast == 3 {
-                //                    let gameScene = WateringScene(size: size)
-                //                    gameScene.scaleMode = .aspectFill
-                //                    let transition = SKTransition.crossFade(withDuration: 1.0)
-                //                    view?.presentScene(gameScene, transition: transition)
-                //                    return
-                //                } else if dialogIDCast == 5 {
-                //                    let gameScene = PullingWeedScene(size: size)
-                //                    gameScene.scaleMode = .aspectFill
-                //                    let transition = SKTransition.crossFade(withDuration: 1.0)
-                //                    view?.presentScene(gameScene, transition: transition)
-                //                    return
-                //                }
-                //                else {
                 gameState.selectDecision(gameState.decisions.first(where: {$0.dialogID == dialogIDCast})!)
                 dialogueLabel.text = gameState.currentDialog?.text
                 showNextDialogue()
-                //                }
-                
             }
         }
     }

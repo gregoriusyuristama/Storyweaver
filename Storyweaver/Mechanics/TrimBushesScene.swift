@@ -37,13 +37,6 @@ class TrimBushesScene: SKScene {
         addChild(bush3)
         bushes.append(bush3)
         
-        // Create the congrats label
-        congratsLabel = SKLabelNode(text: "Congrats!")
-        congratsLabel?.position = CGPoint(x: size.width / 2, y: size.height / 2)
-        congratsLabel?.fontSize = 48
-        congratsLabel?.fontColor = .white
-        congratsLabel?.alpha = 0
-        addChild(congratsLabel!)
     }
     
     func createBushNode() -> SKSpriteNode {
@@ -92,7 +85,9 @@ class TrimBushesScene: SKScene {
                             
                             // Check if all bushes are trimmed
                             if trimmedBushes.count == bushes.count {
-                                showCongratsLabel()
+//                                showCongratsLabel()
+                                
+                                AudioManager.shared.stopSoundEffect()
                                 // ID Dialog Trim Bushes
                                 ChoresPuzzleHelper.completedTask.insert(7)
                                 let gameScene = SeventhScene(size: size, gameState: GameState(dialogTree: DialogTree.DialogTreeScene7, currentID: 1))

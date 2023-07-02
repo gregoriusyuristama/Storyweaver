@@ -268,12 +268,6 @@ class ThirteenthAScene: SKScene {
                 showCutscene()
             }
             
-            
-
-            
-
-            
-            
         }
     }
     
@@ -293,11 +287,11 @@ class ThirteenthAScene: SKScene {
     
     private func setupEntities() {
         
-        let timunMas = CreateEntity.timunMasEntity(scene: self, pos: .left)
+        let timunMas = CreateEntity.timunMasEntity(scene: self, pos: .right)
         characters.append(timunMas)
         
         
-        let giant = CreateEntity.giantEntity(scene: self, pos: .right)
+        let giant = CreateEntity.giantEntity(scene: self, pos: .left)
         characters.append(giant)
         
         
