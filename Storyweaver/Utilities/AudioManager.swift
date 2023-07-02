@@ -9,13 +9,12 @@ import Foundation
 
 import AVFoundation
 
-import AVFoundation
 
 class AudioManager {
     static let shared = AudioManager()
     
     private var backgroundMusicPlayer: AVAudioPlayer?
-    private var soundEffectPlayer: AVAudioPlayer?
+    var soundEffectPlayer: AVAudioPlayer?
     
     private init() {}
     
@@ -49,7 +48,9 @@ class AudioManager {
                 soundEffectPlayer?.volume = 0.5
                 soundEffectPlayer?.numberOfLoops = -1
             }
+            
             soundEffectPlayer?.play()
+            
         } catch {
             print("Failed to play sound effect: \(error.localizedDescription)")
         }
@@ -64,5 +65,7 @@ class AudioManager {
         soundEffectPlayer?.stop()
         soundEffectPlayer = nil
     }
+    
+
 }
 
