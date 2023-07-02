@@ -205,6 +205,7 @@ class NinthScene: SKScene {
         // BGM
         if gameState.currentDialog?.id == 0 {
             AudioManager.shared.playBackgroundMusic(fileName: "scene9")
+            
         }
 
         
@@ -305,6 +306,7 @@ class NinthScene: SKScene {
             }
             if currentIndex >= (gameState.currentDialog?.text.count)!{
                 if gameState.currentDialog?.id == 28 {
+                    AudioManager.shared.stopSoundEffect()
                     let gameScene = NinthAScene(size: size)
                     gameScene.scaleMode = .aspectFill
                     let transition = SKTransition.crossFade(withDuration: 1.0)

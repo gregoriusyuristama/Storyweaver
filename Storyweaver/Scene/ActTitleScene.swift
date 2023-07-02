@@ -34,7 +34,8 @@ class ActTitleScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         let gameScene = nextScene
-        gameScene.size = size
+        gameScene.size = (self.view?.bounds.size)!
+        gameScene.scaleMode = .aspectFill
         let transition = SKTransition.fade(with: .white, duration: 1.5)
         scene?.view?.presentScene(gameScene, transition: transition)
     }

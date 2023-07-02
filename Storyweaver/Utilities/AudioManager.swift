@@ -47,6 +47,7 @@ class AudioManager {
             soundEffectPlayer?.volume = 1.5
             if fileName == "scene9_audio1_forest"{
                 soundEffectPlayer?.volume = 0.5
+                soundEffectPlayer?.numberOfLoops = -1
             }
             soundEffectPlayer?.play()
         } catch {

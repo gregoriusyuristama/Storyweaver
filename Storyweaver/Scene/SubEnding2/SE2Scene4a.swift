@@ -203,10 +203,19 @@ class SE2Scene4a: SKScene {
         currentIndex = 0
         animateTextDisplay(dialogueText: currentDialogueText)
         
-//        // BGM
-//        if gameState.currentDialog?.id == 0 {
-//            AudioManager.shared.playBackgroundMusic(fileName: "scene6to8")
-//        }
+        // BGM
+        
+        if gameState.currentDialog?.id == 0 {
+            AudioManager.shared.playBackgroundMusic(fileName: "scene13a_intro")
+        }
+
+        if gameState.currentDialog?.id == 10 {
+            AudioManager.shared.playBackgroundMusic(fileName: "scene13a_battle")
+        }
+        
+        if gameState.currentDialog?.id == 35 {
+            AudioManager.shared.playBackgroundMusic(fileName: "scene13a_outro")
+        }
 //
 //
         // Sound Effect

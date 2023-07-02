@@ -1,5 +1,5 @@
 //
-//  SE2Scene5.swift
+//  SE2Scene2.swift
 //  Storyweaver
 //
 //  Created by Gregorius Yuristama Nugraha on 6/30/23.
@@ -11,7 +11,7 @@ import SpriteKit
 import GameplayKit
 import SwiftUI
 
-class SE2Scene5: SKScene {
+class SE2Scene2: SKScene {
     var dialogueLabel: SKLabelNode = SKLabelNode()
     var characterLabel: SKLabelNode = SKLabelNode()
     var continueLabel: SKLabelNode = SKLabelNode()
@@ -21,7 +21,6 @@ class SE2Scene5: SKScene {
     var backgroundNode: SKSpriteNode = SKSpriteNode()
     var dialogueBackground: SKShapeNode = SKShapeNode()
     var characterLabelBackground: SKSpriteNode = SKSpriteNode()
-    var cutsceneNode: SKSpriteNode = SKSpriteNode()
     
     
     var currentIndex: Int = 0
@@ -29,11 +28,11 @@ class SE2Scene5: SKScene {
     
     var characters: [GKEntity] = []
     var buttons: [SKShapeNode] = []
-    
+
     let characterVisualComponentSytem = GKComponentSystem(componentClass: CharacterVisualComponent.self)
     
     
-    @ObservedObject private var gameState = GameState(dialogTree: DialogTree.DialogTreeSE2Scene5)
+    @ObservedObject private var gameState = GameState(dialogTree: DialogTree.DialogTreeSE2Scene2)
     
     override init(){
         super.init()
@@ -54,7 +53,7 @@ class SE2Scene5: SKScene {
     
     override func didMove(to view: SKView) {
         //        backgroundColor = .brown
-        backgroundNode = SKSpriteNode(imageNamed: "background_wood")
+        backgroundNode = SKSpriteNode(imageNamed: "background_mbokSriniWindowClosed")
         backgroundNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
         backgroundNode.scale(to: CGSize(width: size.width, height: size.height))
         backgroundNode.zPosition = -5  // Ensure the background is behind other nodes
@@ -84,7 +83,7 @@ class SE2Scene5: SKScene {
         characterLabel.position = CGPoint(x: characterLabelBackground.position.x - characterLabelBackground.frame.width/2 + 25, y: characterLabelBackground.position.y + 15)
         
         addChild(characterLabel)
-        //        addChild(characterLabel)
+//        addChild(characterLabel)
         
         dialogueLabel = SKLabelNode(fontNamed: "Aleo-Regular")
         dialogueLabel.fontSize = 24
@@ -109,12 +108,7 @@ class SE2Scene5: SKScene {
         continueLabel.alpha = 0
         addChild(continueLabel)
         
-        cutsceneNode = SKSpriteNode(imageNamed: "cutscene_SE2_scene5_1")
-        cutsceneNode.scale(to: CGSize(width: size.width, height: size.height))
-        cutsceneNode.position = CGPoint(x: size.width/2, y: size.height/2)
-        cutsceneNode.zPosition = 2
-        cutsceneNode.alpha = 0
-        addChild(cutsceneNode)
+        
         
         showNextDialogue()
         
@@ -162,7 +156,7 @@ class SE2Scene5: SKScene {
         continueLabel.alpha = 0
         
         for case let component as CharacterVisualComponent in characterVisualComponentSytem.components {
-            if component.type == .mbokSrini || component.type == .timunMas {
+            if component.type == .mbokSrini || component.type == .giant {
                 if gameState.currentDialog?.character == component.type {
                     component.characterNode.alpha = 1
                     characterLabelBackground.alpha = 1
@@ -178,7 +172,7 @@ class SE2Scene5: SKScene {
                 }
             }
             
-            if gameState.currentDialog?.character != .mbokSrini && gameState.currentDialog?.character != .timunMas{
+            if gameState.currentDialog?.character != .mbokSrini && gameState.currentDialog?.character != .giant{
                 characterLabel.text = ""
                 characterLabelBackground.alpha = 0
             }
@@ -189,16 +183,16 @@ class SE2Scene5: SKScene {
         currentIndex = 0
         animateTextDisplay(dialogueText: currentDialogueText)
         
-        // BGM
-        if gameState.currentDialog?.id == 0 {
-            AudioManager.shared.playBackgroundMusic(fileName: "scene11")
-        }
-        //
-        //
-        //        // Sound Effect
-        //        if gameState.currentDialog?.id == 0 {
-        //            AudioManager.shared.playSoundEffect(fileName: "scene6_audio1_kukuruyuk")
-        //        }
+//        // BGM
+//        if gameState.currentDialog?.id == 0 {
+//            AudioManager.shared.playBackgroundMusic(fileName: "scene6to8")
+//        }
+//
+//
+//        // Sound Effect
+//        if gameState.currentDialog?.id == 0 {
+//            AudioManager.shared.playSoundEffect(fileName: "scene6_audio1_kukuruyuk")
+//        }
         
         // In game sound effect
         
@@ -226,14 +220,18 @@ class SE2Scene5: SKScene {
                 continueLabel.alpha = 1
             }
             
-            if gameState.currentDialog?.id == 0 {
-                showCutscene()
+            if gameState.currentDialog?.id == 15 {
+                view?.scene?.isUserInteractionEnabled = false
+                view?.scene?.run(SKAction.wait(forDuration: 1.5)){
+                    let gameScene = JigsawPuzzleScene.scene(named: "letter-pieces.json")
+                    gameScene.nextScene = SE2Scene3(size: self.size)
+                    gameScene.scaleMode = .aspectFill
+                    let transition = SKTransition.crossFade(withDuration: 1.0)
+                    self.view?.presentScene(gameScene, transition: transition)
+                    return
+                }
+                
             }
-            if gameState.currentDialog?.id == 2 {
-                cutsceneNode.texture = SKTexture(imageNamed: "cutscene_SE2_scene5_2")
-                showCutscene()
-            }
-            
             
         }
     }
@@ -254,22 +252,23 @@ class SE2Scene5: SKScene {
     
     private func setupEntities() {
         
-        let timunMas = CreateEntity.timunMasEntity(scene: self)
-                timunMas.component(ofType: CharacterVisualComponent.self)?.characterNode.alpha = 0
-                characters.append(timunMas)
+//        let timunMas = CreateEntity.timunMasEntity(scene: self)
+//        timunMas.component(ofType: CharacterVisualComponent.self)?.characterNode.alpha = 0
+//        characters.append(timunMas)
         
         
 //        let giant = CreateEntity.giantEntity(scene: self, pos: .right)
 //        characters.append(giant)
         
+        
         let narrator = CreateEntity.narratorEntity(scene: self)
         narrator.component(ofType: CharacterVisualComponent.self)?.characterNode.alpha = 0
         characters.append(narrator)
         
-        //                let storyweaver = CreateEntity.storyWeaverEntity(scene: self)
-        //                characters.append(storyweaver)
-        //
-//        let mbokSrini = CreateEntity.mbokSriniEntity(scene: self, pos: .right)
+//                let storyweaver = CreateEntity.storyWeaverEntity(scene: self)
+//                characters.append(storyweaver)
+//
+//        let mbokSrini = CreateEntity.mbokSriniEntity(scene: self, pos: .left)
 //        characters.append(mbokSrini)
     }
     
@@ -298,7 +297,7 @@ class SE2Scene5: SKScene {
             }
             if currentIndex >= (gameState.currentDialog?.text.count)!{
                 if gameState.currentDialog?.id == gameState.dialogTree.count - 1 {
-                    let gameScene = Homepage(size: size)
+                    let gameScene = SE2Scene3(size: size)
                     gameScene.scaleMode = .aspectFill
                     let transition = SKTransition.crossFade(withDuration: 1.0)
                     view?.presentScene(gameScene, transition: transition)
@@ -315,7 +314,7 @@ class SE2Scene5: SKScene {
                         dialogueLabel.text = gameState.currentDialog?.text
                         showNextDialogue()
                     }
-                    
+
                     return
                 }
             }
@@ -331,16 +330,22 @@ class SE2Scene5: SKScene {
                     createButtons()
                     showButtons()
                 } else {
+                    
                     continueLabel.alpha = 1
                 }
-                if gameState.currentDialog?.id == 0 {
-                    showCutscene()
-                }
-                if gameState.currentDialog?.id == 2 {
-                    cutsceneNode.texture = SKTexture(imageNamed: "cutscene_SE2_scene5_2")
-                    showCutscene()
-                }
                 
+                if gameState.currentDialog?.id == 15 {
+                    view?.scene?.isUserInteractionEnabled = false
+                    view?.scene?.run(SKAction.wait(forDuration: 1.5)){
+                        let gameScene = JigsawPuzzleScene.scene(named: "letter-pieces.json")
+                        gameScene.nextScene = SE2Scene3(size: self.size)
+                        gameScene.scaleMode = .aspectFill
+                        let transition = SKTransition.crossFade(withDuration: 1.0)
+                        self.view?.presentScene(gameScene, transition: transition)
+                        return
+                    }
+                    
+                }
             }
             
         }
@@ -359,29 +364,5 @@ class SE2Scene5: SKScene {
                 showNextDialogue()
             }
         }
-    }
-    
-    func showCutscene(){
-        let notInteractive = SKAction.run {
-            self.isUserInteractionEnabled = false
-        }
-        let fadeInAction = SKAction.fadeIn(withDuration: 2)
-        let delayAction = SKAction.wait(forDuration: 2)
-        let fadeOutAction = SKAction.fadeOut(withDuration: 1)
-        let interactiveAction = SKAction.run {
-            self.isUserInteractionEnabled = true
-        }
-        
-        
-        
-        //        let nextDialogue = SKAction.run {
-        //            self.gameState.selectDecision(self.gameState.decisions.first(where: {$0.dialogID == (self.gameState.currentDialog?.nextDialogIDs.first)})!)
-        //
-        //            self.dialogueLabel.text = self.gameState.currentDialog?.text
-        //            self.showNextDialogue()
-        //        }
-        
-        let sequence = SKAction.sequence([notInteractive, fadeInAction, delayAction, fadeOutAction, interactiveAction])
-        self.cutsceneNode.run(sequence)
     }
 }

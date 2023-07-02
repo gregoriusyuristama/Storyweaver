@@ -85,7 +85,6 @@
 		B66A50762A4EC75D003D1D17 /* CGFloat+rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A50742A4EC75D003D1D17 /* CGFloat+rotation.swift */; };
 		B66A50772A4EC75D003D1D17 /* CGPoint+math.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A50752A4EC75D003D1D17 /* CGPoint+math.swift */; };
 		B66A50792A4EC829003D1D17 /* letter-pieces.json in Resources */ = {isa = PBXBuildFile; fileRef = B66A50782A4EC829003D1D17 /* letter-pieces.json */; };
-		B66A507C2A4F1A23003D1D17 /* SE2Scene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A507B2A4F1A23003D1D17 /* SE2Scene2.swift */; };
 		B66A507E2A4F1CDA003D1D17 /* SE2Scene3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A507D2A4F1CDA003D1D17 /* SE2Scene3.swift */; };
 		B66A50802A4F1D10003D1D17 /* SE2Scene4.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A507F2A4F1D10003D1D17 /* SE2Scene4.swift */; };
 		B66A50822A4F3213003D1D17 /* SE2Scene4a.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A50812A4F3213003D1D17 /* SE2Scene4a.swift */; };
@@ -100,6 +99,7 @@
 		B66A509E2A4F3A9F003D1D17 /* SE4Scene5.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A509D2A4F3A9F003D1D17 /* SE4Scene5.swift */; };
 		B66A50A02A4F3C31003D1D17 /* scene3_subending0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B66A509F2A4F3C31003D1D17 /* scene3_subending0.mp3 */; };
 		B66A50A22A4F3CD7003D1D17 /* scene3_subending0_laugh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B66A50A12A4F3CD7003D1D17 /* scene3_subending0_laugh.mp3 */; };
+		B66A50A42A5117CD003D1D17 /* SE2Scene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A50A32A5117CD003D1D17 /* SE2Scene2.swift */; };
 		B6B234B42A3F1CF2007AFDEF /* CharacterVisualComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B234B32A3F1CF2007AFDEF /* CharacterVisualComponent.swift */; };
 		B6B234BB2A404676007AFDEF /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B234BA2A404675007AFDEF /* GameState.swift */; };
 		B6B234BE2A404A96007AFDEF /* DialogTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B234BD2A404A96007AFDEF /* DialogTree.swift */; };
@@ -208,7 +208,6 @@
 		B66A50742A4EC75D003D1D17 /* CGFloat+rotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+rotation.swift"; sourceTree = "<group>"; };
 		B66A50752A4EC75D003D1D17 /* CGPoint+math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+math.swift"; sourceTree = "<group>"; };
 		B66A50782A4EC829003D1D17 /* letter-pieces.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "letter-pieces.json"; sourceTree = "<group>"; };
-		B66A507B2A4F1A23003D1D17 /* SE2Scene2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SE2Scene2.swift; sourceTree = "<group>"; };
 		B66A507D2A4F1CDA003D1D17 /* SE2Scene3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SE2Scene3.swift; sourceTree = "<group>"; };
 		B66A507F2A4F1D10003D1D17 /* SE2Scene4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SE2Scene4.swift; sourceTree = "<group>"; };
 		B66A50812A4F3213003D1D17 /* SE2Scene4a.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SE2Scene4a.swift; sourceTree = "<group>"; };
@@ -223,6 +222,7 @@
 		B66A509D2A4F3A9F003D1D17 /* SE4Scene5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SE4Scene5.swift; sourceTree = "<group>"; };
 		B66A509F2A4F3C31003D1D17 /* scene3_subending0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene3_subending0.mp3; sourceTree = "<group>"; };
 		B66A50A12A4F3CD7003D1D17 /* scene3_subending0_laugh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scene3_subending0_laugh.mp3; sourceTree = "<group>"; };
+		B66A50A32A5117CD003D1D17 /* SE2Scene2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SE2Scene2.swift; sourceTree = "<group>"; };
 		B6B234B32A3F1CF2007AFDEF /* CharacterVisualComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterVisualComponent.swift; sourceTree = "<group>"; };
 		B6B234BA2A404675007AFDEF /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		B6B234BD2A404A96007AFDEF /* DialogTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogTree.swift; sourceTree = "<group>"; };
@@ -366,20 +366,20 @@
 		B6239ECB2A4491B500C1420A /* BGM */ = {
 			isa = PBXGroup;
 			children = (
+				81A9E58E2A4A8231004B8609 /* prologue.mp3 */,
+				B6239ECC2A4491EB00C1420A /* scene1.mp3 */,
+				B6239ED92A44A72700C1420A /* scene2and3.mp3 */,
+				81A9E5842A4A81CC004B8609 /* scene4.mp3 */,
+				81A9E5892A4A8216004B8609 /* scene5.mp3 */,
+				81A9E5882A4A8216004B8609 /* scene6to8.mp3 */,
+				81A9E5872A4A8216004B8609 /* scene9.mp3 */,
+				81EA40472A4EACF60085C266 /* scene10.mp3 */,
+				B66A50482A4E8CC3003D1D17 /* scene11.mp3 */,
+				81EA40492A4EAD360085C266 /* scene13.mp3 */,
 				B66A504E2A4E9141003D1D17 /* scene13a_battle.mp3 */,
 				81EA404B2A4EAE0B0085C266 /* scene13a_intro.mp3 */,
 				81EA404D2A4EAE7B0085C266 /* scene13a_outro.mp3 */,
 				81EA404F2A4EAF1A0085C266 /* scene14.mp3 */,
-				B66A50482A4E8CC3003D1D17 /* scene11.mp3 */,
-				81A9E58E2A4A8231004B8609 /* prologue.mp3 */,
-				B6239ED92A44A72700C1420A /* scene2and3.mp3 */,
-				B6239ECC2A4491EB00C1420A /* scene1.mp3 */,
-				81A9E5892A4A8216004B8609 /* scene5.mp3 */,
-				81A9E5882A4A8216004B8609 /* scene6to8.mp3 */,
-				81A9E5872A4A8216004B8609 /* scene9.mp3 */,
-				81A9E5842A4A81CC004B8609 /* scene4.mp3 */,
-				81EA40472A4EACF60085C266 /* scene10.mp3 */,
-				81EA40492A4EAD360085C266 /* scene13.mp3 */,
 			);
 			path = BGM;
 			sourceTree = "<group>";
@@ -461,7 +461,7 @@
 		B66A507A2A4F19C6003D1D17 /* SubEnding2 */ = {
 			isa = PBXGroup;
 			children = (
-				B66A507B2A4F1A23003D1D17 /* SE2Scene2.swift */,
+				B66A50A32A5117CD003D1D17 /* SE2Scene2.swift */,
 				B66A507D2A4F1CDA003D1D17 /* SE2Scene3.swift */,
 				B66A507F2A4F1D10003D1D17 /* SE2Scene4.swift */,
 				B66A50812A4F3213003D1D17 /* SE2Scene4a.swift */,
@@ -693,7 +693,6 @@
 				B6B234C42A404BEB007AFDEF /* Dialog.swift in Sources */,
 				B66A50392A4E74E7003D1D17 /* EleventhScene.swift in Sources */,
 				B66A508B2A4F3475003D1D17 /* SE3Scene4.swift in Sources */,
-				B66A507C2A4F1A23003D1D17 /* SE2Scene2.swift in Sources */,
 				B6EE4B402A4587A000A487E6 /* SeventhScene.swift in Sources */,
 				B66A507E2A4F1CDA003D1D17 /* SE2Scene3.swift in Sources */,
 				DB1DC9092A4A8C15008697B3 /* PullingWeedScene.swift in Sources */,
@@ -724,6 +723,7 @@
 				B6F755A92A488DE60058376D /* FourthScene.swift in Sources */,
 				B66A50642A4EC6D0003D1D17 /* Piece.swift in Sources */,
 				B66A50822A4F3213003D1D17 /* SE2Scene4a.swift in Sources */,
+				B66A50A42A5117CD003D1D17 /* SE2Scene2.swift in Sources */,
 				B6EE4B3C2A4585E300A487E6 /* FifthScene.swift in Sources */,
 				B66A50842A4F32BA003D1D17 /* SE2Scene5.swift in Sources */,
 				B603BDC52A4C34DB00908E34 /* ToBeContinueScene.swift in Sources */,
@@ -907,7 +907,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "wite-entertainment.Storyweaver";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -942,7 +942,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "wite-entertainment.Storyweaver";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

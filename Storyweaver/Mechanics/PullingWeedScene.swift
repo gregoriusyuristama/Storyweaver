@@ -117,7 +117,9 @@ class PullingWeedScene: SKScene {
             // Check if all weeds have been removed
             if self.remainingWeeds == 0 {
                 // Show the congratulatory text
-                self.showCongratsText()
+//                self.showCongratsText()
+                
+                AudioManager.shared.stopSoundEffect()
                 // ID Dialog Pull Weeds
                 ChoresPuzzleHelper.completedTask.insert(5)
                 let gameScene = SeventhScene(size: self.size, gameState: GameState(dialogTree: DialogTree.DialogTreeScene7, currentID: 1))

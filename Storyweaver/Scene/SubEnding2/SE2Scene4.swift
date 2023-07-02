@@ -213,8 +213,10 @@ class SE2Scene4: SKScene {
 
         
         //        // BGM
-        //        if gameState.currentDialog?.id == 0 {
-        //            AudioManager.shared.playBackgroundMusic(fileName: "scene6to8")
+        if gameState.currentDialog?.id == 0 {
+            AudioManager.shared.playBackgroundMusic(fileName: "scene13a_intro")
+        }
+
         //        }
         //
         //
