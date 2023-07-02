@@ -313,6 +313,7 @@ class NinthScene: SKScene {
                     view?.presentScene(gameScene, transition: transition)
                     return
                 }else if gameState.currentDialog?.id == gameState.dialogTree.count - 1 {
+                    AudioManager.shared.stopSoundEffect()
                     let gameScene = SE4Scene1a(size: size)
                     gameScene.scaleMode = .aspectFill
                     let transition = SKTransition.crossFade(withDuration: 1.0)
@@ -321,6 +322,7 @@ class NinthScene: SKScene {
                 }
                 else if gameState.currentDialog?.nextDialogIDs.count == 1 {
                     if gameState.currentDialog?.nextDialogIDs.first == 1000 {
+                        AudioManager.shared.stopSoundEffect()
                         let gameScene = ToBeContinueScene(size: size)
                         gameScene.scaleMode = .aspectFill
                         let transition = SKTransition.crossFade(withDuration: 1.0)

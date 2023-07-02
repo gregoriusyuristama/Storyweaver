@@ -8,6 +8,7 @@
 
 import GameplayKit
 import SpriteKit
+import AVFoundation
 
 class WateringScene: SKScene {
     
@@ -21,6 +22,7 @@ class WateringScene: SKScene {
     
     private let wateredPlantTexture = SKTexture(imageNamed: "plant_after")
     private let wateringPotTexture = SKTexture(imageNamed: "wateringPot_skew")
+    private var isPlayingSoundEffect = false
     
     
     override func didMove(to view: SKView) {
@@ -29,37 +31,33 @@ class WateringScene: SKScene {
         backgroundNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
         backgroundNode.scale(to: size)
         addChild(backgroundNode)
-
+        
         
         // Create and position the label and spinnyNode as before...
-        
         // Create the watering pot node
         wateringPot = SKSpriteNode(imageNamed: "wateringPot")
-        wateringPot?.position = CGPoint(x: 800, y: 700)
+        wateringPot?.position = CGPoint(x: size.width * 0.58, y: size.height * 0.68)
         wateringPot?.setScale(0.5)
         addChild(wateringPot!)
         
         // Create and position the plant nodes
-        let plant1 = createPlantNode(position: CGPoint(x: 300, y: 200))
-        let plant2 = createPlantNode(position: CGPoint(x: 700, y: 300))
-        let plant3 = createPlantNode(position: CGPoint(x: 1100, y: 200))
+        let plant1 = createPlantNode(position: CGPoint(x: size.width * 0.22, y: size.height * 0.2))
+        let plant2 = createPlantNode(position: CGPoint(x: size.width * 0.51, y: size.height * 0.3))
+        let plant3 = createPlantNode(position: CGPoint(x: size.width * 0.8, y: size.height * 0.2))
         plants = [plant1, plant2, plant3]
         for plant in plants {
             addChild(plant)
         }
         
-        // For after watered textures
-//        let wateredPlantTexture = SKTexture(imageNamed: "plant_after")
-
         
         
         // Create the "Congratulations" label
-//        congratulationsLabel = SKLabelNode(text: "Congratulations!")
-//        congratulationsLabel?.position = CGPoint(x: size.width / 2, y: size.height / 2)
-//        congratulationsLabel?.fontSize = 40
-//        congratulationsLabel?.fontColor = SKColor.green
-//        congratulationsLabel?.alpha = 0.0
-//        addChild(congratulationsLabel!)
+        //        congratulationsLabel = SKLabelNode(text: "Congratulations!")
+        //        congratulationsLabel?.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        //        congratulationsLabel?.fontSize = 40
+        //        congratulationsLabel?.fontColor = SKColor.green
+        //        congratulationsLabel?.alpha = 0.0
+        //        addChild(congratulationsLabel!)
     }
     
     
@@ -77,7 +75,7 @@ class WateringScene: SKScene {
         let touchLocation = touch.location(in: self)
         
         // For after watering texture
-       
+        
         // Update the position of the watering pot
         wateringPot?.position = touchLocation
         
@@ -96,26 +94,31 @@ class WateringScene: SKScene {
             let plantPosition = convert(plant.position, from: plant.parent!)
             let distance = abs(plantPosition.y - touchLocation.y)
             
-            if distance <= wateringThreshold && abs(touchLocation.x - plantPosition.x) <= plant.size.width/2 {
+            if distance <= wateringThreshold && (touchLocation.x - plantPosition.x) <= plant.size.width/2 {
                 // Water the plant
                 // plant.colorBlendFactor = 0.5  // Change appearance to indicate watering
                 // Update plant state or perform other watering logic
-//                let wateredPlantTexture = SKTexture(imageNamed: "plant_after")
+                //                let wateredPlantTexture = SKTexture(imageNamed: "plant_after")
                 plant.name = "Watered"
                 plant.texture = wateredPlantTexture
                 wateringPot?.texture = wateringPotTexture
-                AudioManager.shared.playSoundEffect(fileName: "scene7_audio1_wateringPlants")
+                if !isPlayingSoundEffect {
+                    isPlayingSoundEffect = true
+                    AudioManager.shared.playSoundEffect(fileName: "scene7_audio1_wateringPlants")
+                }
+            } else {
+                wateringPot?.texture = SKTexture(imageNamed: "wateringPot")
             }
         }
         
         // Old watering plant logic
-//        for plant in plants {
-//                  if plant.frame.contains(touchLocation) {
-//                      // Water the plant
-//                      plant.colorBlendFactor = 0.5  // Change appearance to indicate watering
-//                      // Update plant state or perform other watering logic
-//                  }
-//              }
+        //        for plant in plants {
+        //                  if plant.frame.contains(touchLocation) {
+        //                      // Water the plant
+        //                      plant.colorBlendFactor = 0.5  // Change appearance to indicate watering
+        //                      // Update plant state or perform other watering logic
+        //                  }
+        //              }
         
         
         // Check if all plants are watered
@@ -123,13 +126,13 @@ class WateringScene: SKScene {
         
         if allPlantsWatered {
             // Show the "Congratulations" label
-//            congratulationsLabel?.run(SKAction.fadeIn(withDuration: 0.5))
-            AudioManager.shared.stopSoundEffect()
+            //            congratulationsLabel?.run(SKAction.fadeIn(withDuration: 0.5))
             // ID button watering scene = 1
             ChoresPuzzleHelper.completedTask.insert(2)
             let gameScene = SeventhScene(size: size, gameState: GameState(dialogTree: DialogTree.DialogTreeScene7, currentID: 1))
             gameScene.scaleMode = .aspectFill
             let transition = SKTransition.crossFade(withDuration: 1.0)
+            AudioManager.shared.stopSoundEffect()
             view?.presentScene(gameScene, transition: transition)
         }
     }
@@ -145,5 +148,13 @@ class WateringScene: SKScene {
         wateringPot?.zRotation = 0
         
         // Perform any other necessary actions when dragging ends
+    }
+}
+
+extension WateringScene: AVAudioPlayerDelegate {
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        if player == AudioManager.shared.soundEffectPlayer {
+            isPlayingSoundEffect = false
+        }
     }
 }

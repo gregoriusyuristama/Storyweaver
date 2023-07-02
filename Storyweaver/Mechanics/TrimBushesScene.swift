@@ -79,7 +79,7 @@ class TrimBushesScene: SKScene {
                             // bushes.texture = trimmedBushesTexture
                             
                             // Fade out and remove the bush
-                            AudioManager.shared.playSoundEffect(fileName: "scene7_audio5_trimBushes")
+                                AudioManager.shared.playSoundEffect(fileName: "scene7_audio5_trimBushes")
                             changeToTrimmedTexture(node: bush)
                             trimmedBushes.append(bush)
                             

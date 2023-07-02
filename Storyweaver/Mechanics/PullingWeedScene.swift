@@ -90,7 +90,7 @@ class PullingWeedScene: SKScene {
         // Check if the weed was dragged and fade it out if necessary
         if let weed = selectedWeed {
             if weed.position != weed.userData?["initialPosition"] as? CGPoint {
-                AudioManager.shared.playSoundEffect(fileName: "scene7_audio2_pullingWeeds")
+                    AudioManager.shared.playSoundEffect(fileName: "scene7_audio2_pullingWeeds")
                 fadeOutAndRemove(node: weed)
             }
         }
